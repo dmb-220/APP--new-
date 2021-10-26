@@ -1,18 +1,17 @@
 <template>
     <section class="section is-main-section">
-
       <modal-statistika-box  
         :is-active="isModalView" 
         :view-subject="viewObjectName" 
         :view-pardavimai="viewName"
         :view-label="labelName" 
         @confirm="viewConfirm"/>
-
+    <b-loading :is-full-page="isFullPage" v-model="isLoading"></b-loading>
       <card-component title="VALDYMAS" icon="finance">
         <b-field position="is-centered">
             <b-input placeholder="Paieška..."
               @keyup.native.enter="paieska_post" 
-              v-model="ieskoti"
+              v-model="settings['ieskoti']"
               type="search"
               icon="magnify"
               expanded>
@@ -22,107 +21,88 @@
             </p>
         </b-field>
         <b-field>
-            <b-checkbox :value="false" v-model="paieska_big" type="is-info">Aktivuoti išplėstinę paieška</b-checkbox>
+            <b-checkbox :value="false" v-model="settings['paieska_big']" type="is-info">Aktivuoti išplėstinę paieška</b-checkbox>
         </b-field>
         <b-field label="">
-            <b-select placeholder="Pasirinkite..." @change.native="keisti_grupe" v-model="grupe" icon="earth" expanded>
+            <b-select placeholder="Pasirinkite..." @change.native="keisti_grupe" v-model="settings['grupe']" icon="earth" expanded>
               <option v-for="(grup, index) in grupes" :key="index" :value="index">
                 {{ grup }} - {{ grupes_lv[grup] }}
               </option>
             </b-select>
           </b-field>
         <b-field horizontal>
-          <b-button :type="rodyti_lt ? 'is-primary' : 'is-dark'" @click="change_lt()">LIETUVA</b-button>
-          <b-button :type="rodyti_lv ? 'is-warning' : 'is-dark'" @click="change_lv()">LATVIJA</b-button>
-          <b-button :type="rodyti_ee ? 'is-danger' : 'is-dark'" @click="change_ee()">ESTIJA</b-button>
+          <b-button :type="settings['rodyti_lt'] ? 'is-primary' : 'is-dark'" @click="change_lt()">LIETUVA</b-button>
+          <b-button :type="settings['rodyti_lv'] ? 'is-warning' : 'is-dark'" @click="change_lv()">LATVIJA</b-button>
+          <b-button :type="settings['rodyti_ee'] ? 'is-danger' : 'is-dark'" @click="change_ee()">ESTIJA</b-button>
         </b-field>
         <b-field horizontal>
-            <b-button :type="pirk ? 'is-info' : 'is-dark'" @click="change_pirk()">GAMYBA</b-button>
-            <b-button :type="gam ? 'is-info' : 'is-dark'" @click="change_gam()">PIRKIMAI</b-button>
-        </b-field>
-        <b-field>
-          <b-switch v-model="rikiuoti" @click.native="switch_post">
-            Veikia su mūsų GAM gaminiais! 
-          </b-switch>
+            <b-button :type="settings['pirk'] ? 'is-info' : 'is-dark'" @click="change_pirk()">GAMYBA</b-button>
+            <b-button :type="settings['gam'] ? 'is-info' : 'is-dark'" @click="change_gam()">PIRKIMAI</b-button>
         </b-field>
         </card-component>
-
       <card-component title="STATISTIKA" icon="account-multiple">
         <div  id="printMe">
           <div class="columns">
             <div class="column has-text-centered has-text-weight-bold">
-              Rasta: {{paieska}}<br>{{grupes[grupe]}}
+              Rasta: {{ settings['paieska'] }}<br>{{grupes[settings['grupe']]}}
             </div>
           </div>
           <b-table
-          :mobile-cards="mobile_card"
-          bordered
-          hoverable
-          :narrowed="isNarrowed"
-          :data="pardavimai"
-          :opened-detailed="defaultOpenedDetails"
-          detailed
-          sort-icon="arrow-up"
-          detail-key="sandelis"
-          @details-open="(row, index) => $buefy.toast.open(`Išskleistas ${ row.sandelis } sandelys!`)"
-          :loading="isLoading">
-          <template slot-scope="props">
-            <b-table-column v-if="props.row.salis == 1" :style="{'background-color': 'greenyellow'}"  label="Sandelis"  field="sandelis">
+            :data="pardavimai"
+            ref="table"
+            bordered
+            striped
+            :row-class="onClass"
+            :opened-detailed="defaultOpenedDetails"
+            detailed
+            detail-key="sandelis"
+            @details-open="(row) => $buefy.toast.open(`Expanded ${row.sandeis}`)"
+            :show-detail-icon="showDetailIcon">
+            
+            <b-table-column label="Sandelis"  field="sandelis" v-slot="props">
                   {{ props.row.sandelis }}
             </b-table-column>
-            <b-table-column v-else-if="props.row.salis == 2" :style="{'background-color': 'GoldenRod '}"  label="Sandelis"  field="sandelis">
-                  {{ props.row.sandelis }}
-            </b-table-column>
-            <b-table-column v-else-if="props.row.salis == 3" :style="{'background-color': 'tomato'}"  label="Sandelis"  field="sandelis">
-                  {{ props.row.sandelis }}
-            </b-table-column>
-            <b-table-column v-else label="Sandelis"  field="sandelis">
-                  {{ props.row.sandelis }}
-            </b-table-column>
-            <b-table-column label="Likutis" field="likutis_sk" sortable>
+            <b-table-column label="Likutis" field="likutis_sk" numeric sortable v-slot="props">
               {{ props.row.likutis_sk }}
             </b-table-column>
-            <b-table-column label="Parduota" field="pardavimai_sk" sortable>
+            <b-table-column label="Parduota" field="pardavimai_sk" numeric sortable v-slot="props">
               {{ props.row.pardavimai_sk }}
             </b-table-column>
-            <b-table-column label="Viso" field="viso" sortable>
+            <b-table-column label="Viso" field="viso" numeric sortable v-slot="props">
               <b>{{ props.row.viso }}</b>
             </b-table-column>
-            <b-table-column width="50px" :style="{'background-color': 'WhiteSmoke'}"  label="INFO"  field="info">
+            <b-table-column width="50px" :style="{'background-color': 'WhiteSmoke'}"  label="INFO"  field="info" v-slot="props">
                    <button v-if="!Array.isArray(props.row.buy)" class="button is-small is-danger" type="button" 
             @click.prevent="viewModal_pardavimai(props.row.buy && props.row.buy.sandelis, props.row.buy && props.row.buy.viso)">
                 <b-icon icon="chart-bar" size="is-small"/>
               </button>
             </b-table-column>
-          </template>  
 
-          <template slot="detail" slot-scope="props">
+            <template #detail="props">
             <div class="columns">
-            <div class="column" :style="{'border': '1px solid'}">
-              <b-table
-              :data="props.row.list"
-              default-sort-direction="desc"
-              default-sort="kiekis"
-              :bordered="true"
-              :striped="true"
-              :narrowed="true">
-              <template slot-scope="props">
-                  <b-table-column field="preke" label="Prekė" sortable>
-                      {{ props.row.preke }}
-                  </b-table-column>
-                  <b-table-column :style="{'background-color': 'LightGray'}" label="Likučiai" field="likutis" sortable >
-                      {{ props.row.likutis }}
-                  </b-table-column>
-                  <b-table-column :style="{'background-color': 'LightGray'}" label="Pardavimai" field="pardavimai" sortable>
-                      {{ props.row.pardavimai }}
-                  </b-table-column>
-              </template>
-              </b-table>
+              <div class="column" :style="{'border': '1px solid'}">
+                <b-table
+                :data="props.row.list"
+                default-sort-direction="desc"
+                default-sort="kiekis"
+                :bordered="true"
+                :striped="true"
+                :narrowed="true">
+                    <b-table-column field="preke" label="Prekė" sortable v-slot="props">
+                        {{ props.row.preke }}
+                    </b-table-column>
+                    <b-table-column :style="{'background-color': 'LightGray'}" label="Likučiai" field="likutis" sortable v-slot="props">
+                        {{ props.row.likutis }}
+                    </b-table-column>
+                    <b-table-column :style="{'background-color': 'LightGray'}" label="Pardavimai" field="pardavimai" sortable v-slot="props">
+                        {{ props.row.pardavimai }}
+                    </b-table-column>
+                </b-table>
+              </div>
             </div>
-          </div>
-          </template>
+            </template>
 
-          <section class="section" slot="empty">
+            <section class="section" slot="empty">
             <div class="content has-text-centered">
               <template v-if="isLoading">
                 <p>
@@ -138,7 +118,8 @@
               </template>
             </div>
           </section>
-          <template slot="footer">
+
+          <template #footer>
               <th> </th>
               <th> </th>
               <th>{{ viso_lik }}</th>
@@ -164,30 +145,35 @@ export default {
   components: { CardComponent, ModalStatistikaBox },
   data () {
     return {
-     isLoading: false,
-     defaultOpenedDetails: [1],
-     showDetailIcon: false,
-     isNarrowed: true,
-     pardavimai: [],
-     ieskoti: '',
-     paieska: '',
-     viso_pard: '',
-     viso_lik: '',
-     //ka rodyti, o ko ne
-     rodyti_lt: true,
-     rodyti_lv: true,
-     rodyti_ee: true,
-     salis: '',
-     rikiuoti: false,
-     gam: true,
-     pirk: true,
-     paieska_big: false,
-     mobile_card: true,
-     grupes: [],
-      grupes_lv: [],
-      grupe: '',
+    isLoading: false,
+    isFullPage: true,
+    defaultOpenedDetails: [1],
+    showDetailIcon: true,
+    isNarrowed: true,
+    mobile_card: true,
 
-      isModalView: false,
+    settings: {
+      ieskoti: '',
+      paieska: '',
+      rodyti_lt: true,
+      rodyti_lv: true,
+      rodyti_ee: true,
+      gam: true,
+      pirk: true,
+      paieska_big: false,
+      rodyti_lt: true,
+      rodyti_lv: true,
+      rodyti_ee: true,
+      grupe: '',
+    },
+
+    pardavimai: [],
+    viso_pard: '',
+    viso_lik: '',
+    grupes: [],
+    grupes_lv: [],
+
+    isModalView: false,
     viewObject: null,
     viewPardavimai: null,
     viewLabel: null,
@@ -215,87 +201,67 @@ export default {
   },
   created() {
     this.getData()
-    },
-  mounted () {
   },
   methods: {
+    onClass: function (row) {
+      if(row.salis == 1){
+        return "is-one2";
+      }
+      if(row.salis == 2){
+        return "is-two2";
+      }
+      if(row.salis == 3){
+        return "is-three2";
+      }
+    },
     print() {
       // Pass the element id here
       this.mobile_card = false;
       this.$htmlToPaper('printMe');
     },
     change_gam(){
-      this.gam = !this.gam
-      this.ieskoti = this.paieska
+      this.settings['gam'] = !this.settings['gam'];
+      this.settings['ieskoti'] = this.settings['paieska']
       this.paieska_post()
     },
     change_pirk(){
-      this.pirk = !this.pirk
-      this.ieskoti = this.paieska
+      this.settings['pirk'] = !this.settings['pirk'];
+      this.settings['ieskoti'] = this.settings['paieska']
       this.paieska_post()
     },
     change_lt(){
-      this.rodyti_lt = !this.rodyti_lt
-      this.ieskoti = this.paieska
+      this.settings['rodyti_lt'] = !this.settings['rodyti_lt']
+      this.settings['ieskoti'] = this.settings['paieska']
       this.paieska_post()
     },
     change_lv(){
-      this.rodyti_lv = !this.rodyti_lv
-      this.ieskoti = this.paieska
+      this.settings['rodyti_lv'] = !this.settings['rodyti_lv']
+      this.settings['ieskoti'] = this.settings['paieska']
       this.paieska_post()
     },
     change_ee(){
-      this.rodyti_ee = !this.rodyti_ee
-      this.ieskoti = this.paieska
+      this.settings['rodyti_ee'] = !this.settings['rodyti_ee']
+      this.settings['ieskoti'] = this.settings['paieska']
       this.paieska_post()
     },
      keisti_grupe(){
-      if(!this.ieskoti){
-      this.ieskoti = this.paieska;
+      if(!this.settings['ieskoti']){
+      this.settings['ieskoti'] = this.settings['paieska']
       }
       this.paieska_post();
     },
-    switch_post(){
-      //this.rikiuotic = !this.rikiuoti;
-      if(this.ieskoti == ""){
-        this.ieskoti = this.paieska;
-      }
-        axios
-          .post(`/statistika/store`, {
-            ieskoti: this.ieskoti,
-            lt: this.rodyti_lt,
-            lv: this.rodyti_lv,
-            ee: this.rodyti_ee,
-            rikiuoti: this.rikiuoti,
-            gam: this.gam,
-            pirk: this.pirk,
-            paieska_big: this.paieska_big,
-            })
-          .then(response => {
-            console.log(response.data)
-            this.getData()
-        })
-          .catch( err => {
-            this.$buefy.toast.open({
-              message: `Error: ${err.message}`,
-              type: 'is-danger',
-              queue: false
-            })
-          })
-    },
+    
     paieska_post(){
         axios
           .post(`/statistika/store`, {
-            ieskoti: this.ieskoti,
-            lt: this.rodyti_lt,
-            lv: this.rodyti_lv,
-            ee: this.rodyti_ee,
-
-            rikiuoti: "1",
-            gam: this.gam,
-            pirk: this.pirk,
-            paieska_big: this.paieska_big,
-            grupe: this.grupe
+            ieskoti: this.settings['ieskoti'],
+            lt: this.settings['rodyti_lt'],
+            lv: this.settings['rodyti_lv'],
+            ee: this.settings['rodyti_ee'],
+            gam: this.settings['gam'],
+            pirk: this.settings['pirk'],
+            paieska_big: this.settings['paieska_big'],
+            grupe: this.settings['grupe']
             })
           .then(response => {
             console.log(response.data.data)
@@ -316,23 +282,12 @@ export default {
       .then(response => {
         this.isLoading = false
         this.pardavimai = response.data.data;
-        this.paieska = response.data.paieska;
         this.viso_pard = response.data.viso_pard;
         this.viso_lik = response.data.viso_lik;
 
         this.grupes = response.data.grupes;
         this.grupes_lv = response.data.grupes_lv;
-        this.grupe = response.data.grupe;
-
-        this.rikiuoti = response.data.rikiuoti ? false : true;
-        this.paieska_big = response.data.paieska_big ? true : false
-        this.gam = response.data.gam ? true : false
-        this.pirk = response.data.pirk ? true : false
-        
-        this.rodyti_lt = response.data.salis.LT ? true : false
-        this.rodyti_lv = response.data.salis.LV ? true : false
-        this.rodyti_ee = response.data.salis.EE ? true : false
-        //console.log(reponse.data.salis);
+        this.settings = response.data.settings;
       })
       .catch( err => {
             this.isLoading = false
@@ -343,6 +298,38 @@ export default {
             })
           })
     },
+    /*viewModal_pardavimai2(viewObject) {
+      let data = [];
+      let pardavimai = [];
+      let label = [];
+      //gaunam duomenis is DB
+      this.isLoading = true
+      this.axios
+      .get('/statistika/'+ viewObject)
+      .then(response => {
+        this.isLoading = false
+        data = response.data.data;
+        
+        //paruosiam CHART rodymui
+        for (let i = 0; i < data.length; i++) {
+          pardavimai.push(data[i]['kiekis'])
+          label.push(data[i]['data'])   
+        }
+        this.viewPardavimai = pardavimai
+        this.viewLabel = label
+      })
+      .catch( err => {
+        this.isLoading = false
+        this.$buefy.toast.open({
+          message: `Error: ${err.message}`,
+          type: 'is-danger',
+          queue: false
+        })
+      })
+
+      this.viewObject = viewObject
+      this.isModalView = true
+    },*/
 
     viewModal_pardavimai (viewObject, viewPard) {
       //console.log(viewPardavimai);
@@ -373,3 +360,15 @@ export default {
   }
 }
 </script>
+
+<style>
+.is-one2 {
+    background: #BFFCC6 !important;
+}
+.is-two2 {
+    background: #FFF5BA !important;
+}
+.is-three2 {
+    background: #FFABAB !important;
+}
+</style>

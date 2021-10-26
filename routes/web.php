@@ -27,6 +27,14 @@ Route::prefix('/testas')->group(function () {
     Route::get('idx', [App\Http\Controllers\TestasController::class, 'idx'])->name('idx');
 });
 
+/* Statistika */ 
+Route::prefix('/statistika')->group(function () {
+    Route::get('/', [App\Http\Controllers\StatistikaController::class, 'index'])->name('index');
+    Route::post('store',  [App\Http\Controllers\StatistikaController::class, 'store'])->name('store');
+    Route::get('/{id}', [App\Http\Controllers\StatistikaController::class, 'show'])->name('show');
+    Route::get('store',  [App\Http\Controllers\StatistikaController::class, 'store'])->name('store');
+});
+
 /* Clients management */
 Route::prefix('/clients')->group(function () {
     Route::get('/', [\App\Http\Controllers\ClientsController::class, 'index']);

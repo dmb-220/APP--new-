@@ -2110,17 +2110,22 @@ __webpack_require__.r(__webpack_exports__);
         label: 'Statistika',
         icon: 'chart-bar'
       }, {
-        to: '/likuciai',
-        label: 'Likučiai',
-        icon: 'buffer'
-      }, {
-        to: '/pardavimai',
-        label: 'Pardavimai',
-        icon: 'currency-eur'
-      }, {
-        to: '/prekes',
-        label: 'Prekes',
-        icon: 'cart'
+        label: 'Prekės',
+        subLabel: 'Prekių judėjimas',
+        icon: 'view-list',
+        menu: [{
+          to: '/prekes',
+          label: 'Bendras',
+          icon: 'cart'
+        }, {
+          to: '/likuciai',
+          label: 'Likučiai',
+          icon: 'buffer'
+        }, {
+          to: '/pardavimai',
+          label: 'Pardavimai',
+          icon: 'currency-eur'
+        }]
       }, {
         to: '/akcijos',
         label: 'Akcijos',
@@ -2853,10 +2858,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Home.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Home.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Pagrindinis.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Pagrindinis.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2867,9 +2872,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
 /* harmony import */ var _components_Charts_chart_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Charts/chart.config */ "./resources/js/components/Charts/chart.config.js");
 /* harmony import */ var _components_Charts_LineChart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Charts/LineChart */ "./resources/js/components/Charts/LineChart.js");
-//
-//
-//
 //
 //
 //
@@ -2916,31 +2918,21 @@ __webpack_require__.r(__webpack_exports__);
     return {
       defaultChart: {
         chartData: null,
-        chartData2: null,
         extraOptions: _components_Charts_chart_config__WEBPACK_IMPORTED_MODULE_1__.chartOptionsMain
       },
       columns: [{
         field: 'kiekis',
-        label: 'Parduota (vnt.)',
+        label: 'Parduota (vnt)',
         numeric: true
       }, {
         field: 'grupe',
-        label: 'Prekių grupė'
+        label: 'Pavadinimas'
       }],
       isLoading: false,
       isFullPage: true,
-      date_list: [],
-      list_buy: {
-        LT: {},
-        LV: {},
-        EE: {}
-      },
-      query: [],
       info: [],
-      group: [],
+      query: [],
       buy: [],
-      buyLT: [],
-      buyLV: [],
       pardavimai: [],
       pardavimaiLT: [],
       pardavimaiLV: [],
@@ -2950,7 +2942,6 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   created: function created() {
     this.getData();
-    this.fillChartData();
   },
   watch: {
     buy: function buy() {
@@ -2959,49 +2950,26 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     view_pardavimai: function view_pardavimai() {
-      //console.log(viewPardavimai);
       var i;
-      var sk = this.buy.length;
+      var sk = this.query['viso'].length;
 
       for (i = 0; i < sk; i++) {
-        this.pardavimai.push(this.buy[i]['kiekis']);
-        this.label.push(this.buy[i]['data']);
+        this.pardavimai.push(this.query['viso'][i]['kiekis']);
+        this.label.push(this.query['viso'][i]['data']);
       }
 
-      var skLT = this.buyLT.length;
+      var skLT = this.query['LT'].length;
 
       for (i = 0; i < skLT; i++) {
-        this.pardavimaiLT.push(this.buyLT[i]['kiekis']);
+        this.pardavimaiLT.push(this.query['LT'][i]['kiekis']);
       }
 
-      var skLV = this.buyLV.length;
+      var skLV = this.query['LV'].length;
 
       for (i = 0; i < skLV; i++) {
-        this.pardavimaiLV.push(this.buyLV[i]['kiekis']);
+        this.pardavimaiLV.push(this.query['LV'][i]['kiekis']);
       }
     },
-    //padarom masyva, datos nuo ... iki
-    getDaysArray: function getDaysArray(start, end) {
-      var arr = {};
-
-      for (var dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
-        var date = new Date(dt);
-        arr[date.toISOString().substring(0, 10)] = {
-          data: date.toISOString().substring(0, 10),
-          kiekis: 0
-        };
-      }
-
-      return arr;
-    },
-    //gaminam mayva rodymui CHAR
-    makeChar: function makeChar() {
-      var daylist = this.getDaysArray(new Date("2021-09-20"), new Date("2021-10-15"));
-      this.list_buy['LT'] = daylist;
-      this.list_buy['LV'] = daylist;
-      this.list_buy['EE'] = daylist;
-    },
-    //gaunami pradiniai duomenys
     getData: function getData() {
       var _this = this;
 
@@ -3009,10 +2977,8 @@ __webpack_require__.r(__webpack_exports__);
       this.axios.get('/testas').then(function (response) {
         _this.isLoading = false;
         _this.info = response.data.data;
-        _this.group = response.data.buy;
-        _this.buy = response.data.query['viso'];
-        _this.buyLT = response.data.query['LT'];
-        _this.buyLV = response.data.query['LV'];
+        _this.query = response.data.query;
+        _this.buy = response.data.buy;
       })["catch"](function (err) {
         _this.isLoading = false;
 
@@ -3353,7 +3319,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _views_Home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/Home.vue */ "./resources/js/views/Home.vue");
+/* harmony import */ var _views_Pagrindinis_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/Pagrindinis.vue */ "./resources/js/views/Pagrindinis.vue");
 /* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
 
 
@@ -3361,49 +3327,162 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
   base: process.env.BASE_URL,
-  mode: 'history',
   routes: [{
     path: '/',
-    name: 'home',
-    component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    name: 'pagrindinis',
+    component: _views_Pagrindinis_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }, {
-    path: '/tables',
-    name: 'tables',
+    path: '/statistika',
+    name: 'Statistika',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_Tables_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Tables.vue */ "./resources/js/views/Tables.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Statistika_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Statistika.vue */ "./resources/js/views/Statistika.vue"));
     }
   }, {
-    path: '/forms',
-    name: 'forms',
+    path: '/likuciai',
+    name: 'Likuciai',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_Forms_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Forms.vue */ "./resources/js/views/Forms.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Likuciai_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Likuciai.vue */ "./resources/js/views/Likuciai.vue"));
     }
   }, {
-    path: '/profile',
-    name: 'profile',
+    path: '/pardavimai',
+    name: 'Pardavimai',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_Profile_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Profile.vue */ "./resources/js/views/Profile.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Pardavimai_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Pardavimai.vue */ "./resources/js/views/Pardavimai.vue"));
     }
   }, {
-    path: '/clients/index',
-    name: 'clients.index',
+    path: '/prekes',
+    name: 'Prekes',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_Clients_ClientsIndex_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Clients/ClientsIndex.vue */ "./resources/js/views/Clients/ClientsIndex.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Prekes_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Prekes.vue */ "./resources/js/views/Prekes.vue"));
     }
-  }, {
-    path: '/clients/new',
-    name: 'clients.new',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_Clients_ClientsForm_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Clients/ClientsForm.vue */ "./resources/js/views/Clients/ClientsForm.vue"));
-    }
-  }, {
-    path: '/clients/:id',
-    name: 'clients.edit',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_Clients_ClientsForm_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Clients/ClientsForm.vue */ "./resources/js/views/Clients/ClientsForm.vue"));
-    },
-    props: true
-  }],
+  }
+  /*
+  {
+    path: '/CSV_sarasas',
+    name: 'CSV_sarasas',
+    component: () => import('./views/CSV_Sarasas.vue')
+  },
+  {
+    path: '/sandeliai',
+    name: 'sandeliai',
+    component: () => import('./views/Sandeliai.vue')
+  },
+  {
+    path: '/vaztarasciai',
+    name: 'vaztarasciai',
+    component: () => import('./views/Vaztarasciai.vue')
+  },
+  {
+    path: '/kelione',
+    name: 'kelione',
+    component: () => import('./views/Keliones.vue')
+  },
+  {
+    path: '/akcijos',
+    name: 'akcijos',
+    component: () => import('./views/Akcijos.vue')
+  },
+  {
+    path: '/analize',
+    name: 'analize',
+    component: () => import('./views/Analize.vue')
+  },
+  {
+    path: '/perkelimai',
+    name: 'perkelimai',
+    component: () => import('./views/Perkelimai.vue')
+  },
+  {
+    path: '/generuoti',
+    name: 'generuoti',
+    component: () => import('./views/Generuoti.vue')
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('./views/Admin/Admin.vue')
+  },
+  {
+    path: '/uzsakymai',
+    name: 'uzsakymai',
+    component: () => import('./views/Uzsakymai.vue')
+  },
+  {
+    path: '/testas',
+    name: 'testas',
+    component: () => import('./views/Testas.vue')
+  },
+  {
+    path: '/inte',
+    name: 'inte',
+    component: () => import('./views/Inte.vue')
+  },
+  {
+    path: '/intepigu',
+    name: 'intepigu',
+    component: () => import('./views/Intepigu.vue')
+  },
+  {
+    path: '/inteee',
+    name: 'inteee',
+    component: () => import('./views/Inteee.vue')
+  },
+  {
+    path: '/intelv',
+    name: 'intelv',
+    component: () => import('./views/Intelv.vue')
+  },
+   {
+    path: '/inte_prekes',
+    name: 'inte_prekes',
+    component: () => import('./views/IntePrekes.vue')
+  },
+   {
+    path: '/grazinimai',
+    name: 'grazinimai',
+    component: () => import('./views/Grazinimai.vue')
+  },
+  {
+    path: '/grazinimai_lv',
+    name: 'grazinimai_lv',
+    component: () => import('./views/Grazinimai_LV.vue')
+  },
+   {
+    path: '/grazinimai_ee',
+    name: 'grazinimai_ee',
+    component: () => import('./views/Grazinimai_EE.vue')
+  },
+   {
+    path: '/visi_likuciai',
+    name: 'visi_likuciai',
+    component: () => import('./views/VisiLikuciai.vue')
+  },
+   {
+    path: '/replace',
+    name: 'replace',
+    component: () => import('./views/Replace.vue')
+  },
+   {
+    path: '/replacelv',
+    name: 'replacelv',
+    component: () => import('./views/ReplaceLV.vue')
+  },
+   {
+    path: '/soap',
+    name: 'soap',
+    component: () => import('./views/Soap.vue')
+  },
+  {
+    path: '/soaplt',
+    name: 'soaplt',
+    component: () => import('./views/SoapLT.vue')
+  },
+  {
+    path: '/ee_list',
+    name: 'eelist',
+    component: () => import('./views/ee_list.vue')
+  },*/
+  ],
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
@@ -59812,10 +59891,10 @@ component.options.__file = "resources/js/components/UserAvatar.vue"
 
 /***/ }),
 
-/***/ "./resources/js/views/Home.vue":
-/*!*************************************!*\
-  !*** ./resources/js/views/Home.vue ***!
-  \*************************************/
+/***/ "./resources/js/views/Pagrindinis.vue":
+/*!********************************************!*\
+  !*** ./resources/js/views/Pagrindinis.vue ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -59823,8 +59902,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Home_vue_vue_type_template_id_63cd6604___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=63cd6604& */ "./resources/js/views/Home.vue?vue&type=template&id=63cd6604&");
-/* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/views/Home.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Pagrindinis_vue_vue_type_template_id_2bcc5bfa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Pagrindinis.vue?vue&type=template&id=2bcc5bfa& */ "./resources/js/views/Pagrindinis.vue?vue&type=template&id=2bcc5bfa&");
+/* harmony import */ var _Pagrindinis_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pagrindinis.vue?vue&type=script&lang=js& */ "./resources/js/views/Pagrindinis.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -59834,9 +59913,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Home_vue_vue_type_template_id_63cd6604___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Home_vue_vue_type_template_id_63cd6604___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _Pagrindinis_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Pagrindinis_vue_vue_type_template_id_2bcc5bfa___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Pagrindinis_vue_vue_type_template_id_2bcc5bfa___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -59846,7 +59925,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/Home.vue"
+component.options.__file = "resources/js/views/Pagrindinis.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -60011,10 +60090,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Home.vue?vue&type=script&lang=js&":
-/*!**************************************************************!*\
-  !*** ./resources/js/views/Home.vue?vue&type=script&lang=js& ***!
-  \**************************************************************/
+/***/ "./resources/js/views/Pagrindinis.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/views/Pagrindinis.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -60022,8 +60101,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Home.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Pagrindinis_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Pagrindinis.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Pagrindinis.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Pagrindinis_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -60197,19 +60276,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Home.vue?vue&type=template&id=63cd6604&":
-/*!********************************************************************!*\
-  !*** ./resources/js/views/Home.vue?vue&type=template&id=63cd6604& ***!
-  \********************************************************************/
+/***/ "./resources/js/views/Pagrindinis.vue?vue&type=template&id=2bcc5bfa&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/views/Pagrindinis.vue?vue&type=template&id=2bcc5bfa& ***!
+  \***************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_63cd6604___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_63cd6604___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pagrindinis_vue_vue_type_template_id_2bcc5bfa___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pagrindinis_vue_vue_type_template_id_2bcc5bfa___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_63cd6604___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=63cd6604& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Home.vue?vue&type=template&id=63cd6604&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pagrindinis_vue_vue_type_template_id_2bcc5bfa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Pagrindinis.vue?vue&type=template&id=2bcc5bfa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Pagrindinis.vue?vue&type=template&id=2bcc5bfa&");
 
 
 /***/ }),
@@ -61025,10 +61104,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Home.vue?vue&type=template&id=63cd6604&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Home.vue?vue&type=template&id=63cd6604& ***!
-  \***********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Pagrindinis.vue?vue&type=template&id=2bcc5bfa&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Pagrindinis.vue?vue&type=template&id=2bcc5bfa& ***!
+  \******************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -61045,21 +61124,8 @@ var render = function() {
     "section",
     { staticClass: "section is-main-section" },
     [
-      _c(
-        "card-component",
-        { attrs: { title: "INFORMACIJA", icon: "account-multiple" } },
-        [
-          _vm._v("\n      Duomenys atnaujinti"),
-          _c("br"),
-          _vm._v("\n      Likučiai: " + _vm._s(_vm.info.likutis)),
-          _c("br"),
-          _vm._v("\n      Pardavimai: " + _vm._s(_vm.info.pardavimai)),
-          _c("br")
-        ]
-      ),
-      _vm._v(" "),
       _c("b-loading", {
-        attrs: { "is-full-page": _vm.isFullPage, "can-cancel": true },
+        attrs: { "is-full-page": _vm.isFullPage },
         model: {
           value: _vm.isLoading,
           callback: function($$v) {
@@ -61071,15 +61137,17 @@ var render = function() {
       _vm._v(" "),
       _c(
         "card-component",
-        {
-          attrs: {
-            title: "Pardavimai",
-            icon: "finance",
-            "header-icon": "reload"
-          },
-          on: { "header-icon-click": _vm.fillChartData }
-        },
+        { attrs: { title: "INFORMACIJA", icon: "account-multiple" } },
         [
+          _vm._v("\n      Duomenys atnaujinti"),
+          _c("br"),
+          _vm._v("\n      Likučiai: " + _vm._s(_vm.info.likutis)),
+          _c("br"),
+          _vm._v("\n      Pardavimai: " + _vm._s(_vm.info.pardavimai)),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
           _vm.defaultChart.chartData
             ? _c(
                 "div",
@@ -61093,58 +61161,71 @@ var render = function() {
                       "chart-data": _vm.defaultChart.chartData,
                       "extra-options": _vm.defaultChart.extraOptions
                     }
-                  }),
-                  _vm._v(" "),
-                  _c("hr"),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "columns" }, [
-                    _c(
-                      "div",
-                      { staticClass: "column" },
-                      [
-                        _c("div", [_vm._v("LIETUVA")]),
-                        _vm._v(" "),
-                        _c("b-table", {
-                          attrs: {
-                            border: "",
-                            data: _vm.group["LT"],
-                            columns: _vm.columns
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "column" },
-                      [
-                        _c("div", [_vm._v("LATVIJA")]),
-                        _vm._v(" "),
-                        _c("b-table", {
-                          attrs: { data: _vm.group["LV"], columns: _vm.columns }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "column" },
-                      [
-                        _c("div", [_vm._v("ESTIJA")]),
-                        _vm._v(" "),
-                        _c("b-table", {
-                          attrs: { data: _vm.group["EE"], columns: _vm.columns }
-                        })
-                      ],
-                      1
-                    )
-                  ])
+                  })
                 ],
                 1
               )
             : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "card-component",
+        {
+          attrs: {
+            title: "Pardavimai",
+            icon: "finance",
+            "header-icon": "reload"
+          },
+          on: { "header-icon-click": _vm.fillChartData }
+        },
+        [
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              {
+                staticClass: "column",
+                style: {
+                  border: "1px dotted",
+                  "background-color": "greenyellow"
+                }
+              },
+              [
+                _c("b-table", {
+                  attrs: { data: _vm.buy["LT"], columns: _vm.columns }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "column",
+                style: { border: "1px dotted", "background-color": "GoldenRod" }
+              },
+              [
+                _c("b-table", {
+                  attrs: { data: _vm.buy["LV"], columns: _vm.columns }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "column",
+                style: { border: "1px dotted", "background-color": "tomato" }
+              },
+              [
+                _c("b-table", {
+                  attrs: { data: _vm.buy["EE"], columns: _vm.columns }
+                })
+              ],
+              1
+            )
+          ])
         ]
       )
     ],
@@ -77863,7 +77944,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_Tables_vue":1,"resources_js_views_Forms_vue":1,"resources_js_views_Profile_vue":1,"resources_js_views_Clients_ClientsIndex_vue":1,"resources_js_views_Clients_ClientsForm_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_Statistika_vue":1,"resources_js_views_Likuciai_vue":1,"resources_js_views_Pardavimai_vue":1,"resources_js_views_Prekes_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

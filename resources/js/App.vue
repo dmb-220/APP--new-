@@ -48,20 +48,28 @@ export default {
             label: 'Statistika',
             icon: 'chart-bar',
           },
+
           {
-            to: '/likuciai',
-            label: 'Likučiai',
-            icon: 'buffer',
-          },
-          {
-            to: '/pardavimai',
-            label: 'Pardavimai',
-            icon: 'currency-eur',
-          },
-          {
-            to: '/prekes',
-            label: 'Prekes',
-            icon: 'cart',
+            label: 'Prekės',
+            subLabel: 'Prekių judėjimas',
+            icon: 'view-list',
+            menu: [
+              {
+                to: '/prekes',
+                label: 'Bendras',
+                icon: 'cart',
+              },
+              {
+                to: '/likuciai',
+                label: 'Likučiai',
+                icon: 'buffer',
+              },
+              {
+                to: '/pardavimai',
+                label: 'Pardavimai',
+                icon: 'currency-eur',
+              }
+            ]
           },
           {
             to: '/akcijos',

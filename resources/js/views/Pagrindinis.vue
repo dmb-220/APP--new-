@@ -1,11 +1,11 @@
 <template>
   <section class="section is-main-section">
+  <b-loading :is-full-page="isFullPage" v-model="isLoading"></b-loading>
       <card-component title="INFORMACIJA" icon="account-multiple">
         Duomenys atnaujinti<br>
         Likučiai: {{ info.likutis }}<br>
         Pardavimai: {{ info.pardavimai}}<br>
         <br>
-        <card-component title="Pardavimai" @header-icon-click="fillChartData" icon="finance" header-icon="reload">
         <div v-if="defaultChart.chartData" class="chart-area">
           <line-chart style="height: 100%"
                       ref="bigChart"
@@ -15,128 +15,17 @@
           </line-chart>
         </div>
       </card-component>
-      <br>
-         <div  class="columns">
-           <div class="column" :style="{'border': '1px dotted', 'background-color': 'greenyellow'}">
-        <b-table
-        bordered
-        hoverable
-        :narrowed="true"
-        :data="duomenys"
-        sort-icon="arrow-up"
-        :loading="isLoading"
-        default-sort-direction="desc"
-        default-sort="pardavimas">
-        <template slot-scope="props">
-          <b-table-column label="Grupė"  field="pavadinimas" sortable>
-                {{ props.row.pavadinimas }}
-          </b-table-column>
-          <b-table-column label="Parduota"  field="pardavimas" sortable>
-                {{ props.row.pardavimas }}
-          </b-table-column>
-          <b-table-column label="Likutis"  field="likutis" sortable>
-                {{ props.row.likutis }}
-          </b-table-column>
-        </template> 
-        
-        <section class="section" slot="empty">
-          <div class="content has-text-centered">
-            <template v-if="isLoading">
-              <p>
-                <b-icon icon="dots-horizontal" size="is-large"/>
-              </p>
-              <p>Gaunami duomenys...</p>
-            </template>
-            <template v-else>
-              <p>
-                <b-icon icon="emoticon-sad" size="is-large"/>
-              </p>
-              <p>Duomenų nerasta &hellip;</p>
-            </template>
+      <card-component title="Pardavimai" @header-icon-click="fillChartData" icon="finance" header-icon="reload">
+        <div  class="columns">
+          <div class="column" :style="{'border': '1px dotted', 'background-color': 'greenyellow'}">
+          <b-table :data="buy['LT']" :columns="columns"></b-table>
           </div>
-        </section>
-      </b-table>
-           </div>
-      <div class="column" :style="{'border': '1px dotted', 'background-color': 'GoldenRod'}">
-      <b-table
-        bordered
-        hoverable
-        :narrowed="true"
-        :data="duomenys2"
-        sort-icon="arrow-up"
-        :loading="isLoading"
-        default-sort-direction="desc"
-        default-sort="pardavimas">
-        <template slot-scope="props">
-          <b-table-column label="Grupė"  field="pavadinimas" sortable>
-                {{ props.row.pavadinimas }}
-          </b-table-column>
-          <b-table-column label="Parduota"  field="pardavimas" sortable>
-                {{ props.row.pardavimas }}
-          </b-table-column>
-          <b-table-column label="Likutis"  field="likutis" sortable>
-                {{ props.row.likutis }}
-          </b-table-column>
-        </template> 
-       
-        <section class="section" slot="empty">
-          <div class="content has-text-centered">
-            <template v-if="isLoading">
-              <p>
-                <b-icon icon="dots-horizontal" size="is-large"/>
-              </p>
-              <p>Gaunami duomenys...</p>
-            </template>
-            <template v-else>
-              <p>
-                <b-icon icon="emoticon-sad" size="is-large"/>
-              </p>
-              <p>Duomenų nerasta &hellip;</p>
-            </template>
+          <div class="column" :style="{'border': '1px dotted', 'background-color': 'GoldenRod'}">
+          <b-table :data="buy['LV']" :columns="columns"></b-table>
           </div>
-        </section>
-      </b-table>
-      </div>
-      <div class="column" :style="{'border': '1px dotted', 'background-color': 'tomato'}">
-      <b-table
-        bordered
-        hoverable
-        :narrowed="true"
-        :data="duomenys3"
-        sort-icon="arrow-up"
-        :loading="isLoading"
-        default-sort-direction="desc"
-        default-sort="pardavimas">
-        <template slot-scope="props">
-          <b-table-column label="Grupė"  field="pavadinimas" sortable>
-                {{ props.row.pavadinimas }}
-          </b-table-column>
-          <b-table-column label="Parduota"  field="pardavimas" sortable>
-                {{ props.row.pardavimas }}
-          </b-table-column>
-          <b-table-column label="Likutis"  field="likutis" sortable>
-                {{ props.row.likutis }}
-          </b-table-column>
-        </template> 
-       
-        <section class="section" slot="empty">
-          <div class="content has-text-centered">
-            <template v-if="isLoading">
-              <p>
-                <b-icon icon="dots-horizontal" size="is-large"/>
-              </p>
-              <p>Gaunami duomenys...</p>
-            </template>
-            <template v-else>
-              <p>
-                <b-icon icon="emoticon-sad" size="is-large"/>
-              </p>
-              <p>Duomenų nerasta &hellip;</p>
-            </template>
+          <div class="column" :style="{'border': '1px dotted', 'background-color': 'tomato'}">
+          <b-table :data="buy['EE']" :columns="columns"></b-table>
           </div>
-        </section>
-      </b-table>
-      </div>
       </div>
       </card-component>     
     </section>
@@ -157,14 +46,22 @@ export default {
         chartData: null,
         extraOptions: chartConfig.chartOptionsMain
       },
+      columns: [
+        {
+          field: 'kiekis',
+          label: 'Parduota (vnt)',
+          numeric: true
+        },
+        {
+          field: 'grupe',
+          label: 'Pavadinimas'
+        },
+      ],
       isLoading: false,
+      isFullPage: true,
       info: [],
-      duomenys: [],
-      duomenys2: [],
-      duomenys3: [],
+      query: [],
       buy: [],
-      buyLT: [],
-      buyLV: [],
       pardavimai: [],
       pardavimaiLT: [],
       pardavimaiLV: [],
@@ -175,7 +72,6 @@ export default {
   },
   created () {
     this.getData()
-    this.fillChartData ()
   },
 
 watch: {
@@ -184,23 +80,21 @@ watch: {
       }
   },
   methods: {
-        view_pardavimai () {
-      //console.log(viewPardavimai);
+    view_pardavimai () {
       let  i;
 
-      let sk = this.buy.length
+      let sk = this.query['viso'].length
       for (i = 0; i < sk; i++) {
-        this.pardavimai.push(this.buy[i]['kiekis'])
-        this.label.push(this.buy[i]['data'])
-        
+        this.pardavimai.push(this.query['viso'][i]['kiekis'])
+        this.label.push(this.query['viso'][i]['data'])   
       }
-      let skLT = this.buyLT.length
+      let skLT = this.query['LT'].length
       for (i = 0; i < skLT; i++) {
-        this.pardavimaiLT.push(this.buyLT[i]['kiekis'])
+        this.pardavimaiLT.push(this.query['LT'][i]['kiekis'])
       }
-      let skLV = this.buyLV.length
+      let skLV = this.query['LV'].length
       for (i = 0; i < skLV; i++) {
-        this.pardavimaiLV.push(this.buyLV[i]['kiekis'])
+        this.pardavimaiLV.push(this.query['LV'][i]['kiekis'])
       }
     },
       getData () {
@@ -210,12 +104,9 @@ watch: {
       .then(response => {
         this.isLoading = false
         this.info = response.data.data;
-        this.duomenys = response.data.likutis;
-        this.duomenys2 = response.data.likutis2;
-        this.duomenys3 = response.data.likutis3;
-        this.buy = response.data.buy['viso'];
-        this.buyLT = response.data.buy['LT'];
-        this.buyLV = response.data.buy['LV'];
+        this.query = response.data.query;
+
+        this.buy = response.data.buy;
 
       })
       .catch( err => {
@@ -227,8 +118,9 @@ watch: {
             })
           })
     },
-        fillChartData () {
-          this.view_pardavimai ();
+
+    fillChartData () {
+      this.view_pardavimai ();
       this.defaultChart.chartData = {
         datasets: [
           //viso

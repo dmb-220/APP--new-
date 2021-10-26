@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
-use App\Pardavimai;
-use App\Likutis;
+use App\Models\Pardavimai;
+use App\Models\Likutis;
 
 class StatistikaController extends Controller
 {
@@ -24,9 +25,9 @@ class StatistikaController extends Controller
         //$keyword = 'DMK-';
 
          //$store = array(
-            $LT = array("MINS", "TELS", "MADA", "MARI", "MOLA", "NORF", "BIGA", "BABI", "UKME", "MANT", "VISA", "KEDA","AREN", "MAXI", "PANE", "MAZE", "TAIK", "SAUL", "TAUB", "INTE_LT");
-            $LV = array("DOLE", "KULD", "BRIV", "DITO", "MATI", "VALK", "TAL2", "TUKU", "VALD", "VENT", "LIEP", "AIZK", "DAUG", "LIMB", "MELN", "SALD", "VALM", "BALV", "CESI", "DOBE", "GOBA", "JEKA", "SIGU", "MADO", "OGRE", "INTE_LV");
-            $EE = array("Johvi", "Mustamäe", "Narva", "Rakvere", "Sopruse", "Võru 55 Tartu", "Ümera","Eden", "Haapsalu", "Kopli", "Parnu", "Riia Parnu", "E-pood");
+            $LT = array("MINS", "TELS", "MADA", "MARI", "MOLA", "NORF", "BIGA", "BABI", "UKME", "MANT", "VISA", "KEDA","AREN", "MAXI", "PANE", "MAZE", "TAIK", "SAUL", "TAUB", "INTE", "INLV", "INEE");
+            $LV = array("DOLE", "KULD", "BRIV", "DITO", "MATI", "VALK", "TAL2", "TUKU", "VALD", "VENT", "LIEP", "AIZK", "DAUG", "LIMB", "MELN", "SALD", "VALM", "BALV", "CESI", "DOBE", "GOBA", "JEKA", "SIGU", "MADO", "OGRE");
+            $EE = array("Johvi", "Mustamäe", "Narva", "Rakvere", "Sopruse", "Võru 55 Tartu", "Ümera","Eden", "Haapsalu", "Kopli", "Parnu", "Riia Parnu");
         //);
 
         $sara = array(
@@ -94,28 +95,16 @@ class StatistikaController extends Controller
             "Lietpaltis" => "Mētelis",
         ); 
 
-        function createDateRangeArray($strDateFrom,$strDateTo)
-            {
-                // takes two dates formatted as YYYY-MM-DD and creates an
-                // inclusive array of the dates between the from and to dates.
-
-                // could test validity of dates here but I'm already doing
-                // that in the main script
-
+        function createDateRangeArray($strDateFrom,$strDateTo){
                 $aryRange = [];
-
                 $iDateFrom=mktime(1,0,0,substr($strDateFrom,5,2),     substr($strDateFrom,8,2),substr($strDateFrom,0,4));
                 $iDateTo=mktime(1,0,0,substr($strDateTo,5,2),     substr($strDateTo,8,2),substr($strDateTo,0,4));
 
-                if ($iDateTo>=$iDateFrom)
-                {
-                    //array_push($aryRange,date('Y-m-d',$iDateFrom)); // first entry
+                if ($iDateTo>=$iDateFrom){
                     $aryRange[date('Y-m-d',$iDateFrom)]['data'] = date('Y-m-d',$iDateFrom);
                     $aryRange[date('Y-m-d',$iDateFrom)]['kiekis'] = 0;
-                    while ($iDateFrom<$iDateTo)
-                    {
+                    while ($iDateFrom<$iDateTo){
                         $iDateFrom+=86400; // add 24 hours
-                        //array_push($aryRange,date('Y-m-d',$iDateFrom));
                         $aryRange[date('Y-m-d',$iDateFrom)]['data'] = date('Y-m-d',$iDateFrom);
                         $aryRange[date('Y-m-d',$iDateFrom)]['kiekis'] = 0;
                     }
@@ -243,17 +232,7 @@ class StatistikaController extends Controller
         foreach ( $re as $value ) {
             if($value['sandelis'] != "BROK" && $value['sandelis'] != "ESTI" 
             && $value['sandelis'] != "TELSIAI" && $value['sandelis'] != "4444" && $value['sandelis'] != "1111"){
-                //tikrinam INTE LT ar LV
-                if($value['sandelis'] == "INTE"){
-                    if($value['salis'] == 1){
-                        $group2['INTE_LT'][] = $value;
-                    }
-                    if($value['salis'] == 2){
-                        $group2['INTE_LV'][] = $value;
-                    }
-                }else{
-                    $group2[$value['sandelis']][] = $value;
-                }
+                $group2[$value['sandelis']][] = $value;
             }
         }
 
@@ -312,17 +291,7 @@ class StatistikaController extends Controller
 
         foreach ( $re as $value ) {
             if($value['sandelis'] != "TELSIAI"){
-                //$pard[$value['sandelis']][] = $value;
-                if($value['sandelis'] == "INTE"){
-                    if($value['salis'] == 1){
-                        $pard['INTE_LT'][] = $value;
-                    }
-                    if($value['salis'] == 2){
-                        $pard['INTE_LV'][] = $value;
-                    }
-                }else{
-                    $pard[$value['sandelis']][] = $value;
-                }
+                $pard[$value['sandelis']][] = $value;
             }
         }
 
@@ -451,22 +420,25 @@ class StatistikaController extends Controller
             }
         }
 
-        $arr = array("LT" => $key[1], "LV" => $key[2], "EE" => $key[3]);
-
         return response()->json([
             'status' => true,
-            'paieska' => $keyword,
-            'salis' =>  $arr,
+            'settings' => [
+                'paieska' => $keyword,
+                "rodyti_lt" => $key[1],
+                "rodyti_lv" => $key[2],
+                "rodyti_ee" => $key[3],
+                'rikiuoti' => $rikiuoti,
+                'paieska_big' => $key[7],
+                'gam' => $gam,
+                'pirk' => $pirk,
+                'grupe' => $grupe,
+            ],
+
             'viso_pard' => $viso_pard,
             'viso_lik' => $viso_lik,
             'data' => $new,
-            'rikiuoti' => $rikiuoti,
-            'paieska_big' => $key[7],
-            'gam' => $gam,
-            'pirk' => $pirk,
             'grupes' => $grupes,
             'grupes_lv' => $sara,
-            'grupe' => $grupe,
             'buy' => $buy
         ]);
     }
@@ -494,7 +466,7 @@ class StatistikaController extends Controller
         $lt = $data['lt'];
         $lv = $data['lv'];
         $ee = $data['ee'];
-        $rikiuoti = $data['rikiuoti'];
+        $rikiuoti = 0;
         $gam = $data['gam'];
         $pirk = $data['pirk'];
         $paieska_big= $data['paieska_big'];
@@ -524,7 +496,20 @@ class StatistikaController extends Controller
      */
     public function show($id)
     {
-        //
+        $res = Pardavimai::select(
+            DB::raw("(sum(kiekis)) as kiekis"),
+            DB::raw("(DATE_FORMAT(dok_data, '%d-%m-%Y')) as data"))
+            ->where('sandelis', $id)
+            ->whereIn('registras',['GAM', 'PIRK'])
+            ->orderBy('dok_data')
+            ->groupBy(DB::raw("DATE_FORMAT(dok_data, '%d-%m-%Y')"))
+            ->get();
+        //$res = array_values($res);
+        return response()->json([
+            'status' => true,
+            'ID' => $id,
+            'data' => $res,
+        ]);
     }
 
     /**
