@@ -31,8 +31,14 @@ Route::prefix('/testas')->group(function () {
 Route::prefix('/statistika')->group(function () {
     Route::get('/', [App\Http\Controllers\StatistikaController::class, 'index'])->name('index');
     Route::post('store',  [App\Http\Controllers\StatistikaController::class, 'store'])->name('store');
-    Route::get('/{id}', [App\Http\Controllers\StatistikaController::class, 'show'])->name('show');
-    Route::get('store',  [App\Http\Controllers\StatistikaController::class, 'store'])->name('store');
+    //Route::get('/{id}', [App\Http\Controllers\StatistikaController::class, 'show'])->name('show');
+});
+
+/* Prekes */ 
+Route::prefix('/prekes')->group(function () {
+    Route::get('/', [App\Http\Controllers\PrekesController::class, 'index'])->name('index');
+    Route::post('store',  [App\Http\Controllers\PrekesController::class, 'store'])->name('store');
+    //Route::get('/{id}', [App\Http\Controllers\StatistikaController::class, 'show'])->name('show');
 });
 
 /* Clients management */

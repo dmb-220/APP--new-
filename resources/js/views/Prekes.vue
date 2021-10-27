@@ -76,38 +76,37 @@
         detail-key="preke"
         @details-open="(row, index) => $buefy.toast.open(`Išskleista ${ row.preke } prekė!`)"
         :loading="isLoading">
-        <template slot-scope="props">
-          <b-table-column label="Preke"  field="preke" sortable>
+          <b-table-column label="Preke"  field="preke" sortable v-slot="props">
                 {{ props.row.preke }}
           </b-table-column> 
-          <b-table-column :visible='kainos'  label="Kaina"  field="kaina">
+          <b-table-column :visible='kainos'  label="Kaina"  field="kaina" v-slot="props">
                 {{ props.row.kaina }}
           </b-table-column>
-          <b-table-column :visible='rodyti_lt' :style="{'background-color': 'greenyellow'}" label="LT likučiai" field="likutis.LT_viso" sortable>
+          <b-table-column :visible='rodyti_lt' cellClass="is-one2" label="LT likučiai" field="likutis.LT_viso" sortable v-slot="props">
                 {{props.row.likutis && props.row.likutis.LT_viso}}
           </b-table-column>
-          <b-table-column :visible='rodyti_lt' :style="{'background-color': 'greenyellow'}" label="LT pardavimai" field="pardavimai.LT_viso" sortable>
+          <b-table-column :visible='rodyti_lt' cellClass="is-one2" label="LT pardavimai" field="pardavimai.LT_viso" sortable v-slot="props">
                 {{props.row.pardavimai && props.row.pardavimai.LT_viso}}
           </b-table-column>
-          <b-table-column :visible='rodyti_lv' :style="{'background-color': 'GoldenRod'}" label="LV likučiai" field="likutis.LV_viso" sortable>
+          <b-table-column :visible='rodyti_lv' cellClass="is-two2" label="LV likučiai" field="likutis.LV_viso" sortable v-slot="props">
             {{props.row.likutis && props.row.likutis.LV_viso}}
           </b-table-column>
-          <b-table-column :visible='rodyti_lv' :style="{'background-color': 'GoldenRod'}" label="LV pardavimai" field="pardavimai.LV_viso" sortable>
+          <b-table-column :visible='rodyti_lv' cellClass="is-two2" label="LV pardavimai" field="pardavimai.LV_viso" sortable v-slot="props">
                  {{props.row.pardavimai && props.row.pardavimai.LV_viso}}
           </b-table-column>
-          <b-table-column :visible='rodyti_ee' :style="{'background-color': 'tomato'}" label="EE likučiai" field="likutis.EE_viso" sortable>
+          <b-table-column :visible='rodyti_ee' cellClass="is-three2" label="EE likučiai" field="likutis.EE_viso" sortable v-slot="props">
                 {{props.row.likutis && props.row.likutis.EE_viso}}
           </b-table-column>
-          <b-table-column :visible='rodyti_ee' :style="{'background-color': 'tomato'}" label="EE pardavimai" field="pardavimai.EE_viso" sortable>
+          <b-table-column :visible='rodyti_ee' cellClass="is-three2" label="EE pardavimai" field="pardavimai.EE_viso" sortable v-slot="props">
                 {{props.row.pardavimai && props.row.pardavimai.EE_viso}}
           </b-table-column>
-          <b-table-column :style="{'background-color': 'WhiteSmoke '}" label="LIKUČIAI" field="likutis.viso" sortable>
+          <b-table-column cellClass="is-smoke" label="LIKUČIAI" field="likutis.viso" sortable v-slot="props">
                 {{props.row.likutis && props.row.likutis.viso}}
           </b-table-column>
-          <b-table-column :style="{'background-color': 'WhiteSmoke '}" label="PARDAVIMAI" field="pardavimai.viso" sortable>
+          <b-table-column cellClass="is-smoke" label="PARDAVIMAI" field="pardavimai.viso" sortable v-slot="props">
                 {{props.row.pardavimai && props.row.pardavimai.viso}}
           </b-table-column>
-          <b-table-column :style="{'background-color': 'WhiteSmoke '}" label="Informacija">
+          <b-table-column cellClass="is-smoke" label="Informacija" v-slot="props">
             <button v-if="!Array.isArray(props.row.buy)" class="button is-small is-danger" type="button" 
             @click.prevent="viewModal_pardavimai(props.row.buy && props.row.buy.preke, props.row.buy && props.row.buy.viso,
              props.row.buy && props.row.buy.LT, props.row.buy && props.row.buy.LV)">
@@ -119,102 +118,91 @@
                 <b-icon icon="eye" size="is-small"/>
               </button>
           </b-table-column>
-        </template> 
 
-        <template slot="detail" slot-scope="props">
+        <template #detail="props">
           <div  class="columns">
-          <div v-show='rodyti_lt' class="column" :style="{'border': '1px dotted', 'background-color': 'greenyellow'}">
+          <div v-show='rodyti_lt' class="column" :style="{'border': '1px dotted'}">
             <div class="has-text-centered">LIETUVA:</div>
             <br>
             <b-table v-if="props.row.akcija_lt.length > 0"
             :data="props.row.akcija_lt"
             default-sort-direction="asc"
             default-sort="sandelis">
-            <template slot-scope="props">
-                <b-table-column label="Akcija">
+                <b-table-column cellClass="is-smoke" label="Akcija" v-slot="props">
                     <small>{{ props.row.akcija }}</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" label="Kaina">
+                <b-table-column cellClass="is-one2" label="Kaina" v-slot="props">
                     <small>{{ props.row.kaina }} &euro;</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" label="Galioja IKI">
+                <b-table-column cellClass="is-one2" label="Galioja IKI" v-slot="props">
                     <small>{{ props.row.galioja_iki.split(" ")[0] }}</small>
                 </b-table-column>
-            </template>
             </b-table>
             <br v-if="props.row.akcija_lt.length > 0">
             <b-table
             :data="props.row.list.LT"
             default-sort-direction="asc"
             default-sort="sandelis">
-            <template slot-scope="props">
-                <b-table-column field="sandelis" label="Sandelis" sortable>
+                <b-table-column cellClass="is-smoke" field="sandelis" label="Sandelis" sortable v-slot="props">
                     <small>{{ props.row.sandelis }}</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" field="likutis.kiekis" label="Likuciai">
+                <b-table-column cellClass="is-one2" field="likutis.kiekis" label="Likuciai" v-slot="props">
                     <small>{{ props.row.likutis && props.row.likutis.kiekis }}</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" field="pardavimai.kiekis" label="Pardavimai">
+                <b-table-column cellClass="is-one2" field="pardavimai.kiekis" label="Pardavimai" v-slot="props">
                     <small>{{ props.row.pardavimai && props.row.pardavimai.kiekis }}</small>
                 </b-table-column>
-            </template>
             </b-table>
           </div>
-          <div v-show='rodyti_lv' class="column" :style="{'border': '1px dotted', 'background-color': 'GoldenRod'}">
+          <div v-show='rodyti_lv' class="column" :style="{'border': '1px dotted'}" >
             <div class="has-text-centered">LATVIJA:</div>
             <br>
             <b-table v-if="props.row.akcija_lv.length > 0"
             :data="props.row.akcija_lv"
             default-sort-direction="asc"
             default-sort="sandelis">
-            <template slot-scope="props">
-                <b-table-column label="Akcija">
+                <b-table-column cellClass="is-smoke" label="Akcija" v-slot="props">
                     <small>{{ props.row.akcija }}</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" label="Kaina">
+                <b-table-column cellClass="is-two2" label="Kaina" v-slot="props">
                     <small>{{ props.row.kaina }} &euro;</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" label="Galioja IKI">
+                <b-table-column cellClass="is-two2" label="Galioja IKI" v-slot="props">
                     <small>{{ props.row.galioja_iki.split(" ")[0] }}</small>
                 </b-table-column>
-            </template>
             </b-table>
             <br v-if="props.row.akcija_lv.length > 0">
             <b-table
             :data="props.row.list.LV"
             default-sort-direction="asc"
             default-sort="sandelis">
-            <template slot-scope="props">
-                <b-table-column field="sandelis" label="Sandelis" sortable>
+                <b-table-column cellClass="is-smoke" field="sandelis" label="Sandelis" sortable v-slot="props">
                     <small>{{ props.row.sandelis }}</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" field="likutis.kiekis" label="Likuciai">
+                <b-table-column cellClass="is-two2" field="likutis.kiekis" label="Likuciai" v-slot="props">
                     <small>{{ props.row.likutis && props.row.likutis.kiekis }}</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" field="pardavimai.kiekis" label="Pardavimai">
+                <b-table-column cellClass="is-two2" field="pardavimai.kiekis" label="Pardavimai" v-slot="props">
                     <small>{{ props.row.pardavimai && props.row.pardavimai.kiekis }}</small>
                 </b-table-column>
-            </template>
             </b-table>
           </div>
-          <div v-show='rodyti_ee' class="column" :style="{'border': '1px dotted', 'background-color': 'tomato'}">
+          <div v-show='rodyti_ee' class="column" :style="{'border': '1px dotted'}">
             <div class="has-text-centered">ESTIJA:</div>
             <br>
             <b-table
             :data="props.row.list.EE"
             default-sort-direction="asc"
             default-sort="sandelis">
-            <template slot-scope="props">
-                <b-table-column field="sandelis" label="Sandelis" sortable>
+                <b-table-column cellClass="is-smoke" field="sandelis" label="Sandelis" sortable v-slot="props">
                     <small>{{ props.row.sandelis }}</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" field="likutis.kiekis" label="Likuciai">
+                <b-table-column cellClass="is-three2" field="likutis.kiekis" label="Likuciai" v-slot="props">
                     <small>{{ props.row.likutis && props.row.likutis.kiekis }}</small>
                 </b-table-column>
-                <b-table-column :style="{'background-color': 'LightGray'}" field="pardavimai.kiekis" label="Pardavimai">
+                <b-table-column cellClass="is-three2" field="pardavimai.kiekis" label="Pardavimai" v-slot="props">
                     <small>{{ props.row.pardavimai && props.row.pardavimai.kiekis }}</small>
                 </b-table-column>
-            </template>
             </b-table>
           </div>
         </div>
@@ -236,7 +224,7 @@
             </template>
           </div>
         </section>
-        <template slot="footer">
+        <template #footer>
             <th> </th>
             <th> </th>
             <th v-show='kainos'> </th>
@@ -263,6 +251,21 @@
   </div>
 
 </template>
+
+<style>
+.is-one2 {
+    background: #BFFCC6 !important;
+}
+.is-two2 {
+    background: #FFF5BA !important;
+}
+.is-three2 {
+    background: #FFABAB !important;
+}
+.is-smoke {
+    background: WhiteSmoke !important;
+}
+</style>
 
 <script>
 import map from 'lodash/map'

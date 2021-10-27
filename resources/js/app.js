@@ -9,6 +9,9 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios, axios);
 
+import VueExcelXlsx from "vue-excel-xlsx";
+Vue.use(VueExcelXlsx);
+
 
 /* Router & Store */
 import router from './router'
