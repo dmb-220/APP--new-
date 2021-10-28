@@ -218,11 +218,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -234,6 +229,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      columns: [{
+        label: "Prekė",
+        field: "preke"
+      }, {
+        label: "LT",
+        field: 'LT_viso'
+      }, {
+        label: "LV",
+        field: 'LV_viso'
+      }, {
+        label: "EE",
+        field: 'EE_viso'
+      }, {
+        label: "Likutis",
+        field: 'viso'
+      }],
       isPaginated: true,
       paginationPosition: 'bottom',
       perPage: 50,
@@ -5333,108 +5344,6 @@ var render = function() {
                     },
                     scopedSlots: _vm._u([
                       {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _c(
-                              "b-table-column",
-                              {
-                                attrs: {
-                                  label: "Preke",
-                                  field: "preke",
-                                  sortable: ""
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n              " +
-                                    _vm._s(props.row.preke) +
-                                    "\n        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                style: { "background-color": "greenyellow" },
-                                attrs: {
-                                  visible: _vm.rodyti_lt,
-                                  label: "LIETUVA",
-                                  field: "LT_viso",
-                                  sortable: ""
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n              " +
-                                    _vm._s(props.row.LT_viso) +
-                                    "\n        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                style: { "background-color": "GoldenRod" },
-                                attrs: {
-                                  visible: _vm.rodyti_lv,
-                                  label: "LATVIJA",
-                                  field: "LV_viso",
-                                  sortable: ""
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n              " +
-                                    _vm._s(props.row.LV_viso) +
-                                    "\n        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                style: { "background-color": "tomato" },
-                                attrs: {
-                                  visible: _vm.rodyti_ee,
-                                  label: "ESTIJA",
-                                  field: "EE_viso",
-                                  sortable: ""
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n              " +
-                                    _vm._s(props.row.EE_viso) +
-                                    "\n        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                attrs: {
-                                  field: "viso",
-                                  label: "Viso",
-                                  sortable: ""
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                  " +
-                                    _vm._s(props.row.viso) +
-                                    "\n              "
-                                )
-                              ]
-                            )
-                          ]
-                        }
-                      },
-                      {
                         key: "detail",
                         fn: function(props) {
                           return [
@@ -5451,10 +5360,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "column",
-                                  style: {
-                                    border: "1px solid",
-                                    "background-color": "greenyellow"
-                                  }
+                                  style: { border: "1px solid" }
                                 },
                                 [
                                   _c(
@@ -5463,27 +5369,28 @@ var render = function() {
                                     [_vm._v("Lietuva:")]
                                   ),
                                   _vm._v(" "),
-                                  _c("b-table", {
-                                    attrs: {
-                                      data: props.row.LT,
-                                      "default-sort-direction": "desc",
-                                      "default-sort": "kiekis"
+                                  _c(
+                                    "b-table",
+                                    {
+                                      attrs: {
+                                        data: props.row.LT,
+                                        "default-sort-direction": "desc",
+                                        "default-sort": "kiekis"
+                                      }
                                     },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "default",
-                                          fn: function(props) {
-                                            return [
-                                              _c(
-                                                "b-table-column",
-                                                {
-                                                  attrs: {
-                                                    field: "sandelis",
-                                                    label: "Sandelis"
-                                                  }
-                                                },
-                                                [
+                                    [
+                                      _c("b-table-column", {
+                                        attrs: {
+                                          field: "sandelis",
+                                          cellClass: "is-one2",
+                                          label: "Sandelis"
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "default",
+                                              fn: function(props) {
+                                                return [
                                                   _vm._v(
                                                     "\n                  " +
                                                       _vm._s(
@@ -5492,33 +5399,43 @@ var render = function() {
                                                       "\n              "
                                                   )
                                                 ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "b-table-column",
-                                                {
-                                                  attrs: {
-                                                    field: "kiekis",
-                                                    label: "Kiekis",
-                                                    sortable: ""
-                                                  }
-                                                },
-                                                [
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          true
+                                        )
+                                      }),
+                                      _vm._v(" "),
+                                      _c("b-table-column", {
+                                        attrs: {
+                                          field: "kiekis",
+                                          cellClass: "is-one2",
+                                          label: "Kiekis",
+                                          sortable: ""
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "default",
+                                              fn: function(props) {
+                                                return [
                                                   _vm._v(
                                                     "\n                  " +
                                                       _vm._s(props.row.kiekis) +
                                                       "\n              "
                                                   )
                                                 ]
-                                              )
-                                            ]
-                                          }
-                                        }
-                                      ],
-                                      null,
-                                      true
-                                    )
-                                  })
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          true
+                                        )
+                                      })
+                                    ],
+                                    1
+                                  )
                                 ],
                                 1
                               ),
@@ -5535,10 +5452,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "column",
-                                  style: {
-                                    border: "1px solid",
-                                    "background-color": "GoldenRod"
-                                  }
+                                  style: { border: "1px solid" }
                                 },
                                 [
                                   _c(
@@ -5547,27 +5461,28 @@ var render = function() {
                                     [_vm._v("Latvija:")]
                                   ),
                                   _vm._v(" "),
-                                  _c("b-table", {
-                                    attrs: {
-                                      data: props.row.LV,
-                                      "default-sort-direction": "desc",
-                                      "default-sort": "kiekis"
+                                  _c(
+                                    "b-table",
+                                    {
+                                      attrs: {
+                                        data: props.row.LV,
+                                        "default-sort-direction": "desc",
+                                        "default-sort": "kiekis"
+                                      }
                                     },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "default",
-                                          fn: function(props) {
-                                            return [
-                                              _c(
-                                                "b-table-column",
-                                                {
-                                                  attrs: {
-                                                    field: "sandelis",
-                                                    label: "Sandelis"
-                                                  }
-                                                },
-                                                [
+                                    [
+                                      _c("b-table-column", {
+                                        attrs: {
+                                          field: "sandelis",
+                                          cellClass: "is-two2",
+                                          label: "Sandelis"
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "default",
+                                              fn: function(props) {
+                                                return [
                                                   _vm._v(
                                                     "\n                  " +
                                                       _vm._s(
@@ -5576,33 +5491,43 @@ var render = function() {
                                                       "\n              "
                                                   )
                                                 ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "b-table-column",
-                                                {
-                                                  attrs: {
-                                                    field: "kiekis",
-                                                    label: "Kiekis",
-                                                    sortable: ""
-                                                  }
-                                                },
-                                                [
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          true
+                                        )
+                                      }),
+                                      _vm._v(" "),
+                                      _c("b-table-column", {
+                                        attrs: {
+                                          field: "kiekis",
+                                          cellClass: "is-two2",
+                                          label: "Kiekis",
+                                          sortable: ""
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "default",
+                                              fn: function(props) {
+                                                return [
                                                   _vm._v(
                                                     "\n                  " +
                                                       _vm._s(props.row.kiekis) +
                                                       "\n              "
                                                   )
                                                 ]
-                                              )
-                                            ]
-                                          }
-                                        }
-                                      ],
-                                      null,
-                                      true
-                                    )
-                                  })
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          true
+                                        )
+                                      })
+                                    ],
+                                    1
+                                  )
                                 ],
                                 1
                               ),
@@ -5619,10 +5544,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "column",
-                                  style: {
-                                    border: "1px solid",
-                                    "background-color": "tomato"
-                                  }
+                                  style: { border: "1px solid" }
                                 },
                                 [
                                   _c(
@@ -5631,27 +5553,28 @@ var render = function() {
                                     [_vm._v("Estija:")]
                                   ),
                                   _vm._v(" "),
-                                  _c("b-table", {
-                                    attrs: {
-                                      data: props.row.EE,
-                                      "default-sort-direction": "desc",
-                                      "default-sort": "kiekis"
+                                  _c(
+                                    "b-table",
+                                    {
+                                      attrs: {
+                                        data: props.row.EE,
+                                        "default-sort-direction": "desc",
+                                        "default-sort": "kiekis"
+                                      }
                                     },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "default",
-                                          fn: function(props) {
-                                            return [
-                                              _c(
-                                                "b-table-column",
-                                                {
-                                                  attrs: {
-                                                    field: "sandelis",
-                                                    label: "Sandelis"
-                                                  }
-                                                },
-                                                [
+                                    [
+                                      _c("b-table-column", {
+                                        attrs: {
+                                          field: "sandelis",
+                                          cellClass: "is-three2",
+                                          label: "Sandelis"
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "default",
+                                              fn: function(props) {
+                                                return [
                                                   _vm._v(
                                                     "\n                  " +
                                                       _vm._s(
@@ -5660,33 +5583,43 @@ var render = function() {
                                                       "\n              "
                                                   )
                                                 ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "b-table-column",
-                                                {
-                                                  attrs: {
-                                                    field: "kiekis",
-                                                    label: "Kiekis",
-                                                    sortable: ""
-                                                  }
-                                                },
-                                                [
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          true
+                                        )
+                                      }),
+                                      _vm._v(" "),
+                                      _c("b-table-column", {
+                                        attrs: {
+                                          field: "kiekis",
+                                          cellClass: "is-three2",
+                                          label: "Kiekis",
+                                          sortable: ""
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "default",
+                                              fn: function(props) {
+                                                return [
                                                   _vm._v(
                                                     "\n                  " +
                                                       _vm._s(props.row.kiekis) +
                                                       "\n              "
                                                   )
                                                 ]
-                                              )
-                                            ]
-                                          }
-                                        }
-                                      ],
-                                      null,
-                                      true
-                                    )
-                                  })
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          true
+                                        )
+                                      })
+                                    ],
+                                    1
+                                  )
                                 ],
                                 1
                               )
@@ -5697,6 +5630,118 @@ var render = function() {
                     ])
                   },
                   [
+                    _c("b-table-column", {
+                      attrs: { label: "Preke", field: "preke", sortable: "" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(props.row.preke) +
+                                  "\n        "
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: {
+                        visible: _vm.rodyti_lt,
+                        cellClass: "is-one2",
+                        label: "LIETUVA",
+                        field: "LT_viso",
+                        sortable: ""
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(props.row.LT_viso) +
+                                  "\n        "
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: {
+                        visible: _vm.rodyti_lv,
+                        cellClass: "is-two2",
+                        label: "LATVIJA",
+                        field: "LV_viso",
+                        sortable: ""
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(props.row.LV_viso) +
+                                  "\n        "
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: {
+                        visible: _vm.rodyti_ee,
+                        cellClass: "is-three2",
+                        label: "ESTIJA",
+                        field: "EE_viso",
+                        sortable: ""
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(props.row.EE_viso) +
+                                  "\n        "
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: {
+                        field: "viso",
+                        cellClass: "is-smoke",
+                        label: "Viso",
+                        sortable: ""
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(props.row.viso) +
+                                  "\n        "
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    }),
                     _vm._v(" "),
                     _vm._v(" "),
                     _c(
@@ -5749,7 +5794,8 @@ var render = function() {
                         )
                       ]
                     )
-                  ]
+                  ],
+                  1
                 )
               ],
               1
@@ -5772,6 +5818,20 @@ var render = function() {
                     on: { click: _vm.print }
                   },
                   [_vm._v("SPAUSDINTI")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "vue-excel-xlsx",
+                  {
+                    staticClass: "button is-dark is-medium",
+                    attrs: {
+                      data: _vm.likutis,
+                      columns: _vm.columns,
+                      filename: "Likuciu_sarasas",
+                      sheetname: "Likučių sąrašas"
+                    }
+                  },
+                  [_vm._v("\n          ATSISIŲSTI\n      ")]
                 )
               ],
               1

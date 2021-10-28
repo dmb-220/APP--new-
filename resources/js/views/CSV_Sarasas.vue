@@ -14,17 +14,16 @@
             :bordered="false"
             :striped="false"
             :loading="isLoading">
-        <template slot-scope="props">
-          <b-table-column label="Pavadinimas" field="vardas" sortable>
+          <b-table-column label="Pavadinimas" field="vardas" sortable v-slot="props">
             {{ props.row.vardas }}
           </b-table-column>
-          <b-table-column label="Dydis" field="dydis" sortable>
-            {{ props.row.dydis }}
+          <b-table-column label="Dydis" field="dydis" sortable v-slot="props">
+            {{ ((props.row.dydis/1024)/1024).toFixed(3) }} Mb
           </b-table-column>
-          <b-table-column label="Modifikuota" field="modifikuota" sortable>
-            {{ props.row.modifikuota }}
+          <b-table-column label="Modifikuota" field="modifikuota" sortable v-slot="props">
+            {{ props.row.modifikuota }} 
           </b-table-column>
-          <b-table-column custom-key="actions" class="is-actions-cell">
+          <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
             <div class="buttons is-right">
               <button class="button is-small is-primary" type="button" @click.prevent="editModal(props.row.vardas)">
                 <b-icon icon="account-edit" size="is-small"/>
@@ -34,7 +33,6 @@
               </button>
             </div>
           </b-table-column>
-        </template>
 
         <section class="section" slot="empty">
           <div class="content has-text-grey has-text-centered">

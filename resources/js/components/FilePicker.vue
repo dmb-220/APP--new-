@@ -50,17 +50,17 @@ export default {
       }
 
       if (this.isUploadSuccess) {
-        return 'File uploaded. Submit to store'
+        return 'Failas įkeltas sėkmingai'
       }
 
       if (this.uploadPercent) {
-        return `Uploading ${this.uploadPercent}%`
+        return `Įkeliama ${this.uploadPercent}%`
       }
 
       return this.message
     },
     uploadButtonText() {
-      return (this.fileName) ? null : 'Pick a file'
+      return (this.fileName) ? null : 'Pasirinkite failą'
     },
     uploadButtonIcon() {
       return (this.fileName) ? 'cloud-sync' : 'cloud-upload'
@@ -86,9 +86,10 @@ export default {
       let formData = new FormData()
       formData.append('file', this.file)
       this.isUploadSuccess = false
+      //console.log(JSON.stringify(formData));
 
       axios
-        .post('/files/store', formData, {
+        .post('/csv/store', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           },
@@ -103,7 +104,7 @@ export default {
           //   this.isUploadSuccess = false
           //   this.uploadPercent = 0
           // }, 1500)
-
+          //console.log(JSON.stringify(r.data.upload))
           this.$emit('file-updated', r.data.data)
           this.$emit('file-id-updated', r.data.data.id)
         })

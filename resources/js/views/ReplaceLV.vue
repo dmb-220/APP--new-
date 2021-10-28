@@ -28,12 +28,9 @@ import map from 'lodash/map'
 import CardComponent from '@/components/CardComponent'
 import CardToolbar from '@/components/CardToolbar'
 
-// Advanced Use - Hook into Quill's API for Custom Functionality
-import { VueEditor, Quill } from "vue2-editor";
-
 export default {
   name: "ReplaceLV",
-  components: {CardToolbar, CardComponent, VueEditor},
+  components: {CardToolbar, CardComponent},
   data () {
     return {
       html_lt: '',

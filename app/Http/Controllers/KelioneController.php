@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Kelione;
+use App\Models\Kelione;
 use Illuminate\Http\Request;
 
 class KelioneController extends Controller
@@ -18,12 +18,10 @@ class KelioneController extends Controller
             $dotPos = strrpos($num, '.');
             $commaPos = strrpos($num, ',');
             $sep = (($dotPos > $commaPos) && $dotPos) ? $dotPos : 
-                ((($commaPos > $dotPos) && $commaPos) ? $commaPos : false);
-           
+                ((($commaPos > $dotPos) && $commaPos) ? $commaPos : false);      
             if (!$sep) {
                 return floatval(preg_replace("/[^0-9]/", "", $num));
             } 
-        
             return floatval(
                 preg_replace("/[^0-9]/", "", substr($num, 0, $sep)) . '.' .
                 preg_replace("/[^0-9]/", "", substr($num, $sep+1, strlen($num)))
@@ -31,15 +29,12 @@ class KelioneController extends Controller
         }
 
         function sk_to_lt($l) {
-
             $sk1000[0] = "tūkstantis ";
             $sk1000[1] = "tūkstančiai ";
             $sk1000[2] = "tūkstančių ";
-          
             $sk1000000[0] = "milijonas ";
             $sk1000000[1] = "milijonai ";
             $sk1000000[2] = "milijonų ";
-          
             $minus = "minus ";
             $skaiz = "";
           
@@ -149,74 +144,13 @@ class KelioneController extends Controller
             }
 
         $miestai = array(
-          'EE' => array("JOHV", "MUST", "NARV", "RAKV", "SOPR", "VORU", "UMER", "EDEN", "HAPS", "KOHT", "KOPL", "PARN", "RIIA", "EPOD"),
+          'EE' => array("JOHV", "MUST", "NARV", "RAKV", "SOPR", "VORU", "UMER", "EDEN", "HAPS", "KOHT", "KOPL", "PARN", "RIIA"),
 		  
           'LV' => array('LIEP', 'VENT', 'KULD', 'SALD', 'TAL2', 'TUKU', 'DOBE', 'SIGU', 'ALUK', 'VALM', 'CESI', 'BALV', 'LIMB', 'MADO',
-            'VALD', 'MELN', 'MATI', 'DOLE', 'BRIV', 'GOBA', 'INTE','DAUG', 'DITO', 'JEKA', 'AIZK', 'VALK')
+            'VALD', 'MELN', 'MATI', 'DOLE', 'BRIV', 'GOBA','DAUG', 'DITO', 'JEKA', 'AIZK', 'VALK')
           );
 
-        $sarasas = array(
-           "Kleita" => "Suknelė",
-           "Blūze" => "Palaidinė",
-           "Bikses" => "Kelnės",
-           "Žakete" => "Švarkas",
-           "Svārki" => "Sijonas",
-           "Jaka" => "Striukė",
-           "Sport. bikses" => "Sport. kelnės",
-           "Plecu lakats" => "Skara",
-           "Šalle" => "Šalikas",
-           "Soma" => "Rankinė",
-           "Leging" => "Tamprės",
-           "Legingi" => "Tamprės",
-           "Pidžama" => "Pižama",
-           "Mētelis" => "Paltas" ,
-           "Cimdi" => "Pirštinės",
-           "Zeķubikses" => "Pėdkelnės",
-           "Zekubikses" => "Pėdkelnės",
-           "Naktskrekls" => "Naktiniai",
-           "Kostīms" => "Kostiumas",
-           "Džemperis" => "Megztinis",
-           //"Džemperis" => "Džemperis",
-           "Peldkostims" => "Maud. kostiumas",
-           "Maisiņi" => "Maišelis", //Latvija
-          //"Maišelis" => "Kilekott", //Estija
-           "Med. bikses" => "Med. kelnės",
-           "Blūze figūras korekcijai" => "Liekninanti palaidinė",
-           "Krūšturis" => "Liemenėlė",
-           "Vīr. apakšbikses", "Vyr. kelnaitės",
-           "Apakšbikses" => "Kelnaitės",
-           "Vīr. zeķes" => "Vyr. kojinės",
-           "Bēr. zeķes" => "Vaik. kojinė",
-           "Zeķes" => "Kojinės",
-           "Džinsi" => "Džinsai",
-           "Halāts" => "Chalatas",
-           "Sport. kostīms" => "Sport. kostiumas",
-           "Sarafāns" => "Sarafanas",
-           "Med. jaka" => "Med. švarkas",
-           "Komplekts" => "Komplektas",
-           "Veste" => "Liemenė",
-           "Siksna" => "Diržas",
-           "Vīr. pēdiņas" => "Vyr. pėdutės",
-           "Cepure" => "Kepurė",
-           "Šorti" => "Šortai",
-           "Kleita + apakšveļa" => "Suknelė + apatinukas",
-           "Kombinezons" => "Kombinezonas",
-           "Lakats" => "Skarelė",
-           "Pēdiņas" => "Pėdutės",
-           "Med. halāts" => "Med. chalatas",
-           "Dvielis" => "Rankšluostis",
-           "Vīr. džinsi" => "Vyr. džinsai",
-           "Bēr. apakšbikses" => "Vaik. kelnaitės",
-           "Halāts + naktskrekls" => "Chalat.+ naktiniai",
-           "Bēr. zeķes" => "Vaik. kojinės",
-           "Vīr. apakšbikses" => "Vyr.kelnaitės",
-           "Naktskrekls" => "Naktinai",
-           "Megztinis" => "Megztinis"
-      ); 
-
-
-
-       $failas = "keliones.txt";
+        $failas = "keliones.txt";
         $directory  = "app/";
         $failas = $directory.$failas;
 
@@ -274,7 +208,6 @@ class KelioneController extends Controller
         ksort($group);
 
         foreach ( $group as $idx => $value ) {
-
             $gr[$idx]['kaina'] = array();
             foreach($value as $val){
                 if(array_key_exists($val['kaina'], $gr[$idx]['kaina'])){

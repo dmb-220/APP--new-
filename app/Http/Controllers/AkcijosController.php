@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Akcijos;
-use App\Likutis;
+use App\Models\Akcijos;
+use App\Models\Likutis;
 use Illuminate\Http\Request;
 
 use App\File;

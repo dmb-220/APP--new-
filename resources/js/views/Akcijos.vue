@@ -52,55 +52,48 @@
           detail-key="preke"
           @details-open="(row, index) => $buefy.toast.open(`Išskleista ${ row.preke } prekė!`)"
           :loading="isLoading">
-          <template slot-scope="props">
-            <b-table-column label="Preke" field="preke" :style="{'background-color': 'silver','vertical-align': 'middle'}" sortable> 
+            <b-table-column label="Preke" field="preke" centered cellClass="is-smoke" sortable v-slot="props"> 
               {{ props.row.preke }}
             </b-table-column>
-            <b-table-column label="Kaina" field="pradine" :style="{'background-color': 'silver','vertical-align': 'middle'}" sortable>
+            <b-table-column label="Kaina" field="pradine" centered cellClass="is-smoke" sortable v-slot="props">
               {{ props.row.pradine }}
             </b-table-column>
-            <b-table-column label="Likutis" field="likutis" :style="{'background-color': 'silver','vertical-align': 'middle'}" sortable>
+            <b-table-column label="Likutis" field="likutis" centered cellClass="is-smoke" sortable v-slot="props">
               {{ props.row.likutis }}
             </b-table-column>
 
-            <b-table-column v-if="props.row.sandelis && props.row.sandelis.length > 0" :style="{'background-color': 'tomato', 'vertical-align': 'middle'}" 
-              label="Sandeliui" field="sandelis">
+            <b-table-column :style="{'vertical-align': 'middle'}" 
+              label="Sandeliui" field="sandelis" v-slot="props">
                 <div class="is-size-7" v-for="idx in props.row.sandelis" :key="idx.pavadinimas">
                   {{ idx.pavadinimas }} - {{ idx.kaina }}
                 </div>
             </b-table-column>
-            <b-table-column v-else label="Sandeliui" field="sandelis">
 
-            </b-table-column>
-
-            <b-table-column  :style="{'background-color': 'greenyellow', 'vertical-align': 'middle'}" label="LT Akcija" field="kaina">
+            <b-table-column  cellClass="is-one2" label="LT Akcija" field="kaina" v-slot="props">
               {{ props.row.LT && props.row.LT.kaina }}
             </b-table-column>
-            <b-table-column :style="{'background-color': 'greenyellow', 'vertical-align': 'middle'}" label="LT Kortele" field="akcija">
+            <b-table-column cellClass="is-one2" label="LT Kortele" field="akcija" v-slot="props">
               {{ props.row.LT && props.row.LT.akcija }}
             </b-table-column>
 
-            <b-table-column :style="{'background-color': 'GoldenRod', 'vertical-align': 'middle'}" label="LV Akcija" field="kaina">
+            <b-table-column cellClass="is-two2" label="LV Akcija" field="kaina" v-slot="props">
               {{ props.row.LV && props.row.LV.kaina }}
             </b-table-column>
-            <b-table-column :style="{'background-color': 'GoldenRod', 'vertical-align': 'middle'}" label="LV Kortele" field="akcija">
+            <b-table-column cellClass="is-two2" label="LV Kortele" field="akcija" v-slot="props">
               {{ props.row.LV && props.row.LV.akcija }}
             </b-table-column>
-          </template>
 
-          <template slot="detail" slot-scope="props">
+          <template #detail="props">
             <b-table
             :data="props.row.sandeliai"
             default-sort-direction="asc"
             default-sort="sandelis">
-            <template slot-scope="props">
-                <b-table-column field="name" label="Sandelis" sortable>
+                <b-table-column field="name" label="Sandelis" sortable v-slot="props">
                     <small>{{ props.row.name }}</small>
                 </b-table-column>
-                <b-table-column field="likutis" label="Likutis" sortable>
+                <b-table-column field="likutis" label="Likutis" sortable v-slot="props">
                     <small>{{ props.row.likutis }}</small>
                 </b-table-column>
-            </template>
             </b-table>
         </template>
 
@@ -120,7 +113,7 @@
               </template>
             </div>
           </section>
-          <template slot="footer">
+          <template #footer>
             <th> </th>
             <th> </th>
             <th> </th>
@@ -140,10 +133,6 @@
       </card-component>
     </section>
 </template>
-
-<style>
-
-</style>
 
 <script>
 import CardComponent from '@/components/CardComponent'

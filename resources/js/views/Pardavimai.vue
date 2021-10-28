@@ -56,6 +56,7 @@
           :per-page="perPage"
           :pagination-position="paginationPosition"
         :mobile-cards="false"
+        focusable
         bordered
         hoverable
         :narrowed="true"
@@ -66,72 +67,64 @@
         detail-key="preke"
         @details-open="(row, index) => $buefy.toast.open(`Išskleista ${ row.preke } prekė!`)"
         :loading="isLoading">
-        <template slot-scope="props">
-          <b-table-column label="Preke"  field="preke" sortable>
+          <b-table-column  label="Preke"  field="preke" sortable v-slot="props">
                 {{ props.row.preke }}
           </b-table-column>
-          <b-table-column :visible='rodyti_lt' :style="{'background-color': 'greenyellow'}" label="LIETUVA"  field="LT_viso" sortable>
+          <b-table-column :visible='rodyti_lt' cellClass="is-one2" label="LIETUVA"  field="LT_viso" sortable v-slot="props">
                 {{ props.row.LT_viso }}
           </b-table-column>
-           <b-table-column :visible='rodyti_lv' :style="{'background-color': 'GoldenRod'}" label="LATVIJA"  field="LV_viso" sortable >
+           <b-table-column :visible='rodyti_lv' cellClass="is-two2" label="LATVIJA"  field="LV_viso" sortable v-slot="props">
                 {{ props.row.LV_viso }}
           </b-table-column>
-          <b-table-column :visible='rodyti_ee' :style="{'background-color': 'tomato'}" label="ESTIJA"  field="EE_viso" sortable>
+          <b-table-column :visible='rodyti_ee' cellClass="is-three2" label="ESTIJA"  field="EE_viso" sortable v-slot="props">
                 {{ props.row.EE_viso }}
           </b-table-column>
-          <b-table-column :style="{'background-color': 'WhiteSmoke'}" label="VISO" field="viso" sortable>
-                {{ props.row.viso }}
+          <b-table-column field="viso" cellClass="is-smoke" label="Viso" sortable v-slot="props">
+                    {{ props.row.viso}}
           </b-table-column>
-        </template> 
 
-        <template slot="detail" slot-scope="props">
+        <template #detail="props">
           <div class="columns">
-          <div class="column" v-show='rodyti_lt' :style="{'border': '1px solid', 'background-color': 'greenyellow'}">
+          <div class="column" v-show='rodyti_lt' :style="{'border': '1px solid'}">
             <div class="has-text-centered">Lietuva:</div>
             <b-table
             :data="props.row.LT"
             default-sort-direction="desc"
             default-sort="kiekis">
-            <template slot-scope="props">
-                <b-table-column field="sandelis" label="Sandelis">
+                <b-table-column field="sandelis" cellClass="is-one2" label="Sandelis" v-slot="props">
                     {{ props.row.sandelis }}
                 </b-table-column>
-                <b-table-column field="kiekis" label="Kiekis" sortable>
+                <b-table-column field="kiekis" cellClass="is-one2" label="Kiekis" sortable v-slot="props">
                     {{ props.row.kiekis }}
                 </b-table-column>
-            </template>
             </b-table>
           </div>
-          <div class="column" v-show='rodyti_lv' :style="{'border': '1px solid', 'background-color': 'GoldenRod'}">
+          <div class="column" v-show='rodyti_lv' :style="{'border': '1px solid'}">
             <div class="has-text-centered">Latvija:</div>
             <b-table
             :data="props.row.LV"
             default-sort-direction="desc"
             default-sort="kiekis">
-            <template slot-scope="props">
-                <b-table-column field="sandelis" label="Sandelis">
+                <b-table-column field="sandelis" cellClass="is-two2" label="Sandelis" v-slot="props">
                     {{ props.row.sandelis }}
                 </b-table-column>
-                <b-table-column field="kiekis" label="Kiekis" sortable>
+                <b-table-column field="kiekis" cellClass="is-two2" label="Kiekis" sortable v-slot="props">
                     {{ props.row.kiekis }}
                 </b-table-column>
-            </template>
             </b-table>
           </div>
-          <div class="column" v-show='rodyti_ee' :style="{'border': '1px solid', 'background-color': 'tomato'}">
+          <div class="column" v-show='rodyti_ee' :style="{'border': '1px solid'}">
             <div class="has-text-centered">Estija:</div>
             <b-table
             :data="props.row.EE"
             default-sort-direction="desc"
             default-sort="kiekis">
-            <template slot-scope="props">
-                <b-table-column field="sandelis" label="Sandelis">
+                <b-table-column field="sandelis" cellClass="is-three2" label="Sandelis" v-slot="props">
                     {{ props.row.sandelis }}
                 </b-table-column>
-                <b-table-column field="kiekis" label="Kiekis" sortable>
+                <b-table-column field="kiekis" cellClass="is-three2" label="Kiekis" sortable v-slot="props">
                     {{ props.row.kiekis }}
                 </b-table-column>
-            </template>
             </b-table>
           </div>
         </div>
@@ -158,6 +151,9 @@
       <hr>
       <div class="buttons">
         <b-button size="is-medium" icon-left="printer" type="is-dark" @click="print">SPAUSDINTI</b-button>
+        <vue-excel-xlsx class = "button is-dark is-medium" :data="likutis" :columns="columns" :filename="'Pardavimu_sarasas'" :sheetname="'Pardavimų sąrašas'">
+            ATSISIŲSTI
+        </vue-excel-xlsx>
       </div>
       </card-component>
     </section>
@@ -174,6 +170,13 @@ export default {
   components: {CardToolbar, CardComponent},
   data () {
     return {
+       columns : [
+        {label: "Prekė", field: "preke"},
+        {label: "LT", field: 'LT_viso'},
+        {label: "LV", field: 'LV_viso'},
+        {label: "EE", field: 'EE_viso'},
+        {label: "Likutis", field: 'viso'},
+      ],
       isPaginated: true,
       paginationPosition: 'bottom',
       perPage: 50,

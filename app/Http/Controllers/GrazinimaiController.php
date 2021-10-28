@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Bankas;
-use App\Grazinimai;
+use App\Models\Bankas;
+use App\Models\Grazinimai;
 
-use App\File;
+use App\Models\File;
 use App\Http\Requests\FileUploadRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;

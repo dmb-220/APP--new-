@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Inte;
-use App\Bankas;
-use App\Pardavimai;
+use App\Models\Inte;
+use App\Models\Bankas;
+use App\Models\Pardavimai;
 
-use App\File;
+use App\Models\File;
 use App\Http\Requests\FileUploadRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;

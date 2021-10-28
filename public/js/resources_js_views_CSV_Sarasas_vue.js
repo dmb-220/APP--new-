@@ -129,17 +129,17 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.isUploadSuccess) {
-        return 'File uploaded. Submit to store';
+        return 'Failas įkeltas sėkmingai';
       }
 
       if (this.uploadPercent) {
-        return "Uploading ".concat(this.uploadPercent, "%");
+        return "\u012Ekeliama ".concat(this.uploadPercent, "%");
       }
 
       return this.message;
     },
     uploadButtonText: function uploadButtonText() {
-      return this.fileName ? null : 'Pick a file';
+      return this.fileName ? null : 'Pasirinkite failą';
     },
     uploadButtonIcon: function uploadButtonIcon() {
       return this.fileName ? 'cloud-sync' : 'cloud-upload';
@@ -166,8 +166,9 @@ __webpack_require__.r(__webpack_exports__);
       this.errors = {};
       var formData = new FormData();
       formData.append('file', this.file);
-      this.isUploadSuccess = false;
-      axios.post('/files/store', formData, {
+      this.isUploadSuccess = false; //console.log(JSON.stringify(formData));
+
+      axios.post('/csv/store', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -179,6 +180,7 @@ __webpack_require__.r(__webpack_exports__);
         //   this.isUploadSuccess = false
         //   this.uploadPercent = 0
         // }, 1500)
+        //console.log(JSON.stringify(r.data.upload))
 
         _this.$emit('file-updated', r.data.data);
 
@@ -247,9 +249,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'ModalBox',
   props: {
@@ -257,15 +256,32 @@ __webpack_require__.r(__webpack_exports__);
       type: Boolean,
       "default": false
     },
-    trashObjectName: {
+    confirmLabel: {
       type: String,
-      "default": null
+      "default": 'Patvirtinti'
+    },
+    confirmType: {
+      type: String,
+      "default": 'is-info'
     }
   },
   data: function data() {
     return {
       isModalActive: false
     };
+  },
+  computed: {
+    confirmButtonClass: function confirmButtonClass() {
+      return "button ".concat(this.confirmType);
+    }
+  },
+  methods: {
+    cancel: function cancel() {
+      this.$emit('cancel');
+    },
+    confirm: function confirm() {
+      this.$emit('confirm');
+    }
   },
   watch: {
     isActive: function isActive(newValue) {
@@ -275,14 +291,6 @@ __webpack_require__.r(__webpack_exports__);
       if (!newValue) {
         this.cancel();
       }
-    }
-  },
-  methods: {
-    cancel: function cancel() {
-      this.$emit('cancel');
-    },
-    confirm: function confirm() {
-      this.$emit('confirm');
     }
   }
 });
@@ -493,8 +501,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash/each */ "./node_modules/lodash/each.js");
 /* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash_each__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _components_FilePicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/FilePicker */ "./resources/js/components/FilePicker.vue");
-//
-//
 //
 //
 //
@@ -5910,19 +5916,15 @@ var render = function() {
     [
       _c("div", { staticClass: "modal-card" }, [
         _c("header", { staticClass: "modal-card-head" }, [
-          _c("p", { staticClass: "modal-card-title" }, [
-            _vm._v("Confirm action")
-          ])
+          _c("p", { staticClass: "modal-card-title" }, [_vm._v("Informacija")])
         ]),
         _vm._v(" "),
-        _c("section", { staticClass: "modal-card-body" }, [
-          _c("p", [
-            _vm._v("\n        This will permanently delete "),
-            _c("b", [_vm._v(_vm._s(_vm.trashObjectName))])
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("Action can not be undone.")])
-        ]),
+        _c(
+          "section",
+          { staticClass: "modal-card-body" },
+          [_vm._t("default")],
+          2
+        ),
         _vm._v(" "),
         _c("footer", { staticClass: "modal-card-foot" }, [
           _c(
@@ -5932,13 +5934,13 @@ var render = function() {
               attrs: { type: "button" },
               on: { click: _vm.cancel }
             },
-            [_vm._v("Cancel")]
+            [_vm._v("Atšaukti")]
           ),
           _vm._v(" "),
           _c(
             "button",
-            { staticClass: "button is-danger", on: { click: _vm.confirm } },
-            [_vm._v("Delete")]
+            { class: _vm.confirmButtonClass, on: { click: _vm.confirm } },
+            [_vm._v(_vm._s(_vm.confirmLabel))]
           )
         ])
       ])
@@ -6034,9 +6036,7 @@ var render = function() {
                 2: "LIKUTIS",
                 3: "AKCIJOS",
                 5: "ATSARGŲ ATASKAITA",
-                4: "KELIONĖS LAPAS",
-                7: "INTE PARDAVIMAI",
-                8: "BANKO IŠRAŠAS (CSV)"
+                4: "KELIONĖS LAPAS"
               }
             },
             on: { input: _vm.edit_data },
@@ -6245,128 +6245,130 @@ var render = function() {
                   bordered: false,
                   striped: false,
                   loading: _vm.isLoading
-                },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function(props) {
-                      return [
-                        _c(
-                          "b-table-column",
-                          {
-                            attrs: {
-                              label: "Pavadinimas",
-                              field: "vardas",
-                              sortable: ""
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n          " +
-                                _vm._s(props.row.vardas) +
-                                "\n        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-table-column",
-                          {
-                            attrs: {
-                              label: "Dydis",
-                              field: "dydis",
-                              sortable: ""
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n          " +
-                                _vm._s(props.row.dydis) +
-                                "\n        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-table-column",
-                          {
-                            attrs: {
-                              label: "Modifikuota",
-                              field: "modifikuota",
-                              sortable: ""
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n          " +
-                                _vm._s(props.row.modifikuota) +
-                                "\n        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-table-column",
-                          {
-                            staticClass: "is-actions-cell",
-                            attrs: { "custom-key": "actions" }
-                          },
-                          [
-                            _c("div", { staticClass: "buttons is-right" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "button is-small is-primary",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.editModal(props.row.vardas)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("b-icon", {
-                                    attrs: {
-                                      icon: "account-edit",
-                                      size: "is-small"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "button is-small is-danger",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.trashModal(props.row.vardas)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("b-icon", {
-                                    attrs: {
-                                      icon: "trash-can",
-                                      size: "is-small"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ])
-                          ]
-                        )
-                      ]
-                    }
-                  }
-                ])
+                }
               },
               [
+                _c("b-table-column", {
+                  attrs: {
+                    label: "Pavadinimas",
+                    field: "vardas",
+                    sortable: ""
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function(props) {
+                        return [
+                          _vm._v(
+                            "\n          " +
+                              _vm._s(props.row.vardas) +
+                              "\n        "
+                          )
+                        ]
+                      }
+                    }
+                  ])
+                }),
+                _vm._v(" "),
+                _c("b-table-column", {
+                  attrs: { label: "Dydis", field: "dydis", sortable: "" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function(props) {
+                        return [
+                          _vm._v(
+                            "\n          " +
+                              _vm._s(
+                                (props.row.dydis / 1024 / 1024).toFixed(3)
+                              ) +
+                              " Mb\n        "
+                          )
+                        ]
+                      }
+                    }
+                  ])
+                }),
+                _vm._v(" "),
+                _c("b-table-column", {
+                  attrs: {
+                    label: "Modifikuota",
+                    field: "modifikuota",
+                    sortable: ""
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function(props) {
+                        return [
+                          _vm._v(
+                            "\n          " +
+                              _vm._s(props.row.modifikuota) +
+                              " \n        "
+                          )
+                        ]
+                      }
+                    }
+                  ])
+                }),
+                _vm._v(" "),
+                _c("b-table-column", {
+                  staticClass: "is-actions-cell",
+                  attrs: { "custom-key": "actions" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function(props) {
+                        return [
+                          _c("div", { staticClass: "buttons is-right" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "button is-small is-primary",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.editModal(props.row.vardas)
+                                  }
+                                }
+                              },
+                              [
+                                _c("b-icon", {
+                                  attrs: {
+                                    icon: "account-edit",
+                                    size: "is-small"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "button is-small is-danger",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.trashModal(props.row.vardas)
+                                  }
+                                }
+                              },
+                              [
+                                _c("b-icon", {
+                                  attrs: { icon: "trash-can", size: "is-small" }
+                                })
+                              ],
+                              1
+                            )
+                          ])
+                        ]
+                      }
+                    }
+                  ])
+                }),
                 _vm._v(" "),
                 _c(
                   "section",
@@ -6420,7 +6422,8 @@ var render = function() {
                     )
                   ]
                 )
-              ]
+              ],
+              1
             )
           ],
           1

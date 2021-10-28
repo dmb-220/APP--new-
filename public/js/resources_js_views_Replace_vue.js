@@ -55,7 +55,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
 /* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'vue2-editor'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 //
 //
 //
@@ -82,16 +81,13 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 //
 //
 
-
- // Advanced Use - Hook into Quill's API for Custom Functionality
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Replace",
   components: {
     CardToolbar: _components_CardToolbar__WEBPACK_IMPORTED_MODULE_2__["default"],
-    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
-    VueEditor: Object(function webpackMissingModule() { var e = new Error("Cannot find module 'vue2-editor'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {

@@ -462,6 +462,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -486,6 +488,7 @@ __webpack_require__.r(__webpack_exports__);
       file_grazinimai: null,
       failas_bankas: "",
       failas_grazinimai: "",
+      no_input: false,
       graza: []
     };
   },
@@ -504,6 +507,7 @@ __webpack_require__.r(__webpack_exports__);
       // Pass the element id here
       this.mobile_card = false;
       this.isvezta = false;
+      this.no_input = false;
       this.$htmlToPaper('printMe');
     },
     onRowClass: function onRowClass(row) {
@@ -5220,7 +5224,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Grazinimai_vue_vue_type_template_id_5f69e398_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Grazinimai.vue?vue&type=template&id=5f69e398&scoped=true& */ "./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&scoped=true&");
+/* harmony import */ var _Grazinimai_vue_vue_type_template_id_5f69e398___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Grazinimai.vue?vue&type=template&id=5f69e398& */ "./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&");
 /* harmony import */ var _Grazinimai_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Grazinimai.vue?vue&type=script&lang=js& */ "./resources/js/views/Grazinimai.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -5232,11 +5236,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Grazinimai_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Grazinimai_vue_vue_type_template_id_5f69e398_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Grazinimai_vue_vue_type_template_id_5f69e398_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _Grazinimai_vue_vue_type_template_id_5f69e398___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Grazinimai_vue_vue_type_template_id_5f69e398___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "5f69e398",
+  null,
   null
   
 )
@@ -5363,19 +5367,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&scoped=true&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&scoped=true& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398& ***!
+  \**************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Grazinimai_vue_vue_type_template_id_5f69e398_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Grazinimai_vue_vue_type_template_id_5f69e398_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Grazinimai_vue_vue_type_template_id_5f69e398___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Grazinimai_vue_vue_type_template_id_5f69e398___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Grazinimai_vue_vue_type_template_id_5f69e398_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Grazinimai.vue?vue&type=template&id=5f69e398&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Grazinimai_vue_vue_type_template_id_5f69e398___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Grazinimai.vue?vue&type=template&id=5f69e398& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&");
 
 
 /***/ }),
@@ -5613,10 +5617,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Grazinimai.vue?vue&type=template&id=5f69e398& ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5695,6 +5699,29 @@ var render = function() {
           { attrs: { title: "Grazinimas LIETUVA", icon: "account-multiple" } },
           [
             _c(
+              "b-field",
+              [
+                _c(
+                  "b-checkbox",
+                  {
+                    attrs: { value: true, type: "is-info" },
+                    model: {
+                      value: _vm.no_input,
+                      callback: function($$v) {
+                        _vm.no_input = $$v
+                      },
+                      expression: "no_input"
+                    }
+                  },
+                  [_vm._v("Redaguoti informacija")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
               "div",
               { attrs: { id: "printMe2" } },
               [
@@ -5724,154 +5751,208 @@ var render = function() {
                     },
                     scopedSlots: _vm._u([
                       {
-                        key: "default",
-                        fn: function(props) {
+                        key: "footer",
+                        fn: function() {
                           return [
-                            _c(
-                              "b-table-column",
-                              {
-                                attrs: {
-                                  label: "Data",
-                                  field: "data",
-                                  sortable: ""
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n              " +
-                                    _vm._s(props.row.data) +
-                                    "\n        "
-                                )
-                              ]
-                            ),
+                            _c("th", { staticClass: "has-text-right" }),
                             _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                attrs: {
-                                  label: "Nr",
-                                  field: "saskaitos_nr",
-                                  sortable: ""
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n              " +
-                                    _vm._s(props.row.saskaitos_nr) +
-                                    "\n        "
-                                )
-                              ]
-                            ),
+                            _c("th"),
                             _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                staticClass: "has-text-right",
-                                attrs: { label: "SUMA", field: "suma" }
-                              },
-                              [
-                                _c("b-input", {
-                                  attrs: { type: "text" },
-                                  model: {
-                                    value: props.row.suma,
-                                    callback: function($$v) {
-                                      _vm.$set(props.row, "suma", $$v)
-                                    },
-                                    expression: "props.row.suma"
-                                  }
-                                })
-                              ],
-                              1
-                            ),
+                            _c("th"),
                             _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                attrs: { label: "Unikalus", field: "unikalus" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n              " +
-                                    _vm._s(props.row.unikalus) +
-                                    "\n        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              { attrs: { label: "Saskaita", field: "bankas" } },
-                              [
-                                _c("b-input", {
-                                  attrs: { type: "text" },
-                                  model: {
-                                    value:
-                                      props.row.bankas &&
-                                      props.row.bankas.saskaita,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        props.row.bankas && props.row.bankas,
-                                        "saskaita",
-                                        $$v
-                                      )
-                                    },
-                                    expression:
-                                      "props.row.bankas && props.row.bankas.saskaita"
-                                  }
-                                })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                attrs: { label: "Pirkejas", field: "pirkejas" }
-                              },
-                              [
-                                _c("b-input", {
-                                  attrs: { type: "text" },
-                                  model: {
-                                    value:
-                                      props.row.bankas &&
-                                      props.row.bankas.pavadinimas,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        props.row.bankas && props.row.bankas,
-                                        "pavadinimas",
-                                        $$v
-                                      )
-                                    },
-                                    expression:
-                                      "props.row.bankas && props.row.bankas.pavadinimas "
-                                  }
-                                })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                attrs: {
-                                  label: "Prestashop",
-                                  field: "pirkejas"
-                                }
-                              },
-                              [
-                                _c("small", [
-                                  _vm._v(
-                                    "( " + _vm._s(props.row.pirkejas) + " )"
-                                  )
-                                ])
-                              ]
-                            )
+                            _c("th", { staticClass: "has-text-right" })
                           ]
-                        }
+                        },
+                        proxy: true
                       }
                     ])
                   },
                   [
+                    _c("b-table-column", {
+                      attrs: { label: "Data", field: "data", sortable: "" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(props.row.data) +
+                                  "\n        "
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: {
+                        label: "Nr",
+                        field: "saskaitos_nr",
+                        sortable: ""
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(props.row.saskaitos_nr) +
+                                  "\n        "
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      staticClass: "has-text-right",
+                      attrs: { label: "SUMA", field: "suma" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm.no_input
+                                ? _c("b-input", {
+                                    attrs: { type: "text" },
+                                    model: {
+                                      value: props.row.suma,
+                                      callback: function($$v) {
+                                        _vm.$set(props.row, "suma", $$v)
+                                      },
+                                      expression: "props.row.suma"
+                                    }
+                                  })
+                                : _c("div", [_vm._v(_vm._s(props.row.suma))])
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: { label: "Unikalus", field: "unikalus" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(props.row.unikalus) +
+                                  "\n        "
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: { label: "Saskaita", field: "bankas" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm.no_input
+                                ? _c("b-input", {
+                                    attrs: { type: "text" },
+                                    model: {
+                                      value:
+                                        props.row.bankas &&
+                                        props.row.bankas.saskaita,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          props.row.bankas && props.row.bankas,
+                                          "saskaita",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "props.row.bankas && props.row.bankas.saskaita"
+                                    }
+                                  })
+                                : _c("div", [
+                                    _vm._v(
+                                      _vm._s(
+                                        props.row.bankas &&
+                                          props.row.bankas.saskaita
+                                      )
+                                    )
+                                  ])
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: {
+                        label: "Pirkejas",
+                        cellClass: "is-smoke",
+                        field: "pirkejas"
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _vm.no_input
+                                ? _c("b-input", {
+                                    attrs: { type: "text" },
+                                    model: {
+                                      value:
+                                        props.row.bankas &&
+                                        props.row.bankas.pavadinimas,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          props.row.bankas && props.row.bankas,
+                                          "pavadinimas",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "props.row.bankas && props.row.bankas.pavadinimas"
+                                    }
+                                  })
+                                : _c("div", [
+                                    _vm._v(
+                                      _vm._s(
+                                        props.row.bankas &&
+                                          props.row.bankas.pavadinimas
+                                      )
+                                    )
+                                  ])
+                            ]
+                          }
+                        }
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: {
+                        label: "Prestashop",
+                        cellClass: "is-smoke",
+                        field: "pirkejas"
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function(props) {
+                            return [
+                              _c("small", [
+                                _vm._v("( " + _vm._s(props.row.pirkejas) + " )")
+                              ])
+                            ]
+                          }
+                        }
+                      ])
+                    }),
                     _vm._v(" "),
                     _c(
                       "section",
@@ -5922,19 +6003,9 @@ var render = function() {
                           2
                         )
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c("template", { slot: "footer" }, [
-                      _c("th", { staticClass: "has-text-right" }),
-                      _vm._v(" "),
-                      _c("th"),
-                      _vm._v(" "),
-                      _c("th"),
-                      _vm._v(" "),
-                      _c("th", { staticClass: "has-text-right" })
-                    ])
+                    )
                   ],
-                  2
+                  1
                 ),
                 _vm._v(" "),
                 _c("br")
@@ -5972,7 +6043,7 @@ var render = function() {
                         },
                         on: { click: _vm.xml }
                       },
-                      [_vm._v("ATSISIŪSTI")]
+                      [_vm._v("ATSISIŲSTI")]
                     )
                   : _c(
                       "b-button",
@@ -5985,12 +6056,13 @@ var render = function() {
                         },
                         on: { click: _vm.xml }
                       },
-                      [_vm._v("ATSISIŪSTI")]
+                      [_vm._v("ATSISIŲSTI")]
                     )
               ],
               1
             )
-          ]
+          ],
+          1
         )
       ],
       1

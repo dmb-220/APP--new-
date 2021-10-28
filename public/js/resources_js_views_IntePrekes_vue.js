@@ -223,9 +223,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'ModalBox',
   props: {
@@ -233,15 +230,32 @@ __webpack_require__.r(__webpack_exports__);
       type: Boolean,
       "default": false
     },
-    trashObjectName: {
+    confirmLabel: {
       type: String,
-      "default": null
+      "default": 'Patvirtinti'
+    },
+    confirmType: {
+      type: String,
+      "default": 'is-info'
     }
   },
   data: function data() {
     return {
       isModalActive: false
     };
+  },
+  computed: {
+    confirmButtonClass: function confirmButtonClass() {
+      return "button ".concat(this.confirmType);
+    }
+  },
+  methods: {
+    cancel: function cancel() {
+      this.$emit('cancel');
+    },
+    confirm: function confirm() {
+      this.$emit('confirm');
+    }
   },
   watch: {
     isActive: function isActive(newValue) {
@@ -251,14 +265,6 @@ __webpack_require__.r(__webpack_exports__);
       if (!newValue) {
         this.cancel();
       }
-    }
-  },
-  methods: {
-    cancel: function cancel() {
-      this.$emit('cancel');
-    },
-    confirm: function confirm() {
-      this.$emit('confirm');
     }
   }
 });
@@ -464,7 +470,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -477,6 +482,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      isFullPage: true,
       isModalLikutis: false,
       adv: {
         header: false
@@ -589,6 +595,7 @@ __webpack_require__.r(__webpack_exports__);
     likutisConfirm: function likutisConfirm(failai) {
       var _this3 = this;
 
+      this.isLoading = true;
       this.isModalLikutis = false;
       axios.post("/intepreke/store", {
         file_LT: failai.LT
@@ -2471,19 +2478,15 @@ var render = function() {
     [
       _c("div", { staticClass: "modal-card" }, [
         _c("header", { staticClass: "modal-card-head" }, [
-          _c("p", { staticClass: "modal-card-title" }, [
-            _vm._v("Confirm action")
-          ])
+          _c("p", { staticClass: "modal-card-title" }, [_vm._v("Informacija")])
         ]),
         _vm._v(" "),
-        _c("section", { staticClass: "modal-card-body" }, [
-          _c("p", [
-            _vm._v("\n        This will permanently delete "),
-            _c("b", [_vm._v(_vm._s(_vm.trashObjectName))])
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("Action can not be undone.")])
-        ]),
+        _c(
+          "section",
+          { staticClass: "modal-card-body" },
+          [_vm._t("default")],
+          2
+        ),
         _vm._v(" "),
         _c("footer", { staticClass: "modal-card-foot" }, [
           _c(
@@ -2493,13 +2496,13 @@ var render = function() {
               attrs: { type: "button" },
               on: { click: _vm.cancel }
             },
-            [_vm._v("Cancel")]
+            [_vm._v("Atšaukti")]
           ),
           _vm._v(" "),
           _c(
             "button",
-            { staticClass: "button is-danger", on: { click: _vm.confirm } },
-            [_vm._v("Delete")]
+            { class: _vm.confirmButtonClass, on: { click: _vm.confirm } },
+            [_vm._v(_vm._s(_vm.confirmLabel))]
           )
         ])
       ])
@@ -2605,6 +2608,17 @@ var render = function() {
         "section",
         { staticClass: "section is-main-section" },
         [
+          _c("b-loading", {
+            attrs: { "is-full-page": _vm.isFullPage },
+            model: {
+              value: _vm.isLoading,
+              callback: function($$v) {
+                _vm.isLoading = $$v
+              },
+              expression: "isLoading"
+            }
+          }),
+          _vm._v(" "),
           _c(
             "card-component",
             { attrs: { title: "VALDYMAS", icon: "account-multiple" } },
@@ -2872,132 +2886,155 @@ var render = function() {
                       },
                       scopedSlots: _vm._u([
                         {
-                          key: "default",
-                          fn: function(props) {
+                          key: "footer",
+                          fn: function() {
                             return [
-                              _c(
-                                "b-table-column",
-                                {
-                                  attrs: {
-                                    label: "Preke",
-                                    field: "preke",
-                                    sortable: ""
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n              " +
-                                      _vm._s(props.row.preke) +
-                                      "\n        "
-                                  )
-                                ]
-                              ),
+                              _c("th", { staticClass: "has-text-right" }, [
+                                _vm._v("VISO:")
+                              ]),
                               _vm._v(" "),
-                              _c(
-                                "b-table-column",
-                                {
-                                  style: { "background-color": "silver" },
-                                  attrs: { label: "Viso" }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n              " +
-                                      _vm._s(
-                                        (props.row.liko_LT
-                                          ? props.row.liko_LT
-                                          : 0) +
-                                          (props.row.liko_LV
-                                            ? props.row.liko_LV
-                                            : 0) +
-                                          (props.row.liko_EE
-                                            ? props.row.liko_EE
-                                            : 0)
-                                      ) +
-                                      "\n        "
-                                  )
-                                ]
-                              ),
+                              _c("th"),
                               _vm._v(" "),
-                              _c(
-                                "b-table-column",
-                                {
-                                  style: { "background-color": "greenyellow" },
-                                  attrs: {
-                                    label: "LIETUVA",
-                                    field: "liko_LT",
-                                    sortable: ""
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n              YRA: " +
-                                      _vm._s(
-                                        props.row.liko_LT
-                                          ? props.row.liko_LT
-                                          : 0
-                                      ) +
-                                      " / BUS: " +
-                                      _vm._s(props.row.new_LT) +
-                                      "\n        "
-                                  )
-                                ]
-                              ),
+                              _c("th"),
                               _vm._v(" "),
-                              _c(
-                                "b-table-column",
-                                {
-                                  style: { "background-color": "GoldenRod" },
-                                  attrs: {
-                                    label: "LATVIJA",
-                                    field: "liko_LV",
-                                    sortable: ""
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n              YRA: " +
-                                      _vm._s(
-                                        props.row.liko_LV
-                                          ? props.row.liko_LV
-                                          : 0
-                                      ) +
-                                      " / BUS: " +
-                                      _vm._s(props.row.new_LV) +
-                                      "\n        "
-                                  )
-                                ]
-                              ),
+                              _c("th", { staticClass: "has-text-right" }),
                               _vm._v(" "),
-                              _c(
-                                "b-table-column",
-                                {
-                                  style: { "background-color": "tomato" },
-                                  attrs: {
-                                    label: "ESTIJA",
-                                    field: "liko_EE",
-                                    sortable: ""
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n              YRA: " +
-                                      _vm._s(
-                                        props.row.liko_EE
-                                          ? props.row.liko_EE
-                                          : 0
-                                      ) +
-                                      " / BUS: " +
-                                      _vm._s(props.row.new_EE) +
-                                      "\n        "
-                                  )
-                                ]
-                              )
+                              _c("th", { staticClass: "has-text-right" }),
+                              _vm._v(" "),
+                              _c("th", { staticClass: "has-text-right" })
                             ]
-                          }
+                          },
+                          proxy: true
                         }
                       ])
                     },
                     [
+                      _c("b-table-column", {
+                        attrs: { label: "Preke", field: "preke", sortable: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function(props) {
+                              return [
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(props.row.preke) +
+                                    "\n        "
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: { cellClass: "is-smoke", label: "Viso" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function(props) {
+                              return [
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(
+                                      (props.row.liko_LT
+                                        ? props.row.liko_LT
+                                        : 0) +
+                                        (props.row.liko_LV
+                                          ? props.row.liko_LV
+                                          : 0) +
+                                        (props.row.liko_EE
+                                          ? props.row.liko_EE
+                                          : 0)
+                                    ) +
+                                    "\n        "
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          cellClass: "is-one2",
+                          label: "LIETUVA",
+                          field: "liko_LT",
+                          sortable: ""
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function(props) {
+                              return [
+                                _vm._v(
+                                  "\n              YRA: " +
+                                    _vm._s(
+                                      props.row.liko_LT ? props.row.liko_LT : 0
+                                    ) +
+                                    " / BUS: " +
+                                    _vm._s(props.row.new_LT) +
+                                    "\n        "
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          cellClass: "is-two2",
+                          label: "LATVIJA",
+                          field: "liko_LV",
+                          sortable: ""
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function(props) {
+                              return [
+                                _vm._v(
+                                  "\n              YRA: " +
+                                    _vm._s(
+                                      props.row.liko_LV ? props.row.liko_LV : 0
+                                    ) +
+                                    " / BUS: " +
+                                    _vm._s(props.row.new_LV) +
+                                    "\n        "
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
+                        attrs: {
+                          cellClass: "is-three2",
+                          label: "ESTIJA",
+                          field: "liko_EE",
+                          sortable: ""
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function(props) {
+                              return [
+                                _vm._v(
+                                  "\n              YRA: " +
+                                    _vm._s(
+                                      props.row.liko_EE ? props.row.liko_EE : 0
+                                    ) +
+                                    " / BUS: " +
+                                    _vm._s(props.row.new_EE) +
+                                    "\n        "
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      }),
                       _vm._v(" "),
                       _c(
                         "section",
@@ -3048,25 +3085,9 @@ var render = function() {
                             2
                           )
                         ]
-                      ),
-                      _vm._v(" "),
-                      _c("template", { slot: "footer" }, [
-                        _c("th", { staticClass: "has-text-right" }, [
-                          _vm._v("VISO:")
-                        ]),
-                        _vm._v(" "),
-                        _c("th"),
-                        _vm._v(" "),
-                        _c("th"),
-                        _vm._v(" "),
-                        _c("th", { staticClass: "has-text-right" }),
-                        _vm._v(" "),
-                        _c("th", { staticClass: "has-text-right" }),
-                        _vm._v(" "),
-                        _c("th", { staticClass: "has-text-right" })
-                      ])
+                      )
                     ],
-                    2
+                    1
                   ),
                   _vm._v(" "),
                   _c("br")

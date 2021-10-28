@@ -304,17 +304,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2172,247 +2161,289 @@ var render = function() {
                   },
                   scopedSlots: _vm._u([
                     {
-                      key: "default",
+                      key: "detail",
                       fn: function(props) {
                         return [
                           _c(
-                            "b-table-column",
+                            "b-table",
                             {
-                              style: {
-                                "background-color": "silver",
-                                "vertical-align": "middle"
-                              },
                               attrs: {
-                                label: "Preke",
-                                field: "preke",
-                                sortable: ""
+                                data: props.row.sandeliai,
+                                "default-sort-direction": "asc",
+                                "default-sort": "sandelis"
                               }
                             },
                             [
-                              _vm._v(
-                                " \n          " +
-                                  _vm._s(props.row.preke) +
-                                  "\n        "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-table-column",
-                            {
-                              style: {
-                                "background-color": "silver",
-                                "vertical-align": "middle"
-                              },
-                              attrs: {
-                                label: "Kaina",
-                                field: "pradine",
-                                sortable: ""
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n          " +
-                                  _vm._s(props.row.pradine) +
-                                  "\n        "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-table-column",
-                            {
-                              style: {
-                                "background-color": "silver",
-                                "vertical-align": "middle"
-                              },
-                              attrs: {
-                                label: "Likutis",
-                                field: "likutis",
-                                sortable: ""
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n          " +
-                                  _vm._s(props.row.likutis) +
-                                  "\n        "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          props.row.sandelis && props.row.sandelis.length > 0
-                            ? _c(
-                                "b-table-column",
-                                {
-                                  style: {
-                                    "background-color": "tomato",
-                                    "vertical-align": "middle"
-                                  },
-                                  attrs: {
-                                    label: "Sandeliui",
-                                    field: "sandelis"
-                                  }
+                              _c("b-table-column", {
+                                attrs: {
+                                  field: "name",
+                                  label: "Sandelis",
+                                  sortable: ""
                                 },
-                                _vm._l(props.row.sandelis, function(idx) {
-                                  return _c(
-                                    "div",
+                                scopedSlots: _vm._u(
+                                  [
                                     {
-                                      key: idx.pavadinimas,
-                                      staticClass: "is-size-7"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n              " +
-                                          _vm._s(idx.pavadinimas) +
-                                          " - " +
-                                          _vm._s(idx.kaina) +
-                                          "\n            "
-                                      )
-                                    ]
-                                  )
-                                }),
-                                0
-                              )
-                            : _c("b-table-column", {
-                                attrs: { label: "Sandeliui", field: "sandelis" }
+                                      key: "default",
+                                      fn: function(props) {
+                                        return [
+                                          _c("small", [
+                                            _vm._v(_vm._s(props.row.name))
+                                          ])
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  null,
+                                  true
+                                )
                               }),
-                          _vm._v(" "),
-                          _c(
-                            "b-table-column",
-                            {
-                              style: {
-                                "background-color": "greenyellow",
-                                "vertical-align": "middle"
-                              },
-                              attrs: { label: "LT Akcija", field: "kaina" }
-                            },
-                            [
-                              _vm._v(
-                                "\n          " +
-                                  _vm._s(props.row.LT && props.row.LT.kaina) +
-                                  "\n        "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-table-column",
-                            {
-                              style: {
-                                "background-color": "greenyellow",
-                                "vertical-align": "middle"
-                              },
-                              attrs: { label: "LT Kortele", field: "akcija" }
-                            },
-                            [
-                              _vm._v(
-                                "\n          " +
-                                  _vm._s(props.row.LT && props.row.LT.akcija) +
-                                  "\n        "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-table-column",
-                            {
-                              style: {
-                                "background-color": "GoldenRod",
-                                "vertical-align": "middle"
-                              },
-                              attrs: { label: "LV Akcija", field: "kaina" }
-                            },
-                            [
-                              _vm._v(
-                                "\n          " +
-                                  _vm._s(props.row.LV && props.row.LV.kaina) +
-                                  "\n        "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-table-column",
-                            {
-                              style: {
-                                "background-color": "GoldenRod",
-                                "vertical-align": "middle"
-                              },
-                              attrs: { label: "LV Kortele", field: "akcija" }
-                            },
-                            [
-                              _vm._v(
-                                "\n          " +
-                                  _vm._s(props.row.LV && props.row.LV.akcija) +
-                                  "\n        "
-                              )
-                            ]
+                              _vm._v(" "),
+                              _c("b-table-column", {
+                                attrs: {
+                                  field: "likutis",
+                                  label: "Likutis",
+                                  sortable: ""
+                                },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "default",
+                                      fn: function(props) {
+                                        return [
+                                          _c("small", [
+                                            _vm._v(_vm._s(props.row.likutis))
+                                          ])
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  null,
+                                  true
+                                )
+                              })
+                            ],
+                            1
                           )
                         ]
                       }
                     },
                     {
-                      key: "detail",
-                      fn: function(props) {
+                      key: "footer",
+                      fn: function() {
                         return [
-                          _c("b-table", {
-                            attrs: {
-                              data: props.row.sandeliai,
-                              "default-sort-direction": "asc",
-                              "default-sort": "sandelis"
-                            },
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "default",
-                                  fn: function(props) {
-                                    return [
-                                      _c(
-                                        "b-table-column",
-                                        {
-                                          attrs: {
-                                            field: "name",
-                                            label: "Sandelis",
-                                            sortable: ""
-                                          }
-                                        },
-                                        [
-                                          _c("small", [
-                                            _vm._v(_vm._s(props.row.name))
-                                          ])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "b-table-column",
-                                        {
-                                          attrs: {
-                                            field: "likutis",
-                                            label: "Likutis",
-                                            sortable: ""
-                                          }
-                                        },
-                                        [
-                                          _c("small", [
-                                            _vm._v(_vm._s(props.row.likutis))
-                                          ])
-                                        ]
-                                      )
-                                    ]
-                                  }
-                                }
-                              ],
-                              null,
-                              true
-                            )
-                          })
+                          _c("th"),
+                          _vm._v(" "),
+                          _c("th"),
+                          _vm._v(" "),
+                          _c("th"),
+                          _vm._v(" "),
+                          _c("th", [_vm._v(_vm._s(_vm.bendras))]),
+                          _vm._v(" "),
+                          _c("th"),
+                          _vm._v(" "),
+                          _c("th"),
+                          _vm._v(" "),
+                          _c("th"),
+                          _vm._v(" "),
+                          _c("th"),
+                          _vm._v(" "),
+                          _c("th")
                         ]
-                      }
+                      },
+                      proxy: true
                     }
                   ])
                 },
                 [
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Preke",
+                      field: "preke",
+                      centered: "",
+                      cellClass: "is-smoke",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              " \n          " +
+                                _vm._s(props.row.preke) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Kaina",
+                      field: "pradine",
+                      centered: "",
+                      cellClass: "is-smoke",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.pradine) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Likutis",
+                      field: "likutis",
+                      centered: "",
+                      cellClass: "is-smoke",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.likutis) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    style: { "vertical-align": "middle" },
+                    attrs: { label: "Sandeliui", field: "sandelis" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return _vm._l(props.row.sandelis, function(idx) {
+                            return _c(
+                              "div",
+                              {
+                                key: idx.pavadinimas,
+                                staticClass: "is-size-7"
+                              },
+                              [
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(idx.pavadinimas) +
+                                    " - " +
+                                    _vm._s(idx.kaina) +
+                                    "\n            "
+                                )
+                              ]
+                            )
+                          })
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      cellClass: "is-one2",
+                      label: "LT Akcija",
+                      field: "kaina"
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.LT && props.row.LT.kaina) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      cellClass: "is-one2",
+                      label: "LT Kortele",
+                      field: "akcija"
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.LT && props.row.LT.akcija) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      cellClass: "is-two2",
+                      label: "LV Akcija",
+                      field: "kaina"
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.LV && props.row.LV.kaina) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      cellClass: "is-two2",
+                      label: "LV Kortele",
+                      field: "akcija"
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(props.row.LV && props.row.LV.akcija) +
+                                "\n        "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
                   _vm._v(" "),
                   _vm._v(" "),
                   _c(
@@ -2464,29 +2495,9 @@ var render = function() {
                         2
                       )
                     ]
-                  ),
-                  _vm._v(" "),
-                  _c("template", { slot: "footer" }, [
-                    _c("th"),
-                    _vm._v(" "),
-                    _c("th"),
-                    _vm._v(" "),
-                    _c("th"),
-                    _vm._v(" "),
-                    _c("th", [_vm._v(_vm._s(_vm.bendras))]),
-                    _vm._v(" "),
-                    _c("th"),
-                    _vm._v(" "),
-                    _c("th"),
-                    _vm._v(" "),
-                    _c("th"),
-                    _vm._v(" "),
-                    _c("th"),
-                    _vm._v(" "),
-                    _c("th")
-                  ])
+                  )
                 ],
-                2
+                1
               )
             ],
             1

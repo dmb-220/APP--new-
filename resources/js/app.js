@@ -9,9 +9,25 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios, axios);
 
+import JsonCSV from 'vue-json-csv'
+Vue.component('downloadCsv', JsonCSV)
+
+import wysiwyg from "vue-wysiwyg";
+Vue.use(wysiwyg, {}); // config is optional. more below
+import "vue-wysiwyg/dist/vueWysiwyg.css";
+
 import VueExcelXlsx from "vue-excel-xlsx";
 Vue.use(VueExcelXlsx);
 
+import VueHtmlToPaper from 'vue-html-to-paper';
+const options = {
+  name: '_blank',
+  specs: ['fullscreen=yes',],
+  styles: ['https://unpkg.com/buefy/dist/buefy.min.css', 'http://app.test/css/print.css',]
+}
+Vue.use(VueHtmlToPaper, options);
+// or, using the defaults with no stylesheet
+Vue.use(VueHtmlToPaper);
 
 /* Router & Store */
 import router from './router'

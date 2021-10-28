@@ -92,23 +92,21 @@
         :data="duomenys"
         sort-icon="arrow-up"
         :loading="isLoading">
-        <template slot-scope="props">
-          <b-table-column :style="{'background-color': 'silver'}" label="Pavadinimas"  field="pavadinimas">
+          <b-table-column cellClass="is-smoke" label="Pavadinimas"  field="pavadinimas" v-slot="props">
                 {{ props.row.pavadinimas }}
           </b-table-column>
           <b-table-column label="MATO, Vnt.">
                 Vnt.
           </b-table-column>
-          <b-table-column class="has-text-right" label="Kiekis"  field="kiekis">
+          <b-table-column class="has-text-right" label="Kiekis"  field="kiekis" v-slot="props">
                 {{ props.row.kiekis }}
           </b-table-column>
-          <b-table-column class="has-text-right" label="Kaina"  field="kaina">
+          <b-table-column class="has-text-right" label="Kaina"  field="kaina" v-slot="props">
                 {{ props.row.kaina }}
           </b-table-column>
-          <b-table-column class="has-text-right" label="Suma, Eur">
+          <b-table-column class="has-text-right" label="Suma, Eur" v-slot="props">
                 {{ props.row.suma  }}
           </b-table-column>
-        </template> 
 
         <section class="section" slot="empty">
           <div class="content has-text-centered">
@@ -126,7 +124,7 @@
             </template>
           </div>
         </section>
-        <template slot="footer">
+        <template #footer>
               <th class="has-text-right">VISO:</th>
               <th> </th>
               <th class="has-text-right">{{total_kiekis}}</th>
@@ -162,7 +160,20 @@
 
 </template>
 
-
+<style>
+.is-one2 {
+    background: #BFFCC6 !important;
+}
+.is-two2 {
+    background: #FFF5BA !important;
+}
+.is-three2 {
+    background: #FFABAB !important;
+}
+.is-smoke {
+    background: WhiteSmoke !important;
+}
+</style>
 
 <script>
 import map from 'lodash/map'
@@ -183,10 +194,10 @@ export default {
       rodyti_lv: true,
       rodyti_ee: false,
       rodo: '',
-      data: '2020',
-      nr: '20200',
+      data: '2021',
+      nr: '20210',
       nr_rodyti: false,
-      nr2: '20200',
+      nr2: '20210',
       date: '',
     }
   },

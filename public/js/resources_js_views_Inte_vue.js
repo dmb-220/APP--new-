@@ -523,8 +523,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
-//
-//
 
 
 
@@ -568,7 +566,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         label: "Pirkėjas",
         field: "pirkejas"
       }],
-      color: ['is-one', 'is-two', 'is-three'],
+      color: ['is-one2', 'is-two2', 'is-three2'],
       file_bankas: null,
       file_pardavimai: null,
       failas_bankas: "",
@@ -6005,257 +6003,408 @@ var render = function() {
                         scopedSlots: _vm._u(
                           [
                             {
-                              key: "default",
-                              fn: function(props) {
+                              key: "footer",
+                              fn: function() {
                                 return [
-                                  _c(
-                                    "b-table-column",
-                                    { attrs: { label: "Nr." } },
-                                    [
-                                      _vm._v(
-                                        "\n            " +
-                                          _vm._s(props.index + 1) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  ),
+                                  _c("th", { staticClass: "has-text-right" }, [
+                                    _vm._v("VISO:")
+                                  ]),
                                   _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      attrs: {
-                                        label: "Data",
-                                        field: "data",
-                                        sortable: ""
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(props.row.data) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  ),
+                                  _c("th"),
                                   _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      attrs: {
-                                        label: "DINETA",
-                                        field: "saskaitos_nr",
-                                        sortable: ""
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(props.row.saskaitos_nr) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  ),
+                                  _c("th"),
                                   _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      staticClass: "has-text-right",
-                                      attrs: {
-                                        label: "Prestahop",
-                                        field: "unikalus"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(props.row.unikalus) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  ),
+                                  _c("th"),
                                   _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      staticClass: "has-text-right",
-                                      attrs: { label: "Su PVM", field: "suma" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(
-                                            parseFloat(props.row.suma).toFixed(
-                                              2
+                                  _c("th", { staticClass: "has-text-right" }, [
+                                    _vm._v(_vm._s(_vm.apy_suma.toFixed(2)))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("th", { staticClass: "has-text-right" }, [
+                                    _vm._v(_vm._s(_vm.apy_suma2.toFixed(2)))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("th", { staticClass: "has-text-right" }, [
+                                    _vm._v(_vm._s(_vm.apy_pvm.toFixed(2)))
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm.rodo == 1 ||
+                                  _vm.rodo == 3 ||
+                                  _vm.rodo == 4
+                                    ? _c(
+                                        "th",
+                                        { staticClass: "has-text-right" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              parseFloat(
+                                                _vm.apy_pristatymas
+                                              ).toFixed(2)
                                             )
-                                          ) +
-                                          "\n          "
+                                          )
+                                        ]
                                       )
-                                    ]
-                                  ),
+                                    : _c("th", {
+                                        staticClass: "has-text-right"
+                                      }),
                                   _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      staticClass: "has-text-right",
-                                      attrs: {
-                                        label: "Be PVM",
-                                        field: "pardavimo_suma"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(
-                                            parseFloat(
-                                              props.row.pardavimo_suma
-                                            ).toFixed(2)
-                                          ) +
-                                          "\n          "
+                                  _vm.rodo == 1 ||
+                                  _vm.rodo == 3 ||
+                                  _vm.rodo == 4
+                                    ? _c(
+                                        "th",
+                                        { staticClass: "has-text-right" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              parseFloat(
+                                                _vm.apy_suma +
+                                                  _vm.apy_pristatymas
+                                              ).toFixed(2)
+                                            )
+                                          )
+                                        ]
                                       )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      staticClass: "has-text-right",
-                                      attrs: {
-                                        label: "PVM 21%",
-                                        field: "pvm_suma"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(
-                                            parseFloat(
-                                              props.row.pvm_suma
-                                            ).toFixed(2)
-                                          ) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      staticClass: "has-text-right",
-                                      attrs: {
-                                        visible:
-                                          _vm.rodo == 1 ||
-                                          _vm.rodo == 3 ||
-                                          _vm.rodo == 4,
-                                        label: "Pristatymas",
-                                        field: "pristatymas"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(
-                                            parseFloat(
-                                              props.row.pristatymas
-                                            ).toFixed(2)
-                                          ) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      staticClass: "has-text-right",
-                                      attrs: {
-                                        visible:
-                                          _vm.rodo == 1 ||
-                                          _vm.rodo == 3 ||
-                                          _vm.rodo == 4,
-                                        label: "Per banka, Eur",
-                                        field: ""
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(
-                                            parseFloat(
-                                              props.row.pristatymas +
-                                                props.row.suma
-                                            ).toFixed(2)
-                                          ) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      attrs: {
-                                        label: "Bankas",
-                                        field: "bankas"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(
-                                            props.row.bankas &&
-                                              props.row.bankas.suma
-                                          ) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      staticClass: "has-text-right",
-                                      attrs: {
-                                        visible: _vm.rodo == 2,
-                                        label: "TEST",
-                                        field: "bankas"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                 " +
-                                          _vm._s(props.row.bankas_list) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "b-table-column",
-                                    {
-                                      attrs: {
-                                        label: "Pirkėjas",
-                                        field: "pirkejas",
-                                        sortable: ""
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(props.row.pirkejas) +
-                                          "\n          "
-                                      )
-                                    ]
-                                  )
+                                    : _c("th", {
+                                        staticClass: "has-text-right"
+                                      })
                                 ]
-                              }
+                              },
+                              proxy: true
                             }
                           ],
                           null,
                           false,
-                          2350167981
+                          3856602285
                         )
                       },
                       [
+                        _c("b-table-column", {
+                          attrs: { label: "Nr." },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n            " +
+                                        _vm._s(props.index + 1) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            1557957757
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          attrs: { label: "Data", field: "data", sortable: "" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(props.row.data) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            2788062381
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          attrs: {
+                            label: "DINETA",
+                            field: "saskaitos_nr",
+                            sortable: ""
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(props.row.saskaitos_nr) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            3019436436
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          staticClass: "has-text-right",
+                          attrs: { label: "Prestahop", field: "unikalus" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(props.row.unikalus) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            2043302831
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          staticClass: "has-text-right",
+                          attrs: { label: "Su PVM", field: "suma" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(
+                                          parseFloat(props.row.suma).toFixed(2)
+                                        ) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            4267384611
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          staticClass: "has-text-right",
+                          attrs: { label: "Be PVM", field: "pardavimo_suma" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(
+                                          parseFloat(
+                                            props.row.pardavimo_suma
+                                          ).toFixed(2)
+                                        ) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            3169445287
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          staticClass: "has-text-right",
+                          attrs: { label: "PVM 21%", field: "pvm_suma" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(
+                                          parseFloat(
+                                            props.row.pvm_suma
+                                          ).toFixed(2)
+                                        ) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            1811622967
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          staticClass: "has-text-right",
+                          attrs: {
+                            visible:
+                              _vm.rodo == 1 || _vm.rodo == 3 || _vm.rodo == 4,
+                            label: "Pristatymas",
+                            field: "pristatymas"
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(
+                                          parseFloat(
+                                            props.row.pristatymas
+                                          ).toFixed(2)
+                                        ) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            2622664854
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          staticClass: "has-text-right",
+                          attrs: {
+                            visible:
+                              _vm.rodo == 1 || _vm.rodo == 3 || _vm.rodo == 4,
+                            label: "Per banka, Eur",
+                            field: ""
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(
+                                          parseFloat(
+                                            props.row.pristatymas +
+                                              props.row.suma
+                                          ).toFixed(2)
+                                        ) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            330803219
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          attrs: { label: "Bankas", field: "bankas" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(
+                                          props.row.bankas &&
+                                            props.row.bankas.suma
+                                        ) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            3605974557
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          staticClass: "has-text-right",
+                          attrs: {
+                            visible: _vm.rodo == 2,
+                            label: "TEST",
+                            field: "bankas"
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                 " +
+                                        _vm._s(props.row.bankas_list) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            1341264884
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          attrs: {
+                            label: "Pirkėjas",
+                            field: "pirkejas",
+                            sortable: ""
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(props) {
+                                  return [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(props.row.pirkejas) +
+                                        "\n          "
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            3915940128
+                          )
+                        }),
                         _vm._v(" "),
                         _c(
                           "section",
@@ -6306,55 +6455,9 @@ var render = function() {
                               2
                             )
                           ]
-                        ),
-                        _vm._v(" "),
-                        _c("template", { slot: "footer" }, [
-                          _c("th", { staticClass: "has-text-right" }, [
-                            _vm._v("VISO:")
-                          ]),
-                          _vm._v(" "),
-                          _c("th"),
-                          _vm._v(" "),
-                          _c("th"),
-                          _vm._v(" "),
-                          _c("th"),
-                          _vm._v(" "),
-                          _c("th", { staticClass: "has-text-right" }, [
-                            _vm._v(_vm._s(_vm.apy_suma.toFixed(2)))
-                          ]),
-                          _vm._v(" "),
-                          _c("th", { staticClass: "has-text-right" }, [
-                            _vm._v(_vm._s(_vm.apy_suma2.toFixed(2)))
-                          ]),
-                          _vm._v(" "),
-                          _c("th", { staticClass: "has-text-right" }, [
-                            _vm._v(_vm._s(_vm.apy_pvm.toFixed(2)))
-                          ]),
-                          _vm._v(" "),
-                          _vm.rodo == 1 || _vm.rodo == 3 || _vm.rodo == 4
-                            ? _c("th", { staticClass: "has-text-right" }, [
-                                _vm._v(
-                                  _vm._s(
-                                    parseFloat(_vm.apy_pristatymas).toFixed(2)
-                                  )
-                                )
-                              ])
-                            : _c("th", { staticClass: "has-text-right" }),
-                          _vm._v(" "),
-                          _vm.rodo == 1 || _vm.rodo == 3 || _vm.rodo == 4
-                            ? _c("th", { staticClass: "has-text-right" }, [
-                                _vm._v(
-                                  _vm._s(
-                                    parseFloat(
-                                      _vm.apy_suma + _vm.apy_pristatymas
-                                    ).toFixed(2)
-                                  )
-                                )
-                              ])
-                            : _c("th", { staticClass: "has-text-right" })
-                        ])
+                        )
                       ],
-                      2
+                      1
                     )
                   ],
                   1

@@ -3,6 +3,7 @@
    <modal-likutis-box :is-active="isModalLikutis" @confirm="likutisConfirm" @cancel="likutisCancel"/>
 
     <section class="section is-main-section">
+    <b-loading :is-full-page="isFullPage" v-model="isLoading"></b-loading>
       <card-component title="VALDYMAS" icon="account-multiple">
         <button class="button is-primary" type="button" @click.prevent="likutisModal">
           ĮKELTI LIKUČIUS
@@ -54,23 +55,21 @@
         checkable
         :checkbox-position="checkboxPosition"
         default-sort="preke">
-        <template slot-scope="props">
-          <b-table-column label="Preke" field="preke" sortable>
+          <b-table-column label="Preke" field="preke" sortable v-slot="props">
                 {{props.row.preke}}
           </b-table-column>
-          <b-table-column :style="{'background-color': 'silver'}" label="Viso">
+          <b-table-column cellClass="is-smoke" label="Viso" v-slot="props">
                 {{ (props.row.liko_LT ? props.row.liko_LT : 0) + (props.row.liko_LV ? props.row.liko_LV : 0) + (props.row.liko_EE ? props.row.liko_EE : 0) }}
           </b-table-column>
-          <b-table-column :style="{'background-color': 'greenyellow'}" label="LIETUVA"  field="liko_LT" sortable>
+          <b-table-column cellClass="is-one2" label="LIETUVA"  field="liko_LT" sortable v-slot="props">
                 YRA: {{ props.row.liko_LT ? props.row.liko_LT : 0 }} / BUS: {{ props.row.new_LT }}
           </b-table-column>
-          <b-table-column :style="{'background-color': 'GoldenRod'}" label="LATVIJA"  field="liko_LV" sortable>
+          <b-table-column cellClass="is-two2" label="LATVIJA"  field="liko_LV" sortable v-slot="props">
                 YRA: {{ props.row.liko_LV ? props.row.liko_LV : 0 }} / BUS: {{ props.row.new_LV }}
           </b-table-column>
-          <b-table-column :style="{'background-color': 'tomato'}"  label="ESTIJA"  field="liko_EE" sortable>
+          <b-table-column cellClass="is-three2"  label="ESTIJA"  field="liko_EE" sortable v-slot="props">
                 YRA: {{ props.row.liko_EE ? props.row.liko_EE : 0 }} / BUS: {{ props.row.new_EE }}
           </b-table-column>
-        </template>
       
         <section class="section" slot="empty">
           <div class="content has-text-centered">
@@ -88,7 +87,7 @@
             </template>
           </div>
         </section>
-        <template slot="footer">
+        <template #footer>
               <th class="has-text-right">VISO:</th>
               <th> </th>
               <th> </th>
@@ -137,6 +136,7 @@ export default {
   components: {CardToolbar, CardComponent, ModalLikutisBox},
   data () {
     return {
+      isFullPage: true,
       isModalLikutis: false,
       adv: {
         header: false,
@@ -257,6 +257,7 @@ export default {
     },
 
     likutisConfirm (failai) {
+      this.isLoading = true
       this.isModalLikutis = false
       axios
         .post(`/intepreke/store`, {

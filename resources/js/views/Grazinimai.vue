@@ -15,6 +15,10 @@
         </b-field>
       </card-component>
       <card-component title="Grazinimas LIETUVA" icon="account-multiple">
+      <b-field>
+        <b-checkbox v-model="no_input" :value="true" type="is-info">Redaguoti informacija</b-checkbox>
+      </b-field>
+      <hr>
         <div  id="printMe2">
         <b-table
          :checked-rows.sync="checkedRows"
@@ -28,29 +32,30 @@
         :loading="isLoading"
         default-sort-direction="asc"
         default-sort="saskaitos_nr">
-        <template slot-scope="props">
-          <b-table-column label="Data" field="data" sortable>
+          <b-table-column label="Data" field="data" sortable v-slot="props">
                 {{props.row.data}}
           </b-table-column>
-          <b-table-column label="Nr"  field="saskaitos_nr" sortable>
+          <b-table-column label="Nr"  field="saskaitos_nr" sortable v-slot="props">
                 {{ props.row.saskaitos_nr }}
           </b-table-column>
-          <b-table-column class="has-text-right" label="SUMA"  field="suma">
-                <b-input type="text" v-model="props.row.suma"></b-input>
+          <b-table-column class="has-text-right" label="SUMA"  field="suma" v-slot="props">
+                <b-input v-if="no_input" type="text" v-model="props.row.suma"></b-input>
+                <div v-else>{{ props.row.suma }}</div>
           </b-table-column>
-           <b-table-column label="Unikalus"  field="unikalus">
+           <b-table-column label="Unikalus"  field="unikalus" v-slot="props">
                 {{ props.row.unikalus }}
           </b-table-column>
-          <b-table-column label="Saskaita"  field="bankas">
-            <b-input type="text" v-model="props.row.bankas && props.row.bankas.saskaita"></b-input>
+          <b-table-column label="Saskaita"  field="bankas" v-slot="props">
+            <b-input v-if="no_input" type="text" v-model="props.row.bankas && props.row.bankas.saskaita"></b-input>
+            <div v-else>{{ props.row.bankas && props.row.bankas.saskaita }}</div>
           </b-table-column>
-          <b-table-column label="Pirkejas"  field="pirkejas">
-          <b-input type="text" v-model="props.row.bankas && props.row.bankas.pavadinimas "></b-input>
+          <b-table-column label="Pirkejas" cellClass="is-smoke" field="pirkejas" v-slot="props">
+          <b-input v-if="no_input" type="text" v-model="props.row.bankas && props.row.bankas.pavadinimas"></b-input>
+          <div v-else>{{ props.row.bankas && props.row.bankas.pavadinimas }}</div>
           </b-table-column>
-          <b-table-column label="Prestashop"  field="pirkejas">
+          <b-table-column label="Prestashop" cellClass="is-smoke"  field="pirkejas" v-slot="props">
                 <small>( {{ props.row.pirkejas }} )</small>
           </b-table-column>
-        </template> 
         <section class="section" slot="empty">
           <div class="content has-text-centered">
             <template v-if="isLoading">
@@ -67,7 +72,7 @@
             </template>
           </div>
         </section>
-        <template slot="footer">
+        <template #footer>
               <th class="has-text-right"></th>
               <th> </th>
               <th> </th>
@@ -80,8 +85,8 @@
       <hr>
       <div class="buttons">
         <b-button size="is-medium" icon-left="printer" type="is-dark" @click="print">SPAUSDINTI</b-button>
-        <b-button size="is-medium" icon-left="download" type="is-dark" v-if="checkedRows.length > 0" @click="xml">ATSISIŪSTI</b-button>
-        <b-button size="is-medium" icon-left="download" type="is-dark" v-else disabled @click="xml">ATSISIŪSTI</b-button>
+        <b-button size="is-medium" icon-left="download" type="is-dark" v-if="checkedRows.length > 0" @click="xml">ATSISIŲSTI</b-button>
+        <b-button size="is-medium" icon-left="download" type="is-dark" v-else disabled @click="xml">ATSISIŲSTI</b-button>
       </div>
       </card-component>
     </section>
@@ -89,9 +94,6 @@
 
 </template>
 
-<style  scoped>
-    
-</style>
 
 <script>
 import map from 'lodash/map'
@@ -120,7 +122,7 @@ export default {
       file_grazinimai: null,
       failas_bankas: "",
       failas_grazinimai: "",
-
+      no_input: false,
       graza: [],
 
     }
@@ -141,6 +143,7 @@ export default {
       // Pass the element id here
       this.mobile_card = false;
       this.isvezta = false;
+      this.no_input = false;
       this.$htmlToPaper('printMe');
     },
     onRowClass: function (row) {

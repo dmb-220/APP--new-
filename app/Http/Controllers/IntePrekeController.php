@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\IntePreke;
+use App\Models\IntePreke;
 //use App\Pardavimai;
 //use App\Likutis;
 //use App\Atsargos;
-use App\File;
+use App\Models\File;
 use App\Http\Requests\FileUploadRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;

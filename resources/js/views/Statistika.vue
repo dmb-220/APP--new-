@@ -360,15 +360,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.is-one2 {
-    background: #BFFCC6 !important;
-}
-.is-two2 {
-    background: #FFF5BA !important;
-}
-.is-three2 {
-    background: #FFABAB !important;
-}
-</style>

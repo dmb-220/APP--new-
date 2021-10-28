@@ -25,11 +25,7 @@ class FileUploadRequest extends FormRequest
     public function rules()
     {
         return [
-            'file' => [
-                'required',
-                'image',
-                Rule::dimensions()->maxWidth(1000)->maxHeight(1000)->ratio(1),
-            ],
+            'file' => 'required|mimes:csv,txt',
         ];
     }
 }

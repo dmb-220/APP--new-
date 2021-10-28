@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83818087be9664ab02d22ebefa518a6d",
+    "content-hash": "e36661005ffed4c9d43e844c98c323cc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2123,6 +2123,51 @@
                 "source": "https://github.com/opis/closure/tree/3.6.2"
             },
             "time": "2021-04-09T13:42:10+00:00"
+        },
+        {
+            "name": "perryfaro/sepa",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/perryfaro/sepa.git",
+                "reference": "fb38002ae17347a8b6de3fe31a4a58522e088bae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/perryfaro/sepa/zipball/fb38002ae17347a8b6de3fe31a4a58522e088bae",
+                "reference": "fb38002ae17347a8b6de3fe31a4a58522e088bae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sepa\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Perry Faro"
+                }
+            ],
+            "description": "Creates an XML file for a Single Euro Payments Area (SEPA) Credit Transfer.",
+            "keywords": [
+                "Banking",
+                "SCT",
+                "sepa",
+                "xml"
+            ],
+            "support": {
+                "issues": "https://github.com/perryfaro/sepa/issues",
+                "source": "https://github.com/perryfaro/sepa/tree/v1.0.4"
+            },
+            "time": "2021-01-06T16:10:27+00:00"
         },
         {
             "name": "phpoption/phpoption",

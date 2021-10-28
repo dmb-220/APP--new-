@@ -32,12 +32,73 @@ export default new Router({
       name: 'Prekes',
       component: () => import('./views/Prekes.vue')
     },
-    /*
+    {
+      path: '/akcijos',
+      name: 'akcijos',
+      component: () => import('./views/Akcijos.vue')
+    },
+    {
+      path: '/kelione',
+      name: 'kelione',
+      component: () => import('./views/Keliones.vue')
+    },
+    {
+      path: '/grazinimai',
+      name: 'grazinimai',
+      component: () => import('./views/Grazinimai.vue')
+    },
+    {
+      path: '/grazinimai_lv',
+      name: 'grazinimai_lv',
+      component: () => import('./views/Grazinimai_LV.vue')
+    },
+
+    {
+      path: '/grazinimai_ee',
+      name: 'grazinimai_ee',
+      component: () => import('./views/Grazinimai_EE.vue')
+    },
+    {
+      path: '/inte_prekes',
+      name: 'inte_prekes',
+      component: () => import('./views/IntePrekes.vue')
+    },
+    {
+      path: '/inte',
+      name: 'inte',
+      component: () => import('./views/Inte.vue')
+    },
+    {
+      path: '/intepigu',
+      name: 'intepigu',
+      component: () => import('./views/Intepigu.vue')
+    },
+    {
+      path: '/inteee',
+      name: 'inteee',
+      component: () => import('./views/Inteee.vue')
+    },
+    {
+      path: '/intelv',
+      name: 'intelv',
+      component: () => import('./views/Intelv.vue')
+    },
+    {
+      path: '/replace',
+      name: 'replace',
+      component: () => import('./views/Replace.vue')
+    },
+    {
+      path: '/replacelv',
+      name: 'replacelv',
+      component: () => import('./views/ReplaceLV.vue')
+    },
     {
       path: '/CSV_sarasas',
       name: 'CSV_sarasas',
       component: () => import('./views/CSV_Sarasas.vue')
     },
+    /*
     {
       path: '/sandeliai',
       name: 'sandeliai',
@@ -48,16 +109,7 @@ export default new Router({
       name: 'vaztarasciai',
       component: () => import('./views/Vaztarasciai.vue')
     },
-    {
-      path: '/kelione',
-      name: 'kelione',
-      component: () => import('./views/Keliones.vue')
-    },
-    {
-      path: '/akcijos',
-      name: 'akcijos',
-      component: () => import('./views/Akcijos.vue')
-    },
+    
     {
       path: '/analize',
       name: 'analize',
@@ -88,66 +140,11 @@ export default new Router({
       name: 'testas',
       component: () => import('./views/Testas.vue')
     },
-    {
-      path: '/inte',
-      name: 'inte',
-      component: () => import('./views/Inte.vue')
-    },
-    {
-      path: '/intepigu',
-      name: 'intepigu',
-      component: () => import('./views/Intepigu.vue')
-    },
-    {
-      path: '/inteee',
-      name: 'inteee',
-      component: () => import('./views/Inteee.vue')
-    },
-    {
-      path: '/intelv',
-      name: 'intelv',
-      component: () => import('./views/Intelv.vue')
-    },
-
-    {
-      path: '/inte_prekes',
-      name: 'inte_prekes',
-      component: () => import('./views/IntePrekes.vue')
-    },
-
-    {
-      path: '/grazinimai',
-      name: 'grazinimai',
-      component: () => import('./views/Grazinimai.vue')
-    },
-    {
-      path: '/grazinimai_lv',
-      name: 'grazinimai_lv',
-      component: () => import('./views/Grazinimai_LV.vue')
-    },
-
-    {
-      path: '/grazinimai_ee',
-      name: 'grazinimai_ee',
-      component: () => import('./views/Grazinimai_EE.vue')
-    },
 
     {
       path: '/visi_likuciai',
       name: 'visi_likuciai',
       component: () => import('./views/VisiLikuciai.vue')
-    },
-
-    {
-      path: '/replace',
-      name: 'replace',
-      component: () => import('./views/Replace.vue')
-    },
-
-    {
-      path: '/replacelv',
-      name: 'replacelv',
-      component: () => import('./views/ReplaceLV.vue')
     },
 
     {

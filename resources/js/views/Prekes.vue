@@ -242,8 +242,8 @@
       <hr>
       <div class="buttons">
         <b-button size="is-medium" icon-left="printer" type="is-dark" @click="print">SPAUSDINTI</b-button>
-        <vue-excel-xlsx class = "button is-dark is-medium" :data="sarasas" :columns="columns" :filename="'prekes'" :sheetname="'Prekių sąrašas'">
-            Atsisiusti
+        <vue-excel-xlsx class = "button is-dark is-medium" :data="sarasas" :columns="columns" :filename="'Prekiu_sarasas'" :sheetname="'Prekių sąrašas'">
+            ATSISIŲSTI
         </vue-excel-xlsx>
       </div>
       </card-component>
@@ -251,21 +251,6 @@
   </div>
 
 </template>
-
-<style>
-.is-one2 {
-    background: #BFFCC6 !important;
-}
-.is-two2 {
-    background: #FFF5BA !important;
-}
-.is-three2 {
-    background: #FFABAB !important;
-}
-.is-smoke {
-    background: WhiteSmoke !important;
-}
-</style>
 
 <script>
 import map from 'lodash/map'

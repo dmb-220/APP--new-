@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Pardavimai;
-use App\Likutis;
-use App\Akcijos;
-use App\Kelione;
-use App\Atsargos;
-use App\Pirkimai;
-use App\Bankas;
-use App\Inte;
+use App\Models\Pardavimai;
+use App\Models\Likutis;
+use App\Models\Akcijos;
+use App\Models\Kelione;
+use App\Models\Atsargos;
+use App\Models\Pirkimai;
+use App\Models\Bankas;
+use App\Models\Inte;
 
-use App\File;
+use App\Models\File;
 use App\Http\Requests\FileUploadRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;

@@ -46,44 +46,42 @@
           default-sort-direction="asc"
           :row-class="onRowClass"
           default-sort="saskaitos_nr">
-          <template slot-scope="props">
-            <b-table-column label="Nr.">
+            <b-table-column label="Nr." v-slot="props">
               {{props.index + 1}}
             </b-table-column>
-            <b-table-column label="Data" field="data" sortable>
+            <b-table-column label="Data" field="data" sortable v-slot="props">
                   {{props.row.data}}
             </b-table-column>
-            <b-table-column label="DINETA"  field="saskaitos_nr" sortable>
+            <b-table-column label="DINETA"  field="saskaitos_nr" sortable v-slot="props">
                   {{ props.row.saskaitos_nr }}
             </b-table-column>
-            <b-table-column class="has-text-right" label="PIGU ID"  field="unikalus">
+            <b-table-column class="has-text-right" label="PIGU ID"  field="unikalus" v-slot="props">
                   {{ props.row.unikalus }}
             </b-table-column>
-            <b-table-column class="has-text-right" label="Su PVM"  field="suma">
+            <b-table-column class="has-text-right" label="Su PVM"  field="suma" v-slot="props">
                   {{  parseFloat(props.row.suma).toFixed(2) }}
             </b-table-column>
-            <b-table-column class="has-text-right" label="Be PVM"  field="pardavimo_suma">
+            <b-table-column class="has-text-right" label="Be PVM"  field="pardavimo_suma" v-slot="props">
                   {{  parseFloat(props.row.pardavimo_suma).toFixed(2) }}
             </b-table-column>
-            <b-table-column class="has-text-right" label="PVM 21%"  field="pvm_suma">
+            <b-table-column class="has-text-right" label="PVM 21%"  field="pvm_suma" v-slot="props">
                   {{  parseFloat(props.row.pvm_suma).toFixed(2) }}
             </b-table-column>
-            <b-table-column :visible="rodo == 1" class="has-text-right" label="Pristatymas"  field="pristatymas">
+            <b-table-column :visible="rodo == 1" class="has-text-right" label="Pristatymas"  field="pristatymas" v-slot="props">
                   {{ parseFloat(props.row.pristatymas).toFixed(2) }}
             </b-table-column>
-            <b-table-column :visible="rodo == 1" class="has-text-right" label="Per banka, Eur"  field="">
+            <b-table-column :visible="rodo == 1" class="has-text-right" label="Per banka, Eur"  field="" v-slot="props">
                   {{ parseFloat(props.row.pristatymas + props.row.suma).toFixed(2) }}
             </b-table-column>
-            <b-table-column label="Bankas"  field="bankas">
+            <b-table-column label="Bankas"  field="bankas" v-slot="props">
                   {{ props.row.bankas && props.row.bankas.suma }}
             </b-table-column>
-            <b-table-column :visible="rodo == 2" class="has-text-right" label="TEST"  field="bankas">
+            <b-table-column :visible="rodo == 2" class="has-text-right" label="TEST"  field="bankas" v-slot="props">
                    {{ props.row.bankas_list }}
             </b-table-column>
-            <b-table-column label="Pirkėjas" field="pirkejas" sortable>
+            <b-table-column label="Pirkėjas" field="pirkejas" sortable v-slot="props">
                   {{props.row.pirkejas}}
             </b-table-column>
-          </template> 
           <section class="section" slot="empty">
             <div class="content has-text-centered">
               <template v-if="isLoading">
@@ -100,7 +98,7 @@
               </template>
             </div>
           </section>
-          <template slot="footer">
+          <template #footer>
                 <th class="has-text-right">VISO:</th>
                 <th> </th>
                 <th> </th>
@@ -163,7 +161,7 @@ export default {
         {label: "Pirkėjas", field: "pirkejas"},
       ],
       color: [
-        'is-one', 'is-two', 'is-three'
+        'is-one2', 'is-two2', 'is-three2'
       ],
 
       file_pardavimai: null,
