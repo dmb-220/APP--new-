@@ -76,25 +76,28 @@ class CSVController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        $uploadedFile = $request->file('file');
+        $files = $request->file('file');
 
-        if (!$uploadedFile->isValid()) {
-            abort( 422 );}
+        //foreach($uploadedFile as $files){
+            if (!$files->isValid()) {
+                abort( 422 );
+            }
 
-        $storePath = $uploadedFile->storeAs('CSV_DATA', $uploadedFile->getClientOriginalName());
-        $file = new File;
+            $storePath = $files->storeAs('CSV_DATA', $files->getClientOriginalName());
+            $file = new File;
 
-        $file->name = $uploadedFile->getClientOriginalName();
-        $file->file = $storePath;
-        $file->mime = $uploadedFile->getMimeType();
-        $file->size = $uploadedFile->getSize();
+            $file->name = $files->getClientOriginalName();
+            $file->file = $storePath;
+            $file->mime = $files->getMimeType();
+            $file->size = $files->getSize();
 
-        $file->save();
+            $file->save();
+        //}
 
         return response()->json([
             'status' => true,
             'data' => $file,
-            'upload' => $uploadedFile
+            'upload' => $files
         ]);
     }
 

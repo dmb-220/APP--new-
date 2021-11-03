@@ -1,9 +1,7 @@
 <template>
     <section class="section is-main-section">
       <card-component title="VALDYMAS" icon="finance">
-        <b-field  label="CSV failas:" horizontal>
           <file-picker-akcijos @file-updated="file_info" v-model="file"/>
-        </b-field>
         <b-field label="Sandelis:" horizontal>
             <b-input placeholder="Sandelis likučiams"
               v-model="sandelis"

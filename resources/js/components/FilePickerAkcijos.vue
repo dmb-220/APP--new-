@@ -1,19 +1,18 @@
 <template>
   <b-field :label="label" :message="fieldFileMessage" :type="fieldFileType">
-    <b-field>
-      <b-upload v-model="file" @input="upload">
-        <a class="button is-primary">
-          <b-icon :icon="uploadButtonIcon" custom-size="default"/>
-          <span v-if="uploadButtonText">{{ uploadButtonText }}</span>
-        </a>
-      </b-upload>
-      <div v-if="fileName" class="control">
-        <a class="button is-static is-file-upload-label">
-          <span :title="fileName">{{ fileName }}</span>
-          <span class="delete" @click.prevent="dropFile"></span>
-        </a>
-      </div>
-    </b-field>
+    <b-upload v-model="file" @input="upload" drag-drop expanded> 
+      <section class="section">      
+        <div class="content has-text-centered">
+          <p>
+            <b-icon :icon="uploadButtonIcon" size="is-large"></b-icon>
+          </p>
+          <p v-if="uploadButtonText">{{ uploadButtonText }}</p>
+        </div>  
+      </section>     
+    </b-upload>
+    <div v-if="fileName" class="control">
+      <span :title="fileName">{{ fileName }} </span>
+    </div>
   </b-field>
 </template>
 
@@ -25,7 +24,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: null,
+      default: 'CSV failo įkėlimas',
     },
     message: {
       type: String,
@@ -60,7 +59,7 @@ export default {
       return this.message
     },
     uploadButtonText() {
-      return (this.fileName) ? null : 'Pasirinkite failą'
+      return (this.fileName) ? 'Rinktis sekantį failą' : 'Pasirinkite failą'
     },
     uploadButtonIcon() {
       return (this.fileName) ? 'cloud-sync' : 'cloud-upload'

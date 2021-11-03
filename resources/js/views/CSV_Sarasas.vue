@@ -2,9 +2,7 @@
   <div>
     <section class="section is-main-section">
       <card-component title="CSV įkėlimas" icon="ballot">
-        <b-field label="CSV failas:" horizontal>
-          <file-picker @file-updated="file_info" v-model="file"/>
-        </b-field>
+        <file-picker @file-updated="file_info" v-model="file"/>
       </card-component>
       <card-component title="Sąrašas" icon="ballot">
         <modal-trash-box :is-active="isModalActive" :trash-subject="trashObjectName" @confirm="trashConfirm" @cancel="trashCancel"/>

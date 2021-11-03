@@ -31,14 +31,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'FilePickerAkcijos',
   props: {
     label: {
       type: String,
-      "default": null
+      "default": 'CSV akcijos failu įkėlimas'
     },
     message: {
       type: String,
@@ -73,7 +72,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.message;
     },
     uploadButtonText: function uploadButtonText() {
-      return this.fileName ? null : 'Pasirinkite failą';
+      return this.fileName ? 'Rinktis sekantį failą' : 'Pasirinkite failą';
     },
     uploadButtonIcon: function uploadButtonIcon() {
       return this.fileName ? 'cloud-sync' : 'cloud-upload';
@@ -168,8 +167,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
 /* harmony import */ var _components_FilePickerAkcijos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/FilePickerAkcijos */ "./resources/js/components/FilePickerAkcijos.vue");
-//
-//
 //
 //
 //
@@ -1898,67 +1895,46 @@ var render = function() {
     },
     [
       _c(
-        "b-field",
-        [
-          _c(
-            "b-upload",
-            {
-              on: { input: _vm.upload },
-              model: {
-                value: _vm.file,
-                callback: function($$v) {
-                  _vm.file = $$v
-                },
-                expression: "file"
-              }
+        "b-upload",
+        {
+          attrs: { "drag-drop": "", expanded: "" },
+          on: { input: _vm.upload },
+          model: {
+            value: _vm.file,
+            callback: function($$v) {
+              _vm.file = $$v
             },
-            [
+            expression: "file"
+          }
+        },
+        [
+          _c("section", { staticClass: "section" }, [
+            _c("div", { staticClass: "content has-text-centered" }, [
               _c(
-                "a",
-                { staticClass: "button is-primary" },
+                "p",
                 [
                   _c("b-icon", {
-                    attrs: {
-                      icon: _vm.uploadButtonIcon,
-                      "custom-size": "default"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.uploadButtonText
-                    ? _c("span", [_vm._v(_vm._s(_vm.uploadButtonText))])
-                    : _vm._e()
+                    attrs: { icon: _vm.uploadButtonIcon, size: "is-large" }
+                  })
                 ],
                 1
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _vm.fileName
-            ? _c("div", { staticClass: "control" }, [
-                _c(
-                  "a",
-                  { staticClass: "button is-static is-file-upload-label" },
-                  [
-                    _c("span", { attrs: { title: _vm.fileName } }, [
-                      _vm._v(_vm._s(_vm.fileName))
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "delete",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.dropFile.apply(null, arguments)
-                        }
-                      }
-                    })
-                  ]
-                )
-              ])
-            : _vm._e()
-        ],
-        1
-      )
+              ),
+              _vm._v(" "),
+              _vm.uploadButtonText
+                ? _c("p", [_vm._v(_vm._s(_vm.uploadButtonText))])
+                : _vm._e()
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _vm.fileName
+        ? _c("div", { staticClass: "control" }, [
+            _c("span", { attrs: { title: _vm.fileName } }, [
+              _vm._v(_vm._s(_vm.fileName) + " ")
+            ])
+          ])
+        : _vm._e()
     ],
     1
   )
@@ -1994,23 +1970,16 @@ var render = function() {
         "card-component",
         { attrs: { title: "VALDYMAS", icon: "finance" } },
         [
-          _c(
-            "b-field",
-            { attrs: { label: "CSV failas:", horizontal: "" } },
-            [
-              _c("file-picker-akcijos", {
-                on: { "file-updated": _vm.file_info },
-                model: {
-                  value: _vm.file,
-                  callback: function($$v) {
-                    _vm.file = $$v
-                  },
-                  expression: "file"
-                }
-              })
-            ],
-            1
-          ),
+          _c("file-picker-akcijos", {
+            on: { "file-updated": _vm.file_info },
+            model: {
+              value: _vm.file,
+              callback: function($$v) {
+                _vm.file = $$v
+              },
+              expression: "file"
+            }
+          }),
           _vm._v(" "),
           _c(
             "b-field",
