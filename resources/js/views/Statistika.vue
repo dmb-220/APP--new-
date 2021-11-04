@@ -91,10 +91,10 @@
                     <b-table-column field="preke" label="Prekė" sortable v-slot="props">
                         {{ props.row.preke }}
                     </b-table-column>
-                    <b-table-column :style="{'background-color': 'LightGray'}" label="Likučiai" field="likutis" sortable v-slot="props">
+                    <b-table-column label="Likučiai" field="likutis" sortable v-slot="props">
                         {{ props.row.likutis }}
                     </b-table-column>
-                    <b-table-column :style="{'background-color': 'LightGray'}" label="Pardavimai" field="pardavimai" sortable v-slot="props">
+                    <b-table-column label="Pardavimai" field="pardavimai" sortable v-slot="props">
                         {{ props.row.pardavimai }}
                     </b-table-column>
                 </b-table>

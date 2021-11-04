@@ -37,7 +37,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     label: {
       type: String,
-      "default": 'CSV akcijos failu įkėlimas'
+      "default": 'CSV failo įkėlimas'
     },
     message: {
       type: String,

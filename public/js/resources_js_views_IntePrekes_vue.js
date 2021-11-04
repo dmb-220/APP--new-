@@ -459,17 +459,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -504,16 +493,11 @@ __webpack_require__.r(__webpack_exports__);
         label: "Blanko nr.",
         field: "nr"
       }],
-      checkboxPosition: 'left',
-      checkedRows: [],
+      tags: ['H-', 'MZ-1C', 'MZ-1L', 'MZ-1M', 'STM-1k', 'STMP-1k'],
       ieskoti: '',
-      paieska_big: '',
+      paieska_big: false,
       paieska: '',
       salis: [],
-      check_list: [],
-      isPaginated: true,
-      paginationPosition: 'bottom',
-      perPage: 50,
       dates: [],
       showDetailIcon: false,
       isLoading: false,
@@ -539,6 +523,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post("/intepreke/store_save", {
         ieskoti: this.ieskoti,
+        tags: this.tags,
         paieska_big: this.paieska_big,
         salis: this.salis
       }).then(function (response) {
@@ -576,9 +561,10 @@ __webpack_require__.r(__webpack_exports__);
         _this2.isLoading = false;
         _this2.sarasas = response.data.sarasas;
         _this2.LTto = response.data.LTto;
-        _this2.paieska_big = response.data.paieska_big;
+        _this2.paieska_big = response.data.paieska_big ? true : false;
         _this2.paieska = response.data.paieska;
         _this2.salis = response.data.salis;
+        _this2.tags = response.data.tags;
       })["catch"](function (err) {
         _this2.isLoading = false;
 
@@ -2644,11 +2630,12 @@ var render = function() {
                 "b-field",
                 { attrs: { label: "PAIEŠKA:", horizontal: "" } },
                 [
-                  _c("b-input", {
+                  _c("b-taginput", {
                     attrs: {
-                      placeholder: "Paieška...",
-                      type: "search",
-                      icon: "magnify"
+                      ellipsis: "",
+                      icon: "label",
+                      placeholder: "Pridėti prekę",
+                      "aria-close-label": "Ištrinti prekę"
                     },
                     nativeOn: {
                       keyup: function($event) {
@@ -2668,11 +2655,11 @@ var render = function() {
                       }
                     },
                     model: {
-                      value: _vm.ieskoti,
+                      value: _vm.tags,
                       callback: function($$v) {
-                        _vm.ieskoti = $$v
+                        _vm.tags = $$v
                       },
-                      expression: "ieskoti"
+                      expression: "tags"
                     }
                   }),
                   _vm._v(" "),
@@ -2699,7 +2686,7 @@ var render = function() {
                   _c(
                     "b-checkbox",
                     {
-                      attrs: { value: false, type: "is-info" },
+                      attrs: { type: "is-info" },
                       model: {
                         value: _vm.paieska_big,
                         callback: function($$v) {
@@ -2800,89 +2787,16 @@ var render = function() {
                 { attrs: { id: "printMe" } },
                 [
                   _c(
-                    "b-field",
-                    { attrs: { grouped: "", "group-multiline": "" } },
-                    [
-                      _c(
-                        "b-select",
-                        {
-                          attrs: { disabled: !_vm.isPaginated },
-                          model: {
-                            value: _vm.perPage,
-                            callback: function($$v) {
-                              _vm.perPage = $$v
-                            },
-                            expression: "perPage"
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "50" } }, [
-                            _vm._v("50 įrašų puslapyje")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "100" } }, [
-                            _vm._v("100 įrašų puslapyje")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "150" } }, [
-                            _vm._v("150 įrašų puslapyje")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "200" } }, [
-                            _vm._v("200 įrašų puslapyje")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "control is-flex" },
-                        [
-                          _c(
-                            "b-switch",
-                            {
-                              model: {
-                                value: _vm.isPaginated,
-                                callback: function($$v) {
-                                  _vm.isPaginated = $$v
-                                },
-                                expression: "isPaginated"
-                              }
-                            },
-                            [_vm._v("Puslapiai")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
                     "b-table",
                     {
                       attrs: {
-                        paginated: _vm.isPaginated,
-                        "per-page": _vm.perPage,
-                        "pagination-position": _vm.paginationPosition,
                         bordered: "",
                         narrowed: true,
                         data: _vm.sarasas,
                         "sort-icon": "arrow-up",
                         loading: _vm.isLoading,
                         "default-sort-direction": "asc",
-                        "checked-rows": _vm.checkedRows,
-                        checkable: "",
-                        "checkbox-position": _vm.checkboxPosition,
                         "default-sort": "preke"
-                      },
-                      on: {
-                        "update:checkedRows": function($event) {
-                          _vm.checkedRows = $event
-                        },
-                        "update:checked-rows": function($event) {
-                          _vm.checkedRows = $event
-                        }
                       },
                       scopedSlots: _vm._u([
                         {

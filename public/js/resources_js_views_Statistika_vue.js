@@ -1362,9 +1362,6 @@ var render = function() {
                                     }),
                                     _vm._v(" "),
                                     _c("b-table-column", {
-                                      style: {
-                                        "background-color": "LightGray"
-                                      },
                                       attrs: {
                                         label: "Likučiai",
                                         field: "likutis",
@@ -1391,9 +1388,6 @@ var render = function() {
                                     }),
                                     _vm._v(" "),
                                     _c("b-table-column", {
-                                      style: {
-                                        "background-color": "LightGray"
-                                      },
                                       attrs: {
                                         label: "Pardavimai",
                                         field: "pardavimai",

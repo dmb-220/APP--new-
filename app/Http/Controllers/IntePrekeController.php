@@ -41,6 +41,8 @@ class IntePrekeController extends Controller
         $salis['LT'] = $k[2];
         $salis['LV'] = $k[3]; 
         $salis['EE'] = $k[4];
+        
+        $tags = unserialize($k[5]);
 
         if($paieska_big){
             $pa = "%{$keyword}%";
@@ -52,15 +54,25 @@ class IntePrekeController extends Controller
         $pirk = 1;
         $gam = 1;
 
-        $likutis = IntePreke::query()
-        ->where('preke', 'like', $pa)
+        $likutis = IntePreke::where('salis', "1")
+        ->whereIn('sandelis', ['INTE', 'INLV', 'INEE'])
+        ->where(function ($query) use($tags, $paieska_big) {
+            for ($i = 0; $i < count($tags); $i++){
+                if($paieska_big){
+                    $query->orwhere('preke', 'like', "%{$tags[$i]}%");
+                }else{
+                    $query->orwhere('preke', 'like', "{$tags[$i]}%");
+                }
+            }   
+        })  
+        //isimam ko nereikia perkelti, pagal grupiu pavadinimus 
+        ->whereNotIn('pavadinimas', ['Med. švarkas', 'Med. kelnės', 'Kelnaitės'])
         ->when(!$gam, function ($q) {
             return $q->where('registras', "GAM");
         })
         ->when(!$pirk, function ($q) {
             return $q->where('registras', "PIRK");
         })
-        ->whereIn('sandelis', ['INTE', 'INLV', 'INEE'])
         ->get();
         
         $list = array();
@@ -164,19 +176,21 @@ class IntePrekeController extends Controller
                         //kiek perkelti
                         if($viso >= 10 && $liko_LV - 2 > $liko_LT){$nr = 2;}else{$nr = 1;}
                         
-                        if($liko_LT < 1){
+                        //if($liko_LT < 1){
                             //i LT perkelti daugiau negu lieka LV
                             if($nr > ($row['new_LV'] - $nr)){
                                 $kiek_lt = $nr;
                             }else{
                                 if($liko_EE != $liko_LV){
-                                //-2 paliekame LV 2 vnt, kitus perkeliam
-                                $kiek_lt = $nr + ($liko_LV - 2);
+                                //-4 paliekame LV 2 vnt, kitus perkeliam
+                                //reikia pataisyti, kad logiskai perkeltu
+                                //JEI YRA 20 perkels 18
+                                $kiek_lt = $nr + ($liko_LV - 4);
                                 }else{
                                     $kiek_lt = $nr + ($liko_LV - 3);
                                 }
                             }
-                        }
+                        //}
                         if($liko_EE < 1 && $liko_LV - $kiek_lt > 2){ $kiek_ee = $nr;}
 
                         //reik tikrinti kad LT likutis netaptu mazesnis negu perkeliam
@@ -251,6 +265,7 @@ class IntePrekeController extends Controller
             'status' => true,
             'sarasas' => $sarasas,
             'LTto' => $to,
+            'tags' => $tags,
             'paieska' => $keyword,
             'paieska_big' => $paieska_big,
             'salis' => $salis
@@ -272,6 +287,7 @@ class IntePrekeController extends Controller
         $data = $request->all();
         $ieskoti = $data['ieskoti'];
         $salis = $data['salis'];
+        $tags = serialize($data['tags']);
         //$gam = $data['gam'];
         //$pirk = $data['pirk'];
         $paieska_big= $data['paieska_big'];
@@ -280,7 +296,7 @@ class IntePrekeController extends Controller
         $directory  = "app/";
         $failas = $directory.$failas;
 
-        $eilute = strtoupper($ieskoti)."||".$paieska_big."||".$salis['LT']."||".$salis['LV']."||".$salis['EE'];
+        $eilute = strtoupper($ieskoti)."||".$paieska_big."||".$salis['LT']."||".$salis['LV']."||".$salis['EE']."||".$tags;
 
         $myfile = fopen(storage_path($failas), "w");
         fwrite($myfile, $eilute);
@@ -288,6 +304,7 @@ class IntePrekeController extends Controller
 
         return response()->json([
             'status' => true,
+            'tags' => $tags
         ]);
     }
 

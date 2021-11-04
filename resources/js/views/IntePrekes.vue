@@ -10,12 +10,18 @@
         </button>
         <hr>
         <b-field label="PAIEŠKA:" horizontal>
-          <b-input placeholder="Paieška..." type="search" @keyup.native.enter="paieska_post" 
-            v-model="ieskoti" icon="magnify"></b-input> 
+          <b-taginput
+            @keyup.native.enter="paieska_post"
+            v-model="tags"
+            ellipsis
+            icon="label"
+            placeholder="Pridėti prekę"
+            aria-close-label="Ištrinti prekę">
+          </b-taginput>
           <b-button native-type="submit" type="is-primary" @click="paieska_post" outlined>Ieškoti</b-button>
         </b-field>
         <b-field label=" " horizontal>
-            <b-checkbox :value="false" v-model="paieska_big" type="is-info">Aktivuoti išplėstinę paieška</b-checkbox>
+            <b-checkbox v-model="paieska_big" type="is-info">Aktivuoti išplėstinę paieška</b-checkbox>
         </b-field>
         <b-field horizontal>
           <b-button :type="salis['LT'] ? 'is-primary' : 'is-dark'" @click="change_lt()">LIETUVA</b-button>
@@ -30,30 +36,13 @@
       </div>
       <hr>
         <div  id="printMe">
-          <b-field grouped group-multiline>
-            <b-select v-model="perPage" :disabled="!isPaginated">
-                <option value="50">50 įrašų puslapyje</option>
-                <option value="100">100 įrašų puslapyje</option>
-                <option value="150">150 įrašų puslapyje</option>
-                <option value="200">200 įrašų puslapyje</option>
-            </b-select>
-            <div class="control is-flex">
-                <b-switch v-model="isPaginated">Puslapiai</b-switch>
-            </div>
-        </b-field>
         <b-table
-        :paginated="isPaginated"
-          :per-page="perPage"
-          :pagination-position="paginationPosition"
         bordered
         :narrowed="true"
         :data="sarasas"
         sort-icon="arrow-up"
         :loading="isLoading"
         default-sort-direction="asc"
-        :checked-rows.sync="checkedRows"
-        checkable
-        :checkbox-position="checkboxPosition"
         default-sort="preke">
           <b-table-column label="Preke" field="preke" sortable v-slot="props">
                 {{props.row.preke}}
@@ -164,18 +153,12 @@ export default {
             field: "nr",
         },
       ],
-      checkboxPosition: 'left',
-      checkedRows: [],
-      ieskoti: '',
-      paieska_big: '',
+      tags: [],
+      //ieskoti: '',
+      paieska_big: false,
       paieska: '',
       salis: [],
-      check_list: [],
-      isPaginated: true,
-      paginationPosition: 'bottom',
-      perPage: 50,
       dates: [],
-      showDetailIcon: false,
       isLoading: false,
       sarasas: [],
       LTto: [],
@@ -200,6 +183,7 @@ export default {
       axios
         .post(`/intepreke/store_save`, {
           ieskoti: this.ieskoti,
+          tags: this.tags,
           paieska_big: this.paieska_big,
           salis: this.salis,
           })
@@ -238,9 +222,10 @@ export default {
         this.isLoading = false
         this.sarasas = response.data.sarasas; 
         this.LTto = response.data.LTto; 
-        this.paieska_big = response.data.paieska_big;
+        this.paieska_big = response.data.paieska_big ? true : false;
         this.paieska = response.data.paieska;
         this.salis = response.data.salis;
+        this.tags = response.data.tags;
       })
       .catch( err => {
             this.isLoading = false
