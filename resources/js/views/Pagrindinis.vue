@@ -92,11 +92,11 @@ watch: {
     },
     view_pardavimai () {
       let  i;
-
+      //paimam datas nuo iki
       let da = this.info.pardavimai.split(" --- ");
       let range = this.getDaysArray(new Date(da[0]), new Date(da[1]));
-      this.label = range;
       let sk2 = range.length
+      this.label = range;
 
       //VISO
       for (i = 0; i < sk2; i++) {

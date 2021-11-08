@@ -170,7 +170,7 @@ class IntePrekeController extends Controller
                         $sarasas[$key] = $row;
                     }
 
-                    //tikrinam ar max atitinka su LT
+                    //tikrinam ar max atitinka su LV
                     //jei taip darom is jos perkelima
                     if($max == $liko_LV && $liko_LV > 2){
                         //kiek perkelti
@@ -192,7 +192,8 @@ class IntePrekeController extends Controller
                             }
                         }
 
-                        if($liko_EE < 1 && $liko_LV - $kiek_lt > 2){ $kiek_ee = $nr;}
+                        //nes <= 2, kad ir EE gautu, jei LV 3, duoda 1 LT ir 1 EE
+                        if($liko_EE < 1 && $liko_LV - $kiek_lt >= 2){ $kiek_ee = $nr;}
 
                         //reik tikrinti kad LT likutis netaptu mazesnis negu perkeliam
                         if($liko_LT < 2 && $row['new_LT'] <= 2  && $kiek_lt > 0){
