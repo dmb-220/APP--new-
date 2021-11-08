@@ -44,6 +44,9 @@
         :loading="isLoading"
         default-sort-direction="asc"
         default-sort="preke">
+          <b-table-column label="Nr." v-slot="props">
+              {{props.index + 1}}
+            </b-table-column>
           <b-table-column label="Preke" field="preke" sortable v-slot="props">
                 {{props.row.preke}}
           </b-table-column>
@@ -92,16 +95,16 @@
       <div class="buttons">
         <b-button size="is-medium" icon-left="printer" type="is-dark" @click="print">SPAUSDINTI</b-button>
         <vue-excel-xlsx class = "button is-dark is-medium" :data="LTto" :columns="columns" :filename="'perkelimai'" :sheetname="'LT'" >
-          ATSISIŪSTI (excel)
+          ATSISIŲSTI (excel)
         </vue-excel-xlsx>
-        <download-csv
-          class   = "button is-dark is-medium"
-          :data   = "LTto"
+        <download-csv class = "button is-dark is-medium"
+          :data = "LTto"
           :fields = "fields"
           delimiter = ";"
+          :separator-excel = "separator"
           :advancedOptions = "adv"
-          name = "perkelimai.csv">
-          Atsisiusti CSV
+          :name = "currentDate()">
+          ATSISIŲSTI (csv)
         </download-csv>
       </div>
       </card-component>
@@ -130,6 +133,7 @@ export default {
       adv: {
         header: false,
       },
+      separator: true,
       fields: ['kiekis', 'preke', 'sand_is', 'sand_i', 'nr'],
       columns : [
         {
@@ -172,6 +176,11 @@ export default {
     this.ieskoti = this.paieska;
   },
   methods: {
+    currentDate() {
+      const current = new Date();
+      const date = current.getFullYear()+'-'+(current.getMonth()+1)+'-'+current.getDate();   
+      return date+".csv";
+    },
     print() {
       // Pass the element id here
       this.mobile_card = false;

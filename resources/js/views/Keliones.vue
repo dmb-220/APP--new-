@@ -6,18 +6,26 @@
           <b-button :type="rodyti_lv ? 'is-warning' : 'is-dark'" @click="change_lv()">LATVIJA</b-button>
           <b-button :type="rodyti_ee ? 'is-danger' : 'is-dark'" @click="change_ee()">ESTIJA</b-button>
         </b-field>
-        <b-field label="Miestai" class="has-check" horizontal>
-          <checkbox-picker v-if="rodyti_lv" :options="miestai['LV']" v-model="checkbox" type="is-black"/>
-          <checkbox-picker v-if="rodyti_ee" :options="miestai['EE']" v-model="checkbox" type="is-black"/>
-        </b-field>
+          <div v-for="(item, index) in miestai[rodo]" :key="item.index">
+            <b-field :label="index"  class="has-check" horizontal>
+              <checkbox-picker :options="item"  v-model="checkbox" type="is-black"/>
+            </b-field>
+          </div>
+        <hr>
         <b-field label="Data:" horizontal>
-            <b-input type="date" v-model="data" icon="calendar-month"></b-input>    
+           <b-datepicker
+                placeholder="Pasirinkite data..."
+                icon="calendar-today"
+                :locale="locale"
+                v-model="data"
+                editable>
+            </b-datepicker>    
         </b-field>
         <b-field label="Numeris:" horizontal>
             <b-input type="input" v-model="nr" icon="variable"></b-input>    
         </b-field>
         <b-field label="..." horizontal>
-          <b-switch type="is-info" v-model="nr_rodyti">
+          <b-switch type="is-info" @click.native="numeris()" v-model="nr_rodyti">
             Rašyti antrą numerį
           </b-switch>
         </b-field>
@@ -160,21 +168,6 @@
 
 </template>
 
-<style>
-.is-one2 {
-    background: #BFFCC6 !important;
-}
-.is-two2 {
-    background: #FFF5BA !important;
-}
-.is-three2 {
-    background: #FFABAB !important;
-}
-.is-smoke {
-    background: WhiteSmoke !important;
-}
-</style>
-
 <script>
 import map from 'lodash/map'
 import CardComponent from '@/components/CardComponent'
@@ -186,6 +179,7 @@ export default {
   data () {
     return {
       isLoading: false,
+      locale: undefined,
       duomenys: [],
       sk_lt: "",
       centai: "",
@@ -193,11 +187,11 @@ export default {
       checkbox: [],
       rodyti_lv: true,
       rodyti_ee: false,
-      rodo: '',
-      data: '2021',
-      nr: '20210',
+      rodo: 'LV',
+      data: new Date(),
+      nr: 20210,
       nr_rodyti: false,
-      nr2: '20210',
+      nr2: 20210,
       date: '',
     }
   },
@@ -225,11 +219,16 @@ export default {
     this.getData()
   },
   methods: {
+    numeris(){
+      this.nr2 = this.nr;
+      this.nr2++;
+      //console.log(this.nr2);
+    },
     print() {
       // Pass the element id here
       this.$htmlToPaper('printMe');
     },
-         change_lv(){
+    change_lv(){
       this.rodyti_lv = true;
       this.rodyti_ee = false;
       this.rodo = 'LV';
@@ -249,7 +248,7 @@ export default {
             lv: this.rodyti_lv,
             ee: this.rodyti_ee,
             miestai: this.checkbox,
-            data: this.data,
+            data: this.data.toLocaleDateString("en-CA"),
             //nr: this.nr
             })
           .then(response => {

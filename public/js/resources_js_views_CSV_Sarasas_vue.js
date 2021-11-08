@@ -30,7 +30,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'CheckboxPicker',
   props: {
     options: {
-      type: Object,
+      type: Array,
       "default": null
     },
     type: {
@@ -5759,7 +5759,7 @@ var render = function() {
           _c(
             "b-checkbox",
             {
-              attrs: { "native-value": k, type: _vm.type },
+              attrs: { "native-value": v, type: _vm.type },
               on: { input: _vm.input },
               model: {
                 value: _vm.newValue,

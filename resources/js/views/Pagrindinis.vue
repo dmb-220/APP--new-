@@ -80,22 +80,58 @@ watch: {
       }
   },
   methods: {
+    getDaysArray(start, end) {
+      for(var arr=[],dt=new Date(start); dt<=end; dt.setDate(dt.getDate()+1)){
+        var d = dt.getDate();
+        var m = dt.getMonth() + 1;
+        var y = dt.getFullYear();
+        var dateString = (d <= 9 ? '0' + d : d) + '-' + (m <= 9 ? '0' + m : m) + '-' + y;
+        arr.push(dateString);
+      }
+      return arr;
+    },
     view_pardavimai () {
       let  i;
 
-      let sk = this.query['viso'].length
-      for (i = 0; i < sk; i++) {
-        this.pardavimai.push(this.query['viso'][i]['kiekis'])
-        this.label.push(this.query['viso'][i]['data'])   
+      let da = this.info.pardavimai.split(" --- ");
+      let range = this.getDaysArray(new Date(da[0]), new Date(da[1]));
+      this.label = range;
+      let sk2 = range.length
+
+      //VISO
+      for (i = 0; i < sk2; i++) {
+        var list = this.query['viso'].filter(function (person) {
+          return person.data == range[i] 
+        })
+        if(list.length > 0){
+          this.pardavimai.push(list[0].kiekis)
+        }else{
+         this.pardavimai.push("0")
+        }
       }
-      let skLT = this.query['LT'].length
-      for (i = 0; i < skLT; i++) {
-        this.pardavimaiLT.push(this.query['LT'][i]['kiekis'])
+      //LT
+      for (i = 0; i < sk2; i++) {
+        var list = this.query['LT'].filter(function (person) {
+          return person.data == range[i] 
+        })
+        if(list.length > 0){
+          this.pardavimaiLT.push(list[0].kiekis)
+        }else{
+         this.pardavimaiLT.push("0")
+        }
       }
-      let skLV = this.query['LV'].length
-      for (i = 0; i < skLV; i++) {
-        this.pardavimaiLV.push(this.query['LV'][i]['kiekis'])
+      //LV
+      for (i = 0; i < sk2; i++) {
+        var list = this.query['LV'].filter(function (person) {
+          return person.data == range[i] 
+        })
+        if(list.length > 0){
+          this.pardavimaiLV.push(list[0].kiekis)
+        }else{
+         this.pardavimaiLV.push("0")
+        }
       }
+      //console.log(this.pardavimaiLV)
     },
       getData () {
       this.isLoading = true

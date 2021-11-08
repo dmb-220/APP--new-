@@ -141,7 +141,7 @@ class IntePrekeController extends Controller
 
                     //tikrinam ar max atitinka su LT
                     //jei taip darom is jos perkelima
-                    if(/*$max == $liko_LT && */$liko_LT > 2){                        
+                    if($max == $liko_LT && $liko_LT > 2){                        
                         //kiek perkelti
                         if($viso >= 10 && $liko_LT - 2 > $liko_LV){$nr = 2;}else{$nr = 1;}
                         if($liko_LV < 1){ $kiek_lv = $nr; }
@@ -172,25 +172,26 @@ class IntePrekeController extends Controller
 
                     //tikrinam ar max atitinka su LT
                     //jei taip darom is jos perkelima
-                    if(/*$max == $liko_LV && */$liko_LV > 2){
+                    if($max == $liko_LV && $liko_LV > 2){
                         //kiek perkelti
                         if($viso >= 10 && $liko_LV - 2 > $liko_LT){$nr = 2;}else{$nr = 1;}
-                        
-                        //if($liko_LT < 1){
+
+                        //su klaustuku reikia dar tobulinti
+                        //perkelti i LT daugiau negu lieka LV
+                        //ir jei lieka ir i EE
+                        if($liko_LT < 1){
                             //i LT perkelti daugiau negu lieka LV
                             if($nr > ($row['new_LV'] - $nr)){
                                 $kiek_lt = $nr;
                             }else{
                                 if($liko_EE != $liko_LV){
-                                //-4 paliekame LV 2 vnt, kitus perkeliam
-                                //reikia pataisyti, kad logiskai perkeltu
-                                //JEI YRA 20 perkels 18
-                                $kiek_lt = $nr + ($liko_LV - 4);
+                                $kiek_lt = $nr + (floor($liko_LV/2) - $nr);
                                 }else{
-                                    $kiek_lt = $nr + ($liko_LV - 3);
+                                    $kiek_lt = $nr + (floor($liko_LV/2) - ($nr + 1));
                                 }
                             }
-                        //}
+                        }
+
                         if($liko_EE < 1 && $liko_LV - $kiek_lt > 2){ $kiek_ee = $nr;}
 
                         //reik tikrinti kad LT likutis netaptu mazesnis negu perkeliam
@@ -218,7 +219,7 @@ class IntePrekeController extends Controller
 
                     //tikrinam ar max atitinka su EE
                     //jei taip darom is jos perkelima
-                    if(/*$max == $liko_LEE && */$liko_EE > 2){
+                    if($max == $liko_EE && $liko_EE > 2){
                         //kiek perkelti
                         if($viso >= 10 && $liko_EE - 1 > $liko_LT){$nr = 2;}else{$nr = 1;}
                         

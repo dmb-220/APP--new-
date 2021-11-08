@@ -143,12 +143,26 @@ class KelioneController extends Controller
             return $simtz;
             }
 
-        $miestai = array(
+        /*$miestai = array(
           'EE' => array("JOHV", "MUST", "NARV", "RAKV", "SOPR", "VORU", "UMER", "EDEN", "HAPS", "KOHT", "KOPL", "PARN", "RIIA"),
 		  
           'LV' => array('LIEP', 'VENT', 'KULD', 'SALD', 'TAL2', 'TUKU', 'DOBE', 'SIGU', 'ALUK', 'VALM', 'CESI', 'BALV', 'LIMB', 'MADO',
             'VALD', 'MELN', 'MATI', 'DOLE', 'BRIV', 'GOBA','DAUG', 'DITO', 'JEKA', 'AIZK', 'VALK')
-          );
+          );*/
+
+        
+        $miestai = array(
+          'EE' => array(
+            "ESTIJA" => array("JOHV", "MUST", "NARV", "RAKV", "SOPR", "VORU", "UMER", "EDEN", "HAPS", "KOHT", "KOPL", "PARN", "RIIA"),
+          ),
+          'LV' => array(
+            "PAJURIS" => array('LIEP', 'VENT', 'KULD', 'SALD', 'TAL2', 'TUKU', 'DOBE'),
+            "VIDZEME" => array('SIGU', 'VALM', 'CESI', 'BALV', 'LIMB', 'MADO', 'VALK'),
+            "RYGA" => array('VALD', 'MELN', 'MATI', 'DOLE', 'BRIV', 'GOBA'),
+            "DAUGPILIS" => array('DAUG', 'DITO', 'JEKA', 'AIZK', 'OGRE')
+          )
+        );
+        
 
         $failas = "keliones.txt";
         $directory  = "app/";
@@ -168,13 +182,6 @@ class KelioneController extends Controller
         $group = array();
         $gr = array();
         //var_dump($mies); die;
-        //sukurti masyva
-        $arrra = '';
-        if($lv){$arra = 'LV';}
-        if($ee){$arra = 'EE';}
-          foreach($mies as $val){
-            $a[] = $miestai[$arra][$val];
-          }
         
 
           //var_dump($a);
@@ -190,7 +197,7 @@ class KelioneController extends Controller
         if($ee){
           $query_p->whereIn('sandelis_is', ["7777"]);
         }
-        $query_p->whereIn('sandelis_i', $a);
+        $query_p->whereIn('sandelis_i', $mies);
         $re = $query_p->get();
 
         foreach ( $re as $value ) {

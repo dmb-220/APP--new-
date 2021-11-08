@@ -459,6 +459,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -476,6 +479,7 @@ __webpack_require__.r(__webpack_exports__);
       adv: {
         header: false
       },
+      separator: true,
       fields: ['kiekis', 'preke', 'sand_is', 'sand_i', 'nr'],
       columns: [{
         label: "Kiekis",
@@ -493,13 +497,12 @@ __webpack_require__.r(__webpack_exports__);
         label: "Blanko nr.",
         field: "nr"
       }],
-      tags: ['H-', 'MZ-1C', 'MZ-1L', 'MZ-1M', 'STM-1k', 'STMP-1k'],
-      ieskoti: '',
+      tags: [],
+      //ieskoti: '',
       paieska_big: false,
       paieska: '',
       salis: [],
       dates: [],
-      showDetailIcon: false,
       isLoading: false,
       sarasas: [],
       LTto: [],
@@ -512,6 +515,11 @@ __webpack_require__.r(__webpack_exports__);
     this.ieskoti = this.paieska;
   },
   methods: {
+    currentDate: function currentDate() {
+      var current = new Date();
+      var date = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+      return date + ".csv";
+    },
     print: function print() {
       // Pass the element id here
       this.mobile_card = false;
@@ -2824,6 +2832,24 @@ var render = function() {
                     },
                     [
                       _c("b-table-column", {
+                        attrs: { label: "Nr." },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "default",
+                            fn: function(props) {
+                              return [
+                                _vm._v(
+                                  "\n            " +
+                                    _vm._s(props.index + 1) +
+                                    "\n          "
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c("b-table-column", {
                         attrs: { label: "Preke", field: "preke", sortable: "" },
                         scopedSlots: _vm._u([
                           {
@@ -3039,7 +3065,7 @@ var render = function() {
                         sheetname: "LT"
                       }
                     },
-                    [_vm._v("\n        ATSISIŪSTI (excel)\n      ")]
+                    [_vm._v("\n        ATSISIŲSTI (excel)\n      ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -3050,11 +3076,12 @@ var render = function() {
                         data: _vm.LTto,
                         fields: _vm.fields,
                         delimiter: ";",
+                        "separator-excel": _vm.separator,
                         advancedOptions: _vm.adv,
-                        name: "perkelimai.csv"
+                        name: _vm.currentDate()
                       }
                     },
-                    [_vm._v("\n        Atsisiusti CSV\n      ")]
+                    [_vm._v("\n        ATSISIŲSTI (csv)\n      ")]
                   )
                 ],
                 1

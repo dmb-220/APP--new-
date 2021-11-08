@@ -3,7 +3,7 @@
     <div v-for="(v, k) in options" :key="k" class="control">
       <b-checkbox
         v-model="newValue"
-        :native-value="k"
+        :native-value="v"
         :type="type"
         @input="input"
       >
@@ -18,7 +18,7 @@ export default {
   name: 'CheckboxPicker',
   props: {
     options: {
-      type: Object,
+      type: Array,
       default: null
     },
     type: {
