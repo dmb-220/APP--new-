@@ -1,8 +1,6 @@
 <template>
   <modal-box :is-active.sync="isActive" @confirm="confirm" @cancel="cancel" confirm-type="is-success" confirm-label="Atnaujinti">
-    <b-field  label="Likučiai:" horizontal>
       <file-picker-LT @file-updated="file_info_LT" v-model="file_LT"/>
-    </b-field>
   </modal-box>
 </template>
 

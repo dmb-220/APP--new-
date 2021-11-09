@@ -71,7 +71,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'FilePickerLT',
@@ -284,8 +283,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ModalBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ModalBox */ "./resources/js/components/ModalBox.vue");
 /* harmony import */ var _FilePickerLT__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilePickerLT */ "./resources/js/components/FilePickerLT.vue");
-//
-//
 //
 //
 //
@@ -2371,67 +2368,46 @@ var render = function() {
     },
     [
       _c(
-        "b-field",
-        [
-          _c(
-            "b-upload",
-            {
-              on: { input: _vm.upload },
-              model: {
-                value: _vm.file_LT,
-                callback: function($$v) {
-                  _vm.file_LT = $$v
-                },
-                expression: "file_LT"
-              }
+        "b-upload",
+        {
+          attrs: { "drag-drop": "", expanded: "" },
+          on: { input: _vm.upload },
+          model: {
+            value: _vm.file_LT,
+            callback: function($$v) {
+              _vm.file_LT = $$v
             },
-            [
+            expression: "file_LT"
+          }
+        },
+        [
+          _c("section", { staticClass: "section" }, [
+            _c("div", { staticClass: "content has-text-centered" }, [
               _c(
-                "a",
-                { staticClass: "button is-primary" },
+                "p",
                 [
                   _c("b-icon", {
-                    attrs: {
-                      icon: _vm.uploadButtonIcon,
-                      "custom-size": "default"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.uploadButtonText
-                    ? _c("span", [_vm._v(_vm._s(_vm.uploadButtonText))])
-                    : _vm._e()
+                    attrs: { icon: _vm.uploadButtonIcon, size: "is-large" }
+                  })
                 ],
                 1
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _vm.fileName
-            ? _c("div", { staticClass: "control" }, [
-                _c(
-                  "a",
-                  { staticClass: "button is-static is-file-upload-label" },
-                  [
-                    _c("span", { attrs: { title: _vm.fileName } }, [
-                      _vm._v(_vm._s(_vm.fileName))
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "delete",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.dropFile.apply(null, arguments)
-                        }
-                      }
-                    })
-                  ]
-                )
-              ])
-            : _vm._e()
-        ],
-        1
-      )
+              ),
+              _vm._v(" "),
+              _vm.uploadButtonText
+                ? _c("p", [_vm._v(_vm._s(_vm.uploadButtonText))])
+                : _vm._e()
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _vm.fileName
+        ? _c("div", { staticClass: "control" }, [
+            _c("span", { attrs: { title: _vm.fileName } }, [
+              _vm._v(_vm._s(_vm.fileName) + " ")
+            ])
+          ])
+        : _vm._e()
     ],
     1
   )
@@ -2546,23 +2522,16 @@ var render = function() {
       }
     },
     [
-      _c(
-        "b-field",
-        { attrs: { label: "Likučiai:", horizontal: "" } },
-        [
-          _c("file-picker-LT", {
-            on: { "file-updated": _vm.file_info_LT },
-            model: {
-              value: _vm.file_LT,
-              callback: function($$v) {
-                _vm.file_LT = $$v
-              },
-              expression: "file_LT"
-            }
-          })
-        ],
-        1
-      )
+      _c("file-picker-LT", {
+        on: { "file-updated": _vm.file_info_LT },
+        model: {
+          value: _vm.file_LT,
+          callback: function($$v) {
+            _vm.file_LT = $$v
+          },
+          expression: "file_LT"
+        }
+      })
     ],
     1
   )

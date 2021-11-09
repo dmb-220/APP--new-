@@ -1,19 +1,14 @@
 <template>
   <b-field :label="label" :message="fieldFileMessage" :type="fieldFileType">
-    <b-field>
-      <b-upload v-model="file_grazinimai" @input="upload">
-        <a class="button is-primary">
-          <b-icon :icon="uploadButtonIcon" custom-size="default"/>
-          <span v-if="uploadButtonText">{{ uploadButtonText }}</span>
-        </a>
-      </b-upload>
-      <div v-if="fileName" class="control">
-        <a class="button is-static is-file-upload-label">
-          <span :title="fileName">{{ fileName }}</span>
-          <span class="delete" @click.prevent="dropFile"></span>
-        </a>
-      </div>
-    </b-field>
+    <b-upload v-model="file_grazinimai" @input="upload">
+        <span class="file-cta">
+            <b-icon class="file-icon" :icon="uploadButtonIcon"></b-icon>
+            <span class="file-label" v-if="uploadButtonText">{{ uploadButtonText }}</span>
+        </span>
+        <span class="file-name" v-if="fileName">
+            {{ fileName }}
+        </span>
+    </b-upload>
   </b-field>
 </template>
 

@@ -1900,11 +1900,11 @@ var render = function() {
           attrs: { "drag-drop": "", expanded: "" },
           on: { input: _vm.upload },
           model: {
-            value: _vm.file,
+            value: _vm.file_LT,
             callback: function($$v) {
-              _vm.file = $$v
+              _vm.file_LT = $$v
             },
-            expression: "file"
+            expression: "file_LT"
           }
         },
         [

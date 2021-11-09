@@ -67,11 +67,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'FilePickerBankas',
@@ -208,11 +203,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/each */ "./node_modules/lodash/each.js");
 /* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_each__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -5450,66 +5440,42 @@ var render = function() {
     },
     [
       _c(
-        "b-field",
+        "b-upload",
+        {
+          on: { input: _vm.upload },
+          model: {
+            value: _vm.file_bankas,
+            callback: function($$v) {
+              _vm.file_bankas = $$v
+            },
+            expression: "file_bankas"
+          }
+        },
         [
           _c(
-            "b-upload",
-            {
-              on: { input: _vm.upload },
-              model: {
-                value: _vm.file_bankas,
-                callback: function($$v) {
-                  _vm.file_bankas = $$v
-                },
-                expression: "file_bankas"
-              }
-            },
+            "span",
+            { staticClass: "file-cta" },
             [
-              _c(
-                "a",
-                { staticClass: "button is-primary" },
-                [
-                  _c("b-icon", {
-                    attrs: {
-                      icon: _vm.uploadButtonIcon,
-                      "custom-size": "default"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.uploadButtonText
-                    ? _c("span", [_vm._v(_vm._s(_vm.uploadButtonText))])
-                    : _vm._e()
-                ],
-                1
-              )
-            ]
+              _c("b-icon", {
+                staticClass: "file-icon",
+                attrs: { icon: _vm.uploadButtonIcon }
+              }),
+              _vm._v(" "),
+              _vm.uploadButtonText
+                ? _c("span", { staticClass: "file-label" }, [
+                    _vm._v(_vm._s(_vm.uploadButtonText))
+                  ])
+                : _vm._e()
+            ],
+            1
           ),
           _vm._v(" "),
           _vm.fileName
-            ? _c("div", { staticClass: "control" }, [
-                _c(
-                  "a",
-                  { staticClass: "button is-static is-file-upload-label" },
-                  [
-                    _c("span", { attrs: { title: _vm.fileName } }, [
-                      _vm._v(_vm._s(_vm.fileName))
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "delete",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.dropFile.apply(null, arguments)
-                        }
-                      }
-                    })
-                  ]
-                )
+            ? _c("span", { staticClass: "file-name" }, [
+                _vm._v("\n          " + _vm._s(_vm.fileName) + "\n      ")
               ])
             : _vm._e()
-        ],
-        1
+        ]
       )
     ],
     1
@@ -5549,66 +5515,42 @@ var render = function() {
     },
     [
       _c(
-        "b-field",
+        "b-upload",
+        {
+          on: { input: _vm.upload },
+          model: {
+            value: _vm.file_grazinimai,
+            callback: function($$v) {
+              _vm.file_grazinimai = $$v
+            },
+            expression: "file_grazinimai"
+          }
+        },
         [
           _c(
-            "b-upload",
-            {
-              on: { input: _vm.upload },
-              model: {
-                value: _vm.file_grazinimai,
-                callback: function($$v) {
-                  _vm.file_grazinimai = $$v
-                },
-                expression: "file_grazinimai"
-              }
-            },
+            "span",
+            { staticClass: "file-cta" },
             [
-              _c(
-                "a",
-                { staticClass: "button is-primary" },
-                [
-                  _c("b-icon", {
-                    attrs: {
-                      icon: _vm.uploadButtonIcon,
-                      "custom-size": "default"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.uploadButtonText
-                    ? _c("span", [_vm._v(_vm._s(_vm.uploadButtonText))])
-                    : _vm._e()
-                ],
-                1
-              )
-            ]
+              _c("b-icon", {
+                staticClass: "file-icon",
+                attrs: { icon: _vm.uploadButtonIcon }
+              }),
+              _vm._v(" "),
+              _vm.uploadButtonText
+                ? _c("span", { staticClass: "file-label" }, [
+                    _vm._v(_vm._s(_vm.uploadButtonText))
+                  ])
+                : _vm._e()
+            ],
+            1
           ),
           _vm._v(" "),
           _vm.fileName
-            ? _c("div", { staticClass: "control" }, [
-                _c(
-                  "a",
-                  { staticClass: "button is-static is-file-upload-label" },
-                  [
-                    _c("span", { attrs: { title: _vm.fileName } }, [
-                      _vm._v(_vm._s(_vm.fileName))
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "delete",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.dropFile.apply(null, arguments)
-                        }
-                      }
-                    })
-                  ]
-                )
+            ? _c("span", { staticClass: "file-name" }, [
+                _vm._v("\n          " + _vm._s(_vm.fileName) + "\n      ")
               ])
             : _vm._e()
-        ],
-        1
+        ]
       )
     ],
     1
