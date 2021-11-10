@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Send;
+use Ap\Models\Send;
 use Illuminate\Http\Request;
 
 use Mail;

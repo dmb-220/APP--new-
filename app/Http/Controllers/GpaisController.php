@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Gpais;
+use App\Models\Gpais;
 use pdeans\Builders\XmlBuilder;
 
 use Spatie\ArrayToXml\ArrayToXml;

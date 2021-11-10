@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pardavimai;
-use App\Likutis;
-use App\Akcijos;
+use App\Models\Pardavimai;
+use App\Models\Likutis;
+use App\Models\Akcijos;
 
 
 class SandeliaiController extends Controller

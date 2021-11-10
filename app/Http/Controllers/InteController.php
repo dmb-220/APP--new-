@@ -20,8 +20,8 @@ class InteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $start = '2021-09-01';
-    public $end = '2021-09-30';
+    public $start = '2021-10-01';
+    public $end = '2021-10-31';
 
     public function index()
     {

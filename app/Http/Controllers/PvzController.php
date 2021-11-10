@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Pvz;
+use App\Models\Pvz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 

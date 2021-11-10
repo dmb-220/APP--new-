@@ -6,7 +6,7 @@ use App\Models\Akcijos;
 use App\Models\Likutis;
 use Illuminate\Http\Request;
 
-use App\File;
+use App\Models\File;
 use App\Http\Requests\FileUploadRequest;
 use Illuminate\Support\Facades\Storage;
 //use Illuminate\Support\Facades\DB;

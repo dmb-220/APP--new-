@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Vaztarasciai;
-use App\Atsargos;
+use App\Models\Vaztarasciai;
+use App\Models\Atsargos;
 
 class VaztarasciaiController extends Controller
 {

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Perkelimai;
+use App\Models\Perkelimai;
 
-use App\Pardavimai;
-use App\Likutis;
-use App\Akcijos;
-use App\Atsargos;
+use App\Models\Pardavimai;
+use App\Models\Likutis;
+use App\Models\Akcijos;
+use App\Models\Atsargos;
 
 use Illuminate\Http\Request;
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Uzsakymai;
+use App\Models\Uzsakymai;
 use Illuminate\Http\Request;
 
 class UzsakymaiController extends Controller
