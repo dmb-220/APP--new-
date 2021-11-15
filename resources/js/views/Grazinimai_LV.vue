@@ -19,7 +19,7 @@
         <b-checkbox v-model="no_input" :value="true" type="is-info">Redaguoti informacija</b-checkbox>
       </b-field>
       <hr>
-        <div  id="printMe">
+        <div id="printMe">
         <b-table
          :checked-rows.sync="checkedRows"
         checkable
@@ -43,7 +43,8 @@
                 <div v-else>{{ props.row.suma }}</div>
           </b-table-column>
            <b-table-column label="Unikalus"  field="unikalus" v-slot="props">
-                {{ props.row.unikalus }}
+                <b-input v-if="no_input" type="text" v-model="props.row.unikalus"></b-input>
+            <div v-else>{{ props.row.unikalus }}</div>
           </b-table-column>
           <b-table-column label="Saskaita"  field="bankas" v-slot="props">
             <b-input v-if="no_input" type="text" v-model="props.row.bankas && props.row.bankas.saskaita"></b-input>

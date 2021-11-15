@@ -554,7 +554,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         label: "Pirkėjas",
         field: "pirkejas"
       }],
-      color: ['is-one2', 'is-two2', 'is-three2'],
+      color: ['is-one2', 'is-two2', 'is-three2', 'is-one3', 'is-one3'],
       file_bankas: null,
       file_pardavimai: null,
       failas_bankas: "",
@@ -589,22 +589,29 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       if (this.rodo != 2) {
         if ((row.bankas && row.bankas.suma) == (row.suma + row.pristatymas).toFixed(2)) {
           return this.color[0];
+        }
+        /*if((row.bankas && row.bankas.suma) == ((row.suma + row.pristatymas).toFixed(2) - 0.01)){
+          return this.color[3];
+        }
+        if((row.bankas && row.bankas.suma) == ((row.suma + row.pristatymas).toFixed(2) - 0.02)){
+          return this.color[4];
+        }*/
+
+
+        if (!(row.bankas && row.bankas.suma)) {
+          return this.color[1];
         } else {
-          if (!(row.bankas && row.bankas.suma)) {
-            return this.color[1];
-          } else {
-            return this.color[2];
-          }
+          return this.color[2];
         }
       } else {
         if ((row.bankas && row.bankas.suma) + row.suma == 0) {
           return this.color[0];
+        }
+
+        if (!(row.bankas && row.bankas.suma)) {
+          return this.color[1];
         } else {
-          if (!(row.bankas && row.bankas.suma)) {
-            return this.color[1];
-          } else {
-            return this.color[2];
-          }
+          return this.color[2];
         }
       }
     },

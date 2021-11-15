@@ -132,7 +132,7 @@ class CSVController extends Controller
                     if($flag) { $flag = false; continue; }
                     $val = mb_convert_encoding($data, "UTF-8", "ISO-8859-13");
                     $kiek = explode(",", $val[10]);
-                    $kiek = $kiek[0];
+                    $kiek = $kiek[0]/10;
 
                     $da[] = [
                         'preke' => $val[6],

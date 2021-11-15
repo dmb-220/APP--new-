@@ -187,7 +187,7 @@ export default {
       checkbox: [],
       rodyti_lv: true,
       rodyti_ee: false,
-      rodo: 'LV',
+      rodo: '',
       data: new Date(),
       nr: 20210,
       nr_rodyti: false,
@@ -279,6 +279,8 @@ export default {
         //this.rodyti_lt = response.data.salis.LT ? true : false
         this.rodyti_lv = response.data.salis.LV ? true : false
         this.rodyti_ee = response.data.salis.EE ? true : false
+        if(this.rodyti_lv){ this.rodo = 'LV'; }
+        if(this.rodyti_ee){ this.rodo = 'EE'; }
       })
       .catch( err => {
             this.isLoading = false

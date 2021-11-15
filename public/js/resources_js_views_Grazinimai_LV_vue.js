@@ -457,6 +457,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -5787,11 +5788,20 @@ var render = function() {
                           key: "default",
                           fn: function(props) {
                             return [
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(props.row.unikalus) +
-                                  "\n        "
-                              )
+                              _vm.no_input
+                                ? _c("b-input", {
+                                    attrs: { type: "text" },
+                                    model: {
+                                      value: props.row.unikalus,
+                                      callback: function($$v) {
+                                        _vm.$set(props.row, "unikalus", $$v)
+                                      },
+                                      expression: "props.row.unikalus"
+                                    }
+                                  })
+                                : _c("div", [
+                                    _vm._v(_vm._s(props.row.unikalus))
+                                  ])
                             ]
                           }
                         }

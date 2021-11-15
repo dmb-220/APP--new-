@@ -283,7 +283,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       checkbox: [],
       rodyti_lv: true,
       rodyti_ee: false,
-      rodo: 'LV',
+      rodo: '',
       data: new Date(),
       nr: 20210,
       nr_rodyti: false,
@@ -381,6 +381,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
         _this2.rodyti_lv = response.data.salis.LV ? true : false;
         _this2.rodyti_ee = response.data.salis.EE ? true : false;
+
+        if (_this2.rodyti_lv) {
+          _this2.rodo = 'LV';
+        }
+
+        if (_this2.rodyti_ee) {
+          _this2.rodo = 'EE';
+        }
       })["catch"](function (err) {
         _this2.isLoading = false;
 
