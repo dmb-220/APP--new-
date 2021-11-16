@@ -263,6 +263,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
 
 
 
@@ -284,6 +285,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       rodyti_lv: true,
       rodyti_ee: false,
       rodo: '',
+      visi: [],
       data: new Date(),
       nr: 20210,
       nr_rodyti: false,
@@ -323,6 +325,23 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     //this.paieska_post()
     this.getData();
   },
+  watch: {
+    visi: function visi(value) {
+      //padarom tuscia, nes jei atzymi checkbox, kad nebeliktu pazymetu
+      //perraso masyva per nauja
+      this.checkbox = [];
+
+      for (var i = 0; i < this.visi.length; i++) {
+        var arr = this.miestai[this.rodo][this.visi[i]];
+        var sk = arr.length;
+
+        for (var _i2 = 0; _i2 < sk; _i2++) {
+          this.checkbox.push(arr[_i2]);
+        }
+      } //console.log(this.checkbox)
+
+    }
+  },
   methods: {
     numeris: function numeris() {
       this.nr2 = this.nr;
@@ -336,13 +355,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       this.rodyti_lv = true;
       this.rodyti_ee = false;
       this.rodo = 'LV';
-      this.checkbox = []; //this.paieska_post()
+      this.checkbox = [];
+      this.visi = []; //this.paieska_post()
     },
     change_ee: function change_ee() {
       this.rodyti_ee = true;
       this.rodyti_lv = false;
       this.rodo = 'EE';
-      this.checkbox = []; //this.paieska_post()
+      this.checkbox = [];
+      this.visi = []; //this.paieska_post()
     },
     paieska: function paieska() {
       var _this = this;
@@ -5078,7 +5099,22 @@ var render = function() {
                           },
                           expression: "checkbox"
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "b-checkbox",
+                        {
+                          attrs: { "native-value": index, type: "is-danger" },
+                          model: {
+                            value: _vm.visi,
+                            callback: function($$v) {
+                              _vm.visi = $$v
+                            },
+                            expression: "visi"
+                          }
+                        },
+                        [_vm._v("(visi)")]
+                      )
                     ],
                     1
                   )
@@ -5187,7 +5223,7 @@ var render = function() {
                     attrs: { type: "is-black", expanded: "" },
                     on: { click: _vm.paieska }
                   },
-                  [_vm._v("Skaičiuoti")]
+                  [_vm._v("SKAIČIUOTI")]
                 )
               ],
               1

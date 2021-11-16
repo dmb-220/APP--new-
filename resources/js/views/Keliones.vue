@@ -9,6 +9,7 @@
           <div v-for="(item, index) in miestai[rodo]" :key="item.index">
             <b-field :label="index"  class="has-check" horizontal>
               <checkbox-picker :options="item"  v-model="checkbox" type="is-black"/>
+              <b-checkbox v-model="visi" :native-value="index" type="is-danger">(visi)</b-checkbox>
             </b-field>
           </div>
         <hr>
@@ -33,7 +34,7 @@
             <b-input type="input" v-model="nr2" icon="variable"></b-input>    
         </b-field>
         <div class="buttons">
-            <b-button type="is-black" @click="paieska" expanded>Skaičiuoti</b-button>
+            <b-button type="is-black" @click="paieska" expanded>SKAIČIUOTI</b-button>
         </div>
       </card-component>
 
@@ -188,6 +189,7 @@ export default {
       rodyti_lv: true,
       rodyti_ee: false,
       rodo: '',
+      visi: [],
       data: new Date(),
       nr: 20210,
       nr_rodyti: false,
@@ -218,6 +220,21 @@ export default {
     //this.paieska_post()
     this.getData()
   },
+  watch: {
+    visi: function (value) {
+      //padarom tuscia, nes jei atzymi checkbox, kad nebeliktu pazymetu
+      //perraso masyva per nauja
+      this.checkbox = [];
+      for (let i = 0; i < this.visi.length; i++) {
+        let arr = this.miestai[this.rodo][this.visi[i]];
+        let sk = arr.length;
+        for (let i = 0; i < sk; i++) {
+          this.checkbox.push(arr[i])
+        }
+      } 
+      //console.log(this.checkbox)
+    },
+  },
   methods: {
     numeris(){
       this.nr2 = this.nr;
@@ -233,6 +250,7 @@ export default {
       this.rodyti_ee = false;
       this.rodo = 'LV';
       this.checkbox = [];
+      this.visi = [];
       //this.paieska_post()
     },
     change_ee(){
@@ -240,6 +258,7 @@ export default {
       this.rodyti_lv = false;
       this.rodo = 'EE';
       this.checkbox = [];
+      this.visi = [];
       //this.paieska_post()
     },
     paieska(){
