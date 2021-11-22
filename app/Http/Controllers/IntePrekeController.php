@@ -140,12 +140,12 @@ class IntePrekeController extends Controller
                     $kiek_ee = 0;
 
                     //jei LT nebeturi, reikia viska perkelti is EE,
-                    //Jei EE nera ir LT  nera, kelti is LV
-                    
                     if($liko_LT == 0){
                         $nb_lv = 1; $nb_ee = 0;
+                    //Jei EE nera ir LT  nera, kelti is LV
                     }else if($liko_LT == 0 && $liko_EE == 0){
                         $nb_lv = 0; $nb_ee = 0;
+                    //jei netruksta prekiu, 0 vnt nera
                     }else{
                         $nb_lv = 2; $nb_ee = 2;
                     }

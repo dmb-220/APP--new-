@@ -27,6 +27,12 @@ Route::prefix('/testas')->group(function () {
     Route::get('idx', [App\Http\Controllers\TestasController::class, 'idx'])->name('idx');
 });
 
+/* Dalinti prekes */
+Route::prefix('/dalinti')->group(function () {
+    Route::get('/', [App\Http\Controllers\DalintiController::class, 'index'])->name('index');
+    Route::get('export', [App\Http\Controllers\DalintiController::class, 'export'])->name('export');
+});
+
 /* CSV */ 
 Route::prefix('/csv')->group(function () {
     Route::get('/', [App\Http\Controllers\CSVController::class, 'index'])->name('index');

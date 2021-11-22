@@ -94,6 +94,11 @@ export default new Router({
       component: () => import('./views/ReplaceLV.vue')
     },
     {
+      path: '/dalinti',
+      name: 'dalinti',
+      component: () => import('./views/Dalinti.vue')
+    },
+    {
       path: '/CSV_sarasas',
       name: 'CSV_sarasas',
       component: () => import('./views/CSV_Sarasas.vue')

@@ -124,7 +124,11 @@ export default {
               }
             ]
           },
-
+          {
+            to: '/dalinti',
+            label: 'Prekių dalijimas',
+            icon: 'share',
+          }, 
           {
             to: '/inte_prekes',
             label: 'INTE Perkėlimai',
