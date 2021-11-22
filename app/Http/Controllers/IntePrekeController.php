@@ -139,6 +139,17 @@ class IntePrekeController extends Controller
                     $kiek_lv = 0;
                     $kiek_ee = 0;
 
+                    //jei LT nebeturi, reikia viska perkelti is EE,
+                    //Jei EE nera ir LT  nera, kelti is LV
+                    
+                    if($liko_LT == 0){
+                        $nb_lv = 1; $nb_ee = 0;
+                    }else if($liko_LT == 0 && $liko_EE == 0){
+                        $nb_lv = 0; $nb_ee = 0;
+                    }else{
+                        $nb_lv = 2; $nb_ee = 2;
+                    }
+
                     //tikrinam ar max atitinka su LT
                     //jei taip darom is jos perkelima
                     if($max == $liko_LT && $liko_LT > 2){                        
@@ -172,7 +183,7 @@ class IntePrekeController extends Controller
 
                     //tikrinam ar max atitinka su LV
                     //jei taip darom is jos perkelima
-                    if($max == $liko_LV && $liko_LV > 2){
+                    if($max == $liko_LV && $liko_LV > $nb_lv){
                         //kiek perkelti
                         if($viso >= 10 && $liko_LV - 2 > $liko_LT){$nr = 2;}else{$nr = 1;}
 
@@ -220,7 +231,7 @@ class IntePrekeController extends Controller
 
                     //tikrinam ar max atitinka su EE
                     //jei taip darom is jos perkelima
-                    if($max == $liko_EE && $liko_EE > 2){
+                    if($max == $liko_EE && $liko_EE > $nb_ee){
                         //kiek perkelti
                         if($viso >= 10 && $liko_EE - 1 > $liko_LT){$nr = 2;}else{$nr = 1;}
                         

@@ -246,9 +246,10 @@ class PrekesController extends Controller
         foreach ( $res as $value ) {
             if($value['sandelis'] != "TELSIAI" && $value['sandelis'] != "3333"){
                 if($value['kiekis'] > 0){
-                    if($value['registras'] == "GAM" && !$rikiuoti){
+                    if(/*$value['registras'] == "GAM" && */!$rikiuoti){
                         $a = explode("-", $value['preke']);
-                        if(count($a) >= 3){$ne = $a[0]."-".$a[1]."-";}
+                        if(count($a) >= 4){$ne = $a[0]."-".$a[1]."-".$a[2]."-";}
+                        if(count($a) == 3){$ne = $a[0]."-".$a[1]."-";}
                         if(count($a) == 2){$ne = $a[0]."-";}
                         //turi veikti tik su BROK
                         if(count($a) == 1){$ne = preg_replace('#[0-9 ]*#', '', $a[0]);}
@@ -402,14 +403,14 @@ class PrekesController extends Controller
         foreach ( $re as $value ) {
             if($value['sandelis'] != "BROK" && $value['sandelis'] != "ESTI" && $value['sandelis'] != "3333" && $value['sandelis'] != "SAND"
             && $value['sandelis'] != "TELSIAI" && $value['sandelis'] != "4444" && $value['sandelis'] != "1111" && $value['sandelis'] != "ZILT"){
-                if($value['registras'] == "GAM" && !$rikiuoti){
+                if(/*$value['registras'] == "GAM" && */!$rikiuoti){
                     $a = explode("-", $value['preke']);
-                if(count($a) >= 3){$ne = $a[0]."-".$a[1]."-";}
-                if(count($a) == 2){$ne = $a[0]."-";}
-                //turi veikti tik su BROK
-                if(count($a) == 1){$ne = preg_replace('#[0-9 ]*#', '', $a[0]);}
-                $likutis[$ne][] = $value;
-                    
+                    if(count($a) >= 4){$ne = $a[0]."-".$a[1]."-".$a[2]."-";}
+                    if(count($a) == 3){$ne = $a[0]."-".$a[1]."-";}
+                    if(count($a) == 2){$ne = $a[0]."-";}
+                    //turi veikti tik su BROK
+                    if(count($a) == 1){$ne = preg_replace('#[0-9 ]*#', '', $a[0]);}
+                    $likutis[$ne][] = $value;
                 }else{
                     $likutis[$value['preke']][] = $value;
                 }
