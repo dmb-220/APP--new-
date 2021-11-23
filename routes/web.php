@@ -30,6 +30,8 @@ Route::prefix('/testas')->group(function () {
 /* Dalinti prekes */
 Route::prefix('/dalinti')->group(function () {
     Route::get('/', [App\Http\Controllers\DalintiController::class, 'index'])->name('index');
+    Route::post('store_file', [App\Http\Controllers\DAlintiController::class, 'store_file'])->name('store_file');
+    Route::post('store', [App\Http\Controllers\DAlintiController::class, 'store'])->name('store');
     Route::get('export', [App\Http\Controllers\DalintiController::class, 'export'])->name('export');
 });
 

@@ -56,7 +56,7 @@
             :opened-detailed="defaultOpenedDetails"
             detailed
             detail-key="sandelis"
-            @details-open="(row) => $buefy.toast.open(`Expanded ${row.sandeis}`)"
+            @details-open="(row) => $buefy.toast.open(`Expanded ${row.sandelis}`)"
             :show-detail-icon="showDetailIcon">
             
             <b-table-column label="Sandelis"  field="sandelis" v-slot="props">

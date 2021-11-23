@@ -1306,7 +1306,7 @@ var render = function() {
                   },
                   on: {
                     "details-open": function(row) {
-                      return _vm.$buefy.toast.open("Expanded " + row.sandeis)
+                      return _vm.$buefy.toast.open("Expanded " + row.sandelis)
                     }
                   },
                   scopedSlots: _vm._u([

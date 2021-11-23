@@ -84,7 +84,7 @@ export default {
       //console.log(JSON.stringify(formData));
 
       axios
-        .post('/dalinti/store', formData, {
+        .post('/dalinti/store_file', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           },
