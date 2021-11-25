@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\DalintiXLS;
-use Maatwebsite\Excel\Facades\Excel;
+
 use App\Models\File;
 use App\Models\Dalinti;
+use App\Models\Likutis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +20,7 @@ class DalintiController extends Controller
     public function index()
     {
         $warehouse  = array(
-            'LT' => array("MINS", "TELS", "MADA", "MARI", "MOLA", "NORF", "BIGA", "BABI", "UKME", "MANT", "VISA", "KEDA","AREN", "MAXI", "PANE", "KREV", "MAZE", "TAIK", "SAUL", "TAUB", "UTEN", "INTE", "INLV", "INEE"),
+            'LT' => array("MINS", "TELS", "MADA", "MARI", "MOLA", "NORF", "BIGA", "BABI", "UKME", "MANT", "VISA", "KEDA","AREN", "MAXI", "PANE", "MAZE", "TAIK", "SAUL", "TAUB", "UTEN", "INTE", "INLV", "INEE"),
             'LV' => array("DOLE", "KULD", "BRIV", "DITO", "MATI", "OGRE", "TAL2", "TUKU", "VALD", "VENT", "AIZK", "DAUG", "LIMB", "MELN", "SALD", "VALM", "BALV", "CESI", "DOBE", "GOBA", "JEKA", "LIEP", "SIGU", "MADO"),
             'EE' => array("Johvi", "Mustamäe", "Narva", "Rakvere", "Sopruse", "Võru 55 Tartu", "Ümera","Eden", "Haapsalu", "Kopli", "Parnu", "Riia Parnu")
         );
@@ -32,25 +32,44 @@ class DalintiController extends Controller
 
         $list = array();
         foreach($dalinti as $row){
-            //foreach($sandeliai as $val){
-                $list[$row['barkodas']]['barkodas'] = $row['barkodas']; 
-                $list[$row['barkodas']]['likutis'] = $row['likutis'];
-                $list[$row['barkodas']]['sandeliai'] = $sandeliai;
-           // }
+            $list[] = $row['barkodas'];
         }
 
-        $list = array_values($list);
+        $liko = Likutis::whereIn('sandelis', $sandeliai)
+            ->whereIn('preke', $list)
+            ->get();  
+
+        $array = array();
+        //pasidarom masyva
+        //pagal prekiu sarasa, ir sandeliuse nustatom 0
+        foreach($list as $va){
+            foreach($sandeliai as $v){
+                $array[$va][$v] = 0;
+            }
+        }
+
+        //jei sandelis turi preke, irasomas kiekis
+        //kitu atveju lieka 0
+        foreach($liko as $val){
+            $array[$val['preke']][$val['sandelis']] = $val['kiekis'];
+        }
+
+        //paliekam masyve tik reiksmes  su 0
+        $arr = array();
+        foreach($array as $x => $xx){
+            foreach($xx as $y => $yy){
+                if($yy == 0){
+                    $arr[$x][] = $y;
+                }
+            }
+        }
 
         return response()->json([
             'status' => true,
-            'dalinti' => $list,
-            'sandeliai' => $sandeliai
+            'dalinti' => $dalinti,
+            'sandeliai' => $sandeliai,
+            'array' => $arr
         ]);
-    }
-
-    public function export() 
-    {
-        return Excel::download(new DalintiXLS, 'dalinti.xlsx');
     }
 
     /**
