@@ -20,12 +20,12 @@ class DalintiController extends Controller
     public function index()
     {
         $warehouse  = array(
-            'LT' => array("MINS", "TELS", "MADA", "MARI", "MOLA", "NORF", "BIGA", "BABI", "UKME", "MANT", "VISA", "KEDA","AREN", "MAXI", "PANE", "MAZE", "TAIK", "SAUL", "TAUB", "UTEN", "INTE", "INLV", "INEE"),
-            'LV' => array("DOLE", "KULD", "BRIV", "DITO", "MATI", "OGRE", "TAL2", "TUKU", "VALD", "VENT", "AIZK", "DAUG", "LIMB", "MELN", "SALD", "VALM", "BALV", "CESI", "DOBE", "GOBA", "JEKA", "LIEP", "SIGU", "MADO"),
-            'EE' => array("Johvi", "Mustamäe", "Narva", "Rakvere", "Sopruse", "Võru 55 Tartu", "Ümera","Eden", "Haapsalu", "Kopli", "Parnu", "Riia Parnu")
+            0 => array("MINS", "TELS", "MADA", "MARI", "MOLA", "NORF", "BIGA", "BABI", "UKME", "MANT", "VISA", "KEDA","AREN", "MAXI", "PANE", "MAZE", "TAIK", "SAUL", "TAUB", "UTEN", "INTE", "INLV", "INEE"),
+            1 => array("DOLE", "KULD", "BRIV", "DITO", "MATI", "OGRE", "TAL2", "TUKU", "VALD", "VENT", "AIZK", "DAUG", "LIMB", "MELN", "SALD", "VALM", "BALV", "CESI", "DOBE", "GOBA", "JEKA", "LIEP", "SIGU", "MADO"),
+            2 => array("Johvi", "Mustamäe", "Narva", "Rakvere", "Sopruse", "Võru 55 Tartu", "Ümera","Eden", "Haapsalu", "Kopli", "Parnu", "Riia Parnu")
         );
 
-        $sandeliai = array_merge($warehouse['LT'], $warehouse['LV'], $warehouse['EE']);
+        $sandeliai = array_merge($warehouse[0], $warehouse[1], $warehouse[2]);
 
         //paimam ikeltus duomenis
         $dalinti = Dalinti::all();
@@ -68,6 +68,7 @@ class DalintiController extends Controller
             'status' => true,
             'dalinti' => $dalinti,
             'sandeliai' => $sandeliai,
+            'warehouse' => $warehouse,
             'array' => $arr
         ]);
     }
