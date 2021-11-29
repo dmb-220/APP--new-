@@ -14,16 +14,28 @@
       <card-component title="Prekių dalinimas" icon="account-multiple">
       <div>Prekių: {{dalinti.length}}</div>
       <hr>
-      <b-tabs type="is-boxed" :multiline="multiline">
+      <b-field  label=" ">
+        <p class="control">
+          <b-button icon-left="arrow-left" type="is-dark" v-if="page > 0" v-on:click="page -= 1">ATGAL</b-button>
+          <b-button icon-left="arrow-left" type="is-dark" v-else disabled>ATGAL</b-button>
+          <button class="button" v-on:click="page_set()">Puslapiai: {{page + 1}}</button>
+          <b-button icon-right="arrow-right" type="is-dark" v-if="page < maxpage" v-on:click="page += 1">TOLIAU</b-button>
+          <b-button icon-right="arrow-right" type="is-dark" v-else disabled>ATGAL</b-button>
+          <b-button v-on:click="bendra_info()">BENDRA INFO</b-button>
+          </p>
+      </b-field>
+      <hot-table ref="hotTableComponent" :data="duomenys[page]" :settings="hotSettings"></hot-table>
+
+      <!--<b-tabs type="is-boxed" :multiline="multiline">
         <template v-for="(tab, index) in tabs">
           <b-tab-item :key="index" :label="tab">
             <hot-table :data="duomenys[index]" :settings="hotSettings"></hot-table>
           </b-tab-item>
         </template>
         <b-tab-item v-if="maxpage > 0" :key="maxpage+1" label="BENDRA INFO">
-          <hot-table :data="bendra" :settings="hotSettings"></hot-table>
+          <hot-table ref="hotTableComponent" :data="bendra" :settings="hotSettings"></hot-table>
         </b-tab-item>
-      </b-tabs>
+      </b-tabs> -->
       </card-component>
     </section>
   </div>
@@ -31,10 +43,6 @@
 </template>
 
 <style>
-td.custom-cell {
-  color: #fff;
-  background-color: #37bc6c;
-}
 </style>
 
 <script>
@@ -97,10 +105,14 @@ export default {
       newas: [],
       sandeliai: [],
       share: [],
-      tabs: []
+      tabs: [],
     }
   },
   watch: {
+    page: function (value) {
+      //uzkraunam atnaujintus duomenis i lentele
+      this.$refs.hotTableComponent.hotInstance.loadData(this.duomenys[value]);
+    },
   },
   computed: {
   },
@@ -214,7 +226,13 @@ export default {
         this.data = [];
       }
       //uzkraunam atnaujintus duomenis i lentele
-      //this.$refs.hotTableComponent.hotInstance.loadData(this.duomenys[0]);
+      this.$refs.hotTableComponent.hotInstance.loadData(this.duomenys[0]);
+    },
+    page_set(){
+      this.$refs.hotTableComponent.hotInstance.loadData(this.duomenys[this.page]);
+    },
+    bendra_info(){
+      this.$refs.hotTableComponent.hotInstance.loadData(this.bendra);
     },
     make_sheat(){
       for(let i = 0; i <= this.maxpage; i++){
