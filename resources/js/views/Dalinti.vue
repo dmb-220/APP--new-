@@ -18,24 +18,19 @@
         <p class="control">
           <b-button icon-left="arrow-left" type="is-dark" v-if="page > 0" v-on:click="page -= 1">ATGAL</b-button>
           <b-button icon-left="arrow-left" type="is-dark" v-else disabled>ATGAL</b-button>
-          <button class="button" v-on:click="page_set()">Puslapiai: {{page + 1}}</button>
+          <button class="button" v-on:click="page_set()">Puslapiai: {{page + 1}} ( {{maxpage+1}} )</button>
           <b-button icon-right="arrow-right" type="is-dark" v-if="page < maxpage" v-on:click="page += 1">TOLIAU</b-button>
           <b-button icon-right="arrow-right" type="is-dark" v-else disabled>ATGAL</b-button>
           <b-button v-on:click="bendra_info()">BENDRA INFO</b-button>
           </p>
       </b-field>
-      <hot-table ref="hotTableComponent" :data="duomenys[page]" :settings="hotSettings"></hot-table>
-
-      <!--<b-tabs type="is-boxed" :multiline="multiline">
-        <template v-for="(tab, index) in tabs">
-          <b-tab-item :key="index" :label="tab">
-            <hot-table :data="duomenys[index]" :settings="hotSettings"></hot-table>
-          </b-tab-item>
-        </template>
-        <b-tab-item v-if="maxpage > 0" :key="maxpage+1" label="BENDRA INFO">
-          <hot-table ref="hotTableComponent" :data="bendra" :settings="hotSettings"></hot-table>
-        </b-tab-item>
-      </b-tabs> -->
+      <div  id="printMe">
+        <hot-table ref="hotTableComponent" :data="duomenys[page]" :settings="hotSettings"></hot-table>
+      </div>
+      <hr>
+      <div class="buttons">
+        <b-button size="is-medium" icon-left="printer" type="is-dark" @click="print">SPAUSDINTI</b-button>
+      </div>
       </card-component>
     </section>
   </div>
@@ -43,6 +38,10 @@
 </template>
 
 <style>
+td.custom-cell {
+  color: #fff;
+  background-color: #37bc6c;
+}
 </style>
 
 <script>
@@ -81,9 +80,10 @@ export default {
       isLoading: false,
       //style: 'height: 142px; overflow: hidden; border: 1px solid red;',
       hotSettings: {
-        colHeaders: true,
-        rowHeaders: true,
+        colHeaders: false,
+        rowHeaders: false,
         height: 'auto',
+        selectionMode: 'multiple',
         formulas: {
           engine: HyperFormula
         },
@@ -121,7 +121,9 @@ export default {
   },
   methods: {
     create_array() {
-      let i, x, y, r, eilute = 3, ok = 1;
+      let y, r, eilute = 5, ok = 1;
+      let lt, lv, ee, sand; 
+
       let was = this.dalinti.sliceIntoChunks(this.perpage);
       this.maxpage = was.length -1;
       for(let a = 0; a <= this.maxpage; a++){
@@ -130,20 +132,23 @@ export default {
         this.make_sheat();
 
         this.data[0] = ["Kodas"];
-        this.data[1] = ["Kiekis"];
-        this.data[2] = [""];
+        this.data[1] = ["Gaminys"];
+        this.data[2] = ["Kaina"];
+        this.data[3] = ["Kiekis"];
+        this.data[4] = [""];
 
         this.data[0][this.perpage+1] = "SUMA";
-        this.data[1][this.perpage+1] = '=SUM(B2:L2)';
+        //this.data[1][this.perpage+1] = '=SUM(B2:L2)';
 
         //sudedam sandelius, 
         //iterpiam formule SUM
-        let sand = 0, xx = eilute, yy = 0;
-        for (i = 0; i < this.warehouse.length; i++) {
+        let xx = eilute, yy = 0;
+        sand = 0;
+        for (let i = 0; i < this.warehouse.length; i++) {
           let sk = this.warehouse[i].length;
           //console.log(sk)
           sand += sk;
-          for (x = 0; x < sk; x++) {
+          for (let x = 0; x < sk; x++) {
             r = xx+1;
             //console.log(this.warehouse[i][x])
             this.data[xx] = [this.warehouse[i][x]];
@@ -164,63 +169,70 @@ export default {
         ok = 0;
 
         //Footer
-        this.data[sand+5] = [""];
-        this.data[sand+6] = ["SUMA"];
-        this.data[sand+7] = ["BALANSAS"];
+        this.data[sand+7] = [""];
+        this.data[sand+8] = ["SUMA"];
+        this.data[sand+9] = ["BALANSAS"];
 
-        this.data[sand+8] = ["INTERNETAS"];
-        this.data[sand+9] = ["LIETUVA"];
-        this.data[sand+10] = ["LATVIJA"];
-        this.data[sand+11] = ["ESTIJA"];
+        this.data[sand+10] = ["INTERNETAS"];
+        this.data[sand+11] = ["LIETUVA"];
+        this.data[sand+12] = ["LATVIJA"];
+        this.data[sand+13] = ["ESTIJA"];
 
         //stulpeliai su KODAI ir likuciu
-        for (i = 1; i <= this.newas.length; i++) {
+        for (let i = 1; i <= this.newas.length; i++) {
           let kodas = this.newas[i-1]['barkodas'];
-          this.data[0][i] = kodas;
-          this.data[1][i] = this.newas[i-1]['likutis'];
+          let ko = kodas.split("-");
+          let ks = ko.length-1;
+          this.data[0][i] = ko[ks-1]+"-"+ko[ks];
+          this.data[3][i] = this.newas[i-1]['likutis'];
           //console.log("ID: "+a+" "+kodas)
-          if(kodas in this.share){
-            //console.log(kodas);
-            for (y = 0; y < this.share[kodas].length; y++) {
-              let  xxx, ss = 0, z;
-              //console.log(this.share[kodas][y]);    
-              for (z = 0; z < this.warehouse.length; z++) {
-                xxx = this.arraySearch(this.warehouse[z], this.share[kodas][y]);
-                if(xxx){
-                  //console.log(z +' - '+ xxx +' - '+ ss);
-                  this.bendra[ss + xxx][1] += 1;
-                  this.data[ss + xxx + eilute][i] = 1; break;
-                }else{
-                  ss += this.warehouse[z].length + 1;
+          if(this.newas[i-1]['likutis'] > 0){
+            //reik tikrinti ar likutis nera maziau 
+            //norima dalinti kieki
+            if(kodas in this.share){
+              //console.log(kodas);
+              for (y = 0; y < this.share[kodas].length; y++) {
+                let  xxx, ss = 0, z;
+                //console.log(this.share[kodas][y]);    
+                for (z = 0; z < this.warehouse.length; z++) {
+                  xxx = this.arraySearch(this.warehouse[z], this.share[kodas][y]);
+                  if(xxx){
+                    //console.log(z +' - '+ xxx +' - '+ ss);
+                    this.bendra[ss + xxx][1] += 1;
+                    this.data[ss + xxx + eilute][i] = 1; break;
+                  }else{
+                    ss += this.warehouse[z].length + 1;
+                  }
                 }
               }
+              //this.data[2][i] = this.share[kodas].join(' ');
             }
-            //this.data[2][i] = this.share[kodas].join(' ');
           }
 
           //iskaiciuoti masyvo pradini galini taskus
           //kad keiciant parduotuviu sasrasa veiktu 
-          let lt = this.warehouse[0].length;
-          let lv = this.warehouse[1].length;
-          let ee = this.warehouse[2].length;
+          lt = this.warehouse[0].length;
+          lv = this.warehouse[1].length;
+          ee = this.warehouse[2].length;
           //console.log(sand+' - '+lt+' - '+lv+' - '+ee);
 
-          let tp = eilute-1;
-          let ts = sand+eilute+2; //masyvas/3 eilutes nuo virsaus/ 2 tarpai tarp sandeliu
+          let pirma = eilute-1;
+          let paskutine = sand+eilute+2; //masyvas/3 eilutes nuo virsaus/ 2 tarpai tarp sandeliu
+
           //SUMA//BALANSAS
-          this.data[sand+6][i] = '=SUM('+this.raides[i]+(eilute+1)+':'+this.raides[i]+ts+')';
-          this.data[sand+7][i] = '=('+(this.raides[i]+tp)+'-'+(this.raides[i]+(ts+2))+')';
+          this.data[sand+8][i] = '=SUM('+this.raides[i]+(eilute+1)+':'+this.raides[i]+paskutine+')';
+          this.data[sand+9][i] = '=('+(this.raides[i]+pirma)+'-'+(this.raides[i]+(paskutine+2))+')';
           //INTERNETAS//VALSTYBES
-          this.data[sand+8][i] = '=SUM('+this.raides[i]+'24:'+this.raides[i]+'26)';
-          this.data[sand+9][i] = '=SUM('+this.raides[i]+'4:'+this.raides[i]+'23)';
-          this.data[sand+10][i] = '=SUM('+this.raides[i]+'28:'+this.raides[i]+'51)';
-          this.data[sand+11][i] = '=SUM('+this.raides[i]+'53:'+this.raides[i]+'64)';
+          //this.data[sand+8][i] = '=('+this.raides[i]+(lt+eilute)+'+'+this.raides[i]+(lt+lv+eilute+1)+'+'+this.raides[i]+(lt+lv+ee+eilute+2)+')';
+          this.data[sand+11][i] = '=SUM('+this.raides[i]+(eilute+1)+':'+this.raides[i]+(lt+eilute)+')';
+          this.data[sand+12][i] = '=SUM('+this.raides[i]+(lt+eilute+2)+':'+this.raides[i]+(lt+lv+eilute+1)+')';
+          this.data[sand+13][i] = '=SUM('+this.raides[i]+(lt+lv+eilute+3)+':'+this.raides[i]+(sand+7)+')';
         }
         //SUMA viso
-        this.data[sand+8][this.perpage+1] = '=SUM('+this.raides[this.perpage+1]+'24:'+this.raides[this.perpage+1]+'26)';
-        this.data[sand+9][this.perpage+1] = '=SUM('+this.raides[this.perpage+1]+'4:'+this.raides[this.perpage+1]+'26)';
-        this.data[sand+10][this.perpage+1] = '=SUM('+this.raides[this.perpage+1]+'28:'+this.raides[this.perpage+1]+'51)';
-        this.data[sand+11][this.perpage+1] = '=SUM('+this.raides[this.perpage+1]+'53:'+this.raides[this.perpage+1]+'64)';
+        //this.data[sand+8][this.perpage+1] = '=('+this.raides[this.perpage+1]+(lt+eilute)+'+'+this.raides[this.perpage+1]+(lt+lv+eilute+1)+'+'+this.raides[this.perpage+1]+(lt+lv+ee+eilute+2)+')';
+        this.data[sand+11][this.perpage+1] = '=SUM('+this.raides[this.perpage+1]+(eilute+1)+':'+this.raides[this.perpage+1]+(lt+eilute)+')';
+        this.data[sand+12][this.perpage+1] = '=SUM('+this.raides[this.perpage+1]+(lt+eilute+2)+':'+this.raides[this.perpage+1]+(lt+lv+eilute+1)+')';
+        this.data[sand+13][this.perpage+1] = '=SUM('+this.raides[this.perpage+1]+(lt+lv+eilute+3)+':'+this.raides[this.perpage+1]+(sand+7)+')';
 
         this.duomenys[a] = this.data;
         this.data = [];
@@ -249,7 +261,9 @@ export default {
   file_info (value) {
     this.failas = value.name;
   },
-
+  print() {
+      this.$htmlToPaper('printMe');
+    },
   suformuoti(){
     axios
       .post(`/dalinti/store`, {

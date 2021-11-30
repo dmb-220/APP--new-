@@ -20,9 +20,10 @@ class DalintiController extends Controller
     public function index()
     {
         $warehouse  = array(
-            0 => array("MINS", "TELS", "MADA", "MARI", "MOLA", "NORF", "BIGA", "BABI", "UKME", "MANT", "VISA", "KEDA","AREN", "MAXI", "PANE", "MAZE", "TAIK", "SAUL", "TAUB", "UTEN", "INTE", "INLV", "INEE"),
-            1 => array("DOLE", "KULD", "BRIV", "DITO", "MATI", "OGRE", "TAL2", "TUKU", "VALD", "VENT", "AIZK", "DAUG", "LIMB", "MELN", "SALD", "VALM", "BALV", "CESI", "DOBE", "GOBA", "JEKA", "LIEP", "SIGU", "MADO"),
-            2 => array("Johvi", "Mustamäe", "Narva", "Rakvere", "Sopruse", "Võru 55 Tartu", "Ümera","Eden", "Haapsalu", "Kopli", "Parnu", "Riia Parnu")
+            0 => array("LIEP", "VENT", "KULD", "SALD", "VALK", "TUKU", "DOBE", "SIGU", "VALM", "CESI", "BALV", "LIMB", "MELN", "MATI", "DOLE", 
+            "BRIV", "GOBA", "DAUG", "JEKA", "AIZK", "OGRE", "MADO", "VALD", "DITO", "TAL2", "INLV"),
+            1 => array("TELS", "UKME", "BIGA", "MANT", "SAUL", "MAZE", "MAXI", "BABI", "KEDA", "MARI", "NORF", "INTE", "VISA", "PANE", "AREN", "MADA", "MINS", "TAIK", "MOLA", "TAUB", "UTEN"),
+            2 => array("Parnu", "Rakvere", "Johvi", "Narva", "Sopruse", "Mustamäe", "Ümera", "Riia Parnu", "Võru 55 Tartu", "Eden", "Haapsalu", "Kopli", "INEE")
         );
 
         $sandeliai = array_merge($warehouse[0], $warehouse[1], $warehouse[2]);
@@ -126,12 +127,12 @@ class DalintiController extends Controller
             //praleidziam pirma eilute
             //if($flag) { $flag = false; continue; }
             $val = mb_convert_encoding($data, "UTF-8", "ISO-8859-13");
-            if($val[1] > 0){
+            //if($val[1] > 0){
                 $da[] = [
                     'barkodas' => $val[0],
                     'likutis' => $val[1],
                 ];
-            }
+            //}
         }
         fclose($handle);
         }
