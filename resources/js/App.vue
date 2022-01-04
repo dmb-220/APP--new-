@@ -101,6 +101,11 @@ export default {
             label: 'Perkėlimai',
             icon: 'bus',
           },*/
+         {
+            to: '/return',
+            label: 'Gražinimas iš LV / EE',
+            icon: 'bell-ring',
+          },
 
           {
             label: 'INTE grąžinimai',

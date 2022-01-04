@@ -21,6 +21,12 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
 
+/* Prekių grazinimas is EE ar LV */ 
+Route::prefix('/return')->group(function () {
+    Route::get('/', [App\Http\Controllers\ReturnProductController::class, 'index'])->name('index');
+    Route::post('store',  [App\Http\Controllers\ReturnProductController::class, 'store'])->name('store');
+});
+
 /* Testas */
 Route::prefix('/testas')->group(function () {
     Route::get('/', [App\Http\Controllers\TestasController::class, 'index'])->name('index');

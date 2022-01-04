@@ -153,13 +153,13 @@ class KelioneController extends Controller
         
         $miestai = array(
           'EE' => array(
-            "ESTIJA" => array("JOHV", "MUST", "NARV", "RAKV", "SOPR", "VORU", "UMER", "EDEN", "HAPS", "KOHT", "KOPL", "PARN", "RIIA"),
+            "ESTIJA" => array("JOHV", "MUST", "RAKV", "SOPR", "VORU", "UMER", "EDEN", "HAPS", "KOHT", "KOPL", "PARN", "RIIA"),
           ),
           'LV' => array(
             "PAJURIS" => array('LIEP', 'VENT', 'KULD', 'SALD', 'TAL2', 'TUKU', 'DOBE'),
             "VIDZEME" => array('SIGU', 'VALM', 'CESI', 'BALV', 'LIMB', 'MADO', 'VALK'),
             "RYGA" => array('VALD', 'MELN', 'MATI', 'DOLE', 'BRIV', 'GOBA'),
-            "DAUGPILIS" => array('DAUG', 'DITO', 'JEKA', 'AIZK', 'OGRE')
+            "DAUGPILIS" => array('DITO', 'JEKA', 'AIZK', 'OGRE')
           )
         );
         

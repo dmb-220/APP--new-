@@ -174,8 +174,8 @@ export default {
         this.data[sand+9] = ["BALANSAS"];
 
         this.data[sand+10] = ["INTERNETAS"];
-        this.data[sand+11] = ["LIETUVA"];
-        this.data[sand+12] = ["LATVIJA"];
+        this.data[sand+11] = ["LATVIJA"];
+        this.data[sand+12] = ["LIETUVA"];
         this.data[sand+13] = ["ESTIJA"];
 
         //stulpeliai su KODAI ir likuciu

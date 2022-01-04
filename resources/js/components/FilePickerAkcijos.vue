@@ -1,6 +1,6 @@
 <template>
 <b-field :label="label" :message="fieldFileMessage" :type="fieldFileType">
-    <b-upload v-model="file_LT" @input="upload" drag-drop expanded> 
+    <b-upload v-model="file" @input="upload" drag-drop expanded> 
       <section class="section">      
         <div class="content has-text-centered">
           <p>

@@ -20,8 +20,8 @@ class InteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $start = '2021-10-01';
-    public $end = '2021-10-31';
+    public $start = '2021-11-01';
+    public $end = '2021-11-30';
 
     public function index()
     {
@@ -852,6 +852,7 @@ class InteController extends Controller
             if($val[0] == $sandelis){
                 $kiek = explode(",", $val[11]);
                 $kiek = $kiek[0];
+                if(!$bid){$bid = "LT";}
 
                 $da[] = [
                     'preke' => $val[6],

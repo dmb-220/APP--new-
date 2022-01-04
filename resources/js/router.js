@@ -103,6 +103,11 @@ export default new Router({
       name: 'CSV_sarasas',
       component: () => import('./views/CSV_Sarasas.vue')
     },
+    {
+      path: '/return',
+      name: 'return',
+      component: () => import('./views/ReturnProducts.vue')
+    },
     /*
     {
       path: '/sandeliai',
