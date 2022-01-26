@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+Use \Carbon\Carbon;
 use App\Models\Inte;
 use App\Models\Bankas;
 use App\Models\Pardavimai;
@@ -20,11 +21,15 @@ class InteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $start = '2021-12-01';
-    public $end = '2021-12-31';
+    public $start;
+    public $end;
 
-    public function index()
-    {
+    public function __construct() {
+        $this->start = Carbon::now()->startOfMonth()->subMonthNoOverflow()->toDateTimeString();
+        $this->end = Carbon::now()->endOfMonth()->subMonthNoOverflow()->toDateTimeString();
+        }
+
+    public function index(){
         //nustatymai
         $failas = "apyvarta.txt";
         $directory  = "app/";
