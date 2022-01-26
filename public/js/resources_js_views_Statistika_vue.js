@@ -612,9 +612,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "baseChartOptions": () => (/* binding */ baseChartOptions),
 /* harmony export */   "chartOptionsMain": () => (/* binding */ chartOptionsMain)
 /* harmony export */ });
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -895,7 +895,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -905,18 +905,18 @@ var render = function() {
       attrs: {
         "full-screen": "",
         active: _vm.isModalActive,
-        "has-modal-card": ""
+        "has-modal-card": "",
       },
       on: {
-        "update:active": function($event) {
+        "update:active": function ($event) {
           _vm.isModalActive = $event
-        }
-      }
+        },
+      },
     },
     [
       _c("div", { staticClass: "modal-card" }, [
         _c("header", { staticClass: "modal-card-head" }, [
-          _c("p", { staticClass: "modal-card-title" }, [_vm._v("PARDAVIMAI")])
+          _c("p", { staticClass: "modal-card-title" }, [_vm._v("PARDAVIMAI")]),
         ]),
         _vm._v(" "),
         _c(
@@ -931,9 +931,9 @@ var render = function() {
             "button",
             { class: _vm.confirmButtonClass, on: { click: _vm.confirm } },
             [_vm._v(_vm._s(_vm.confirmLabel))]
-          )
-        ])
-      ])
+          ),
+        ]),
+      ]),
     ]
   )
 }
@@ -955,7 +955,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -965,17 +965,17 @@ var render = function() {
       attrs: {
         "is-active": _vm.isActive,
         "confirm-type": "is-success",
-        "confirm-label": "Uždaryti"
+        "confirm-label": "Uždaryti",
       },
       on: {
-        "update:isActive": function($event) {
+        "update:isActive": function ($event) {
           _vm.isActive = $event
         },
-        "update:is-active": function($event) {
+        "update:is-active": function ($event) {
           _vm.isActive = $event
         },
-        confirm: _vm.confirm
-      }
+        confirm: _vm.confirm,
+      },
     },
     [
       _c(
@@ -984,9 +984,9 @@ var render = function() {
           attrs: {
             title: _vm.viewSubject,
             icon: "finance",
-            "header-icon": "reload"
+            "header-icon": "reload",
           },
-          on: { "header-icon-click": _vm.fillChartData }
+          on: { "header-icon-click": _vm.fillChartData },
         },
         [
           _vm.defaultChart.chartData
@@ -1000,15 +1000,15 @@ var render = function() {
                     attrs: {
                       "chart-id": "big-bar-chart",
                       "chart-data": _vm.defaultChart.chartData,
-                      "extra-options": _vm.defaultChart.extraOptions
-                    }
-                  })
+                      "extra-options": _vm.defaultChart.extraOptions,
+                    },
+                  }),
                 ],
                 1
               )
-            : _vm._e()
+            : _vm._e(),
         ]
-      )
+      ),
     ],
     1
   )
@@ -1031,7 +1031,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1044,20 +1044,20 @@ var render = function() {
           "is-active": _vm.isModalView,
           "view-subject": _vm.viewObjectName,
           "view-pardavimai": _vm.viewName,
-          "view-label": _vm.labelName
+          "view-label": _vm.labelName,
         },
-        on: { confirm: _vm.viewConfirm }
+        on: { confirm: _vm.viewConfirm },
       }),
       _vm._v(" "),
       _c("b-loading", {
         attrs: { "is-full-page": _vm.isFullPage },
         model: {
           value: _vm.isLoading,
-          callback: function($$v) {
+          callback: function ($$v) {
             _vm.isLoading = $$v
           },
-          expression: "isLoading"
-        }
+          expression: "isLoading",
+        },
       }),
       _vm._v(" "),
       _c(
@@ -1073,10 +1073,10 @@ var render = function() {
                   placeholder: "Paieška...",
                   type: "search",
                   icon: "magnify",
-                  expanded: ""
+                  expanded: "",
                 },
                 nativeOn: {
-                  keyup: function($event) {
+                  keyup: function ($event) {
                     if (
                       !$event.type.indexOf("key") &&
                       _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
@@ -1084,15 +1084,15 @@ var render = function() {
                       return null
                     }
                     return _vm.paieska_post.apply(null, arguments)
-                  }
+                  },
                 },
                 model: {
                   value: _vm.settings["ieskoti"],
-                  callback: function($$v) {
+                  callback: function ($$v) {
                     _vm.$set(_vm.settings, "ieskoti", $$v)
                   },
-                  expression: "settings['ieskoti']"
-                }
+                  expression: "settings['ieskoti']",
+                },
               }),
               _vm._v(" "),
               _c("p", { staticClass: "control" }, [
@@ -1100,11 +1100,11 @@ var render = function() {
                   "button",
                   {
                     staticClass: "button is-primary",
-                    on: { click: _vm.paieska_post }
+                    on: { click: _vm.paieska_post },
                   },
                   [_vm._v("Ieškoti")]
-                )
-              ])
+                ),
+              ]),
             ],
             1
           ),
@@ -1118,14 +1118,14 @@ var render = function() {
                   attrs: { value: false, type: "is-info" },
                   model: {
                     value: _vm.settings["paieska_big"],
-                    callback: function($$v) {
+                    callback: function ($$v) {
                       _vm.$set(_vm.settings, "paieska_big", $$v)
                     },
-                    expression: "settings['paieska_big']"
-                  }
+                    expression: "settings['paieska_big']",
+                  },
                 },
                 [_vm._v("Aktivuoti išplėstinę paieška")]
-              )
+              ),
             ],
             1
           ),
@@ -1140,22 +1140,22 @@ var render = function() {
                   attrs: {
                     placeholder: "Pasirinkite...",
                     icon: "earth",
-                    expanded: ""
+                    expanded: "",
                   },
                   nativeOn: {
-                    change: function($event) {
+                    change: function ($event) {
                       return _vm.keisti_grupe.apply(null, arguments)
-                    }
+                    },
                   },
                   model: {
                     value: _vm.settings["grupe"],
-                    callback: function($$v) {
+                    callback: function ($$v) {
                       _vm.$set(_vm.settings, "grupe", $$v)
                     },
-                    expression: "settings['grupe']"
-                  }
+                    expression: "settings['grupe']",
+                  },
                 },
-                _vm._l(_vm.grupes, function(grup, index) {
+                _vm._l(_vm.grupes, function (grup, index) {
                   return _c(
                     "option",
                     { key: index, domProps: { value: index } },
@@ -1166,12 +1166,12 @@ var render = function() {
                           " - " +
                           _vm._s(_vm.grupes_lv[grup]) +
                           "\n          "
-                      )
+                      ),
                     ]
                   )
                 }),
                 0
-              )
+              ),
             ],
             1
           ),
@@ -1184,13 +1184,13 @@ var render = function() {
                 "b-button",
                 {
                   attrs: {
-                    type: _vm.settings["rodyti_lt"] ? "is-primary" : "is-dark"
+                    type: _vm.settings["rodyti_lt"] ? "is-primary" : "is-dark",
                   },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.change_lt()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("LIETUVA")]
               ),
@@ -1199,13 +1199,13 @@ var render = function() {
                 "b-button",
                 {
                   attrs: {
-                    type: _vm.settings["rodyti_lv"] ? "is-warning" : "is-dark"
+                    type: _vm.settings["rodyti_lv"] ? "is-warning" : "is-dark",
                   },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.change_lv()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("LATVIJA")]
               ),
@@ -1214,16 +1214,16 @@ var render = function() {
                 "b-button",
                 {
                   attrs: {
-                    type: _vm.settings["rodyti_ee"] ? "is-danger" : "is-dark"
+                    type: _vm.settings["rodyti_ee"] ? "is-danger" : "is-dark",
                   },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.change_ee()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("ESTIJA")]
-              )
+              ),
             ],
             1
           ),
@@ -1237,10 +1237,10 @@ var render = function() {
                 {
                   attrs: { type: _vm.settings["pirk"] ? "is-info" : "is-dark" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.change_pirk()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("GAMYBA")]
               ),
@@ -1250,16 +1250,16 @@ var render = function() {
                 {
                   attrs: { type: _vm.settings["gam"] ? "is-info" : "is-dark" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.change_gam()
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("PIRKIMAI")]
-              )
+              ),
             ],
             1
-          )
+          ),
         ],
         1
       ),
@@ -1276,7 +1276,8 @@ var render = function() {
                 _c(
                   "div",
                   {
-                    staticClass: "column has-text-centered has-text-weight-bold"
+                    staticClass:
+                      "column has-text-centered has-text-weight-bold",
                   },
                   [
                     _vm._v(
@@ -1285,9 +1286,9 @@ var render = function() {
                     _c("br"),
                     _vm._v(
                       _vm._s(_vm.grupes[_vm.settings["grupe"]]) + "\n        "
-                    )
+                    ),
                   ]
-                )
+                ),
               ]),
               _vm._v(" "),
               _c(
@@ -1302,24 +1303,24 @@ var render = function() {
                     "opened-detailed": _vm.defaultOpenedDetails,
                     detailed: "",
                     "detail-key": "sandelis",
-                    "show-detail-icon": _vm.showDetailIcon
+                    "show-detail-icon": _vm.showDetailIcon,
                   },
                   on: {
-                    "details-open": function(row) {
+                    "details-open": function (row) {
                       return _vm.$buefy.toast.open("Expanded " + row.sandelis)
-                    }
+                    },
                   },
                   scopedSlots: _vm._u([
                     {
                       key: "detail",
-                      fn: function(props) {
+                      fn: function (props) {
                         return [
                           _c("div", { staticClass: "columns" }, [
                             _c(
                               "div",
                               {
                                 staticClass: "column",
-                                style: { border: "1px solid" }
+                                style: { border: "1px solid" },
                               },
                               [
                                 _c(
@@ -1331,73 +1332,73 @@ var render = function() {
                                       "default-sort": "kiekis",
                                       bordered: true,
                                       striped: true,
-                                      narrowed: true
-                                    }
+                                      narrowed: true,
+                                    },
                                   },
                                   [
                                     _c("b-table-column", {
                                       attrs: {
                                         field: "preke",
                                         label: "Prekė",
-                                        sortable: ""
+                                        sortable: "",
                                       },
                                       scopedSlots: _vm._u(
                                         [
                                           {
                                             key: "default",
-                                            fn: function(props) {
+                                            fn: function (props) {
                                               return [
                                                 _vm._v(
                                                   "\n                    " +
                                                     _vm._s(props.row.preke) +
                                                     "\n                "
-                                                )
+                                                ),
                                               ]
-                                            }
-                                          }
+                                            },
+                                          },
                                         ],
                                         null,
                                         true
-                                      )
+                                      ),
                                     }),
                                     _vm._v(" "),
                                     _c("b-table-column", {
                                       attrs: {
                                         label: "Likučiai",
                                         field: "likutis",
-                                        sortable: ""
+                                        sortable: "",
                                       },
                                       scopedSlots: _vm._u(
                                         [
                                           {
                                             key: "default",
-                                            fn: function(props) {
+                                            fn: function (props) {
                                               return [
                                                 _vm._v(
                                                   "\n                    " +
                                                     _vm._s(props.row.likutis) +
                                                     "\n                "
-                                                )
+                                                ),
                                               ]
-                                            }
-                                          }
+                                            },
+                                          },
                                         ],
                                         null,
                                         true
-                                      )
+                                      ),
                                     }),
                                     _vm._v(" "),
                                     _c("b-table-column", {
                                       attrs: {
                                         label: "Pardavimai",
                                         field: "pardavimai",
-                                        sortable: ""
+                                        sortable: "",
                                       },
                                       scopedSlots: _vm._u(
                                         [
                                           {
                                             key: "default",
-                                            fn: function(props) {
+                                            fn: function (props) {
                                               return [
                                                 _vm._v(
                                                   "\n                    " +
@@ -1405,28 +1406,28 @@ var render = function() {
                                                       props.row.pardavimai
                                                     ) +
                                                     "\n                "
-                                                )
+                                                ),
                                               ]
-                                            }
-                                          }
+                                            },
+                                          },
                                         ],
                                         null,
                                         true
-                                      )
-                                    })
+                                      ),
+                                    }),
                                   ],
                                   1
-                                )
+                                ),
                               ],
                               1
-                            )
-                          ])
+                            ),
+                          ]),
                         ]
-                      }
+                      },
                     },
                     {
                       key: "footer",
-                      fn: function() {
+                      fn: function () {
                         return [
                           _c("th"),
                           _vm._v(" "),
@@ -1436,12 +1437,12 @@ var render = function() {
                           _vm._v(" "),
                           _c("th", [_vm._v(_vm._s(_vm.viso_pard))]),
                           _vm._v(" "),
-                          _c("th")
+                          _c("th"),
                         ]
                       },
-                      proxy: true
-                    }
-                  ])
+                      proxy: true,
+                    },
+                  ]),
                 },
                 [
                   _c("b-table-column", {
@@ -1449,17 +1450,17 @@ var render = function() {
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               "\n              " +
                                 _vm._s(props.row.sandelis) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
@@ -1467,22 +1468,22 @@ var render = function() {
                       label: "Likutis",
                       field: "likutis_sk",
                       numeric: "",
-                      sortable: ""
+                      sortable: "",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               "\n          " +
                                 _vm._s(props.row.likutis_sk) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
@@ -1490,22 +1491,22 @@ var render = function() {
                       label: "Parduota",
                       field: "pardavimai_sk",
                       numeric: "",
-                      sortable: ""
+                      sortable: "",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               "\n          " +
                                 _vm._s(props.row.pardavimai_sk) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
@@ -1513,16 +1514,16 @@ var render = function() {
                       label: "Viso",
                       field: "viso",
                       numeric: "",
-                      sortable: ""
+                      sortable: "",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [_c("b", [_vm._v(_vm._s(props.row.viso))])]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
@@ -1531,7 +1532,7 @@ var render = function() {
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             !Array.isArray(props.row.buy)
                               ? _c(
@@ -1540,31 +1541,31 @@ var render = function() {
                                     staticClass: "button is-small is-danger",
                                     attrs: { type: "button" },
                                     on: {
-                                      click: function($event) {
+                                      click: function ($event) {
                                         $event.preventDefault()
                                         return _vm.viewModal_pardavimai(
                                           props.row.buy &&
                                             props.row.buy.sandelis,
                                           props.row.buy && props.row.buy.viso
                                         )
-                                      }
-                                    }
+                                      },
+                                    },
                                   },
                                   [
                                     _c("b-icon", {
                                       attrs: {
                                         icon: "chart-bar",
-                                        size: "is-small"
-                                      }
-                                    })
+                                        size: "is-small",
+                                      },
+                                    }),
                                   ],
                                   1
                                 )
-                              : _vm._e()
+                              : _vm._e(),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _vm._v(" "),
@@ -1573,7 +1574,7 @@ var render = function() {
                     {
                       staticClass: "section",
                       attrs: { slot: "empty" },
-                      slot: "empty"
+                      slot: "empty",
                     },
                     [
                       _c(
@@ -1588,14 +1589,14 @@ var render = function() {
                                     _c("b-icon", {
                                       attrs: {
                                         icon: "dots-horizontal",
-                                        size: "is-large"
-                                      }
-                                    })
+                                        size: "is-large",
+                                      },
+                                    }),
                                   ],
                                   1
                                 ),
                                 _vm._v(" "),
-                                _c("p", [_vm._v("Gaunami duomenys...")])
+                                _c("p", [_vm._v("Gaunami duomenys...")]),
                               ]
                             : [
                                 _c(
@@ -1604,23 +1605,23 @@ var render = function() {
                                     _c("b-icon", {
                                       attrs: {
                                         icon: "emoticon-sad",
-                                        size: "is-large"
-                                      }
-                                    })
+                                        size: "is-large",
+                                      },
+                                    }),
                                   ],
                                   1
                                 ),
                                 _vm._v(" "),
-                                _c("p", [_vm._v("Duomenų nerasta …")])
-                              ]
+                                _c("p", [_vm._v("Duomenų nerasta …")]),
+                              ],
                         ],
                         2
-                      )
+                      ),
                     ]
-                  )
+                  ),
                 ],
                 1
-              )
+              ),
             ],
             1
           ),
@@ -1637,17 +1638,17 @@ var render = function() {
                   attrs: {
                     size: "is-medium",
                     "icon-left": "printer",
-                    type: "is-dark"
+                    type: "is-dark",
                   },
-                  on: { click: _vm.print }
+                  on: { click: _vm.print },
                 },
                 [_vm._v("SPAUSDINTI")]
-              )
+              ),
             ],
             1
-          )
+          ),
         ]
-      )
+      ),
     ],
     1
   )

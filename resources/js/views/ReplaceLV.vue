@@ -56,7 +56,7 @@ export default {
               this.html_lv = this.html_lv.replace("kelnes", " bikses");
               this.html_lv = this.html_lv.replace("švarką", " jakas");
               this.html_lv = this.html_lv.replace("liemenę", " veste");
-			  this.html_lv = this.html_lv.replace("striukę", " jaka");
+			        this.html_lv = this.html_lv.replace("striukę", " jaka");
 
               this.html_lv = this.html_lv.replace(/Spalva:/gi, "Krāsa:");
               this.html_lv = this.html_lv.replace(/juoda/gi, "melns ");
@@ -81,12 +81,12 @@ export default {
               this.html_lv = this.html_lv.replace(/Poliviskozė/gi, "Polivizkoze");
               this.html_lv = this.html_lv.replace(/Poliamidas/gi, "Poliamīds");
               this.html_lv = this.html_lv.replace(/Kašmyras/gi, "Kašmira");
-			  this.html_lv = this.html_lv.replace(/Akrilas/gi, "akrils");
-			  this.html_lv = this.html_lv.replace(/Mohera/gi, "mohēra");
+			        this.html_lv = this.html_lv.replace(/Akrilas/gi, "akrils");
+			        this.html_lv = this.html_lv.replace(/Mohera/gi, "mohēra");
 
-        this.html_lv = this.html_lv.replace(/Rankenos/gi, "Roktura");
-        this.html_lv = this.html_lv.replace(/Aukštis/gi, "Augstums");
-        this.html_lv = this.html_lv.replace(/Plotis/gi, "Platums");
+              this.html_lv = this.html_lv.replace(/Rankenos/gi, "Roktura");
+              this.html_lv = this.html_lv.replace(/Aukštis/gi, "Augstums");
+              this.html_lv = this.html_lv.replace(/Plotis/gi, "Platums");
               
               this.html_lv = this.html_lv.replace("Kilmės šalis", "Izcelsmes valsts");
               this.html_lv = this.html_lv.replace("Kilmės", "Izcelsmes valsts");

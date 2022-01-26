@@ -24,7 +24,8 @@ class ReturnProductController extends Controller
         $likutis = array();
         $list = array();
 
-        
+        $partneris = "LV";
+
         $failas = "return.txt";
         $directory  = "app/";
         $failas = $directory.$failas;
@@ -33,21 +34,22 @@ class ReturnProductController extends Controller
         $failas_csv = fread($myfile,filesize(storage_path($failas)));
         fclose($myfile);
 
-        $re = Likutis::query()
-            //->where('sandelis', 'INTE')
-            //->where('salis', 2)
-            ->whereIn('salis', [1, 2])
-            ->get();
+        //jei tai EE grazinimas, pasiruosiam likuiciu sarasa, 
+        //kitu atveju taupom resursus
+        if($partneris == "EE"){
+            $re = Likutis::query()
+                //->where('sandelis', 'INTE')
+                //->where('salis', 2)
+                ->whereIn('salis', [1, 2])
+                ->get();
 
-       
-
-        foreach ( $re as $value ) {
-            $likutis[$value['preke']] = $value;
+            foreach ( $re as $value ) {
+                $likutis[$value['preke']] = $value;
+            }
         }
         
         //$failas = "GRA-LV-GAM.csv";
         $failas_csv = "LV.csv";
-
         $directory  = "app/RETURN/";
         $failas = $directory.$failas_csv;
 
@@ -59,22 +61,40 @@ class ReturnProductController extends Controller
                 $val = mb_convert_encoding($data, "UTF-8", "ISO-8859-13");
                 //if($val[6] != "MAIS-KUR1"){
                 //var_dump($val);
+                $kiek = explode(",", $val[4]);
+                $kiek = $kiek[0];
+
                 $list[$val[0]]['blankas'] = "GR-".$nr;
                 $list[$val[0]]['preke'] = $val[0];
                 if(array_key_exists('kiekis', $list[$val[0]])){
-                    $list[$val[0]]['kiekis'] += $val[1];
+                    $list[$val[0]]['kiekis'] += $kiek;
                 }else{
-                    $list[$val[0]]['kiekis'] = $val[1];
+                    $list[$val[0]]['kiekis'] = $kiek;
                     }
-                if(array_key_exists($val[0], $likutis)){
-                    $list[$val[0]]['kaina'] = $likutis[$val[0]]['kaina'];
-                    $list[$val[0]]['savikaina'] = $likutis[$val[0]]['savikaina'];
-                }else{
-                    $list[$val[0]]['kaina'] = 'Nera'; 
-                    $list[$val[0]]['savikaina'] = 'Nera'; 
+                
+                //jei grazinama iš EE, reikia nuskaityti dinetos likucius
+                //ir pagal prekes koda susirasti kaina ir savikaina
+                //jei neranda, irasyti paciam ranbkiniu budu
+                if($partneris == "EE"){
+                    if(array_key_exists($val[0], $likutis)){
+                        $list[$val[0]]['kaina'] = $likutis[$val[0]]['kaina'];
+                        $list[$val[0]]['savikaina'] = $likutis[$val[0]]['savikaina'];
+                    }else{
+                        $list[$val[0]]['kaina'] = 'Nera'; 
+                        $list[$val[0]]['savikaina'] = 'Nera'; 
+                    }
                 }
+                //jei grazinama iš LV dineta turi savikainas
+                if($partneris == "LV"){
+                    $list[$val[0]]['kaina'] = number_format(floatval(str_replace(",", ".", $val[3])), 2);
+                    $list[$val[0]]['savikaina'] = number_format(floatval(str_replace(",", ".", $val[8])), 4);
+                }
+                if($val[7] == "GAM"){
                     $list[$val[0]]['procentas'] = '70';
-                    //$list[$val[0]]['procentas'] = '50';
+                }
+                if($val[7] == "PIRK"){
+                    $list[$val[0]]['procentas'] = '50';
+                }
                 //}
             }
             fclose($handle);

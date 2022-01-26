@@ -1880,7 +1880,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1890,8 +1890,8 @@ var render = function() {
       attrs: {
         label: _vm.label,
         message: _vm.fieldFileMessage,
-        type: _vm.fieldFileType
-      }
+        type: _vm.fieldFileType,
+      },
     },
     [
       _c(
@@ -1901,11 +1901,11 @@ var render = function() {
           on: { input: _vm.upload },
           model: {
             value: _vm.file,
-            callback: function($$v) {
+            callback: function ($$v) {
               _vm.file = $$v
             },
-            expression: "file"
-          }
+            expression: "file",
+          },
         },
         [
           _c("section", { staticClass: "section" }, [
@@ -1914,27 +1914,27 @@ var render = function() {
                 "p",
                 [
                   _c("b-icon", {
-                    attrs: { icon: _vm.uploadButtonIcon, size: "is-large" }
-                  })
+                    attrs: { icon: _vm.uploadButtonIcon, size: "is-large" },
+                  }),
                 ],
                 1
               ),
               _vm._v(" "),
               _vm.uploadButtonText
                 ? _c("p", [_vm._v(_vm._s(_vm.uploadButtonText))])
-                : _vm._e()
-            ])
-          ])
+                : _vm._e(),
+            ]),
+          ]),
         ]
       ),
       _vm._v(" "),
       _vm.fileName
         ? _c("div", { staticClass: "control" }, [
             _c("span", { attrs: { title: _vm.fileName } }, [
-              _vm._v(_vm._s(_vm.fileName) + " ")
-            ])
+              _vm._v(_vm._s(_vm.fileName) + " "),
+            ]),
           ])
-        : _vm._e()
+        : _vm._e(),
     ],
     1
   )
@@ -1958,7 +1958,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1974,11 +1974,11 @@ var render = function() {
             on: { "file-updated": _vm.file_info },
             model: {
               value: _vm.file,
-              callback: function($$v) {
+              callback: function ($$v) {
                 _vm.file = $$v
               },
-              expression: "file"
-            }
+              expression: "file",
+            },
           }),
           _vm._v(" "),
           _c(
@@ -1990,16 +1990,16 @@ var render = function() {
                   placeholder: "Sandelis likučiams",
                   type: "search",
                   icon: "magnify",
-                  expanded: ""
+                  expanded: "",
                 },
                 model: {
                   value: _vm.sandelis,
-                  callback: function($$v) {
+                  callback: function ($$v) {
                     _vm.sandelis = $$v
                   },
-                  expression: "sandelis"
-                }
-              })
+                  expression: "sandelis",
+                },
+              }),
             ],
             1
           ),
@@ -2010,12 +2010,12 @@ var render = function() {
                 "button",
                 {
                   staticClass: "button is-sark",
-                  on: { click: _vm.paieska_post }
+                  on: { click: _vm.paieska_post },
                 },
                 [_vm._v("Ieškoti")]
-              )
-            ])
-          ])
+              ),
+            ]),
+          ]),
         ],
         1
       ),
@@ -2032,16 +2032,17 @@ var render = function() {
                 _c(
                   "div",
                   {
-                    staticClass: "column has-text-centered has-text-weight-bold"
+                    staticClass:
+                      "column has-text-centered has-text-weight-bold",
                   },
                   [
                     _vm._v(
                       "\n          Rasta: " + _vm._s(_vm.pardavimai.length)
                     ),
                     _c("br"),
-                    _vm._v(_vm._s(_vm.sandelis) + "\n        ")
+                    _vm._v(_vm._s(_vm.sandelis) + "\n        "),
                   ]
-                )
+                ),
               ]),
               _vm._v(" "),
               _c(
@@ -2054,28 +2055,28 @@ var render = function() {
                       attrs: { disabled: !_vm.isPaginated },
                       model: {
                         value: _vm.perPage,
-                        callback: function($$v) {
+                        callback: function ($$v) {
                           _vm.perPage = $$v
                         },
-                        expression: "perPage"
-                      }
+                        expression: "perPage",
+                      },
                     },
                     [
                       _c("option", { attrs: { value: "50" } }, [
-                        _vm._v("50 įrašų puslapyje")
+                        _vm._v("50 įrašų puslapyje"),
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "100" } }, [
-                        _vm._v("100 įrašų puslapyje")
+                        _vm._v("100 įrašų puslapyje"),
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "150" } }, [
-                        _vm._v("150 įrašų puslapyje")
+                        _vm._v("150 įrašų puslapyje"),
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "200" } }, [
-                        _vm._v("200 įrašų puslapyje")
-                      ])
+                        _vm._v("200 įrašų puslapyje"),
+                      ]),
                     ]
                   ),
                   _vm._v(" "),
@@ -2088,17 +2089,17 @@ var render = function() {
                         {
                           model: {
                             value: _vm.isPaginated,
-                            callback: function($$v) {
+                            callback: function ($$v) {
                               _vm.isPaginated = $$v
                             },
-                            expression: "isPaginated"
-                          }
+                            expression: "isPaginated",
+                          },
                         },
                         [_vm._v("Puslapiai")]
-                      )
+                      ),
                     ],
                     1
-                  )
+                  ),
                 ],
                 1
               ),
@@ -2119,19 +2120,19 @@ var render = function() {
                     detailed: "",
                     "sort-icon": "arrow-up",
                     "detail-key": "preke",
-                    loading: _vm.isLoading
+                    loading: _vm.isLoading,
                   },
                   on: {
-                    "details-open": function(row, index) {
+                    "details-open": function (row, index) {
                       return _vm.$buefy.toast.open(
                         "Išskleista " + row.preke + " prekė!"
                       )
-                    }
+                    },
                   },
                   scopedSlots: _vm._u([
                     {
                       key: "detail",
-                      fn: function(props) {
+                      fn: function (props) {
                         return [
                           _c(
                             "b-table",
@@ -2139,66 +2140,66 @@ var render = function() {
                               attrs: {
                                 data: props.row.sandeliai,
                                 "default-sort-direction": "asc",
-                                "default-sort": "sandelis"
-                              }
+                                "default-sort": "sandelis",
+                              },
                             },
                             [
                               _c("b-table-column", {
                                 attrs: {
                                   field: "name",
                                   label: "Sandelis",
-                                  sortable: ""
+                                  sortable: "",
                                 },
                                 scopedSlots: _vm._u(
                                   [
                                     {
                                       key: "default",
-                                      fn: function(props) {
+                                      fn: function (props) {
                                         return [
                                           _c("small", [
-                                            _vm._v(_vm._s(props.row.name))
-                                          ])
+                                            _vm._v(_vm._s(props.row.name)),
+                                          ]),
                                         ]
-                                      }
-                                    }
+                                      },
+                                    },
                                   ],
                                   null,
                                   true
-                                )
+                                ),
                               }),
                               _vm._v(" "),
                               _c("b-table-column", {
                                 attrs: {
                                   field: "likutis",
                                   label: "Likutis",
-                                  sortable: ""
+                                  sortable: "",
                                 },
                                 scopedSlots: _vm._u(
                                   [
                                     {
                                       key: "default",
-                                      fn: function(props) {
+                                      fn: function (props) {
                                         return [
                                           _c("small", [
-                                            _vm._v(_vm._s(props.row.likutis))
-                                          ])
+                                            _vm._v(_vm._s(props.row.likutis)),
+                                          ]),
                                         ]
-                                      }
-                                    }
+                                      },
+                                    },
                                   ],
                                   null,
                                   true
-                                )
-                              })
+                                ),
+                              }),
                             ],
                             1
-                          )
+                          ),
                         ]
-                      }
+                      },
                     },
                     {
                       key: "footer",
-                      fn: function() {
+                      fn: function () {
                         return [
                           _c("th"),
                           _vm._v(" "),
@@ -2216,12 +2217,12 @@ var render = function() {
                           _vm._v(" "),
                           _c("th"),
                           _vm._v(" "),
-                          _c("th")
+                          _c("th"),
                         ]
                       },
-                      proxy: true
-                    }
-                  ])
+                      proxy: true,
+                    },
+                  ]),
                 },
                 [
                   _c("b-table-column", {
@@ -2230,22 +2231,22 @@ var render = function() {
                       field: "preke",
                       centered: "",
                       cellClass: "is-smoke",
-                      sortable: ""
+                      sortable: "",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               " \n          " +
                                 _vm._s(props.row.preke) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
@@ -2254,22 +2255,22 @@ var render = function() {
                       field: "pradine",
                       centered: "",
                       cellClass: "is-smoke",
-                      sortable: ""
+                      sortable: "",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               "\n          " +
                                 _vm._s(props.row.pradine) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
@@ -2278,22 +2279,22 @@ var render = function() {
                       field: "likutis",
                       centered: "",
                       cellClass: "is-smoke",
-                      sortable: ""
+                      sortable: "",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               "\n          " +
                                 _vm._s(props.row.likutis) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
@@ -2302,13 +2303,13 @@ var render = function() {
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
-                          return _vm._l(props.row.sandelis, function(idx) {
+                        fn: function (props) {
+                          return _vm._l(props.row.sandelis, function (idx) {
                             return _c(
                               "div",
                               {
                                 key: idx.pavadinimas,
-                                staticClass: "is-size-7"
+                                staticClass: "is-size-7",
                               },
                               [
                                 _vm._v(
@@ -2317,101 +2318,101 @@ var render = function() {
                                     " - " +
                                     _vm._s(idx.kaina) +
                                     "\n            "
-                                )
+                                ),
                               ]
                             )
                           })
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
                     attrs: {
                       cellClass: "is-one2",
                       label: "LT Akcija",
-                      field: "kaina"
+                      field: "kaina",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               "\n          " +
                                 _vm._s(props.row.LT && props.row.LT.kaina) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
                     attrs: {
                       cellClass: "is-one2",
                       label: "LT Kortele",
-                      field: "akcija"
+                      field: "akcija",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               "\n          " +
                                 _vm._s(props.row.LT && props.row.LT.akcija) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
                     attrs: {
                       cellClass: "is-two2",
                       label: "LV Akcija",
-                      field: "kaina"
+                      field: "kaina",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               "\n          " +
                                 _vm._s(props.row.LV && props.row.LV.kaina) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
                     attrs: {
                       cellClass: "is-two2",
                       label: "LV Kortele",
-                      field: "akcija"
+                      field: "akcija",
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
-                        fn: function(props) {
+                        fn: function (props) {
                           return [
                             _vm._v(
                               "\n          " +
                                 _vm._s(props.row.LV && props.row.LV.akcija) +
                                 "\n        "
-                            )
+                            ),
                           ]
-                        }
-                      }
-                    ])
+                        },
+                      },
+                    ]),
                   }),
                   _vm._v(" "),
                   _vm._v(" "),
@@ -2420,7 +2421,7 @@ var render = function() {
                     {
                       staticClass: "section",
                       attrs: { slot: "empty" },
-                      slot: "empty"
+                      slot: "empty",
                     },
                     [
                       _c(
@@ -2435,14 +2436,14 @@ var render = function() {
                                     _c("b-icon", {
                                       attrs: {
                                         icon: "dots-horizontal",
-                                        size: "is-large"
-                                      }
-                                    })
+                                        size: "is-large",
+                                      },
+                                    }),
                                   ],
                                   1
                                 ),
                                 _vm._v(" "),
-                                _c("p", [_vm._v("Gaunami duomenys...")])
+                                _c("p", [_vm._v("Gaunami duomenys...")]),
                               ]
                             : [
                                 _c(
@@ -2451,23 +2452,23 @@ var render = function() {
                                     _c("b-icon", {
                                       attrs: {
                                         icon: "emoticon-sad",
-                                        size: "is-large"
-                                      }
-                                    })
+                                        size: "is-large",
+                                      },
+                                    }),
                                   ],
                                   1
                                 ),
                                 _vm._v(" "),
-                                _c("p", [_vm._v("Duomenų nerasta …")])
-                              ]
+                                _c("p", [_vm._v("Duomenų nerasta …")]),
+                              ],
                         ],
                         2
-                      )
+                      ),
                     ]
-                  )
+                  ),
                 ],
                 1
-              )
+              ),
             ],
             1
           ),
@@ -2484,17 +2485,17 @@ var render = function() {
                   attrs: {
                     size: "is-medium",
                     "icon-left": "printer",
-                    type: "is-dark"
+                    type: "is-dark",
                   },
-                  on: { click: _vm.print }
+                  on: { click: _vm.print },
                 },
                 [_vm._v("SPAUSDINTI")]
-              )
+              ),
             ],
             1
-          )
+          ),
         ]
-      )
+      ),
     ],
     1
   )

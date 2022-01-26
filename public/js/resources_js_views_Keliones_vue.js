@@ -287,9 +287,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       rodo: '',
       visi: [],
       data: new Date(),
-      nr: 20210,
+      nr: 20220,
       nr_rodyti: false,
-      nr2: 20210,
+      nr2: 20220,
       date: ''
     };
   },
@@ -4979,14 +4979,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "b-field",
     { attrs: { grouped: "", "group-multiline": "" } },
-    _vm._l(_vm.options, function(v, k) {
+    _vm._l(_vm.options, function (v, k) {
       return _c(
         "div",
         { key: k, staticClass: "control" },
@@ -4998,14 +4998,14 @@ var render = function() {
               on: { input: _vm.input },
               model: {
                 value: _vm.newValue,
-                callback: function($$v) {
+                callback: function ($$v) {
                   _vm.newValue = $$v
                 },
-                expression: "newValue"
-              }
+                expression: "newValue",
+              },
             },
             [_vm._v("\n      " + _vm._s(v) + "\n    ")]
-          )
+          ),
         ],
         1
       )
@@ -5032,7 +5032,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5054,10 +5054,10 @@ var render = function() {
                   {
                     attrs: { type: _vm.rodyti_lv ? "is-warning" : "is-dark" },
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         return _vm.change_lv()
-                      }
-                    }
+                      },
+                    },
                   },
                   [_vm._v("LATVIJA")]
                 ),
@@ -5067,18 +5067,18 @@ var render = function() {
                   {
                     attrs: { type: _vm.rodyti_ee ? "is-danger" : "is-dark" },
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         return _vm.change_ee()
-                      }
-                    }
+                      },
+                    },
                   },
                   [_vm._v("ESTIJA")]
-                )
+                ),
               ],
               1
             ),
             _vm._v(" "),
-            _vm._l(_vm.miestai[_vm.rodo], function(item, index) {
+            _vm._l(_vm.miestai[_vm.rodo], function (item, index) {
               return _c(
                 "div",
                 { key: item.index },
@@ -5087,18 +5087,18 @@ var render = function() {
                     "b-field",
                     {
                       staticClass: "has-check",
-                      attrs: { label: index, horizontal: "" }
+                      attrs: { label: index, horizontal: "" },
                     },
                     [
                       _c("checkbox-picker", {
                         attrs: { options: item, type: "is-black" },
                         model: {
                           value: _vm.checkbox,
-                          callback: function($$v) {
+                          callback: function ($$v) {
                             _vm.checkbox = $$v
                           },
-                          expression: "checkbox"
-                        }
+                          expression: "checkbox",
+                        },
                       }),
                       _vm._v(" "),
                       _c(
@@ -5107,17 +5107,17 @@ var render = function() {
                           attrs: { "native-value": index, type: "is-danger" },
                           model: {
                             value: _vm.visi,
-                            callback: function($$v) {
+                            callback: function ($$v) {
                               _vm.visi = $$v
                             },
-                            expression: "visi"
-                          }
+                            expression: "visi",
+                          },
                         },
                         [_vm._v("(visi)")]
-                      )
+                      ),
                     ],
                     1
-                  )
+                  ),
                 ],
                 1
               )
@@ -5134,16 +5134,16 @@ var render = function() {
                     placeholder: "Pasirinkite data...",
                     icon: "calendar-today",
                     locale: _vm.locale,
-                    editable: ""
+                    editable: "",
                   },
                   model: {
                     value: _vm.data,
-                    callback: function($$v) {
+                    callback: function ($$v) {
                       _vm.data = $$v
                     },
-                    expression: "data"
-                  }
-                })
+                    expression: "data",
+                  },
+                }),
               ],
               1
             ),
@@ -5156,12 +5156,12 @@ var render = function() {
                   attrs: { type: "input", icon: "variable" },
                   model: {
                     value: _vm.nr,
-                    callback: function($$v) {
+                    callback: function ($$v) {
                       _vm.nr = $$v
                     },
-                    expression: "nr"
-                  }
-                })
+                    expression: "nr",
+                  },
+                }),
               ],
               1
             ),
@@ -5175,20 +5175,20 @@ var render = function() {
                   {
                     attrs: { type: "is-info" },
                     nativeOn: {
-                      click: function($event) {
+                      click: function ($event) {
                         return _vm.numeris()
-                      }
+                      },
                     },
                     model: {
                       value: _vm.nr_rodyti,
-                      callback: function($$v) {
+                      callback: function ($$v) {
                         _vm.nr_rodyti = $$v
                       },
-                      expression: "nr_rodyti"
-                    }
+                      expression: "nr_rodyti",
+                    },
                   },
                   [_vm._v("\n          Rašyti antrą numerį\n        ")]
-                )
+                ),
               ],
               1
             ),
@@ -5202,12 +5202,12 @@ var render = function() {
                       attrs: { type: "input", icon: "variable" },
                       model: {
                         value: _vm.nr2,
-                        callback: function($$v) {
+                        callback: function ($$v) {
                           _vm.nr2 = $$v
                         },
-                        expression: "nr2"
-                      }
-                    })
+                        expression: "nr2",
+                      },
+                    }),
                   ],
                   1
                 )
@@ -5221,13 +5221,13 @@ var render = function() {
                   "b-button",
                   {
                     attrs: { type: "is-black", expanded: "" },
-                    on: { click: _vm.paieska }
+                    on: { click: _vm.paieska },
                   },
                   [_vm._v("SKAIČIUOTI")]
-                )
+                ),
               ],
               1
-            )
+            ),
           ],
           2
         ),
@@ -5256,7 +5256,7 @@ var render = function() {
                       _c("br"),
                       _vm._v(
                         " \n          " + _vm._s(_vm.date) + "\n          "
-                      )
+                      ),
                     ])
                   : _c("div", { staticClass: "has-text-centered" }, [
                       _vm._v(
@@ -5265,7 +5265,7 @@ var render = function() {
                           "         " +
                           _vm._s(_vm.date) +
                           "\n          "
-                      )
+                      ),
                     ]),
                 _vm._v(" "),
                 _c("br"),
@@ -5273,8 +5273,8 @@ var render = function() {
                 _c("div", { staticClass: "columns" }, [
                   _c("div", { staticClass: "column is-one-third" }, [
                     _c("div", { staticClass: "has-text-right" }, [
-                      _c("b", [_vm._v("Siuntėjas:")])
-                    ])
+                      _c("b", [_vm._v("Siuntėjas:")]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "column has-text-left" }, [
@@ -5283,15 +5283,15 @@ var render = function() {
                     _c("br"),
                     _vm._v(
                       "\n              Įmonės kodas (VET code): LT 808860515\n            "
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "columns" }, [
                   _c("div", { staticClass: "column is-one-third" }, [
                     _c("div", { staticClass: "has-text-right" }, [
-                      _c("b", [_vm._v("Pirkėjas:")])
-                    ])
+                      _c("b", [_vm._v("Pirkėjas:")]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _vm.rodyti_ee
@@ -5304,7 +5304,7 @@ var render = function() {
                         _c("br"),
                         _vm._v(
                           "\n              Kiisa 8-27, Tallinn 10416, ESTIJOS RESPUBLIKA\n            "
-                        )
+                        ),
                       ])
                     : _vm.rodyti_lv
                     ? _c("div", { staticClass: "column has-text-left" }, [
@@ -5316,16 +5316,16 @@ var render = function() {
                         _c("br"),
                         _vm._v(
                           "\n              Matīsa iela 25, Rīga, LATVIJAS RESPUBLIKA\n            "
-                        )
+                        ),
                       ])
-                    : _vm._e()
+                    : _vm._e(),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "columns" }, [
                   _c("div", { staticClass: "column is-one-third" }, [
                     _c("div", { staticClass: "has-text-right" }, [
-                      _c("b", [_vm._v("Bankas:")])
-                    ])
+                      _c("b", [_vm._v("Bankas:")]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "column has-text-left" }, [
@@ -5333,22 +5333,22 @@ var render = function() {
                       '\n              AB bankas " Swedbank", A/s  LT02 7300 0100 7710 3089'
                     ),
                     _c("br"),
-                    _vm._v("\n              Banko kodas: 73000\n            ")
-                  ])
+                    _vm._v("\n              Banko kodas: 73000\n            "),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "columns" }, [
                   _c("div", { staticClass: "column is-one-third" }, [
                     _c("div", { staticClass: "has-text-right" }, [
-                      _c("b", [_vm._v("Adresas:")])
-                    ])
+                      _c("b", [_vm._v("Adresas:")]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "column has-text-left" }, [
                     _vm._v(
                       "\n              Kęstučio 20-1, LT-87120, Telšiai, Lietuva\n            "
-                    )
-                  ])
+                    ),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("br"),
@@ -5363,59 +5363,59 @@ var render = function() {
                       narrowed: true,
                       data: _vm.duomenys,
                       "sort-icon": "arrow-up",
-                      loading: _vm.isLoading
+                      loading: _vm.isLoading,
                     },
                     scopedSlots: _vm._u([
                       {
                         key: "footer",
-                        fn: function() {
+                        fn: function () {
                           return [
                             _c("th", { staticClass: "has-text-right" }, [
-                              _vm._v("VISO:")
+                              _vm._v("VISO:"),
                             ]),
                             _vm._v(" "),
                             _c("th"),
                             _vm._v(" "),
                             _c("th", { staticClass: "has-text-right" }, [
-                              _vm._v(_vm._s(_vm.total_kiekis))
+                              _vm._v(_vm._s(_vm.total_kiekis)),
                             ]),
                             _vm._v(" "),
                             _c("th"),
                             _vm._v(" "),
                             _c("th", { staticClass: "has-text-right" }, [
-                              _vm._v(_vm._s(_vm.total_suma.toFixed(2)))
-                            ])
+                              _vm._v(_vm._s(_vm.total_suma.toFixed(2))),
+                            ]),
                           ]
                         },
-                        proxy: true
-                      }
-                    ])
+                        proxy: true,
+                      },
+                    ]),
                   },
                   [
                     _c("b-table-column", {
                       attrs: {
                         cellClass: "is-smoke",
                         label: "Pavadinimas",
-                        field: "pavadinimas"
+                        field: "pavadinimas",
                       },
                       scopedSlots: _vm._u([
                         {
                           key: "default",
-                          fn: function(props) {
+                          fn: function (props) {
                             return [
                               _vm._v(
                                 "\n              " +
                                   _vm._s(props.row.pavadinimas) +
                                   "\n        "
-                              )
+                              ),
                             ]
-                          }
-                        }
-                      ])
+                          },
+                        },
+                      ]),
                     }),
                     _vm._v(" "),
                     _c("b-table-column", { attrs: { label: "MATO, Vnt." } }, [
-                      _vm._v("\n              Vnt.\n        ")
+                      _vm._v("\n              Vnt.\n        "),
                     ]),
                     _vm._v(" "),
                     _c("b-table-column", {
@@ -5424,17 +5424,17 @@ var render = function() {
                       scopedSlots: _vm._u([
                         {
                           key: "default",
-                          fn: function(props) {
+                          fn: function (props) {
                             return [
                               _vm._v(
                                 "\n              " +
                                   _vm._s(props.row.kiekis) +
                                   "\n        "
-                              )
+                              ),
                             ]
-                          }
-                        }
-                      ])
+                          },
+                        },
+                      ]),
                     }),
                     _vm._v(" "),
                     _c("b-table-column", {
@@ -5443,17 +5443,17 @@ var render = function() {
                       scopedSlots: _vm._u([
                         {
                           key: "default",
-                          fn: function(props) {
+                          fn: function (props) {
                             return [
                               _vm._v(
                                 "\n              " +
                                   _vm._s(props.row.kaina) +
                                   "\n        "
-                              )
+                              ),
                             ]
-                          }
-                        }
-                      ])
+                          },
+                        },
+                      ]),
                     }),
                     _vm._v(" "),
                     _c("b-table-column", {
@@ -5462,17 +5462,17 @@ var render = function() {
                       scopedSlots: _vm._u([
                         {
                           key: "default",
-                          fn: function(props) {
+                          fn: function (props) {
                             return [
                               _vm._v(
                                 "\n              " +
                                   _vm._s(props.row.suma) +
                                   "\n        "
-                              )
+                              ),
                             ]
-                          }
-                        }
-                      ])
+                          },
+                        },
+                      ]),
                     }),
                     _vm._v(" "),
                     _c(
@@ -5480,7 +5480,7 @@ var render = function() {
                       {
                         staticClass: "section",
                         attrs: { slot: "empty" },
-                        slot: "empty"
+                        slot: "empty",
                       },
                       [
                         _c(
@@ -5495,14 +5495,14 @@ var render = function() {
                                       _c("b-icon", {
                                         attrs: {
                                           icon: "dots-horizontal",
-                                          size: "is-large"
-                                        }
-                                      })
+                                          size: "is-large",
+                                        },
+                                      }),
                                     ],
                                     1
                                   ),
                                   _vm._v(" "),
-                                  _c("p", [_vm._v("Gaunami duomenys...")])
+                                  _c("p", [_vm._v("Gaunami duomenys...")]),
                                 ]
                               : [
                                   _c(
@@ -5511,20 +5511,20 @@ var render = function() {
                                       _c("b-icon", {
                                         attrs: {
                                           icon: "emoticon-sad",
-                                          size: "is-large"
-                                        }
-                                      })
+                                          size: "is-large",
+                                        },
+                                      }),
                                     ],
                                     1
                                   ),
                                   _vm._v(" "),
-                                  _c("p", [_vm._v("Duomenų nerasta …")])
-                                ]
+                                  _c("p", [_vm._v("Duomenų nerasta …")]),
+                                ],
                           ],
                           2
-                        )
+                        ),
                       ]
-                    )
+                    ),
                   ],
                   1
                 ),
@@ -5543,24 +5543,24 @@ var render = function() {
                           " eur, " +
                           _vm._s(_vm.centai) +
                           " cent."
-                      )
-                    ])
-                  ])
+                      ),
+                    ]),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "columns" }, [
                   _c("div", { staticClass: "column" }, [
                     _c("div", { staticClass: "has-text-left" }, [
-                      _c("b", [_vm._v("Direktorius:")])
-                    ])
+                      _c("b", [_vm._v("Direktorius:")]),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "column" }, [
                     _c("div", { staticClass: "has-text-left" }, [
-                      _c("b", [_vm._v("Antanas Dargis")])
-                    ])
-                  ])
-                ])
+                      _c("b", [_vm._v("Antanas Dargis")]),
+                    ]),
+                  ]),
+                ]),
               ],
               1
             ),
@@ -5577,20 +5577,20 @@ var render = function() {
                     attrs: {
                       size: "is-medium",
                       "icon-left": "printer",
-                      type: "is-dark"
+                      type: "is-dark",
                     },
-                    on: { click: _vm.print }
+                    on: { click: _vm.print },
                   },
                   [_vm._v("SPAUSDINTI")]
-                )
+                ),
               ],
               1
-            )
+            ),
           ]
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []

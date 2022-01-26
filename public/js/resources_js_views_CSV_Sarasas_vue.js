@@ -5744,14 +5744,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "b-field",
     { attrs: { grouped: "", "group-multiline": "" } },
-    _vm._l(_vm.options, function(v, k) {
+    _vm._l(_vm.options, function (v, k) {
       return _c(
         "div",
         { key: k, staticClass: "control" },
@@ -5763,14 +5763,14 @@ var render = function() {
               on: { input: _vm.input },
               model: {
                 value: _vm.newValue,
-                callback: function($$v) {
+                callback: function ($$v) {
                   _vm.newValue = $$v
                 },
-                expression: "newValue"
-              }
+                expression: "newValue",
+              },
             },
             [_vm._v("\n      " + _vm._s(v) + "\n    ")]
-          )
+          ),
         ],
         1
       )
@@ -5797,7 +5797,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5807,8 +5807,8 @@ var render = function() {
       attrs: {
         label: _vm.label,
         message: _vm.fieldFileMessage,
-        type: _vm.fieldFileType
-      }
+        type: _vm.fieldFileType,
+      },
     },
     [
       _c(
@@ -5818,11 +5818,11 @@ var render = function() {
           on: { input: _vm.upload },
           model: {
             value: _vm.file,
-            callback: function($$v) {
+            callback: function ($$v) {
               _vm.file = $$v
             },
-            expression: "file"
-          }
+            expression: "file",
+          },
         },
         [
           _c("section", { staticClass: "section" }, [
@@ -5831,27 +5831,27 @@ var render = function() {
                 "p",
                 [
                   _c("b-icon", {
-                    attrs: { icon: _vm.uploadButtonIcon, size: "is-large" }
-                  })
+                    attrs: { icon: _vm.uploadButtonIcon, size: "is-large" },
+                  }),
                 ],
                 1
               ),
               _vm._v(" "),
               _vm.uploadButtonText
                 ? _c("p", [_vm._v(_vm._s(_vm.uploadButtonText))])
-                : _vm._e()
-            ])
-          ])
+                : _vm._e(),
+            ]),
+          ]),
         ]
       ),
       _vm._v(" "),
       _vm.fileName
         ? _c("div", { staticClass: "control" }, [
             _c("span", { attrs: { title: _vm.fileName } }, [
-              _vm._v(_vm._s(_vm.fileName) + " ")
-            ])
+              _vm._v(_vm._s(_vm.fileName) + " "),
+            ]),
           ])
-        : _vm._e()
+        : _vm._e(),
     ],
     1
   )
@@ -5875,7 +5875,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5884,15 +5884,15 @@ var render = function() {
     {
       attrs: { active: _vm.isModalActive, "has-modal-card": "" },
       on: {
-        "update:active": function($event) {
+        "update:active": function ($event) {
           _vm.isModalActive = $event
-        }
-      }
+        },
+      },
     },
     [
       _c("div", { staticClass: "modal-card" }, [
         _c("header", { staticClass: "modal-card-head" }, [
-          _c("p", { staticClass: "modal-card-title" }, [_vm._v("Informacija")])
+          _c("p", { staticClass: "modal-card-title" }, [_vm._v("Informacija")]),
         ]),
         _vm._v(" "),
         _c(
@@ -5908,7 +5908,7 @@ var render = function() {
             {
               staticClass: "button",
               attrs: { type: "button" },
-              on: { click: _vm.cancel }
+              on: { click: _vm.cancel },
             },
             [_vm._v("Atšaukti")]
           ),
@@ -5917,9 +5917,9 @@ var render = function() {
             "button",
             { class: _vm.confirmButtonClass, on: { click: _vm.confirm } },
             [_vm._v(_vm._s(_vm.confirmLabel))]
-          )
-        ])
-      ])
+          ),
+        ]),
+      ]),
     ]
   )
 }
@@ -5942,7 +5942,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5952,24 +5952,24 @@ var render = function() {
       attrs: {
         "is-active": _vm.isActive,
         "confirm-type": "is-success",
-        "confirm-label": "Atnaujinti"
+        "confirm-label": "Atnaujinti",
       },
       on: {
-        "update:isActive": function($event) {
+        "update:isActive": function ($event) {
           _vm.isActive = $event
         },
-        "update:is-active": function($event) {
+        "update:is-active": function ($event) {
           _vm.isActive = $event
         },
         confirm: _vm.confirm,
-        cancel: _vm.cancel
-      }
+        cancel: _vm.cancel,
+      },
     },
     [
       _c("p", [
         _vm._v("Įkelti duomenis iš failo "),
         _c("b", [_vm._v(_vm._s(_vm.editSubject))]),
-        _vm._v("?")
+        _vm._v("?"),
       ]),
       _vm._v(" "),
       _c("hr"),
@@ -5978,7 +5978,7 @@ var render = function() {
         "b-field",
         {
           staticClass: "has-check",
-          attrs: { label: "Pasirinkite:", horizontal: "" }
+          attrs: { label: "Pasirinkite:", horizontal: "" },
         },
         [
           _c("radio-picker", {
@@ -5986,12 +5986,12 @@ var render = function() {
             on: { input: _vm.edit_data },
             model: {
               value: _vm.valstybe,
-              callback: function($$v) {
+              callback: function ($$v) {
                 _vm.valstybe = $$v
               },
-              expression: "valstybe"
-            }
-          })
+              expression: "valstybe",
+            },
+          }),
         ],
         1
       ),
@@ -6002,7 +6002,7 @@ var render = function() {
         "b-field",
         {
           staticClass: "has-check",
-          attrs: { label: "Pasirinkite:", horizontal: "" }
+          attrs: { label: "Pasirinkite:", horizontal: "" },
         },
         [
           _c("radio-picker", {
@@ -6012,21 +6012,21 @@ var render = function() {
                 2: "LIKUTIS",
                 3: "AKCIJOS",
                 5: "ATSARGŲ ATASKAITA",
-                4: "KELIONĖS LAPAS"
-              }
+                4: "KELIONĖS LAPAS",
+              },
             },
             on: { input: _vm.edit_data },
             model: {
               value: _vm.tipas,
-              callback: function($$v) {
+              callback: function ($$v) {
                 _vm.tipas = $$v
               },
-              expression: "tipas"
-            }
-          })
+              expression: "tipas",
+            },
+          }),
         ],
         1
-      )
+      ),
     ],
     1
   )
@@ -6050,7 +6050,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -6060,26 +6060,26 @@ var render = function() {
       attrs: {
         "is-active": _vm.isActive,
         "confirm-type": "is-danger",
-        "confirm-label": "Ištrinti"
+        "confirm-label": "Ištrinti",
       },
       on: {
-        "update:isActive": function($event) {
+        "update:isActive": function ($event) {
           _vm.isActive = $event
         },
-        "update:is-active": function($event) {
+        "update:is-active": function ($event) {
           _vm.isActive = $event
         },
         confirm: _vm.confirm,
-        cancel: _vm.cancel
-      }
+        cancel: _vm.cancel,
+      },
     },
     [
       _c("p", [
         _vm._v("This will permanently delete "),
-        _c("b", [_vm._v(_vm._s(_vm.trashSubject))])
+        _c("b", [_vm._v(_vm._s(_vm.trashSubject))]),
       ]),
       _vm._v(" "),
-      _c("p", [_vm._v("Action could not be undone")])
+      _c("p", [_vm._v("Action could not be undone")]),
     ]
   )
 }
@@ -6102,14 +6102,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "b-field",
     { attrs: { grouped: "", "group-multiline": "" } },
-    _vm._l(_vm.options, function(v, k) {
+    _vm._l(_vm.options, function (v, k) {
       return _c(
         "div",
         { key: k, staticClass: "control" },
@@ -6121,14 +6121,14 @@ var render = function() {
               on: { input: _vm.input },
               model: {
                 value: _vm.newValue,
-                callback: function($$v) {
+                callback: function ($$v) {
                   _vm.newValue = $$v
                 },
-                expression: "newValue"
-              }
+                expression: "newValue",
+              },
             },
             [_vm._v("\n      " + _vm._s(v) + "\n    ")]
-          )
+          ),
         ],
         1
       )
@@ -6155,7 +6155,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -6172,12 +6172,12 @@ var render = function() {
               on: { "file-updated": _vm.file_info },
               model: {
                 value: _vm.file,
-                callback: function($$v) {
+                callback: function ($$v) {
                   _vm.file = $$v
                 },
-                expression: "file"
-              }
-            })
+                expression: "file",
+              },
+            }),
           ],
           1
         ),
@@ -6189,21 +6189,21 @@ var render = function() {
             _c("modal-trash-box", {
               attrs: {
                 "is-active": _vm.isModalActive,
-                "trash-subject": _vm.trashObjectName
+                "trash-subject": _vm.trashObjectName,
               },
-              on: { confirm: _vm.trashConfirm, cancel: _vm.trashCancel }
+              on: { confirm: _vm.trashConfirm, cancel: _vm.trashCancel },
             }),
             _vm._v(" "),
             _c("modal-edit-box", {
               attrs: {
                 "is-active": _vm.isModalEdit,
-                "edit-subject": _vm.editObjectName
+                "edit-subject": _vm.editObjectName,
               },
               on: {
                 confirm: _vm.editConfirm,
                 cancel: _vm.editCancel,
-                edit: _vm.val
-              }
+                edit: _vm.val,
+              },
             }),
             _vm._v(" "),
             _c(
@@ -6213,30 +6213,30 @@ var render = function() {
                   data: _vm.books,
                   bordered: false,
                   striped: false,
-                  loading: _vm.isLoading
-                }
+                  loading: _vm.isLoading,
+                },
               },
               [
                 _c("b-table-column", {
                   attrs: {
                     label: "Pavadinimas",
                     field: "vardas",
-                    sortable: ""
+                    sortable: "",
                   },
                   scopedSlots: _vm._u([
                     {
                       key: "default",
-                      fn: function(props) {
+                      fn: function (props) {
                         return [
                           _vm._v(
                             "\n          " +
                               _vm._s(props.row.vardas) +
                               "\n        "
-                          )
+                          ),
                         ]
-                      }
-                    }
-                  ])
+                      },
+                    },
+                  ]),
                 }),
                 _vm._v(" "),
                 _c("b-table-column", {
@@ -6244,7 +6244,7 @@ var render = function() {
                   scopedSlots: _vm._u([
                     {
                       key: "default",
-                      fn: function(props) {
+                      fn: function (props) {
                         return [
                           _vm._v(
                             "\n          " +
@@ -6252,33 +6252,33 @@ var render = function() {
                                 (props.row.dydis / 1024 / 1024).toFixed(3)
                               ) +
                               " Mb\n        "
-                          )
+                          ),
                         ]
-                      }
-                    }
-                  ])
+                      },
+                    },
+                  ]),
                 }),
                 _vm._v(" "),
                 _c("b-table-column", {
                   attrs: {
                     label: "Modifikuota",
                     field: "modifikuota",
-                    sortable: ""
+                    sortable: "",
                   },
                   scopedSlots: _vm._u([
                     {
                       key: "default",
-                      fn: function(props) {
+                      fn: function (props) {
                         return [
                           _vm._v(
                             "\n          " +
                               _vm._s(props.row.modifikuota) +
                               " \n        "
-                          )
+                          ),
                         ]
-                      }
-                    }
-                  ])
+                      },
+                    },
+                  ]),
                 }),
                 _vm._v(" "),
                 _c("b-table-column", {
@@ -6287,7 +6287,7 @@ var render = function() {
                   scopedSlots: _vm._u([
                     {
                       key: "default",
-                      fn: function(props) {
+                      fn: function (props) {
                         return [
                           _c("div", { staticClass: "buttons is-right" }, [
                             _c(
@@ -6296,19 +6296,19 @@ var render = function() {
                                 staticClass: "button is-small is-primary",
                                 attrs: { type: "button" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     $event.preventDefault()
                                     return _vm.editModal(props.row.vardas)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [
                                 _c("b-icon", {
                                   attrs: {
                                     icon: "account-edit",
-                                    size: "is-small"
-                                  }
-                                })
+                                    size: "is-small",
+                                  },
+                                }),
                               ],
                               1
                             ),
@@ -6319,24 +6319,27 @@ var render = function() {
                                 staticClass: "button is-small is-danger",
                                 attrs: { type: "button" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     $event.preventDefault()
                                     return _vm.trashModal(props.row.vardas)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [
                                 _c("b-icon", {
-                                  attrs: { icon: "trash-can", size: "is-small" }
-                                })
+                                  attrs: {
+                                    icon: "trash-can",
+                                    size: "is-small",
+                                  },
+                                }),
                               ],
                               1
-                            )
-                          ])
+                            ),
+                          ]),
                         ]
-                      }
-                    }
-                  ])
+                      },
+                    },
+                  ]),
                 }),
                 _vm._v(" "),
                 _c(
@@ -6344,13 +6347,13 @@ var render = function() {
                   {
                     staticClass: "section",
                     attrs: { slot: "empty" },
-                    slot: "empty"
+                    slot: "empty",
                   },
                   [
                     _c(
                       "div",
                       {
-                        staticClass: "content has-text-grey has-text-centered"
+                        staticClass: "content has-text-grey has-text-centered",
                       },
                       [
                         _vm.isLoading
@@ -6361,14 +6364,14 @@ var render = function() {
                                   _c("b-icon", {
                                     attrs: {
                                       icon: "dots-horizontal",
-                                      size: "is-large"
-                                    }
-                                  })
+                                      size: "is-large",
+                                    },
+                                  }),
                                 ],
                                 1
                               ),
                               _vm._v(" "),
-                              _c("p", [_vm._v("Gaunami duomenys...")])
+                              _c("p", [_vm._v("Gaunami duomenys...")]),
                             ]
                           : [
                               _c(
@@ -6377,29 +6380,29 @@ var render = function() {
                                   _c("b-icon", {
                                     attrs: {
                                       icon: "emoticon-sad",
-                                      size: "is-large"
-                                    }
-                                  })
+                                      size: "is-large",
+                                    },
+                                  }),
                                 ],
                                 1
                               ),
                               _vm._v(" "),
-                              _c("p", [_vm._v("Duomenų nerasta …")])
-                            ]
+                              _c("p", [_vm._v("Duomenų nerasta …")]),
+                            ],
                       ],
                       2
-                    )
+                    ),
                   ]
-                )
+                ),
               ],
               1
-            )
+            ),
           ],
           1
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []

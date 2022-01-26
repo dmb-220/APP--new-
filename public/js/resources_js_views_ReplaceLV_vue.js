@@ -4728,20 +4728,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "notification is-card-toolbar" }, [
     _c("div", { staticClass: "level", class: { "is-mobile": _vm.isMobile } }, [
       _c("div", { staticClass: "level-left" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2)
+        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "level-right" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2)
-      ])
-    ])
+        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -4763,7 +4763,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -4789,11 +4789,11 @@ var render = function() {
             _c("wysiwyg", {
               model: {
                 value: _vm.html_lt,
-                callback: function($$v) {
+                callback: function ($$v) {
                   _vm.html_lt = $$v
                 },
-                expression: "html_lt"
-              }
+                expression: "html_lt",
+              },
             }),
             _vm._v(" "),
             _c("hr"),
@@ -4803,18 +4803,18 @@ var render = function() {
             _c("wysiwyg", {
               model: {
                 value: _vm.html_lv,
-                callback: function($$v) {
+                callback: function ($$v) {
                   _vm.html_lv = $$v
                 },
-                expression: "html_lv"
-              }
-            })
+                expression: "html_lv",
+              },
+            }),
           ],
           1
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []

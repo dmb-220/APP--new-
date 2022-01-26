@@ -242,6 +242,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -277,9 +287,12 @@ __webpack_require__.r(__webpack_exports__);
       list: [],
       file: null,
       failas: '',
-      gam: false,
-      pirk: false,
-      procentas: 0
+      //gam: false,
+      //pirk: false,
+      procentas: 0,
+      sand_i: "",
+      sand_is: "",
+      partneris: ""
     };
   },
   computed: {},
@@ -315,6 +328,15 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.gam) {
         this.gam = false;
+      }
+    },
+    suformuoti: function suformuoti() {
+      if (!this.gam && !this.pirk) {
+        this.$buefy.toast.open({
+          message: "Reikia pasirinkti kokios prek\u0117s GAMYBA ar PIRKIMAS",
+          type: 'is-warning',
+          queue: false
+        });
       }
     },
     getData: function getData() {
@@ -1895,20 +1917,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "notification is-card-toolbar" }, [
     _c("div", { staticClass: "level", class: { "is-mobile": _vm.isMobile } }, [
       _c("div", { staticClass: "level-left" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2)
+        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "level-right" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2)
-      ])
-    ])
+        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -1930,7 +1952,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1940,8 +1962,8 @@ var render = function() {
       attrs: {
         label: _vm.label,
         message: _vm.fieldFileMessage,
-        type: _vm.fieldFileType
-      }
+        type: _vm.fieldFileType,
+      },
     },
     [
       _c(
@@ -1951,11 +1973,11 @@ var render = function() {
           on: { input: _vm.upload },
           model: {
             value: _vm.file,
-            callback: function($$v) {
+            callback: function ($$v) {
               _vm.file = $$v
             },
-            expression: "file"
-          }
+            expression: "file",
+          },
         },
         [
           _c("section", { staticClass: "section" }, [
@@ -1964,27 +1986,27 @@ var render = function() {
                 "p",
                 [
                   _c("b-icon", {
-                    attrs: { icon: _vm.uploadButtonIcon, size: "is-large" }
-                  })
+                    attrs: { icon: _vm.uploadButtonIcon, size: "is-large" },
+                  }),
                 ],
                 1
               ),
               _vm._v(" "),
               _vm.uploadButtonText
                 ? _c("p", [_vm._v(_vm._s(_vm.uploadButtonText))])
-                : _vm._e()
-            ])
-          ])
+                : _vm._e(),
+            ]),
+          ]),
         ]
       ),
       _vm._v(" "),
       _vm.fileName
         ? _c("div", { staticClass: "control" }, [
             _c("span", { attrs: { title: _vm.fileName } }, [
-              _vm._v(_vm._s(_vm.fileName) + " ")
-            ])
+              _vm._v(_vm._s(_vm.fileName) + " "),
+            ]),
           ])
-        : _vm._e()
+        : _vm._e(),
     ],
     1
   )
@@ -2008,7 +2030,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -2025,59 +2047,68 @@ var render = function() {
               on: { "file-updated": _vm.file_info },
               model: {
                 value: _vm.file,
-                callback: function($$v) {
+                callback: function ($$v) {
                   _vm.file = $$v
                 },
-                expression: "file"
-              }
+                expression: "file",
+              },
             }),
             _vm._v(" "),
             _c(
               "b-field",
-              { attrs: { label: "PREKĖS:", horizontal: "" } },
+              { attrs: { label: "Gražinama iš:", horizontal: "" } },
               [
                 _c(
-                  "b-button",
+                  "b-select",
                   {
-                    attrs: {
-                      type: _vm.gam ? "is-info" : "is-dark",
-                      expanded: ""
+                    attrs: { placeholder: "Pasirinkite", expanded: "" },
+                    model: {
+                      value: _vm.partneris,
+                      callback: function ($$v) {
+                        _vm.partneris = $$v
+                      },
+                      expression: "partneris",
                     },
-                    on: {
-                      click: function($event) {
-                        return _vm.change_gam()
-                      }
-                    }
                   },
-                  [_vm._v("GAMYBA")]
+                  [
+                    _c("option", { attrs: { value: "lv" } }, [
+                      _vm._v("SIDONAS LV"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "ee" } }, [
+                      _vm._v("SIDONAS EE"),
+                    ]),
+                  ]
                 ),
-                _vm._v(" "),
-                _c(
-                  "b-button",
-                  {
-                    attrs: {
-                      type: _vm.pirk ? "is-info" : "is-dark",
-                      expanded: ""
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-field",
+              { attrs: { label: "Sandeliai: IŠ / Į", horizontal: "" } },
+              [
+                _c("b-input", {
+                  attrs: { placeholder: "IŠ" },
+                  model: {
+                    value: _vm.sand_is,
+                    callback: function ($$v) {
+                      _vm.sand_is = $$v
                     },
-                    on: {
-                      click: function($event) {
-                        return _vm.change_pirk()
-                      }
-                    }
+                    expression: "sand_is",
                   },
-                  [_vm._v("PIRKIMAI")]
-                ),
+                }),
                 _vm._v(" "),
                 _c("b-input", {
-                  attrs: { placeholder: "Nuolaida" },
+                  attrs: { placeholder: "Į" },
                   model: {
-                    value: _vm.procentas,
-                    callback: function($$v) {
-                      _vm.procentas = $$v
+                    value: _vm.sand_i,
+                    callback: function ($$v) {
+                      _vm.sand_i = $$v
                     },
-                    expression: "procentas"
-                  }
-                })
+                    expression: "sand_i",
+                  },
+                }),
               ],
               1
             ),
@@ -2090,12 +2121,19 @@ var render = function() {
               [
                 _c(
                   "b-button",
-                  { attrs: { size: "is-medium", type: "is-dark" } },
+                  {
+                    attrs: { size: "is-medium", type: "is-dark" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.suformuoti()
+                      },
+                    },
+                  },
                   [_vm._v("SUFORMUOTI")]
-                )
+                ),
               ],
               1
-            )
+            ),
           ],
           1
         ),
@@ -2108,8 +2146,8 @@ var render = function() {
               attrs: {
                 "row-class": _vm.onRowClass,
                 data: _vm.list,
-                columns: _vm.columns
-              }
+                columns: _vm.columns,
+              },
             }),
             _vm._v(" "),
             _c(
@@ -2124,20 +2162,20 @@ var render = function() {
                       data: _vm.list,
                       columns: _vm.columns,
                       filename: "perkelimai_LT",
-                      sheetname: "LT"
-                    }
+                      sheetname: "LT",
+                    },
                   },
                   [_vm._v("\n        ATSISIŪSTI\n      ")]
-                )
+                ),
               ],
               1
-            )
+            ),
           ],
           1
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []

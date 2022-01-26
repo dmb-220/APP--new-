@@ -5556,20 +5556,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "notification is-card-toolbar" }, [
     _c("div", { staticClass: "level", class: { "is-mobile": _vm.isMobile } }, [
       _c("div", { staticClass: "level-left" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2)
+        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "level-right" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2)
-      ])
-    ])
+        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -5591,7 +5591,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5601,8 +5601,8 @@ var render = function() {
       attrs: {
         label: _vm.label,
         message: _vm.fieldFileMessage,
-        type: _vm.fieldFileType
-      }
+        type: _vm.fieldFileType,
+      },
     },
     [
       _c(
@@ -5611,11 +5611,11 @@ var render = function() {
           on: { input: _vm.upload },
           model: {
             value: _vm.file_bankas,
-            callback: function($$v) {
+            callback: function ($$v) {
               _vm.file_bankas = $$v
             },
-            expression: "file_bankas"
-          }
+            expression: "file_bankas",
+          },
         },
         [
           _c(
@@ -5624,25 +5624,25 @@ var render = function() {
             [
               _c("b-icon", {
                 staticClass: "file-icon",
-                attrs: { icon: _vm.uploadButtonIcon }
+                attrs: { icon: _vm.uploadButtonIcon },
               }),
               _vm._v(" "),
               _vm.uploadButtonText
                 ? _c("span", { staticClass: "file-label" }, [
-                    _vm._v(_vm._s(_vm.uploadButtonText))
+                    _vm._v(_vm._s(_vm.uploadButtonText)),
                   ])
-                : _vm._e()
+                : _vm._e(),
             ],
             1
           ),
           _vm._v(" "),
           _vm.fileName
             ? _c("span", { staticClass: "file-name" }, [
-                _vm._v("\n          " + _vm._s(_vm.fileName) + "\n      ")
+                _vm._v("\n          " + _vm._s(_vm.fileName) + "\n      "),
               ])
-            : _vm._e()
+            : _vm._e(),
         ]
-      )
+      ),
     ],
     1
   )
@@ -5666,7 +5666,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5676,8 +5676,8 @@ var render = function() {
       attrs: {
         label: _vm.label,
         message: _vm.fieldFileMessage,
-        type: _vm.fieldFileType
-      }
+        type: _vm.fieldFileType,
+      },
     },
     [
       _c(
@@ -5686,11 +5686,11 @@ var render = function() {
           on: { input: _vm.upload },
           model: {
             value: _vm.file_pardavimai,
-            callback: function($$v) {
+            callback: function ($$v) {
               _vm.file_pardavimai = $$v
             },
-            expression: "file_pardavimai"
-          }
+            expression: "file_pardavimai",
+          },
         },
         [
           _c(
@@ -5699,25 +5699,25 @@ var render = function() {
             [
               _c("b-icon", {
                 staticClass: "file-icon",
-                attrs: { icon: _vm.uploadButtonIcon }
+                attrs: { icon: _vm.uploadButtonIcon },
               }),
               _vm._v(" "),
               _vm.uploadButtonText
                 ? _c("span", { staticClass: "file-label" }, [
-                    _vm._v(_vm._s(_vm.uploadButtonText))
+                    _vm._v(_vm._s(_vm.uploadButtonText)),
                   ])
-                : _vm._e()
+                : _vm._e(),
             ],
             1
           ),
           _vm._v(" "),
           _vm.fileName
             ? _c("span", { staticClass: "file-name" }, [
-                _vm._v("\n          " + _vm._s(_vm.fileName) + "\n      ")
+                _vm._v("\n          " + _vm._s(_vm.fileName) + "\n      "),
               ])
-            : _vm._e()
+            : _vm._e(),
         ]
-      )
+      ),
     ],
     1
   )
@@ -5741,7 +5741,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5762,12 +5762,12 @@ var render = function() {
                   on: { "file-updated": _vm.file_info_bankas },
                   model: {
                     value: _vm.file_bankas,
-                    callback: function($$v) {
+                    callback: function ($$v) {
                       _vm.file_bankas = $$v
                     },
-                    expression: "file_bankas"
-                  }
-                })
+                    expression: "file_bankas",
+                  },
+                }),
               ],
               1
             ),
@@ -5780,12 +5780,12 @@ var render = function() {
                   on: { "file-updated": _vm.file_info_pardavimai },
                   model: {
                     value: _vm.file_pardavimai,
-                    callback: function($$v) {
+                    callback: function ($$v) {
                       _vm.file_pardavimai = $$v
                     },
-                    expression: "file_pardavimai"
-                  }
-                })
+                    expression: "file_pardavimai",
+                  },
+                }),
               ],
               1
             ),
@@ -5796,11 +5796,11 @@ var render = function() {
                   "button",
                   {
                     staticClass: "button is-sark",
-                    on: { click: _vm.suformuoti }
+                    on: { click: _vm.suformuoti },
                   },
                   [_vm._v("Suformuoti")]
-                )
-              ])
+                ),
+              ]),
             ]),
             _vm._v(" "),
             _c("hr"),
@@ -5810,10 +5810,10 @@ var render = function() {
               {
                 staticClass: "button is-sark",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.rinktis("1")
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("Pardavimai")]
             ),
@@ -5823,10 +5823,10 @@ var render = function() {
               {
                 staticClass: "button is-sark",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.rinktis("4")
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("Pard. be pašto")]
             ),
@@ -5836,10 +5836,10 @@ var render = function() {
               {
                 staticClass: "button is-sark",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.rinktis("3")
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("Pard. per paštas")]
             ),
@@ -5849,13 +5849,13 @@ var render = function() {
               {
                 staticClass: "button is-sark",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.rinktis("2")
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("Grąžinimai")]
-            )
+            ),
           ],
           1
         ),
@@ -5870,23 +5870,23 @@ var render = function() {
                   { attrs: { id: "printMe" } },
                   [
                     _c("div", { staticClass: "has-text-centered" }, [
-                      _c("b", [_vm._v("UAB Sidonas ir Ko")])
+                      _c("b", [_vm._v("UAB Sidonas ir Ko")]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "has-text-centered" }, [
-                      _vm._v("\n          Įm. kodas: 180886050\n        ")
+                      _vm._v("\n          Įm. kodas: 180886050\n        "),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "has-text-centered" }, [
                       _vm._v(
                         "\n          Kęstučio 20-1, LT-87120, Telšiai, Lietuva\n        "
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
                     _c("div", { staticClass: "has-text-centered is-size-5" }, [
-                      _c("b", [_vm._v("Internetinė parduotuvė ( INTE )")])
+                      _c("b", [_vm._v("Internetinė parduotuvė ( INTE )")]),
                     ]),
                     _vm._v(" "),
                     _vm.rodo == 1
@@ -5922,7 +5922,7 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "has-text-centered" }, [
-                      _vm._v("\n          LIETUVA\n        ")
+                      _vm._v("\n          LIETUVA\n        "),
                     ]),
                     _vm._v(" "),
                     _c("br"),
@@ -5940,16 +5940,16 @@ var render = function() {
                           loading: _vm.isLoading,
                           "default-sort-direction": "asc",
                           "row-class": _vm.onRowClass,
-                          "default-sort": "saskaitos_nr"
+                          "default-sort": "saskaitos_nr",
                         },
                         scopedSlots: _vm._u(
                           [
                             {
                               key: "footer",
-                              fn: function() {
+                              fn: function () {
                                 return [
                                   _c("th", { staticClass: "has-text-right" }, [
-                                    _vm._v("VISO:")
+                                    _vm._v("VISO:"),
                                   ]),
                                   _vm._v(" "),
                                   _c("th"),
@@ -5959,15 +5959,15 @@ var render = function() {
                                   _c("th"),
                                   _vm._v(" "),
                                   _c("th", { staticClass: "has-text-right" }, [
-                                    _vm._v(_vm._s(_vm.apy_suma.toFixed(2)))
+                                    _vm._v(_vm._s(_vm.apy_suma.toFixed(2))),
                                   ]),
                                   _vm._v(" "),
                                   _c("th", { staticClass: "has-text-right" }, [
-                                    _vm._v(_vm._s(_vm.apy_suma2.toFixed(2)))
+                                    _vm._v(_vm._s(_vm.apy_suma2.toFixed(2))),
                                   ]),
                                   _vm._v(" "),
                                   _c("th", { staticClass: "has-text-right" }, [
-                                    _vm._v(_vm._s(_vm.apy_pvm.toFixed(2)))
+                                    _vm._v(_vm._s(_vm.apy_pvm.toFixed(2))),
                                   ]),
                                   _vm._v(" "),
                                   _vm.rodo == 1 ||
@@ -5983,11 +5983,11 @@ var render = function() {
                                                 _vm.apy_pristatymas
                                               ).toFixed(2)
                                             )
-                                          )
+                                          ),
                                         ]
                                       )
                                     : _c("th", {
-                                        staticClass: "has-text-right"
+                                        staticClass: "has-text-right",
                                       }),
                                   _vm._v(" "),
                                   _vm.rodo == 1 ||
@@ -6004,21 +6004,21 @@ var render = function() {
                                                   _vm.apy_pristatymas
                                               ).toFixed(2)
                                             )
-                                          )
+                                          ),
                                         ]
                                       )
                                     : _c("th", {
-                                        staticClass: "has-text-right"
-                                      })
+                                        staticClass: "has-text-right",
+                                      }),
                                 ]
                               },
-                              proxy: true
-                            }
+                              proxy: true,
+                            },
                           ],
                           null,
                           false,
                           3856602285
-                        )
+                        ),
                       },
                       [
                         _c("b-table-column", {
@@ -6027,21 +6027,21 @@ var render = function() {
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n            " +
                                         _vm._s(props.index + 1) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             1557957757
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
@@ -6050,48 +6050,48 @@ var render = function() {
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
                                         _vm._s(props.row.data) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             2788062381
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
                           attrs: {
                             label: "DINETA",
                             field: "saskaitos_nr",
-                            sortable: ""
+                            sortable: "",
                           },
                           scopedSlots: _vm._u(
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
                                         _vm._s(props.row.saskaitos_nr) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             3019436436
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
@@ -6101,21 +6101,21 @@ var render = function() {
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
                                         _vm._s(props.row.unikalus) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             2043302831
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
@@ -6125,7 +6125,7 @@ var render = function() {
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
@@ -6133,15 +6133,15 @@ var render = function() {
                                           parseFloat(props.row.suma).toFixed(2)
                                         ) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             4267384611
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
@@ -6151,7 +6151,7 @@ var render = function() {
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
@@ -6161,15 +6161,15 @@ var render = function() {
                                           ).toFixed(2)
                                         ) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             3169445287
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
@@ -6179,7 +6179,7 @@ var render = function() {
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
@@ -6189,15 +6189,15 @@ var render = function() {
                                           ).toFixed(2)
                                         ) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             1811622967
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
@@ -6206,13 +6206,13 @@ var render = function() {
                             visible:
                               _vm.rodo == 1 || _vm.rodo == 3 || _vm.rodo == 4,
                             label: "Pristatymas",
-                            field: "pristatymas"
+                            field: "pristatymas",
                           },
                           scopedSlots: _vm._u(
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
@@ -6222,15 +6222,15 @@ var render = function() {
                                           ).toFixed(2)
                                         ) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             2622664854
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
@@ -6239,13 +6239,13 @@ var render = function() {
                             visible:
                               _vm.rodo == 1 || _vm.rodo == 3 || _vm.rodo == 4,
                             label: "Per banka, Eur",
-                            field: ""
+                            field: "",
                           },
                           scopedSlots: _vm._u(
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
@@ -6256,15 +6256,15 @@ var render = function() {
                                           ).toFixed(2)
                                         ) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             330803219
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
@@ -6273,7 +6273,7 @@ var render = function() {
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
@@ -6282,15 +6282,15 @@ var render = function() {
                                             props.row.bankas.suma
                                         ) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             3605974557
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
@@ -6298,54 +6298,54 @@ var render = function() {
                           attrs: {
                             visible: _vm.rodo == 2,
                             label: "TEST",
-                            field: "bankas"
+                            field: "bankas",
                           },
                           scopedSlots: _vm._u(
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                 " +
                                         _vm._s(props.row.bankas_list) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             1341264884
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c("b-table-column", {
                           attrs: {
                             label: "Pirkėjas",
                             field: "pirkejas",
-                            sortable: ""
+                            sortable: "",
                           },
                           scopedSlots: _vm._u(
                             [
                               {
                                 key: "default",
-                                fn: function(props) {
+                                fn: function (props) {
                                   return [
                                     _vm._v(
                                       "\n                " +
                                         _vm._s(props.row.pirkejas) +
                                         "\n          "
-                                    )
+                                    ),
                                   ]
-                                }
-                              }
+                                },
+                              },
                             ],
                             null,
                             false,
                             3915940128
-                          )
+                          ),
                         }),
                         _vm._v(" "),
                         _c(
@@ -6353,7 +6353,7 @@ var render = function() {
                           {
                             staticClass: "section",
                             attrs: { slot: "empty" },
-                            slot: "empty"
+                            slot: "empty",
                           },
                           [
                             _c(
@@ -6368,14 +6368,14 @@ var render = function() {
                                           _c("b-icon", {
                                             attrs: {
                                               icon: "dots-horizontal",
-                                              size: "is-large"
-                                            }
-                                          })
+                                              size: "is-large",
+                                            },
+                                          }),
                                         ],
                                         1
                                       ),
                                       _vm._v(" "),
-                                      _c("p", [_vm._v("Gaunami duomenys...")])
+                                      _c("p", [_vm._v("Gaunami duomenys...")]),
                                     ]
                                   : [
                                       _c(
@@ -6384,23 +6384,23 @@ var render = function() {
                                           _c("b-icon", {
                                             attrs: {
                                               icon: "emoticon-sad",
-                                              size: "is-large"
-                                            }
-                                          })
+                                              size: "is-large",
+                                            },
+                                          }),
                                         ],
                                         1
                                       ),
                                       _vm._v(" "),
-                                      _c("p", [_vm._v("Duomenų nerasta …")])
-                                    ]
+                                      _c("p", [_vm._v("Duomenų nerasta …")]),
+                                    ],
                               ],
                               2
-                            )
+                            ),
                           ]
-                        )
+                        ),
                       ],
                       1
-                    )
+                    ),
                   ],
                   1
                 ),
@@ -6417,13 +6417,13 @@ var render = function() {
                         attrs: {
                           size: "is-medium",
                           "icon-left": "printer",
-                          type: "is-dark"
+                          type: "is-dark",
                         },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.print("printMe")
-                          }
-                        }
+                          },
+                        },
                       },
                       [_vm._v("SPAUSDINTI")]
                     ),
@@ -6436,14 +6436,14 @@ var render = function() {
                           data: _vm.data_list,
                           columns: _vm.columns,
                           filename: "filename",
-                          sheetname: "sheetname"
-                        }
+                          sheetname: "sheetname",
+                        },
                       },
                       [_vm._v("\n          Atsisiusti\n      ")]
-                    )
+                    ),
                   ],
                   1
-                )
+                ),
               ]
             )
           : _c(
@@ -6455,13 +6455,13 @@ var render = function() {
                   : _c("div", [
                       _vm._v(
                         "Duomenys paruošti rodymui, spauskite viršuje esančius myktukus."
-                      )
-                    ])
+                      ),
+                    ]),
               ]
-            )
+            ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []

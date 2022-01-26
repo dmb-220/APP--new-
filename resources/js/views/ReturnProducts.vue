@@ -4,14 +4,24 @@
     <section class="section is-main-section">
       <card-component title="VALDYMAS" icon="account-multiple">
       <file-picker-return @file-updated="file_info" v-model="file"/>
-      <b-field label="PREKĖS:" horizontal>
+      <!-- <b-field label="PREKĖS:" horizontal>
         <b-button :type="gam ? 'is-info' : 'is-dark'" @click="change_gam()" expanded>GAMYBA</b-button>
         <b-button :type="pirk ? 'is-info' : 'is-dark'" @click="change_pirk()" expanded>PIRKIMAI</b-button>
         <b-input placeholder="Nuolaida" v-model="procentas"></b-input> 
+      </b-field> -->
+      <b-field label="Gražinama iš:" horizontal>
+        <b-select placeholder="Pasirinkite" v-model="partneris" expanded>
+          <option value="lv">SIDONAS LV</option>
+          <option value="ee">SIDONAS EE</option>
+        </b-select>
+      </b-field>
+      <b-field label="Sandeliai: IŠ / Į" horizontal>
+        <b-input placeholder="IŠ" v-model="sand_is"></b-input> 
+        <b-input placeholder="Į" v-model="sand_i"></b-input> 
       </b-field>
       <hr>
       <div class="buttons">
-        <b-button size="is-medium" type="is-dark">SUFORMUOTI</b-button>
+        <b-button size="is-medium" type="is-dark" @click="suformuoti()">SUFORMUOTI</b-button>
       </div>
       </card-component>
 
@@ -75,9 +85,12 @@ export default {
     list: [],
     file: null,
     failas: '',
-    gam: false,
-    pirk: false,
+    //gam: false,
+    //pirk: false,
     procentas: 0,
+    sand_i: "",
+    sand_is: "",
+    partneris: ""
     }
   },
   computed: {
@@ -110,7 +123,15 @@ export default {
         }
       if(this.gam){ this.gam = false}
     },
-
+    suformuoti(){
+      if(!this.gam && !this.pirk){
+        this.$buefy.toast.open({
+              message: `Reikia pasirinkti kokios prekės GAMYBA ar PIRKIMAS`,
+              type: 'is-warning',
+              queue: false
+            })
+      }
+    },
     getData () {
       this.axios
       .get('/return')

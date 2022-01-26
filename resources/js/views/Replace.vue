@@ -49,11 +49,11 @@ export default {
               this.html_lv = this.html_lv.replace("sijoną", "seelikut");
               this.html_lv = this.html_lv.replace("palaidinę", "pluusi");
               this.html_lv = this.html_lv.replace("megztinį", "kampsunit");
-			  this.html_lv = this.html_lv.replace("džemperį", "kampsunit");
+			        this.html_lv = this.html_lv.replace("džemperį", "kampsunit");
               this.html_lv = this.html_lv.replace("džinsus", "teksasid");
               this.html_lv = this.html_lv.replace("paltą", "mantlit");
               this.html_lv = this.html_lv.replace("suknelę", " kleiti");
-			  this.html_lv = this.html_lv.replace("striukę", " jope");
+			        this.html_lv = this.html_lv.replace("striukę", " jope");
 
               this.html_lv = this.html_lv.replace(/Spalva:/gi, "Värv:");
               this.html_lv = this.html_lv.replace(/juoda/gi, "must");
@@ -73,11 +73,12 @@ export default {
               this.html_lv = this.html_lv.replace(/Nailonas/gi, "nailon");
               this.html_lv = this.html_lv.replace(/Linas/gi, "lina");
               this.html_lv = this.html_lv.replace(/Dirbtinė oda/gi, "kunstnahk");
+              this.html_lv = this.html_lv.replace(/sintetinė oda/gi, "Sünteetiline nahk");
               this.html_lv = this.html_lv.replace(/Poliviskozė/gi, "polyviskoos");
               this.html_lv = this.html_lv.replace(/Poliamidas/gi, "polüamiid");
               this.html_lv = this.html_lv.replace(/Kašmyras/gi, "kashmir");
-			  this.html_lv = this.html_lv.replace(/Akrilas/gi, "akrüül");
-			  this.html_lv = this.html_lv.replace(/Mohera/gi, "mohäär");
+			        this.html_lv = this.html_lv.replace(/Akrilas/gi, "akrüül");
+			        this.html_lv = this.html_lv.replace(/Mohera/gi, "mohäär");
               
               this.html_lv = this.html_lv.replace("Kilmės šalis", "Päritoluriik");
               this.html_lv = this.html_lv.replace("Kilmės", "Päritoluriik");

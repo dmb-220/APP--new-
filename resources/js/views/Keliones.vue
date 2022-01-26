@@ -191,9 +191,9 @@ export default {
       rodo: '',
       visi: [],
       data: new Date(),
-      nr: 20210,
+      nr: 20220,
       nr_rodyti: false,
-      nr2: 20210,
+      nr2: 20220,
       date: '',
     }
   },

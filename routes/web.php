@@ -27,6 +27,11 @@ Route::prefix('/return')->group(function () {
     Route::post('store',  [App\Http\Controllers\ReturnProductController::class, 'store'])->name('store');
 });
 
+
+Route::prefix('pvz')->group(function () {
+    Route::get('/', [App\Http\Controllers\PvzController::class, 'index'])->name('index');
+    Route::post('store',  [App\Http\Controllers\PvzController::class, 'store'])->name('store');
+});
 /* Testas */
 Route::prefix('/testas')->group(function () {
     Route::get('/', [App\Http\Controllers\TestasController::class, 'index'])->name('index');
@@ -81,6 +86,7 @@ Route::prefix('/pardavimai')->group(function () {
 Route::prefix('/akcijos')->group(function () {
     Route::get('/', [App\Http\Controllers\AkcijosController::class, 'index'])->name('index');
     Route::post('store',  [App\Http\Controllers\AkcijosController::class, 'store'])->name('store');
+    Route::post('store_akcija',  [App\Http\Controllers\AkcijosController::class, 'store_akcija'])->name('store_akcija');
 });
 
 /* Keliones lapas */ 
