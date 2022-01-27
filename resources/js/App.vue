@@ -173,7 +173,7 @@ export default {
             icon: 'codepen',
             menu: [
               {
-                to: '/replace',
+                to: '/replaceee',
                 label: 'LT to EE',
                 icon: 'arrow-right',
               },

@@ -45,18 +45,18 @@ export default new Router({
     {
       path: '/grazinimai',
       name: 'grazinimai',
-      component: () => import('./views/Grazinimai.vue')
+      component: () => import('./views/Grazinimai/Grazinimai.vue')
     },
     {
       path: '/grazinimai_lv',
       name: 'grazinimai_lv',
-      component: () => import('./views/Grazinimai_LV.vue')
+      component: () => import('./views/Grazinimai/Grazinimai_LV.vue')
     },
 
     {
       path: '/grazinimai_ee',
       name: 'grazinimai_ee',
-      component: () => import('./views/Grazinimai_EE.vue')
+      component: () => import('./views/Grazinimai/Grazinimai_EE.vue')
     },
     {
       path: '/inte_prekes',
@@ -66,32 +66,32 @@ export default new Router({
     {
       path: '/inte',
       name: 'inte',
-      component: () => import('./views/Inte.vue')
+      component: () => import('./views/Internetas/Inte.vue')
     },
     {
       path: '/intepigu',
       name: 'intepigu',
-      component: () => import('./views/Intepigu.vue')
+      component: () => import('./views/Internetas/Intepigu.vue')
     },
     {
       path: '/inteee',
       name: 'inteee',
-      component: () => import('./views/Inteee.vue')
+      component: () => import('./views/Internetas/Inteee.vue')
     },
     {
       path: '/intelv',
       name: 'intelv',
-      component: () => import('./views/Intelv.vue')
+      component: () => import('./views/Internetas/Intelv.vue')
     },
     {
-      path: '/replace',
-      name: 'replace',
-      component: () => import('./views/Replace.vue')
+      path: '/replaceee',
+      name: 'replaceee',
+      component: () => import('./views/Vertimas/ReplaceEE.vue')
     },
     {
       path: '/replacelv',
       name: 'replacelv',
-      component: () => import('./views/ReplaceLV.vue')
+      component: () => import('./views/Vertimas/ReplaceLV.vue')
     },
     {
       path: '/dalinti',
