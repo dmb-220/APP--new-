@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Soap;
+use App\Soap;
 use Illuminate\Http\Request;
 
 use SoapClient;
@@ -45,7 +45,7 @@ class SoapLTController extends Controller
             "MARI" => array("name" => "Marijampolė", "adresas" => "Vytauto g. 48A, PC IKI, Marijampolė, LT-68296", "laikas" => "I - VI 10 - 19 VII 10 - 16"),    
             "KEDA" => array("name" => "Kedainiai", "adresas" => "Tilto g. 2, Kėdainiai, PC IKI, LT-57256", "laikas" => "I - VI 10 - 20 VII 10 - 17"),            
             "VISA" => array("name" => "Visaginas", "adresas" => "Veteranų g. 2, PC DOMINO, Visaginas, LT-31138", "laikas" => "I - V 10 - 19 VI 10 - 17 VII 10 - 16"),
-            //"UTEN" => array("name" => "Telšiai", "adresas" => "Kęstučio 25, Telšiai", "laikas" => "I - V 10 - 18 VI 10 - 14"),            
+            "UTEN" => array("name" => "Utena", "adresas" => "Aušros g. 21, PC AUŠRA, Utena, LT‑28193", "laikas" => "I - V 10 - 19 VI 10 - 17 VII 10-15"),            
             "MADA" => array("name" => "Vilnius (MADA)", "adresas" => "Viršuliškių g. 40, PC MADA, Vilnius, LT-05112", "laikas" => "I - VI 10 - 21 VII 10 - 18"),
             "MINS" => array("name" => "Vilnius (MINS)", "adresas" => "Liepkalnio g. 112, MAXIMA XXX, Vilnius, LT-02121", "laikas" => "I - V 10 - 20 VI - VII 10 - 18"),
             "UKME" => array("name" => "Vilnius (UKME)", "adresas" => "Ukmergės g. 369, PC BIG, LT-06327 Vilnius", "laikas" => "I - VI 10 - 21 VII 10 - 20"),
@@ -60,31 +60,22 @@ class SoapLTController extends Controller
         if($ieskoti != ""){
             $client = new SoapClient('http://lt2.dineta.eu/sidonas/ws/export/ws.php?wsdl');   
             // parametru padavimas
-            /*$p['param'][0]['name'] = 'date';
+            $p['param'][0]['name'] = 'date';
             $p['param'][0]['value'] = date("Y-m-d");
             $p['param'][1]['name'] = 'stockid';
             $p['param'][1]['value'] = $ieskoti;
             $p['param'][2]['name'] = 'storeid';
             $p['param'][2]['value'] = $sandelis;
             $p['param'][3]['name'] = 'null_quant';
-            $p['param'][3]['value'] = 0;*/
-
-            $p = array();
-            $p['param'][0]['name'] = "date";
-            $p['param'][0]['value'] = "2021-07-13";
-            $p['param'][1]['name'] = "storeid";
-            $p['param'][1]['value'] = "BIGA";
-            $p['param'][2]['name'] = "null_quant";
-            $p['param'][2]['value'] = "1";
-
+            $p['param'][3]['value'] = '0';
 
             $response = $client->get_stock_quant($p);
 
             //var_dump($client->__getFunctions()); 
             //var_dump($client->__getTypes()); 
 
-            var_dump($response);
-            exit;
+            //var_dump($response);
+            //exit;
 
             $arr['kodas'] = $p['param'][1]['value'];
             $arr['data'] = $p['param'][0]['value'];
@@ -92,13 +83,17 @@ class SoapLTController extends Controller
 
             foreach($response->stock as $v){
                 //isimtys
-                if($v->storeid != "TELSIAI" && $v->storeid != "ZILT"  && $v->storeid != "INTE"){
+                if($v->storeid != "TELSIAI" && $v->storeid != "ZILT"  && $v->storeid != "INTE" 
+                && $v->storeid != "PIGU" && $v->storeid != "GALA" && $v->storeid != "BROK"){
                     $arr['list'][$v->storeid]['sandelis'] = $v->storeid;
                     if(array_key_exists($v->storeid, $sandeliai)){
                         $arr['list'][$v->storeid]['adresas'] = $sandeliai[$v->storeid]['adresas'];
                         $arr['list'][$v->storeid]['laikas'] = $sandeliai[$v->storeid]['laikas'];
                         $arr['list'][$v->storeid]['name'] = $sandeliai[$v->storeid]['name'];
-                    }else{$arr['list'][$v->storeid]['adresas'] = " "; }
+                    }else{
+                        $arr['list'][$v->storeid]['adresas'] = " "; 
+                        $arr['list'][$v->storeid]['name'] = $v->storeid;
+                    }
                     $arr['list'][$v->storeid]['kiekis'] = $v->quant;
                 }
             }

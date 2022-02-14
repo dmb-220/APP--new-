@@ -187,7 +187,8 @@ class LikutisController extends Controller
                     $likuciai[$idx]['LT'][$val['sandelis']] = array('sandelis' => $val['sandelis'], 'kiekis' => $val['kiekis'] + $kiek);
                     $lt_viso = $lt_viso + $val['kiekis'];
                     $likuciai[$idx]['LT_viso'] = $lt_viso;
-                }
+                }else{$likuciai[$idx]['LT_viso'] = $lt_viso;}
+				
                 if($val['salis'] == 2 && $key[2]){
                     if(array_key_exists($val['sandelis'], $likuciai[$idx]['LV'])){
                         $kiek = $likuciai[$idx]['LV'][$val['sandelis']]['kiekis'];
@@ -197,7 +198,8 @@ class LikutisController extends Controller
                     $likuciai[$idx]['LV'][$val['sandelis']] = array('sandelis' => $val['sandelis'], 'kiekis' => $val['kiekis'] + $kiek);
                     $lv_viso = $lv_viso + $val['kiekis'];
                     $likuciai[$idx]['LV_viso'] = $lv_viso;
-                }
+                }else{$likuciai[$idx]['LV_viso'] = $lv_viso;}
+				
                 if($val['salis'] == 3 && $key[3]){
                     if(array_key_exists($val['sandelis'], $likuciai[$idx]['EE'])){
                         $kiek = $likuciai[$idx]['EE'][$val['sandelis']]['kiekis'];
@@ -207,7 +209,7 @@ class LikutisController extends Controller
                     $likuciai[$idx]['EE'][$val['sandelis']] = array('sandelis' => $val['sandelis'], 'kiekis' => $val['kiekis'] + $kiek);
                     $ee_viso = $ee_viso + $val['kiekis'];
                     $likuciai[$idx]['EE_viso'] = $ee_viso;
-                }
+                }else{$likuciai[$idx]['EE_viso'] = $ee_viso;}
             }
 
             $likuciai[$idx]['LT'] = array_values($likuciai[$idx]['LT']);

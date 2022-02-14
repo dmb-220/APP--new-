@@ -25,7 +25,7 @@ class StatistikaController extends Controller
         //$keyword = 'DMK-';
 
          //$store = array(
-            $LT = array("MINS", "TELS", "MADA", "MARI", "MOLA", "NORF", "BIGA", "BABI", "UKME", "MANT", "VISA", "KEDA","AREN", "MAXI", "PANE", "MAZE", "TAIK", "SAUL", "TAUB", "INTE", "INLV", "INEE");
+            $LT = array("MINS", "TELS", "MADA", "MARI", /*"MOLA",*/ "NORF", "BIGA", "BABI", "UKME", "MANT", "VISA", "KEDA","AREN", "MAXI", "PANE", "MAZE", "TAIK", "SAUL", "TAUB", "INTE", "INLV", "INEE");
             $LV = array("DOLE", "KULD", "BRIV", "DITO", "MATI", "VALK", "TAL2", "TUKU", "VALD", "VENT", "LIEP", "AIZK", "LIMB", "MELN", "SALD", "VALM", "BALV", "CESI", "DOBE", "GOBA", "JEKA", "SIGU", "MADO", "OGRE");
             $EE = array("Johvi", "Mustamäe", "Rakvere", "Sopruse", "Võru 55 Tartu", "Ümera","Eden", "Haapsalu", "Kopli", "Parnu", "Riia Parnu");
         //);
@@ -386,7 +386,10 @@ class StatistikaController extends Controller
                 $new[$i]['likutis_sk'] = $gr[$valu]['likutis'];
                 $liko = $gr[$valu]['likutis'];
                 $new[$i]['salis'] = $group[$valu][0]['salis'];
-            }else{$new[$i]['likutis'] = array();}
+            }else{
+				$new[$i]['likutis'] = array();
+				$new[$i]['likutis_sk'] = 0;
+				}
 
             if (array_key_exists($valu, $pardavimai)) {
                 $new[$i]['pardavimai'] = $pardavimai[$valu];
@@ -395,7 +398,10 @@ class StatistikaController extends Controller
                 if($new[$i]['salis'] == ""){
                     $new[$i]['salis'] = $pardavimai[$valu][0]['salis'];
                 }
-            }else{$new[$i]['pardavimai'] = array();}
+            }else{
+				$new[$i]['pardavimai'] = array();
+				$new[$i]['pardavimai_sk'] = 0;
+				}
 
             $new[$i]['viso'] = $liko - (2 * $parda);
 

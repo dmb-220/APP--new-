@@ -39,6 +39,14 @@ export default new Vuex.Store({
       }
     },
 
+    set_value_nav (state) {
+        state.isNavBarVisible = false;
+    },
+
+    set_value_aside (state) {
+      state.isAsideVisible = false;
+  },
+
     /* Aside Mobile */
     asideMobileStateToggle (state, payload = null) {
       const htmlClassName = 'has-aside-mobile-expanded'

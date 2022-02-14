@@ -2,6 +2,13 @@
   <div>
     <section class="section is-main-section">
       <card-component title="VALDYMAS" icon="account-multiple">
+        <b-field label="SANDELIS:" horizontal>
+          <b-select placeholder="Pasirinkite..." @change.native="keisti_sandelis" v-model="sandelis" icon="earth" expanded>
+            <option v-for="(sand, index) in sandeliai" :key="index" :value="index">
+              {{ sand.name }} - {{ sand.adresas }}
+            </option>
+          </b-select>
+        </b-field>
         <b-field label="PAIEŠKA:" horizontal>
             <b-input placeholder="Paieška..." type="search" @keyup.native.enter="paieska_post" 
              v-model="ieskoti" icon="magnify"></b-input>    
@@ -21,21 +28,18 @@
           :narrowed="true"
           :data="sarasas.list"
           :loading="isLoading">
-          <template slot-scope="props">
-            <b-table-column  label="Sandelis"  field="name">
+          <b-table-column  label="Sandelis"  field="name" v-slot="props">
                   {{ props.row.name }}
             </b-table-column>
-            <b-table-column :style="{'background-color': 'greenyellow'}"  label="Kiekis"  field="kiekis">
+            <b-table-column :style="{'background-color': 'greenyellow'}"  label="Kiekis"  field="kiekis" v-slot="props">
                   {{ props.row.kiekis }}
             </b-table-column>
-             <b-table-column  label="Adresas"  field="adresas">
+             <b-table-column  label="Adresas"  field="adresas" v-slot="props">
                   {{ props.row.adresas }}
             </b-table-column>
-            <b-table-column  label="Darbo laikas"  field="laikas">
+            <b-table-column  label="Darbo laikas"  field="laikas" v-slot="props">
                   {{ props.row.laikas }}
             </b-table-column>
-          </template> 
-
           <section class="section" slot="empty">
             <div class="content has-text-centered">
               <template v-if="isLoading">

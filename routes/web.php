@@ -17,7 +17,11 @@ use Illuminate\Support\Facades\Route;
     //return view('welcome');
 //});
 
-Auth::routes();
+Auth::routes([
+  'register' => false, // Registration Routes...
+  'reset' => false, // Password Reset Routes...
+  'verify' => false, // Email Verification Routes...
+]);
 
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
 
@@ -135,15 +139,15 @@ Route::prefix('/inte')->group(function () {
     Route::post('store_pardavimai', [App\Http\Controllers\InteController::class, 'store_pardavimai'])->name('store_pardavimai');
 });
 
-/*Route::prefix('/soap')->group(function () {
-    Route::get('', 'SoapController@index');
-    Route::post('store', 'SoapController@store');
+Route::prefix('/soap')->group(function () {
+    Route::get('', [\App\Http\Controllers\SoapController::class, 'index']);
+    Route::post('store', [\App\Http\Controllers\SoapController::class, 'store']);
 });
 
 Route::prefix('/soaplt')->group(function () {
-    Route::get('', 'SoapLTController@index');
-    Route::post('store', 'SoapLTController@store');
-});*/
+    Route::get('', [\App\Http\Controllers\SoapLTController::class, 'index']);
+    Route::post('store', [\App\Http\Controllers\SoapLTController::class, 'store']);
+});
 
 /* Clients management */
 Route::prefix('/clients')->group(function () {

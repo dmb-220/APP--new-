@@ -55,9 +55,15 @@ class GrazinimaiController extends Controller
 
        $bank = array();
        foreach($bankas as $row){
+        $ex = explode(" ", $row['paskirtis']);
+        //EX[1] yra kodas, bet jei padarytas grazinimas, kodas buna EX[0]
+        if(count($ex) > 1 && $ex[1] != "grąžinimas"){$ba = $ex[1];}else{$ba = $row['paskirtis'];}
+        $bank[$ba] = $row;
+        }
+       //foreach($bankas as $row){
            //$ex = explode(" ", $row['paskirtis']);
-           $bank[$row['paskirtis']] = $row;
-       }
+           //$bank[$row['paskirtis']] = $row;
+       //}
 
        foreach($sarasas as $value){
            if(!is_numeric($value['blanko_nr'])){

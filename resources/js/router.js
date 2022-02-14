@@ -108,6 +108,17 @@ export default new Router({
       name: 'return',
       component: () => import('./views/ReturnProducts.vue')
     },
+    {
+      path: '/soap',
+      name: 'soap',
+      component: () => import('./views/Soap.vue')
+    },
+    {
+      path: '/soaplt',
+      name: 'soaplt',
+      component: () => import('./views/SoapLT.vue')
+    },
+    
     /*
     {
       path: '/sandeliai',
@@ -157,16 +168,7 @@ export default new Router({
       component: () => import('./views/VisiLikuciai.vue')
     },
 
-    {
-      path: '/soap',
-      name: 'soap',
-      component: () => import('./views/Soap.vue')
-    },
-    {
-      path: '/soaplt',
-      name: 'soaplt',
-      component: () => import('./views/SoapLT.vue')
-    },
+    
     {
       path: '/ee_list',
       name: 'eelist',

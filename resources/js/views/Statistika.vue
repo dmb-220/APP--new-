@@ -57,15 +57,17 @@
             detailed
             detail-key="sandelis"
             @details-open="(row) => $buefy.toast.open(`Expanded ${row.sandelis}`)"
+			:sort-icon="sortIcon"
+            :sort-icon-size="sortIconSize"
             :show-detail-icon="showDetailIcon">
             
             <b-table-column label="Sandelis"  field="sandelis" v-slot="props">
                   {{ props.row.sandelis }}
             </b-table-column>
-            <b-table-column label="Likutis" field="likutis_sk" numeric sortable v-slot="props">
+            <b-table-column label="Likutis" field="likutis_sk" sortable v-slot="props">
               {{ props.row.likutis_sk }}
             </b-table-column>
-            <b-table-column label="Parduota" field="pardavimai_sk" numeric sortable v-slot="props">
+            <b-table-column label="Parduota" field="pardavimai_sk" sortable v-slot="props">
               {{ props.row.pardavimai_sk }}
             </b-table-column>
             <b-table-column label="Viso" field="viso" numeric sortable v-slot="props">
@@ -151,6 +153,9 @@ export default {
     showDetailIcon: true,
     isNarrowed: true,
     mobile_card: true,
+	sortIcon: 'arrow-up',
+    sortIconSize: 'is-small',
+	//defaultSortDirection: 'asc',
 
     settings: {
       ieskoti: '',

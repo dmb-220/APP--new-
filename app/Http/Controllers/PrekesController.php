@@ -563,25 +563,16 @@ class PrekesController extends Controller
             $new[$i]['pavadinimas'] = '';
             //likuciu duomenys, skaiciai
             if (array_key_exists($valu, $likuciai)) {
-                if (array_key_exists('LT_viso', $likuciai[$valu])) {
-                    $new[$i]['LT_viso'] = $likuciai[$valu]['LT_viso'];
-                }else{ $new[$i]['LT_viso'] = 0; }
-                if (array_key_exists('LV_viso', $likuciai[$valu])) {
-                    $new[$i]['LV_viso'] = $likuciai[$valu]['LV_viso'];
-                }else{ $new[$i]['LV_viso'] = 0; }
-                if (array_key_exists('EE_viso', $likuciai[$valu])) {
-                    $new[$i]['EE_viso'] = $likuciai[$valu]['EE_viso'];
-                }else{ $new[$i]['EE_viso'] = 0; }
-
-                if (array_key_exists('viso', $likuciai[$valu])) {
-                    $new[$i]['viso'] = $likuciai[$valu]['viso'];
-                }else{ $new[$i]['viso'] = 0; }
-
                 $new[$i]['likutis'] = $likuciai[$valu];
                 $new[$i]['pavadinimas'] = $likuciai[$valu]['pavadinimas'];
                 $new[$i]['kaina'] = $likuciai[$valu]['kaina'];
+				
+				if (!array_key_exists('LT_viso', $likuciai[$valu])) {$new[$i]['likutis']['LT_viso'] = 0; }
+                if (!array_key_exists('LV_viso', $likuciai[$valu])) {$new[$i]['likutis']['LV_viso'] = 0; }
+                if (!array_key_exists('EE_viso', $likuciai[$valu])) {$new[$i]['likutis']['EE_viso'] = 0; }
+                if (!array_key_exists('viso', $likuciai[$valu])) {$new[$i]['likutis']['viso'] = 0; }
             }else{
-                $new[$i]['likutis'] = array();
+                $new[$i]['likutis'] = array('EE_viso' => 0, 'LV_viso' => 0, 'LT_viso' => 0, 'viso' => 0);
             }
             //pardavimu duomenys, skaiciai
             if (array_key_exists($valu, $pardavimai)) {
@@ -589,8 +580,12 @@ class PrekesController extends Controller
                 if($new[$i]['pavadinimas'] == ""){
                     $new[$i]['pavadinimas'] = $pardavimai[$valu]['pavadinimas'];
                 }
+				if (!array_key_exists('LT_viso', $pardavimai[$valu])) {$new[$i]['pardavimai']['LT_viso'] = 0; }
+                if (!array_key_exists('LV_viso', $pardavimai[$valu])) {$new[$i]['pardavimai']['LV_viso'] = 0; }
+                if (!array_key_exists('EE_viso', $pardavimai[$valu])) {$new[$i]['pardavimai']['EE_viso'] = 0; }
+                if (!array_key_exists('viso', $pardavimai[$valu])) {$new[$i]['pardavimai']['viso'] = 0; }
             }else{
-                $new[$i]['pardavimai'] = array();
+                $new[$i]['pardavimai'] = array('EE_viso' => 0, 'LV_viso' => 0, 'LT_viso' => 0, 'viso' => 0);
             }
 
             if (array_key_exists($valu, $buy)) { 

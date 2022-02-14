@@ -119,6 +119,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -4746,20 +4750,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "notification is-card-toolbar" }, [
     _c("div", { staticClass: "level", class: { "is-mobile": _vm.isMobile } }, [
       _c("div", { staticClass: "level-left" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2)
+        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "level-right" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2)
-      ])
-    ])
+        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -4781,7 +4785,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -4796,16 +4800,62 @@ var render = function() {
           [
             _c(
               "b-field",
+              { attrs: { label: "SANDELIS:", horizontal: "" } },
+              [
+                _c(
+                  "b-select",
+                  {
+                    attrs: {
+                      placeholder: "Pasirinkite...",
+                      icon: "earth",
+                      expanded: "",
+                    },
+                    nativeOn: {
+                      change: function ($event) {
+                        return _vm.keisti_sandelis.apply(null, arguments)
+                      },
+                    },
+                    model: {
+                      value: _vm.sandelis,
+                      callback: function ($$v) {
+                        _vm.sandelis = $$v
+                      },
+                      expression: "sandelis",
+                    },
+                  },
+                  _vm._l(_vm.sandeliai, function (sand, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: index } },
+                      [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(sand.name) +
+                            " - " +
+                            _vm._s(sand.adresas) +
+                            "\n          "
+                        ),
+                      ]
+                    )
+                  }),
+                  0
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-field",
               { attrs: { label: "PAIEŠKA:", horizontal: "" } },
               [
                 _c("b-input", {
                   attrs: {
                     placeholder: "Paieška...",
                     type: "search",
-                    icon: "magnify"
+                    icon: "magnify",
                   },
                   nativeOn: {
-                    keyup: function($event) {
+                    keyup: function ($event) {
                       if (
                         !$event.type.indexOf("key") &&
                         _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
@@ -4813,15 +4863,15 @@ var render = function() {
                         return null
                       }
                       return _vm.paieska_post.apply(null, arguments)
-                    }
+                    },
                   },
                   model: {
                     value: _vm.ieskoti,
-                    callback: function($$v) {
+                    callback: function ($$v) {
                       _vm.ieskoti = $$v
                     },
-                    expression: "ieskoti"
-                  }
+                    expression: "ieskoti",
+                  },
                 }),
                 _vm._v(" "),
                 _c(
@@ -4832,16 +4882,16 @@ var render = function() {
                       "b-button",
                       {
                         attrs: { "native-type": "submit", type: "is-primary" },
-                        on: { click: _vm.paieska_post }
+                        on: { click: _vm.paieska_post },
                       },
                       [_vm._v("Ieškoti")]
-                    )
+                    ),
                   ],
                   1
-                )
+                ),
               ],
               1
-            )
+            ),
           ],
           1
         ),
@@ -4851,7 +4901,7 @@ var render = function() {
           { attrs: { title: "Likuciai", icon: "account-multiple" } },
           [
             _c("div", { staticClass: "content has-text-centered" }, [
-              _vm._v(_vm._s(_vm.sarasas.kodas))
+              _vm._v(_vm._s(_vm.sarasas.kodas)),
             ]),
             _vm._v(" "),
             _c("hr"),
@@ -4866,76 +4916,89 @@ var render = function() {
                   hoverable: "",
                   narrowed: true,
                   data: _vm.sarasas.list,
-                  loading: _vm.isLoading
+                  loading: _vm.isLoading,
                 },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function(props) {
-                      return [
-                        _c(
-                          "b-table-column",
-                          { attrs: { label: "Sandelis", field: "name" } },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(props.row.name) +
-                                "\n          "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-table-column",
-                          {
-                            style: { "background-color": "greenyellow" },
-                            attrs: { label: "Kiekis", field: "kiekis" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(props.row.kiekis) +
-                                "\n          "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-table-column",
-                          { attrs: { label: "Adresas", field: "adresas" } },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(props.row.adresas) +
-                                "\n          "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-table-column",
-                          { attrs: { label: "Darbo laikas", field: "laikas" } },
-                          [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(props.row.laikas) +
-                                "\n          "
-                            )
-                          ]
-                        )
-                      ]
-                    }
-                  }
-                ])
               },
               [
+                _c("b-table-column", {
+                  attrs: { label: "Sandelis", field: "name" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function (props) {
+                        return [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(props.row.name) +
+                              "\n          "
+                          ),
+                        ]
+                      },
+                    },
+                  ]),
+                }),
+                _vm._v(" "),
+                _c("b-table-column", {
+                  style: { "background-color": "greenyellow" },
+                  attrs: { label: "Kiekis", field: "kiekis" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function (props) {
+                        return [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(props.row.kiekis) +
+                              "\n          "
+                          ),
+                        ]
+                      },
+                    },
+                  ]),
+                }),
+                _vm._v(" "),
+                _c("b-table-column", {
+                  attrs: { label: "Adresas", field: "adresas" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function (props) {
+                        return [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(props.row.adresas) +
+                              "\n          "
+                          ),
+                        ]
+                      },
+                    },
+                  ]),
+                }),
+                _vm._v(" "),
+                _c("b-table-column", {
+                  attrs: { label: "Darbo laikas", field: "laikas" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function (props) {
+                        return [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(props.row.laikas) +
+                              "\n          "
+                          ),
+                        ]
+                      },
+                    },
+                  ]),
+                }),
                 _vm._v(" "),
                 _c(
                   "section",
                   {
                     staticClass: "section",
                     attrs: { slot: "empty" },
-                    slot: "empty"
+                    slot: "empty",
                   },
                   [
                     _c(
@@ -4950,14 +5013,14 @@ var render = function() {
                                   _c("b-icon", {
                                     attrs: {
                                       icon: "dots-horizontal",
-                                      size: "is-large"
-                                    }
-                                  })
+                                      size: "is-large",
+                                    },
+                                  }),
                                 ],
                                 1
                               ),
                               _vm._v(" "),
-                              _c("p", [_vm._v("Gaunami duomenys...")])
+                              _c("p", [_vm._v("Gaunami duomenys...")]),
                             ]
                           : [
                               _c(
@@ -4966,28 +5029,29 @@ var render = function() {
                                   _c("b-icon", {
                                     attrs: {
                                       icon: "emoticon-sad",
-                                      size: "is-large"
-                                    }
-                                  })
+                                      size: "is-large",
+                                    },
+                                  }),
                                 ],
                                 1
                               ),
                               _vm._v(" "),
-                              _c("p", [_vm._v("Duomenų nerasta …")])
-                            ]
+                              _c("p", [_vm._v("Duomenų nerasta …")]),
+                            ],
                       ],
                       2
-                    )
+                    ),
                   ]
-                )
-              ]
-            )
+                ),
+              ],
+              1
+            ),
           ],
           1
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []

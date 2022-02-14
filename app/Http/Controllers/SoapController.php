@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Soap;
+use App\Soap;
 use Illuminate\Http\Request;
 
 use SoapClient;

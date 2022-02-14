@@ -21,20 +21,18 @@
           :narrowed="true"
           :data="sarasas.list"
           :loading="isLoading">
-          <template slot-scope="props">
-            <b-table-column  label="Sandelis"  field="name">
+            <b-table-column  label="Sandelis"  field="name" v-slot="props">
                   {{ props.row.name }}
             </b-table-column>
-            <b-table-column :style="{'background-color': 'greenyellow'}"  label="Kiekis"  field="kiekis">
+            <b-table-column :style="{'background-color': 'greenyellow'}"  label="Kiekis"  field="kiekis" v-slot="props">
                   {{ props.row.kiekis }}
             </b-table-column>
-             <b-table-column  label="Adresas"  field="adresas">
+             <b-table-column  label="Adresas"  field="adresas" v-slot="props">
                   {{ props.row.adresas }}
             </b-table-column>
-            <b-table-column  label="Darbo laikas"  field="laikas">
+            <b-table-column  label="Darbo laikas"  field="laikas" v-slot="props">
                   {{ props.row.laikas }}
             </b-table-column>
-          </template> 
 
           <section class="section" slot="empty">
             <div class="content has-text-centered">
@@ -68,7 +66,7 @@ import CardComponent from '@/components/CardComponent'
 import CardToolbar from '@/components/CardToolbar'
 
 export default {
-  name: "Replace",
+  name: "SOAP",
   components: {CardToolbar, CardComponent},
   data () {
     return {
@@ -84,6 +82,11 @@ export default {
   },
 
   created () {
+    this.$store.isNavBarVisible = false,
+    /* FooterBar */
+    this.$store.isFooterBarVisible = false,
+    /* Aside */
+    this.$store.isAsideVisible = false,
     //this.$store.isNavBarVisible = false;
     this.$store.commit('set_value_nav')
     this.$store.commit('set_value_aside')

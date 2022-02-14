@@ -184,7 +184,8 @@ class PardavimaiController extends Controller
                     $pardavimai[$idx]['LT'][$val['sandelis']] = array('sandelis' => $val['sandelis'], 'kiekis' => $val['kiekis'] + $kiek);
                     $lt_viso = $lt_viso + $val['kiekis'];
                     $pardavimai[$idx]['LT_viso'] = $lt_viso;
-                }
+                }else{$pardavimai[$idx]['LT_viso'] = $lt_viso;}
+				
                 if($val['salis'] == 2 && $key[2]){
                     if(array_key_exists($val['sandelis'], $pardavimai[$idx]['LV'])){
                         $kiek = $pardavimai[$idx]['LV'][$val['sandelis']]['kiekis'];
@@ -194,7 +195,8 @@ class PardavimaiController extends Controller
                     $pardavimai[$idx]['LV'][$val['sandelis']] = array('sandelis' => $val['sandelis'], 'kiekis' => $val['kiekis'] + $kiek);
                     $lv_viso = $lv_viso + $val['kiekis'];
                     $pardavimai[$idx]['LV_viso'] = $lv_viso;
-                }
+                }else{$pardavimai[$idx]['LV_viso'] = $lv_viso;}
+				
                 if($val['salis'] == 3 && $key[3]){
                     if(array_key_exists($val['sandelis'], $pardavimai[$idx]['EE'])){
                         $kiek = $pardavimai[$idx]['EE'][$val['sandelis']]['kiekis'];
@@ -204,7 +206,7 @@ class PardavimaiController extends Controller
                     $pardavimai[$idx]['EE'][$val['sandelis']] = array('sandelis' => $val['sandelis'], 'kiekis' => $val['kiekis'] + $kiek);
                     $ee_viso = $ee_viso + $val['kiekis'];
                     $pardavimai[$idx]['EE_viso'] = $ee_viso;
-                }
+                }else{$pardavimai[$idx]['EE_viso'] = $ee_viso;}
             }
             $pardavimai[$idx]['LT'] = array_values($pardavimai[$idx]['LT']);
             $pardavimai[$idx]['LV'] = array_values($pardavimai[$idx]['LV']);
