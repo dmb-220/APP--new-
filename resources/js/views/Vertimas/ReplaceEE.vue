@@ -72,6 +72,10 @@ export default {
               this.html_lv = this.html_lv.replace(/Elastanas/gi, "elastaan");
               this.html_lv = this.html_lv.replace(/Nailonas/gi, "nailon");
               this.html_lv = this.html_lv.replace(/Linas/gi, "lina");
+              this.html_lv = this.html_lv.replace(/Vilna/gi, "vill"); 
+              this.html_lv = this.html_lv.replace(/Merino vilna/gi, "meriino vill"); 
+              this.html_lv = this.html_lv.replace(/Liureksas/gi, "liurex"); 
+              
               this.html_lv = this.html_lv.replace(/Dirbtinė oda/gi, "kunstnahk");
               this.html_lv = this.html_lv.replace(/sintetinė oda/gi, "Sünteetiline nahk");
               this.html_lv = this.html_lv.replace(/Poliviskozė/gi, "polyviskoos");

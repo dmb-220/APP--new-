@@ -40,7 +40,7 @@ class VisiLikuciaiController extends Controller
             "VALD", "VENT", "LIEP", "AIZK", "DAUG", "LIMB", "MELN", "SALD", "VALM",  
             "BALV", "CESI", "DOBE", "GOBA", "JEKA", "SIGU", "MADO", "OGRE", "INTE", "ALUK");
 
-            $sand = "DITO";
+            $sand = "ALUK";
 
             $query = Likutis::query()
                 ->where('sandelis', $sand)

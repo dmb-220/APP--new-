@@ -339,6 +339,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -357,6 +359,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       showDetailIcon: true,
       isNarrowed: true,
       mobile_card: true,
+      sortIcon: 'arrow-up',
+      sortIconSize: 'is-small',
+      //defaultSortDirection: 'asc',
       settings: (_settings = {
         ieskoti: '',
         paieska: '',
@@ -1161,11 +1166,11 @@ var render = function () {
                     { key: index, domProps: { value: index } },
                     [
                       _vm._v(
-                        "\n            " +
+                        "\n                " +
                           _vm._s(grup) +
                           " - " +
                           _vm._s(_vm.grupes_lv[grup]) +
-                          "\n          "
+                          "\n              "
                       ),
                     ]
                   )
@@ -1281,11 +1286,13 @@ var render = function () {
                   },
                   [
                     _vm._v(
-                      "\n          Rasta: " + _vm._s(_vm.settings["paieska"])
+                      "\n              Rasta: " +
+                        _vm._s(_vm.settings["paieska"])
                     ),
                     _c("br"),
                     _vm._v(
-                      _vm._s(_vm.grupes[_vm.settings["grupe"]]) + "\n        "
+                      _vm._s(_vm.grupes[_vm.settings["grupe"]]) +
+                        "\n            "
                     ),
                   ]
                 ),
@@ -1303,6 +1310,8 @@ var render = function () {
                     "opened-detailed": _vm.defaultOpenedDetails,
                     detailed: "",
                     "detail-key": "sandelis",
+                    "sort-icon": _vm.sortIcon,
+                    "sort-icon-size": _vm.sortIconSize,
                     "show-detail-icon": _vm.showDetailIcon,
                   },
                   on: {
@@ -1349,9 +1358,9 @@ var render = function () {
                                             fn: function (props) {
                                               return [
                                                 _vm._v(
-                                                  "\n                    " +
+                                                  "\n                        " +
                                                     _vm._s(props.row.preke) +
-                                                    "\n                "
+                                                    "\n                    "
                                                 ),
                                               ]
                                             },
@@ -1375,9 +1384,9 @@ var render = function () {
                                             fn: function (props) {
                                               return [
                                                 _vm._v(
-                                                  "\n                    " +
+                                                  "\n                        " +
                                                     _vm._s(props.row.likutis) +
-                                                    "\n                "
+                                                    "\n                    "
                                                 ),
                                               ]
                                             },
@@ -1401,11 +1410,11 @@ var render = function () {
                                             fn: function (props) {
                                               return [
                                                 _vm._v(
-                                                  "\n                    " +
+                                                  "\n                        " +
                                                     _vm._s(
                                                       props.row.pardavimai
                                                     ) +
-                                                    "\n                "
+                                                    "\n                    "
                                                 ),
                                               ]
                                             },
@@ -1453,9 +1462,9 @@ var render = function () {
                         fn: function (props) {
                           return [
                             _vm._v(
-                              "\n              " +
+                              "\n                  " +
                                 _vm._s(props.row.sandelis) +
-                                "\n        "
+                                "\n            "
                             ),
                           ]
                         },
@@ -1467,7 +1476,6 @@ var render = function () {
                     attrs: {
                       label: "Likutis",
                       field: "likutis_sk",
-                      numeric: "",
                       sortable: "",
                     },
                     scopedSlots: _vm._u([
@@ -1476,9 +1484,9 @@ var render = function () {
                         fn: function (props) {
                           return [
                             _vm._v(
-                              "\n          " +
+                              "\n              " +
                                 _vm._s(props.row.likutis_sk) +
-                                "\n        "
+                                "\n            "
                             ),
                           ]
                         },
@@ -1490,7 +1498,6 @@ var render = function () {
                     attrs: {
                       label: "Parduota",
                       field: "pardavimai_sk",
-                      numeric: "",
                       sortable: "",
                     },
                     scopedSlots: _vm._u([
@@ -1499,9 +1506,9 @@ var render = function () {
                         fn: function (props) {
                           return [
                             _vm._v(
-                              "\n          " +
+                              "\n              " +
                                 _vm._s(props.row.pardavimai_sk) +
-                                "\n        "
+                                "\n            "
                             ),
                           ]
                         },

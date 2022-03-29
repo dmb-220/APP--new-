@@ -145,6 +145,7 @@ class PrekesController extends Controller
         $gam = $key[5];
         $pirk = $key[6];
         $grupe = $key[8];
+        $visi = $key[9];
 
         //aprasom tuscius masyvus
         $list = array();
@@ -401,8 +402,22 @@ class PrekesController extends Controller
 
         
         foreach ( $re as $value ) {
-            if($value['sandelis'] != "BROK" && $value['sandelis'] != "ESTI" && $value['sandelis'] != "3333" && $value['sandelis'] != "SAND"
-            && $value['sandelis'] != "TELSIAI" && $value['sandelis'] != "4444" && $value['sandelis'] != "1111" && $value['sandelis'] != "ZILT"){
+            if(!$visi){
+                if($value['sandelis'] != "BROK" && $value['sandelis'] != "ESTI" && $value['sandelis'] != "3333" && $value['sandelis'] != "SAND"
+                && $value['sandelis'] != "TELSIAI" && $value['sandelis'] != "4444" && $value['sandelis'] != "1111" && $value['sandelis'] != "ZILT"){
+                    if(/*$value['registras'] == "GAM" && */!$rikiuoti){
+                        $a = explode("-", $value['preke']);
+                        if(count($a) >= 4){$ne = $a[0]."-".$a[1]."-".$a[2]."-";}
+                        if(count($a) == 3){$ne = $a[0]."-".$a[1]."-";}
+                        if(count($a) == 2){$ne = $a[0]."-";}
+                        //turi veikti tik su BROK
+                        if(count($a) == 1){$ne = preg_replace('#[0-9 ]*#', '', $a[0]);}
+                        $likutis[$ne][] = $value;
+                    }else{
+                        $likutis[$value['preke']][] = $value;
+                    }
+                }
+            }else{
                 if(/*$value['registras'] == "GAM" && */!$rikiuoti){
                     $a = explode("-", $value['preke']);
                     if(count($a) >= 4){$ne = $a[0]."-".$a[1]."-".$a[2]."-";}
@@ -719,12 +734,13 @@ class PrekesController extends Controller
         $pirk = $data['pirk'];
         $paieska_big= $data['paieska_big'];
         $grupe= $data['grupe'];
+        $visi= $data['visi'];
 
         $failas = "prekes.txt";
         $directory  = "app/";
         $failas = $directory.$failas;
 
-        $eilute = strtoupper($ieskoti)."||".$lt."||".$lv."||".$ee."||".$rikiuoti."||".$gam."||".$pirk."||".$paieska_big."||".$grupe;
+        $eilute = strtoupper($ieskoti)."||".$lt."||".$lv."||".$ee."||".$rikiuoti."||".$gam."||".$pirk."||".$paieska_big."||".$grupe."||".$visi;
 
         $myfile = fopen(storage_path($failas), "w");
         fwrite($myfile, $eilute);

@@ -26,26 +26,24 @@
           :loading="isLoading"
           default-sort-direction="asc"
           default-sort="pavadinimas">
-          <template slot-scope="props">
-            <b-table-column label="Nr.">
+            <b-table-column v-slot="props" label="Nr.">
               {{props.index + 1}}
             </b-table-column>
-            <b-table-column label="Nosaukums" field="pavadinimas" sortable>
+            <b-table-column label="Nosaukums" field="pavadinimas" v-slot="props" sortable>
                   {{props.row.pavadinimas}}
             </b-table-column>
             <b-table-column label="Vieniba">
                   Gab
             </b-table-column>
-            <b-table-column class="has-text-right" label="Daudzums"  field="kiek">
+            <b-table-column class="has-text-right" label="Daudzums" v-slot="props"  field="kiek">
                   {{  props.row.kiek }}
             </b-table-column>
-            <b-table-column class="has-text-right" label="Cena"  field="kaina">
+            <b-table-column class="has-text-right" label="Cena" v-slot="props"  field="kaina">
                   {{   ((props.row.kaina/props.row.nr)).toFixed(2) }}
             </b-table-column>
-            <b-table-column class="has-text-right" label="Summa">
+            <b-table-column class="has-text-right" v-slot="props" label="Summa">
                   {{  (((props.row.kaina/props.row.nr))*props.row.kiek).toFixed(2) }}
             </b-table-column>
-          </template> 
           <section class="section" slot="empty">
             <div class="content has-text-centered">
               <template v-if="isLoading">

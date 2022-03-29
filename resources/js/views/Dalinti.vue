@@ -91,7 +91,7 @@ export default {
       },
       multiline: true,
       page: 0,
-      perpage: 11,
+      perpage: 12,
       maxpage: 0,
       file: null,
       failas: "",

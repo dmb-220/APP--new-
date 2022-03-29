@@ -14,6 +14,14 @@
                       :extra-options="defaultChart.extraOptions">
           </line-chart>
         </div>
+        <div v-if="defaultChart.chartData2" class="chart-area">
+          <line-chart style="height: 100%"
+                      ref="bigChart"
+                      chart-id="big-line-chart"
+                      :chart-data="defaultChart.chartData2"
+                      :extra-options="defaultChart.extraOptions">
+          </line-chart>
+		    </div>
       </card-component>
       <card-component title="Pardavimai" @header-icon-click="fillChartData" icon="finance" header-icon="reload">
         <div  class="columns">
@@ -59,13 +67,18 @@ export default {
       ],
       isLoading: false,
       isFullPage: true,
+      inte: [],
+      inlt: [],
+      inlv: [],
+      inee: [],
       info: [],
       query: [],
       buy: [],
       pardavimai: [],
       pardavimaiLT: [],
       pardavimaiLV: [],
-      label: []
+      label: [],
+      label2: []
     }
   },
   computed: {
@@ -77,6 +90,9 @@ export default {
 watch: {
       buy: function() {
         this.fillChartData () ;
+      },
+      inte: function() {
+        this.fillChartData_inte () ;
       }
   },
   methods: {
@@ -133,6 +149,28 @@ watch: {
       }
       //console.log(this.pardavimaiLV)
     },
+
+    inte_pardavimai () {
+      //console.log(viewPardavimai);
+      let  i;
+
+      let sk = this.inte['INTE'].length
+      for (i = 0; i < sk; i++) {
+        this.inlt.push(this.inte['INTE'][i]['kiekis'])
+        this.label2.push(this.inte['INTE'][i]['data'])
+      }
+
+      let skLV = this.inte['INLV'].length
+      for (i = 0; i < skLV; i++) {
+        this.inlv.push(this.inte['INLV'][i]['kiekis'])
+      }
+      let skEE= this.inte['INEE'].length
+      for (i = 0; i < skEE; i++) {
+        this.inee.push(this.inte['INEE'][i]['kiekis'])
+      }
+
+    },
+
       getData () {
       this.isLoading = true
       this.axios
@@ -141,6 +179,7 @@ watch: {
         this.isLoading = false
         this.info = response.data.data;
         this.query = response.data.query;
+        this.inte = response.data.inte;
 
         this.buy = response.data.buy;
 
@@ -214,6 +253,69 @@ watch: {
           }
         ],
         labels: this.label
+      }
+    },
+
+        fillChartData_inte () {
+      this.inte_pardavimai ();
+      
+      this.defaultChart.chartData2 = {
+        datasets: [
+          //viso
+          {
+            label: 'INTE',
+            fill: false,
+            borderColor: chartConfig.chartColors.default.info,
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: chartConfig.chartColors.default.info,
+            pointBorderColor: 'rgba(255,255,255,0)',
+            pointHoverBackgroundColor: chartConfig.chartColors.default.info,
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: this.inlt
+          },
+          //LT
+          {
+            label: 'INLV',
+            //type: 'bar',
+            fill: false,
+            borderColor: chartConfig.chartColors.default.lietuva,
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: chartConfig.chartColors.default.lietuva,
+            pointBorderColor: 'rgba(255,255,255,0)',
+            pointHoverBackgroundColor: chartConfig.chartColors.default.lietuva,
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: this.inlv
+          },
+          //LV
+          {
+            label: 'INEE',
+            //type: 'bar',
+            fill: false,
+            borderColor: chartConfig.chartColors.default.latvija,
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: chartConfig.chartColors.default.latvija,
+            pointBorderColor: 'rgba(255,255,255,0)',
+            pointHoverBackgroundColor: chartConfig.chartColors.default.latvija,
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: this.inee
+          }
+        ],
+        labels: this.label2
       }
     }
   }

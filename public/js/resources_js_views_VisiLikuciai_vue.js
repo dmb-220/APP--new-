@@ -159,8 +159,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -414,20 +412,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "notification is-card-toolbar" }, [
     _c("div", { staticClass: "level", class: { "is-mobile": _vm.isMobile } }, [
       _c("div", { staticClass: "level-left" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2)
+        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "level-right" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2)
-      ])
-    ])
+        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -448,7 +446,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -468,13 +466,13 @@ var render = function() {
                 _c(
                   "b-select",
                   { attrs: { placeholder: "Pasirinkite", expanded: "" } },
-                  _vm._l(_vm.sandeliai, function(idx, id) {
+                  _vm._l(_vm.sandeliai, function (idx, id) {
                     return _c("option", { key: idx, domProps: { value: id } }, [
-                      _vm._v(_vm._s(idx))
+                      _vm._v(_vm._s(idx)),
                     ])
                   }),
                   0
-                )
+                ),
               ],
               1
             ),
@@ -485,12 +483,12 @@ var render = function() {
                   "button",
                   {
                     staticClass: "button is-sark",
-                    on: { click: _vm.paieska_post }
+                    on: { click: _vm.paieska_post },
                   },
                   [_vm._v("Suformuoti")]
-                )
-              ])
-            ])
+                ),
+              ]),
+            ]),
           ],
           1
         ),
@@ -504,7 +502,7 @@ var render = function() {
               { attrs: { id: "printMe" } },
               [
                 _c("div", { staticClass: "is-size-2" }, [
-                  _vm._v(_vm._s(_vm.sandelis))
+                  _vm._v(_vm._s(_vm.sandelis)),
                 ]),
                 _vm._v(" "),
                 _c(
@@ -517,111 +515,124 @@ var render = function() {
                       "sort-icon": "arrow-up",
                       loading: _vm.isLoading,
                       "default-sort-direction": "asc",
-                      "default-sort": "pavadinimas"
+                      "default-sort": "pavadinimas",
                     },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _c("b-table-column", { attrs: { label: "Nr." } }, [
+                  },
+                  [
+                    _c("b-table-column", {
+                      attrs: { label: "Nr." },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function (props) {
+                            return [
                               _vm._v(
                                 "\n            " +
                                   _vm._s(props.index + 1) +
                                   "\n          "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                attrs: {
-                                  label: "Nosaukums",
-                                  field: "pavadinimas",
-                                  sortable: ""
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(props.row.pavadinimas) +
-                                    "\n          "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              { attrs: { label: "Vieniba" } },
-                              [_vm._v("\n                Gab\n          ")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                staticClass: "has-text-right",
-                                attrs: { label: "Daudzums", field: "kiek" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(props.row.kiek) +
-                                    "\n          "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                staticClass: "has-text-right",
-                                attrs: { label: "Cena", field: "kaina" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(
-                                      (props.row.kaina / props.row.nr).toFixed(
-                                        2
-                                      )
-                                    ) +
-                                    "\n          "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-table-column",
-                              {
-                                staticClass: "has-text-right",
-                                attrs: { label: "Summa" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(
-                                      (
-                                        (props.row.kaina / props.row.nr) *
-                                        props.row.kiek
-                                      ).toFixed(2)
-                                    ) +
-                                    "\n          "
-                                )
-                              ]
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  },
-                  [
+                              ),
+                            ]
+                          },
+                        },
+                      ]),
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: {
+                        label: "Nosaukums",
+                        field: "pavadinimas",
+                        sortable: "",
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function (props) {
+                            return [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(props.row.pavadinimas) +
+                                  "\n          "
+                              ),
+                            ]
+                          },
+                        },
+                      ]),
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", { attrs: { label: "Vieniba" } }, [
+                      _vm._v("\n                Gab\n          "),
+                    ]),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      staticClass: "has-text-right",
+                      attrs: { label: "Daudzums", field: "kiek" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function (props) {
+                            return [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(props.row.kiek) +
+                                  "\n          "
+                              ),
+                            ]
+                          },
+                        },
+                      ]),
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      staticClass: "has-text-right",
+                      attrs: { label: "Cena", field: "kaina" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function (props) {
+                            return [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    (props.row.kaina / props.row.nr).toFixed(2)
+                                  ) +
+                                  "\n          "
+                              ),
+                            ]
+                          },
+                        },
+                      ]),
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      staticClass: "has-text-right",
+                      attrs: { label: "Summa" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function (props) {
+                            return [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(
+                                    (
+                                      (props.row.kaina / props.row.nr) *
+                                      props.row.kiek
+                                    ).toFixed(2)
+                                  ) +
+                                  "\n          "
+                              ),
+                            ]
+                          },
+                        },
+                      ]),
+                    }),
                     _vm._v(" "),
                     _c(
                       "section",
                       {
                         staticClass: "section",
                         attrs: { slot: "empty" },
-                        slot: "empty"
+                        slot: "empty",
                       },
                       [
                         _c(
@@ -636,14 +647,14 @@ var render = function() {
                                       _c("b-icon", {
                                         attrs: {
                                           icon: "dots-horizontal",
-                                          size: "is-large"
-                                        }
-                                      })
+                                          size: "is-large",
+                                        },
+                                      }),
                                     ],
                                     1
                                   ),
                                   _vm._v(" "),
-                                  _c("p", [_vm._v("Gaunami duomenys...")])
+                                  _c("p", [_vm._v("Gaunami duomenys...")]),
                                 ]
                               : [
                                   _c(
@@ -652,24 +663,24 @@ var render = function() {
                                       _c("b-icon", {
                                         attrs: {
                                           icon: "emoticon-sad",
-                                          size: "is-large"
-                                        }
-                                      })
+                                          size: "is-large",
+                                        },
+                                      }),
                                     ],
                                     1
                                   ),
                                   _vm._v(" "),
-                                  _c("p", [_vm._v("Duomenų nerasta …")])
-                                ]
+                                  _c("p", [_vm._v("Duomenų nerasta …")]),
+                                ],
                           ],
                           2
-                        )
+                        ),
                       ]
                     ),
                     _vm._v(" "),
                     _c("template", { slot: "footer" }, [
                       _c("th", { staticClass: "has-text-right" }, [
-                        _vm._v("VISO:")
+                        _vm._v("VISO:"),
                       ]),
                       _vm._v(" "),
                       _c("th"),
@@ -677,18 +688,18 @@ var render = function() {
                       _c("th"),
                       _vm._v(" "),
                       _c("th", { staticClass: "has-text-right" }, [
-                        _vm._v(_vm._s(_vm.apy_kiek))
+                        _vm._v(_vm._s(_vm.apy_kiek)),
                       ]),
                       _vm._v(" "),
                       _c("th", { staticClass: "has-text-right" }),
                       _vm._v(" "),
                       _c("th", { staticClass: "has-text-right" }, [
-                        _vm._v(_vm._s(_vm.apy_viso.toFixed(2)))
-                      ])
-                    ])
+                        _vm._v(_vm._s(_vm.apy_viso.toFixed(2))),
+                      ]),
+                    ]),
                   ],
                   2
-                )
+                ),
               ],
               1
             ),
@@ -706,13 +717,13 @@ var render = function() {
                         attrs: {
                           size: "is-medium",
                           "icon-left": "printer",
-                          type: "is-dark"
+                          type: "is-dark",
                         },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.csvExport(_vm.sarasas)
-                          }
-                        }
+                          },
+                        },
                       },
                       [_vm._v("Atsisiusti")]
                     )
@@ -724,20 +735,20 @@ var render = function() {
                     attrs: {
                       size: "is-medium",
                       "icon-left": "printer",
-                      type: "is-dark"
+                      type: "is-dark",
                     },
-                    on: { click: _vm.print }
+                    on: { click: _vm.print },
                   },
                   [_vm._v("SPAUSDINTI")]
-                )
+                ),
               ],
               1
-            )
+            ),
           ]
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []

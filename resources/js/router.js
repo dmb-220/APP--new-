@@ -118,6 +118,12 @@ export default new Router({
       name: 'soaplt',
       component: () => import('./views/SoapLT.vue')
     },
+	
+	{
+      path: '/visi_likuciai',
+      name: 'visi_likuciai',
+      component: () => import('./views/VisiLikuciai.vue')
+    },
     
     /*
     {
@@ -160,12 +166,6 @@ export default new Router({
       path: '/testas',
       name: 'testas',
       component: () => import('./views/Testas.vue')
-    },
-
-    {
-      path: '/visi_likuciai',
-      name: 'visi_likuciai',
-      component: () => import('./views/VisiLikuciai.vue')
     },
 
     

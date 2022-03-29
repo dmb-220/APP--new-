@@ -22,7 +22,7 @@ class DalintiController extends Controller
         $warehouse  = array(
             0 => array("LIEP", "VENT", "KULD", "SALD", "VALK", "TUKU", "DOBE", "SIGU", "VALM", "CESI", "BALV", "LIMB", "MELN", "MATI", "DOLE", 
             "BRIV", "GOBA", "JEKA", "AIZK", "OGRE", "MADO", "VALD", "DITO", "TAL2", "INLV"),
-            1 => array("TELS", "UKME", "BIGA", "MANT", "SAUL", "MAZE", "MAXI", "BABI", "KEDA", "MARI", "NORF", "INTE", "VISA", "PANE", "AREN", "MADA", "MINS", "TAIK", "MOLA", "TAUB", "UTEN"),
+            1 => array("TELS", "UKME", "BIGA", "MANT", "SAUL", "MAZE", "MAXI", "BABI", "KEDA", "MARI", "NORF", "VISA", "PANE", "AREN", "MADA", "MINS", "TAIK", "TAUB", "UTEN", "INTE"),
             2 => array("Parnu", "Rakvere", "Johvi", "Sopruse", "Mustamäe", "Ümera", "Riia Parnu", "Võru 55 Tartu", "Eden", "Haapsalu", "Kopli", "INEE")
         );
 

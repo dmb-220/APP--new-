@@ -23,6 +23,11 @@ Auth::routes([
   'verify' => false, // Email Verification Routes...
 ]);
 
+Route::prefix('/visilikuciai')->group(function () {
+    Route::get('', [App\Http\Controllers\VisiLikuciaiController::class, 'index'])->name('index');
+    Route::post('store', [App\Http\Controllers\VisiLikuciaiController::class, 'store'])->name('store');
+});
+
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
 
 /* Prekių grazinimas is EE ar LV */ 

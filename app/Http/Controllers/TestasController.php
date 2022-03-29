@@ -43,10 +43,24 @@ class TestasController extends Controller
             $res[$k] = Pardavimai::select(
                 DB::raw("(sum(kiekis)) as kiekis"),
                 DB::raw("(DATE_FORMAT(dok_data, '%d-%m-%Y')) as data"))
+                ->where('kiekis', ">", 0)
                 ->when($k != 'viso', function ($q) use ($value) {
                     return $q->whereIn('sandelis', $value); })
                 ->when($k == 'viso', function ($q) use ($warehouse) {
                     return $q->whereIn('sandelis', array_merge($warehouse['LT'], $warehouse['LV'])); })
+                ->whereIn('registras',['GAM', 'PIRK'])
+                ->orderBy('dok_data')
+                ->groupBy(DB::raw("DATE_FORMAT(dok_data, '%d-%m-%Y')"))
+                ->get();
+        }
+
+        $inte = array("INTE", "INLV", "INEE");
+        foreach($inte as $val){
+            $in[$val] = Pardavimai::select(
+                DB::raw("(sum(kiekis)) as kiekis"),
+                DB::raw("(DATE_FORMAT(dok_data, '%d-%m-%Y')) as data"))
+                ->where('sandelis', $val)
+                ->where('kiekis', ">", 0)
                 ->whereIn('registras',['GAM', 'PIRK'])
                 ->orderBy('dok_data')
                 ->groupBy(DB::raw("DATE_FORMAT(dok_data, '%d-%m-%Y')"))
@@ -73,7 +87,8 @@ class TestasController extends Controller
                 'iki' => $dt[1]
             ),
             'buy' => $buy,
-            'query' => $res
+            'query' => $res,
+            'inte' => $in
         ]);
     }
 

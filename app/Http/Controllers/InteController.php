@@ -25,8 +25,8 @@ class InteController extends Controller
     public $end;
 
     public function __construct() {
-        $this->start = Carbon::now()->startOfMonth()->subMonthNoOverflow()->toDateTimeString();
-        $this->end = Carbon::now()->endOfMonth()->subMonthNoOverflow()->toDateTimeString();
+        $this->start = "2022-02-01"; /*Carbon::now()->startOfMonth()->subMonthNoOverflow()->toDateTimeString();*/
+        $this->end = "2022-02-28"; /*Carbon::now()->endOfMonth()->subMonthNoOverflow()->toDateTimeString();*/
         }
 
     public function index(){
@@ -67,6 +67,10 @@ class InteController extends Controller
             $ex = explode(" ", $row['paskirtis']);
             if(count($ex) == 1){
                 $bank[$row['paskirtis']] = $row;
+            }
+			
+			if($ex[0] == "ORDER" || $ex[0] == "Order"){
+                $bank[$ex[1]] = $row;
             }
 
             if(count($ex) > 1){
@@ -376,6 +380,10 @@ class InteController extends Controller
 
         foreach($bankas as $row){
             $ex = explode(" ", $row['paskirtis']);
+			
+			if(count($ex) == 1){
+                $bank[$row['paskirtis']] = $row;
+            }
             if($ex[0] == "ORDER" || $ex[0] == "Order"){
                 $bank[$ex[1]] = $row;
             }
@@ -578,6 +586,10 @@ class InteController extends Controller
 
         foreach($bankas as $row){
             $ex = explode(" ", $row['paskirtis']);
+			
+			if(count($ex) == 1){
+                $bank[$row['paskirtis']] = $row;
+            }
             if($ex[0] == "ORDER" || $ex[0] == "Order"){
                 $bank[$ex[1]] = $row;
             }

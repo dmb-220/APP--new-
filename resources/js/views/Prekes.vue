@@ -19,6 +19,9 @@
             <b-checkbox :value="false" v-model="paieska_big" type="is-info">Aktivuoti išplėstinę paieška</b-checkbox>
         </b-field>
         <b-field label=" " horizontal>
+            <b-checkbox :value="false" v-model="visi" @click='switch_post' type="is-info">Visi sandeliai (MODESTA)</b-checkbox>
+        </b-field>
+        <b-field label=" " horizontal>
             <b-checkbox :value="false" v-model="kainos" @change='kainos_keisti' type="is-info">Rodyti kaina</b-checkbox>
         </b-field>
         <b-field label="GRUPĖ:" horizontal>
@@ -287,6 +290,7 @@ export default {
       defaultOpenedDetails: [1],
       ieskoti: '',
       paieska: '',
+      visi: false,
      salis: '',
      rikiuoti: false,
      gam: true,
@@ -405,7 +409,8 @@ export default {
             gam: this.gam,
             pirk: this.pirk,
             paieska_big: this.paieska_big,
-            grupe: this.grupe
+            grupe: this.grupe,
+            visi: this.visi
             })
           .then(response => {
             this.getData()
@@ -425,15 +430,16 @@ export default {
             lt: this.rodyti_lt,
             lv: this.rodyti_lv,
             ee: this.rodyti_ee,
-            rikiuoti: "1",
+            rikiuoti: "0",
             gam: this.gam,
             pirk: this.pirk,
             paieska_big: this.paieska_big,
-            grupe: this.grupe
+            grupe: this.grupe,
+            visi: this.visi
             })
           .then(response => {
             console.log(response.data.data)
-            this.rikiuoti = false;
+            //this.rikiuoti = false;
             this.getData()
         })
           .catch( err => {

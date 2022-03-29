@@ -691,6 +691,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -740,6 +743,7 @@ __webpack_require__.r(__webpack_exports__);
       defaultOpenedDetails: [1],
       ieskoti: '',
       paieska: '',
+      visi: false,
       salis: '',
       rikiuoti: false,
       gam: true,
@@ -873,7 +877,8 @@ __webpack_require__.r(__webpack_exports__);
         gam: this.gam,
         pirk: this.pirk,
         paieska_big: this.paieska_big,
-        grupe: this.grupe
+        grupe: this.grupe,
+        visi: this.visi
       }).then(function (response) {
         _this.getData();
       })["catch"](function (err) {
@@ -896,7 +901,8 @@ __webpack_require__.r(__webpack_exports__);
         gam: this.gam,
         pirk: this.pirk,
         paieska_big: this.paieska_big,
-        grupe: this.grupe
+        grupe: this.grupe,
+        visi: this.visi
       }).then(function (response) {
         console.log(response.data.data);
         _this2.rikiuoti = false;
@@ -6301,6 +6307,29 @@ var render = function () {
                       },
                     },
                     [_vm._v("Aktivuoti išplėstinę paieška")]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-field",
+                { attrs: { label: " ", horizontal: "" } },
+                [
+                  _c(
+                    "b-checkbox",
+                    {
+                      attrs: { value: false, type: "is-info" },
+                      on: { click: _vm.switch_post },
+                      model: {
+                        value: _vm.visi,
+                        callback: function ($$v) {
+                          _vm.visi = $$v
+                        },
+                        expression: "visi",
+                      },
+                    },
+                    [_vm._v("Visi sandeliai (MODESTA)")]
                   ),
                 ],
                 1
