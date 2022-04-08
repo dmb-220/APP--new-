@@ -897,15 +897,14 @@ __webpack_require__.r(__webpack_exports__);
         lt: this.rodyti_lt,
         lv: this.rodyti_lv,
         ee: this.rodyti_ee,
-        rikiuoti: "1",
+        rikiuoti: "0",
         gam: this.gam,
         pirk: this.pirk,
         paieska_big: this.paieska_big,
         grupe: this.grupe,
         visi: this.visi
       }).then(function (response) {
-        console.log(response.data.data);
-        _this2.rikiuoti = false;
+        console.log(response.data.data); //this.rikiuoti = false;
 
         _this2.getData();
       })["catch"](function (err) {

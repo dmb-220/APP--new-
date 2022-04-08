@@ -184,6 +184,11 @@ export default {
               }
             ]
           },
+          {
+            to: '/barcode',
+            label: 'Prekių skenavimas',
+            icon: 'barcode',
+          }, 
 
           /*{
             to: '/visi_likuciai',

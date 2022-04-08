@@ -24,7 +24,7 @@ class ReturnProductController extends Controller
         $likutis = array();
         $list = array();
 
-        $partneris = "LV";
+        $partneris = "EE";
 
         $failas = "return.txt";
         $directory  = "app/";

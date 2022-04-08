@@ -119,10 +119,16 @@ export default new Router({
       component: () => import('./views/SoapLT.vue')
     },
 	
-	{
+	  {
       path: '/visi_likuciai',
       name: 'visi_likuciai',
       component: () => import('./views/VisiLikuciai.vue')
+    },
+
+    {
+      path: '/barcode',
+      name: 'barcode',
+      component: () => import('./views/Barcode.vue')
     },
     
     /*
