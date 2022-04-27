@@ -101,7 +101,34 @@ export default {
             label: 'Perkėlimai',
             icon: 'bus',
           },*/
-         {
+          {
+            label: 'Pirk. / Grąžin. ',
+            subLabel: 'Sudengimas su Banku',
+            icon: 'clipboard-list',
+            menu: [
+              {
+                to: '/inte',
+                label: 'LT INTE',
+                icon: 'arrow-right',
+              },
+              {
+                to: '/intepigu',
+                label: 'LT PIGU',
+                icon: 'arrow-right',
+              },
+              {
+                to: '/intelv',
+                label: 'LV INTE',
+                icon: 'arrow-right',
+              },
+              {
+                to: '/inteee',
+                label: 'EE INTE',
+                icon: 'arrow-right',
+              }
+            ]
+          },
+          {
             to: '/return',
             label: 'Gražinimas iš LV / EE',
             icon: 'bell-ring',
@@ -139,33 +166,6 @@ export default {
             label: 'INTE Perkėlimai',
             icon: 'codepen',
           }, 
-          {
-            label: 'Pirk. / Grąžin. ',
-            subLabel: 'Sudengimas su Banku',
-            icon: 'clipboard-list',
-            menu: [
-              {
-                to: '/inte',
-                label: 'LT INTE',
-                icon: 'arrow-right',
-              },
-              {
-                to: '/intepigu',
-                label: 'LT PIGU',
-                icon: 'arrow-right',
-              },
-              {
-                to: '/intelv',
-                label: 'LV INTE',
-                icon: 'arrow-right',
-              },
-              {
-                to: '/inteee',
-                label: 'EE INTE',
-                icon: 'arrow-right',
-              }
-            ]
-          },
 
           {
             label: 'Vertimai',
@@ -185,10 +185,15 @@ export default {
             ]
           },
           {
+            to: '/terminal',
+            label: 'Bankiniai terminalai',
+            icon: 'sitemap',
+          },
+          /*{
             to: '/barcode',
             label: 'Prekių skenavimas',
             icon: 'barcode',
-          }, 
+          }, */
 
           /*{
             to: '/visi_likuciai',

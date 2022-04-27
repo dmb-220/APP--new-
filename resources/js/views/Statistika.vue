@@ -57,7 +57,7 @@
             detailed
             detail-key="sandelis"
             @details-open="(row) => $buefy.toast.open(`Expanded ${row.sandelis}`)"
-			:sort-icon="sortIcon"
+			      :sort-icon="sortIcon"
             :sort-icon-size="sortIconSize"
             :show-detail-icon="showDetailIcon">
             

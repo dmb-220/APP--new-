@@ -30,6 +30,16 @@ Route::prefix('/visilikuciai')->group(function () {
 
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
 
+//dalinimo analizavimas
+Route::get('/excel', [App\Http\Controllers\ExcelController::class, 'index'])->name('index');
+
+//Parduotuviu bankinis mokejimas
+Route::prefix('/terminal')->group(function () {
+    Route::get('/', [App\Http\Controllers\TerminalController::class, 'index'])->name('index');
+    Route::post('store',  [App\Http\Controllers\TerminalController::class, 'store'])->name('store');
+    Route::post('store_terminalas',  [App\Http\Controllers\TerminalController::class, 'store_terminalas'])->name('store_terminalas');
+});
+
 /* Prekių grazinimas is EE ar LV */ 
 Route::prefix('/return')->group(function () {
     Route::get('/', [App\Http\Controllers\ReturnProductController::class, 'index'])->name('index');

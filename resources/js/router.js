@@ -124,11 +124,15 @@ export default new Router({
       name: 'visi_likuciai',
       component: () => import('./views/VisiLikuciai.vue')
     },
-
     {
       path: '/barcode',
-      name: 'barcode',
+      name: 'Barcode',
       component: () => import('./views/Barcode.vue')
+    },
+    {
+      path: '/terminal',
+      name: 'Terminal',
+      component: () => import('./views/Terminal.vue')
     },
     
     /*
