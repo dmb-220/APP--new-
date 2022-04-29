@@ -41,11 +41,14 @@ class TerminalController extends Controller
 
         $key = explode("||", $key);
         $file = $key[0];
-        $dir  = "app/XLSX/".$file;
+        $file2 = $key[1];
 
+        $dir  = "app/XLSX/".$file;
+        $dir2  = "app/XLSX/".$file2;
+
+        //Swedbank
         $arr = array();
-        $store = array();
-        
+        $store = array();       
         if (($handle = fopen(storage_path($dir), "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                 $val = mb_convert_encoding($data, "UTF-8", "ISO-8859-13");
@@ -92,27 +95,44 @@ class TerminalController extends Controller
             }
         }
 
+        //LUMINOR
+        $arr2 = array();
+        if (($handle = fopen(storage_path($dir2), "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                $val = mb_convert_encoding($data, "UTF-8", "ISO-8859-13");
+
+                $ex = explode(" ", $val[12]);
+                if(count($ex) > 1){
+                    if($ex[1] == "mok."){
+                        //sukuriam pradines reiksmes
+                        if(!array_key_exists($ex[6], $arr2)){
+                            $arr2[$ex[6]]['suma'] = 0;
+                            $arr2[$ex[6]]['komisiniai'] = 0;
+                            $arr2[$ex[6]]['pajamos'] = 0;
+                        }
+
+                        $arr2[$ex[6]]['data'] = $ex[6];
+                        //suskaiciuojam
+                        $arr2[$ex[6]]['suma'] += $ex[9] + $ex[13];
+                        $arr2[$ex[6]]['komisiniai'] += $ex[13];
+                        $arr2[$ex[6]]['pajamos'] += $ex[9];
+                    }
+                }
+            }
+        }
+
         $viso = array(
             'pinigai' => array("suma" => 0, "komisiniai" => 0, "pajamos" => 0),
-            'pajamos' => array("suma" => 0, "komisiniai" => 0, "pajamos" => 0),
-            'viso' => array("suma" => 0, "komisiniai" => 0, "pajamos" => 0)
+            'pajamos' => array("suma" => 0, "komisiniai" => 0, "pajamos" => 0)
         );
 
-        $title = array("pirmas" => "", "antras" => "", "trecias" => "");
+        $title = array("antras" => "", "trecias" => "");
 
         //suskaičiuojam viso, keleta variantu
         $last_key = array_key_last($arr);
         $first_key = array_key_first($arr);
         
         foreach($arr as $key => $va){
-            if ($key != $last_key && $key != $first_key) {
-                $viso['viso']['suma'] += $va['suma'];
-                $viso['viso']['komisiniai'] += $va['komisiniai'];
-                $viso['viso']['pajamos'] += $va['suma'] - $va['komisiniai'];
-            }else{
-                $title['pirmas'] .= $va['data']." ";
-            }
-
             if ($key != $last_key) {
                 $viso['pinigai']['suma'] += $va['suma'];
                 $viso['pinigai']['komisiniai'] += $va['komisiniai'];
@@ -131,14 +151,16 @@ class TerminalController extends Controller
         }
 
         $arr = array_values($arr);
+        $arr2 = array_values($arr2);
         $store = array_values($store);
 
         return response()->json([
             'status' => true,
-            'data' => $arr,
+            'swedbank' => $arr,
             'viso' => $viso,
             'title' => $title,
-            'store' => $store
+            'store' => $store,
+            'luminor' => $arr2
         ]);
     }
 
@@ -186,13 +208,14 @@ class TerminalController extends Controller
     {
         $data = $request->all();
         $file = $data['file_bankas'];
+        $file2 = $data['file_bankas2'];
 
         $failas = "terminalas.txt";
         $directory  = "app/";
         $failas = $directory.$failas;
 
         $myfile = fopen(storage_path($failas), "w");
-        fwrite($myfile, $file."||");
+        fwrite($myfile, $file."||".$file2);
         fclose($myfile);
 
         return response()->json([
