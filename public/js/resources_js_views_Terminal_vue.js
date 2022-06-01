@@ -206,18 +206,85 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
 /* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
 /* harmony import */ var _components_FilePickerTerminalas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/FilePickerTerminalas */ "./resources/js/components/FilePickerTerminalas.vue");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -318,7 +385,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Terminalas",
+  name: "Terminal",
   components: {
     CardToolbar: _components_CardToolbar__WEBPACK_IMPORTED_MODULE_2__["default"],
     CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -327,163 +394,53 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   data: function data() {
     return {
       defaultOpenedDetails: [1],
-      showDetailIcon: false,
+      defaultOpenedDetails2: [1],
+      showDetailIcon: true,
       isLoading: false,
-      columns: [{
-        label: "Data",
-        field: "data"
-      }, {
-        label: "Suma.",
-        field: "suma"
-      }, {
-        label: "Komisiniai",
-        field: "komisiniai"
-      }, {
-        label: "Pajamos",
-        field: "pajamos"
-      }],
-      columns2: [{
-        label: "Parduotuve",
-        field: "store"
-      }, {
-        label: "Suma.",
-        field: "suma"
-      }, {
-        label: "Komisiniai",
-        field: "komisiniai"
-      }, {
-        label: "Pajamos",
-        field: "pajamos"
-      }],
-      color: ['is-one', 'is-two', 'is-three'],
+      isFullPage: true,
+      color: ['is-one2', 'is-two2', 'is-three2'],
       file_bankas: null,
       failas_bankas: "",
       file_bankas2: null,
       failas_bankas2: "",
+      file_pardavimai: null,
+      failas_pardavimai: "",
       swedbank: [],
       luminor: [],
-      pinigai: [],
-      pajamos: [],
-      title: [],
+      swed_viso: [],
+      lumi_viso: [],
       store: []
     };
   },
-  computed: {
-    pinigai_suma: function pinigai_suma() {
-      var total = 0;
-      var all = this.luminor.length - 1;
-      Object.entries(this.luminor).forEach(function (_ref) {
-        var _ref2 = _slicedToArray(_ref, 2),
-            key = _ref2[0],
-            val = _ref2[1];
-
-        if (key != all) {
-          total += val.suma;
-        }
-      });
-      return total;
-    },
-    pinigai_komisiniai: function pinigai_komisiniai() {
-      var total = [];
-      var all = this.luminor.length - 1;
-      Object.entries(this.luminor).forEach(function (_ref3) {
-        var _ref4 = _slicedToArray(_ref3, 2),
-            key = _ref4[0],
-            val = _ref4[1];
-
-        if (key != all) {
-          total.push(val.komisiniai); // the value of the current key.
-        }
-      });
-      return total.reduce(function (total, num) {
-        return total + num;
-      }, 0);
-    },
-    pinigai_pajamos: function pinigai_pajamos() {
-      var total = [];
-      var all = this.luminor.length - 1;
-      Object.entries(this.luminor).forEach(function (_ref5) {
-        var _ref6 = _slicedToArray(_ref5, 2),
-            key = _ref6[0],
-            val = _ref6[1];
-
-        if (key != all) {
-          total.push(val.pajamos); // the value of the current key.
-        }
-      });
-      return total.reduce(function (total, num) {
-        return total + num;
-      }, 0);
-    },
-    pajamos_suma: function pajamos_suma() {
-      var total = [];
-      Object.entries(this.luminor).forEach(function (_ref7) {
-        var _ref8 = _slicedToArray(_ref7, 2),
-            key = _ref8[0],
-            val = _ref8[1];
-
-        if (key != 0) {
-          total.push(val.suma); // the value of the current key.
-        }
-      });
-      return total.reduce(function (total, num) {
-        return total + num;
-      }, 0);
-    },
-    pajamos_komisiniai: function pajamos_komisiniai() {
-      var total = [];
-      Object.entries(this.luminor).forEach(function (_ref9) {
-        var _ref10 = _slicedToArray(_ref9, 2),
-            key = _ref10[0],
-            val = _ref10[1];
-
-        if (key != 0) {
-          total.push(val.komisiniai); // the value of the current key.
-        }
-      });
-      return total.reduce(function (total, num) {
-        return total + num;
-      }, 0);
-    },
-    pajamos_pajamos: function pajamos_pajamos() {
-      var total = [];
-      Object.entries(this.luminor).forEach(function (_ref11) {
-        var _ref12 = _slicedToArray(_ref11, 2),
-            key = _ref12[0],
-            val = _ref12[1];
-
-        if (key != 0) {
-          total.push(val.pajamos); // the value of the current key.
-        }
-      });
-      return total.reduce(function (total, num) {
-        return total + num;
-      }, 0);
-    }
-  },
+  computed: {},
   created: function created() {
     this.getData();
   },
   methods: {
+    onRowClass: function onRowClass(row, index) {
+      if (row.suma.toFixed(2) == row.dineta.toFixed(2)) {
+        return this.color[0];
+      } else {
+        return this.color[2];
+      }
+    },
+    onRowClass2: function onRowClass2(row, index) {
+      if (row.suma.toFixed(2) == row.dineta.toFixed(2)) {
+        return this.color[0];
+      } else {
+        return this.color[2];
+      }
+    },
     file_info_bankas: function file_info_bankas(value) {
       this.failas_bankas = value.name;
     },
     file_info_bankas2: function file_info_bankas2(value) {
       this.failas_bankas2 = value.name;
     },
-    onClass: function onClass(row) {
-      console.log(row);
-
-      if (row.index == this.sarasas.length - 1) {
-        return "is-one2";
-      }
-
-      if (row.index == 1) {
-        return "is-one2";
-      }
+    file_info_pardavimai: function file_info_pardavimai(value) {
+      this.failas_pardavimai = value.name;
     },
     print: function print(_print) {
-      // Pass the element id here
       this.mobile_card = false;
       this.isvezta = false;
       this.$htmlToPaper(_print);
@@ -496,9 +453,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         _this.isLoading = false;
         _this.swedbank = response.data.swedbank;
         _this.luminor = response.data.luminor;
-        _this.pinigai = response.data.viso['pinigai'];
-        _this.pajamos = response.data.viso['pajamos'];
-        _this.title = response.data.title;
+        _this.swed_viso = response.data.swed_viso;
+        _this.lumi_viso = response.data.lumi_viso;
         _this.store = response.data.store;
       })["catch"](function (err) {
         _this.isLoading = false;
@@ -515,11 +471,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
       axios.post("/terminal/store", {
         file_bankas: this.failas_bankas,
-        file_bankas2: this.failas_bankas2
+        file_bankas2: this.failas_bankas2,
+        file_pardavimai: this.failas_pardavimai
       }).then(function (response) {
         console.log(response.data.data);
 
         _this2.getData();
+
+        _this2.$buefy.toast.open({
+          message: "Duomenys atnaujinti!",
+          type: 'is-info' //queue: false
+
+        });
       })["catch"](function (err) {
         _this2.$buefy.toast.open({
           message: "Error: ".concat(err.message),
@@ -5396,69 +5359,123 @@ var render = function () {
       "section",
       { staticClass: "section is-main-section" },
       [
+        _c("b-loading", {
+          attrs: { "is-full-page": _vm.isFullPage },
+          model: {
+            value: _vm.isLoading,
+            callback: function ($$v) {
+              _vm.isLoading = $$v
+            },
+            expression: "isLoading",
+          },
+        }),
+        _vm._v(" "),
         _c(
           "card-component",
           { attrs: { title: "VALDYMAS", icon: "account-multiple" } },
           [
-            _c(
-              "b-field",
-              { attrs: { label: "Swedbank CSV:", horizontal: "" } },
-              [
-                _c("file-picker-terminalas", {
-                  on: { "file-updated": _vm.file_info_bankas },
-                  model: {
-                    value: _vm.file_bankas,
-                    callback: function ($$v) {
-                      _vm.file_bankas = $$v
-                    },
-                    expression: "file_bankas",
-                  },
-                }),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "b-field",
-              { attrs: { label: "Luminor CSV:", horizontal: "" } },
-              [
-                _c("file-picker-terminalas", {
-                  on: { "file-updated": _vm.file_info_bankas2 },
-                  model: {
-                    value: _vm.file_bankas2,
-                    callback: function ($$v) {
-                      _vm.file_bankas2 = $$v
-                    },
-                    expression: "file_bankas2",
-                  },
-                }),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("b-field", { attrs: { label: " ", horizontal: "" } }, [
-              _c("p", { staticClass: "control" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button is-sark",
-                    on: { click: _vm.suformuoti },
-                  },
-                  [_vm._v("Suformuoti")]
-                ),
-              ]),
+            _c("div", { staticClass: "columns" }, [
+              _c(
+                "div",
+                { staticClass: "column" },
+                [
+                  _c(
+                    "b-field",
+                    { attrs: { label: "Swedbank:", horizontal: "" } },
+                    [
+                      _c("file-picker-terminalas", {
+                        on: { "file-updated": _vm.file_info_bankas },
+                        model: {
+                          value: _vm.file_bankas,
+                          callback: function ($$v) {
+                            _vm.file_bankas = $$v
+                          },
+                          expression: "file_bankas",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-field",
+                    { attrs: { label: "Luminor:", horizontal: "" } },
+                    [
+                      _c("file-picker-terminalas", {
+                        on: { "file-updated": _vm.file_info_bankas2 },
+                        model: {
+                          value: _vm.file_bankas2,
+                          callback: function ($$v) {
+                            _vm.file_bankas2 = $$v
+                          },
+                          expression: "file_bankas2",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("b-field", { attrs: { label: " ", horizontal: "" } }, [
+                    _c("p", { staticClass: "control" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-sark",
+                          on: { click: _vm.suformuoti },
+                        },
+                        [_vm._v("Suformuoti")]
+                      ),
+                    ]),
+                  ]),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "column" },
+                [
+                  _c(
+                    "b-field",
+                    { attrs: { label: "Pardavimai:", horizontal: "" } },
+                    [
+                      _c("file-picker-terminalas", {
+                        on: { "file-updated": _vm.file_info_pardavimai },
+                        model: {
+                          value: _vm.file_pardavimai,
+                          callback: function ($$v) {
+                            _vm.file_pardavimai = $$v
+                          },
+                          expression: "file_pardavimai",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("b-field", { attrs: { label: " ", horizontal: "" } }, [
+                    _c("p", { staticClass: "control" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-sark",
+                          on: { click: _vm.suformuoti },
+                        },
+                        [_vm._v("Sudengti")]
+                      ),
+                    ]),
+                  ]),
+                ],
+                1
+              ),
             ]),
-          ],
-          1
+          ]
         ),
         _vm._v(" "),
         _c(
           "card-component",
           {
-            attrs: {
-              title: "Bankiniai terminalai (SWEDBANK)",
-              icon: "account-multiple",
-            },
+            attrs: { title: "Bankiniai terminalai", icon: "account-multiple" },
           },
           [
             _c("div", { attrs: { id: "printMe" } }, [
@@ -5467,7 +5484,9 @@ var render = function () {
                   "div",
                   { staticClass: "column" },
                   [
-                    _c("div", [_vm._v("SWEDBANK")]),
+                    _c("div", { staticClass: "has-text-centered is-size-3" }, [
+                      _vm._v("SWEDBANK"),
+                    ]),
                     _vm._v(" "),
                     _c(
                       "b-table",
@@ -5476,15 +5495,165 @@ var render = function () {
                           bordered: "",
                           narrowed: true,
                           data: _vm.swedbank,
+                          "opened-detailed": _vm.defaultOpenedDetails,
+                          detailed: "",
+                          "detail-key": "data",
+                          "show-detail-icon": _vm.showDetailIcon,
+                          "row-class": _vm.onRowClass2,
                           "sort-icon": "arrow-up",
                           "default-sort-direction": "asc",
                           "default-sort": "data",
                         },
+                        on: {
+                          "details-open": function (row) {
+                            return _vm.$buefy.toast.open("Expanded " + row.data)
+                          },
+                        },
                         scopedSlots: _vm._u([
+                          {
+                            key: "detail",
+                            fn: function (props) {
+                              return [
+                                _c(
+                                  "div",
+                                  { style: { border: "1px solid" } },
+                                  [
+                                    _c(
+                                      "b-table",
+                                      {
+                                        attrs: {
+                                          data: props.row.pard,
+                                          "default-sort-direction": "asc",
+                                          "default-sort": "parduotuve",
+                                        },
+                                      },
+                                      [
+                                        _c("b-table-column", {
+                                          attrs: {
+                                            field: "parduotuve",
+                                            label: "Parduotuvė",
+                                            sortable: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (props) {
+                                                  return [
+                                                    _vm._v(
+                                                      "\n                      " +
+                                                        _vm._s(
+                                                          props.row.parduotuve
+                                                        ) +
+                                                        "\n                    "
+                                                    ),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("b-table-column", {
+                                          attrs: {
+                                            field: "suma",
+                                            label: "Suma",
+                                            sortable: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (props) {
+                                                  return [
+                                                    _vm._v(
+                                                      "\n                      " +
+                                                        _vm._s(props.row.suma) +
+                                                        "\n                    "
+                                                    ),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("b-table-column", {
+                                          attrs: {
+                                            field: "komisiniai",
+                                            label: "Komisiniai",
+                                            sortable: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (props) {
+                                                  return [
+                                                    _vm._v(
+                                                      "\n                      " +
+                                                        _vm._s(
+                                                          props.row.komisiniai
+                                                        ) +
+                                                        "\n                    "
+                                                    ),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("b-table-column", {
+                                          attrs: {
+                                            field: "pajamos",
+                                            label: "Pajamos",
+                                            sortable: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (props) {
+                                                  return [
+                                                    _vm._v(
+                                                      "\n                      " +
+                                                        _vm._s(
+                                                          props.row.pajamos.toFixed(
+                                                            2
+                                                          )
+                                                        ) +
+                                                        "\n                    "
+                                                    ),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
                           {
                             key: "footer",
                             fn: function () {
                               return [
+                                _c("th"),
+                                _vm._v(" "),
                                 _c("th", [
                                   _vm._v("Pinigai:"),
                                   _c("br"),
@@ -5492,28 +5661,74 @@ var render = function () {
                                 ]),
                                 _vm._v(" "),
                                 _c("th", [
-                                  _vm._v(_vm._s(_vm.pinigai.suma.toFixed(2))),
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.swed_viso["pinigai"]["suma"].toFixed(
+                                        2
+                                      )
+                                    )
+                                  ),
                                   _c("br"),
-                                  _vm._v(_vm._s(_vm.pajamos.suma.toFixed(2))),
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.swed_viso["pajamos"]["suma"].toFixed(
+                                        2
+                                      )
+                                    )
+                                  ),
                                 ]),
                                 _vm._v(" "),
                                 _c("th", [
                                   _vm._v(
-                                    _vm._s(_vm.pinigai.komisiniai.toFixed(2))
+                                    _vm._s(
+                                      _vm.swed_viso["pinigai"][
+                                        "dineta"
+                                      ].toFixed(2)
+                                    )
                                   ),
                                   _c("br"),
                                   _vm._v(
-                                    _vm._s(_vm.pajamos.komisiniai.toFixed(2))
+                                    _vm._s(
+                                      _vm.swed_viso["pajamos"][
+                                        "dineta"
+                                      ].toFixed(2)
+                                    )
                                   ),
                                 ]),
                                 _vm._v(" "),
                                 _c("th", [
                                   _vm._v(
-                                    _vm._s(_vm.pinigai.pajamos.toFixed(2))
+                                    _vm._s(
+                                      _vm.swed_viso["pinigai"][
+                                        "komisiniai"
+                                      ].toFixed(2)
+                                    )
                                   ),
                                   _c("br"),
                                   _vm._v(
-                                    _vm._s(_vm.pajamos.pajamos.toFixed(2))
+                                    _vm._s(
+                                      _vm.swed_viso["pajamos"][
+                                        "komisiniai"
+                                      ].toFixed(2)
+                                    )
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("th", [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.swed_viso["pinigai"][
+                                        "pajamos"
+                                      ].toFixed(2)
+                                    )
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.swed_viso["pajamos"][
+                                        "pajamos"
+                                      ].toFixed(2)
+                                    )
                                   ),
                                 ]),
                               ]
@@ -5562,7 +5777,26 @@ var render = function () {
                         _vm._v(" "),
                         _c("b-table-column", {
                           staticClass: "has-text-right",
-                          attrs: { label: "KOMISINIAI", field: "komisiniai" },
+                          attrs: { label: "DINETA", field: "data" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function (props) {
+                                return [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(props.row.dineta.toFixed(2)) +
+                                      "\n            "
+                                  ),
+                                ]
+                              },
+                            },
+                          ]),
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          staticClass: "has-text-right",
+                          attrs: { label: "KOM.", field: "komisiniai" },
                           scopedSlots: _vm._u([
                             {
                               key: "default",
@@ -5591,6 +5825,28 @@ var render = function () {
                                     "\n                    " +
                                       _vm._s(props.row.pajamos.toFixed(2)) +
                                       "\n              "
+                                  ),
+                                ]
+                              },
+                            },
+                          ]),
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          attrs: {
+                            label: "GAUTA",
+                            field: "gauta",
+                            sortable: "",
+                          },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function (props) {
+                                return [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(props.row.gauta) +
+                                      "\n            "
                                   ),
                                 ]
                               },
@@ -5608,7 +5864,9 @@ var render = function () {
                   "div",
                   { staticClass: "column" },
                   [
-                    _c("div", [_vm._v("LUMINOR")]),
+                    _c("div", { staticClass: "has-text-centered is-size-3" }, [
+                      _vm._v("LUMINOR"),
+                    ]),
                     _vm._v(" "),
                     _c(
                       "b-table",
@@ -5617,16 +5875,111 @@ var render = function () {
                           bordered: "",
                           narrowed: true,
                           data: _vm.luminor,
+                          "opened-detailed": _vm.defaultOpenedDetails2,
+                          detailed: "",
+                          "detail-key": "data",
+                          "show-detail-icon": _vm.showDetailIcon,
                           "sort-icon": "arrow-up",
-                          loading: _vm.isLoading,
+                          "row-class": _vm.onRowClass,
                           "default-sort-direction": "asc",
                           "default-sort": "data",
                         },
+                        on: {
+                          "details-open": function (row) {
+                            return _vm.$buefy.toast.open("Expanded " + row.data)
+                          },
+                        },
                         scopedSlots: _vm._u([
+                          {
+                            key: "detail",
+                            fn: function (props) {
+                              return [
+                                _c(
+                                  "div",
+                                  { style: { border: "1px solid" } },
+                                  [
+                                    _c(
+                                      "b-table",
+                                      {
+                                        attrs: {
+                                          data: props.row.pard,
+                                          "default-sort-direction": "asc",
+                                          "default-sort": "parduotuve",
+                                        },
+                                      },
+                                      [
+                                        _c("b-table-column", {
+                                          attrs: {
+                                            field: "parduotuve",
+                                            label: "Parduotuvė",
+                                            sortable: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (props) {
+                                                  return [
+                                                    _vm._v(
+                                                      "\n                      " +
+                                                        _vm._s(
+                                                          props.row.parduotuve
+                                                        ) +
+                                                        "\n                    "
+                                                    ),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                        _vm._v(" "),
+                                        _c("b-table-column", {
+                                          attrs: {
+                                            field: "suma",
+                                            label: "Suma",
+                                            sortable: "",
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function (props) {
+                                                  return [
+                                                    _vm._v(
+                                                      "\n                      " +
+                                                        _vm._s(
+                                                          props.row.suma.toFixed(
+                                                            2
+                                                          )
+                                                        ) +
+                                                        "\n                    "
+                                                    ),
+                                                  ]
+                                                },
+                                              },
+                                            ],
+                                            null,
+                                            true
+                                          ),
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
                           {
                             key: "footer",
                             fn: function () {
                               return [
+                                _c("th"),
+                                _vm._v(" "),
                                 _c("th", [
                                   _vm._v("Pinigai:"),
                                   _c("br"),
@@ -5634,28 +5987,74 @@ var render = function () {
                                 ]),
                                 _vm._v(" "),
                                 _c("th", [
-                                  _vm._v(_vm._s(_vm.pinigai_suma.toFixed(2))),
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.lumi_viso["pinigai"]["suma"].toFixed(
+                                        2
+                                      )
+                                    )
+                                  ),
                                   _c("br"),
-                                  _vm._v(_vm._s(_vm.pajamos_suma.toFixed(2))),
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.lumi_viso["pajamos"]["suma"].toFixed(
+                                        2
+                                      )
+                                    )
+                                  ),
                                 ]),
                                 _vm._v(" "),
                                 _c("th", [
                                   _vm._v(
-                                    _vm._s(_vm.pinigai_komisiniai.toFixed(2))
+                                    _vm._s(
+                                      _vm.lumi_viso["pinigai"][
+                                        "dineta"
+                                      ].toFixed(2)
+                                    )
                                   ),
                                   _c("br"),
                                   _vm._v(
-                                    _vm._s(_vm.pajamos_komisiniai.toFixed(2))
+                                    _vm._s(
+                                      _vm.lumi_viso["pajamos"][
+                                        "dineta"
+                                      ].toFixed(2)
+                                    )
                                   ),
                                 ]),
                                 _vm._v(" "),
                                 _c("th", [
                                   _vm._v(
-                                    _vm._s(_vm.pinigai_pajamos.toFixed(2))
+                                    _vm._s(
+                                      _vm.lumi_viso["pinigai"][
+                                        "komisiniai"
+                                      ].toFixed(2)
+                                    )
                                   ),
                                   _c("br"),
                                   _vm._v(
-                                    _vm._s(_vm.pajamos_pajamos.toFixed(2))
+                                    _vm._s(
+                                      _vm.lumi_viso["pajamos"][
+                                        "komisiniai"
+                                      ].toFixed(2)
+                                    )
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("th", [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.lumi_viso["pinigai"][
+                                        "pajamos"
+                                      ].toFixed(2)
+                                    )
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.lumi_viso["pajamos"][
+                                        "pajamos"
+                                      ].toFixed(2)
+                                    )
                                   ),
                                 ]),
                               ]
@@ -5704,7 +6103,26 @@ var render = function () {
                         _vm._v(" "),
                         _c("b-table-column", {
                           staticClass: "has-text-right",
-                          attrs: { label: "KOMISINIAI", field: "komisiniai" },
+                          attrs: { label: "DINETA", field: "data" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function (props) {
+                                return [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(props.row.dineta.toFixed(2)) +
+                                      "\n            "
+                                  ),
+                                ]
+                              },
+                            },
+                          ]),
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          staticClass: "has-text-right",
+                          attrs: { label: "KOM.", field: "komisiniai" },
                           scopedSlots: _vm._u([
                             {
                               key: "default",
@@ -5732,6 +6150,28 @@ var render = function () {
                                   _vm._v(
                                     "\n                  " +
                                       _vm._s(props.row.pajamos.toFixed(2)) +
+                                      "\n            "
+                                  ),
+                                ]
+                              },
+                            },
+                          ]),
+                        }),
+                        _vm._v(" "),
+                        _c("b-table-column", {
+                          attrs: {
+                            label: "GAUTA",
+                            field: "gauta",
+                            sortable: "",
+                          },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "default",
+                              fn: function (props) {
+                                return [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(props.row.gauta) +
                                       "\n            "
                                   ),
                                 ]
@@ -5772,14 +6212,14 @@ var render = function () {
                 ),
                 _vm._v(" "),
                 _c(
-                  "vue-excel-xlsx",
+                  "b-button",
                   {
-                    staticClass: "button is-dark is-medium",
                     attrs: {
-                      data: _vm.luminor,
-                      columns: _vm.columns,
-                      filename: "filename",
-                      sheetname: "sheetname",
+                      tag: "a",
+                      type: "is-dark",
+                      size: "is-medium",
+                      href: "terminal/save_xlsx",
+                      target: "_blank",
                     },
                   },
                   [_vm._v("\n          ATSISIŲSTI\n        ")]

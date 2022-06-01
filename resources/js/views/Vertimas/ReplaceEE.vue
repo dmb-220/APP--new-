@@ -81,6 +81,9 @@ export default {
               this.html_lv = this.html_lv.replace(/oranžinė/gi, "oranž");
 
               this.html_lv = this.html_lv.replace(/rusva/gi, "pruunikas");
+              this.html_lv = this.html_lv.replace(/šviesiai mėlyna/gi, "helesinine");
+              this.html_lv = this.html_lv.replace(/elektrinė/gi, "elektrisinine");
+              this.html_lv = this.html_lv.replace(/garstyčių/gi, "sinep");
 
 
               this.html_lv = this.html_lv.replace("Sijonas nugaroje užsegamas užtrauktuku ir sagute. Priekyje 3 dekoratyvinės sagos. Audinys vidutinio storumo, šiek tiek elastingas.",

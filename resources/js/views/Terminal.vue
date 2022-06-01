@@ -1,29 +1,50 @@
 <template>
   <div>
     <section class="section is-main-section">
+      <b-loading :is-full-page="isFullPage" v-model="isLoading"></b-loading>
       <card-component title="VALDYMAS" icon="account-multiple">
-        <b-field  label="Swedbank CSV:" horizontal>
-          <file-picker-terminalas @file-updated="file_info_bankas" v-model="file_bankas"/>
-        </b-field>
-        <b-field  label="Luminor CSV:" horizontal> 
-          <file-picker-terminalas @file-updated="file_info_bankas2" v-model="file_bankas2"/>
-        </b-field>
-          <b-field  label=" " horizontal>
-        <p class="control">
-          <button class="button is-sark" @click="suformuoti">Suformuoti</button>
-        </p>
-        </b-field>
+        <div class="columns">
+          <div class="column">
+             <b-field  label="Swedbank:" horizontal>
+              <file-picker-terminalas @file-updated="file_info_bankas" v-model="file_bankas"/>
+            </b-field>
+            <b-field  label="Luminor:" horizontal> 
+              <file-picker-terminalas @file-updated="file_info_bankas2" v-model="file_bankas2"/>
+            </b-field>
+              <b-field  label=" " horizontal>
+            <p class="control">
+              <button class="button is-sark" @click="suformuoti">Suformuoti</button>
+            </p>
+            </b-field>
+          </div>
+          <div class="column">
+            <b-field  label="Pardavimai:" horizontal>
+              <file-picker-terminalas @file-updated="file_info_pardavimai" v-model="file_pardavimai"/>
+            </b-field>  
+            <b-field  label=" " horizontal>
+              <p class="control">
+                <button class="button is-sark" @click="suformuoti">Sudengti</button>
+              </p>
+            </b-field>
+          </div>
+        </div>
       </card-component>
-      <card-component title="Bankiniai terminalai (SWEDBANK)" icon="account-multiple">
+      <card-component title="Bankiniai terminalai" icon="account-multiple">
         <div id="printMe">
           <div class="columns">
             <!-- SWEDBANK -->
             <div class="column">
-              <div>SWEDBANK</div>
+              <div class="has-text-centered is-size-3">SWEDBANK</div>
               <b-table
                 bordered
                 :narrowed="true"
                 :data="swedbank"
+                :opened-detailed="defaultOpenedDetails"
+                detailed
+                detail-key="data"
+                @details-open="(row) => $buefy.toast.open(`Expanded ${row.data}`)"
+                :show-detail-icon="showDetailIcon"
+                :row-class="onRowClass2"
                 sort-icon="arrow-up"
                 default-sort-direction="asc"
                 default-sort="data">
@@ -33,29 +54,63 @@
                 <b-table-column class="has-text-right" label="SUMA"  field="suma" v-slot="props">
                       {{ props.row.suma.toFixed(2) }}
                 </b-table-column>
-                <b-table-column class="has-text-right" label="KOMISINIAI"  field="komisiniai" v-slot="props">
+                <b-table-column class="has-text-right" label="DINETA"  field="data" v-slot="props">
+                    {{ props.row.dineta.toFixed(2) }}
+              </b-table-column>
+                <b-table-column class="has-text-right" label="KOM."  field="komisiniai" v-slot="props">
                       {{ props.row.komisiniai.toFixed(2) }}
                 </b-table-column>
                 <b-table-column class="has-text-right" label="PAJAMOS"  field="pajamos" v-slot="props">
                       {{ props.row.pajamos.toFixed(2) }}
                 </b-table-column>
+                <b-table-column label="GAUTA" field="gauta" sortable v-slot="props">
+                    {{ props.row.gauta }}
+              </b-table-column>
+              <template #detail="props">
+                <div :style="{'border': '1px solid'}">
+                  <b-table
+                    :data="props.row.pard"
+                    default-sort-direction="asc"
+                    default-sort="parduotuve">
+                      <b-table-column field="parduotuve" label="Parduotuvė" sortable v-slot="props">
+                        {{ props.row.parduotuve }}
+                      </b-table-column>
+                      <b-table-column field="suma" label="Suma" sortable v-slot="props">
+                        {{ props.row.suma }}
+                      </b-table-column>
+                      <b-table-column field="komisiniai" label="Komisiniai" sortable v-slot="props">
+                        {{ props.row.komisiniai }}
+                      </b-table-column>
+                      <b-table-column field="pajamos" label="Pajamos" sortable v-slot="props">
+                        {{ props.row.pajamos.toFixed(2) }}
+                      </b-table-column>
+                  </b-table>
+                </div>
+              </template>
               <template #footer>
+                <th> </th>
                 <th>Pinigai:<br>Pajamos:</th>
-                <th>{{ pinigai.suma.toFixed(2) }}<br>{{ pajamos.suma.toFixed(2) }}</th>
-                <th>{{ pinigai.komisiniai.toFixed(2) }}<br>{{ pajamos.komisiniai.toFixed(2) }}</th>
-                <th>{{ pinigai.pajamos.toFixed(2) }}<br>{{ pajamos.pajamos.toFixed(2) }}</th>
+                <th>{{ swed_viso['pinigai']['suma'].toFixed(2) }}<br>{{ swed_viso['pajamos']['suma'].toFixed(2) }}</th>
+                <th>{{ swed_viso['pinigai']['dineta'].toFixed(2) }}<br>{{ swed_viso['pajamos']['dineta'].toFixed(2) }}</th>
+                <th>{{ swed_viso['pinigai']['komisiniai'].toFixed(2) }}<br>{{ swed_viso['pajamos']['komisiniai'].toFixed(2) }}</th>
+                <th>{{ swed_viso['pinigai']['pajamos'].toFixed(2) }}<br>{{ swed_viso['pajamos']['pajamos'].toFixed(2) }}</th>
               </template>
             </b-table>
           </div>
           <!-- LUMINOR -->
           <div class="column">
-            <div>LUMINOR</div>
+            <div class="has-text-centered is-size-3">LUMINOR</div>
             <b-table
               bordered
               :narrowed="true"
               :data="luminor"
+              :opened-detailed="defaultOpenedDetails2"
+              detailed
+              detail-key="data"
+              @details-open="(row) => $buefy.toast.open(`Expanded ${row.data}`)"
+              :show-detail-icon="showDetailIcon"
               sort-icon="arrow-up"
-              :loading="isLoading"
+              :row-class="onRowClass"
               default-sort-direction="asc"
               default-sort="data">
               <b-table-column label="DATA" field="data" sortable v-slot="props">
@@ -64,17 +119,40 @@
               <b-table-column class="has-text-right" label="SUMA"  field="suma" v-slot="props">
                     {{ props.row.suma.toFixed(2) }}
               </b-table-column>
-              <b-table-column class="has-text-right" label="KOMISINIAI"  field="komisiniai" v-slot="props">
+              <b-table-column class="has-text-right" label="DINETA"  field="data" v-slot="props">
+                    {{ props.row.dineta.toFixed(2) }}
+              </b-table-column>
+              <b-table-column class="has-text-right" label="KOM."  field="komisiniai" v-slot="props">
                     {{ props.row.komisiniai.toFixed(2) }}
               </b-table-column>
               <b-table-column class="has-text-right" label="PAJAMOS"  field="pajamos" v-slot="props">
                     {{ props.row.pajamos.toFixed(2) }}
               </b-table-column>
+              <b-table-column label="GAUTA" field="gauta" sortable v-slot="props">
+                    {{ props.row.gauta }}
+              </b-table-column>
+              <template #detail="props">
+                <div :style="{'border': '1px solid'}">
+                  <b-table
+                    :data="props.row.pard"
+                    default-sort-direction="asc"
+                    default-sort="parduotuve">
+                      <b-table-column field="parduotuve" label="Parduotuvė" sortable v-slot="props">
+                        {{ props.row.parduotuve }}
+                      </b-table-column>
+                      <b-table-column field="suma" label="Suma" sortable v-slot="props">
+                        {{ props.row.suma.toFixed(2) }}
+                      </b-table-column>
+                  </b-table>
+                </div>
+              </template>
               <template #footer>
+                <th> </th>
                 <th>Pinigai:<br>Pajamos:</th>
-                <th>{{ pinigai_suma.toFixed(2) }}<br>{{ pajamos_suma.toFixed(2) }}</th>
-                <th>{{ pinigai_komisiniai.toFixed(2) }}<br>{{ pajamos_komisiniai.toFixed(2) }}</th>
-                <th>{{ pinigai_pajamos.toFixed(2) }}<br>{{ pajamos_pajamos.toFixed(2) }}</th>
+                <th>{{ lumi_viso['pinigai']['suma'].toFixed(2) }}<br>{{ lumi_viso['pajamos']['suma'].toFixed(2) }}</th>
+                <th>{{ lumi_viso['pinigai']['dineta'].toFixed(2) }}<br>{{ lumi_viso['pajamos']['dineta'].toFixed(2) }}</th>
+                <th>{{ lumi_viso['pinigai']['komisiniai'].toFixed(2) }}<br>{{ lumi_viso['pajamos']['komisiniai'].toFixed(2) }}</th>
+                <th>{{ lumi_viso['pinigai']['pajamos'].toFixed(2) }}<br>{{ lumi_viso['pajamos']['pajamos'].toFixed(2) }}</th>
               </template>
               </b-table>
             </div>
@@ -83,9 +161,10 @@
         <hr>
         <div class="buttons">
           <b-button size="is-medium" icon-left="printer" type="is-dark" @click="print('printMe')">SPAUSDINTI</b-button>
-          <vue-excel-xlsx class = "button is-dark is-medium" :data="luminor" :columns="columns" :filename="'filename'" :sheetname="'sheetname'">
+          <b-button tag="a" type="is-dark" size="is-medium"
+            href="terminal/save_xlsx" target="_blank">
             ATSISIŲSTI
-          </vue-excel-xlsx>
+          </b-button>
         </div>
       </card-component>
     </section>
@@ -101,120 +180,61 @@ import CardToolbar from '@/components/CardToolbar'
 import FilePickerTerminalas from '@/components/FilePickerTerminalas'
 
 export default {
-  name: "Terminalas",
+  name: "Terminal",
   components: {CardToolbar, CardComponent, FilePickerTerminalas },
   data () {
     return {
       defaultOpenedDetails: [1],
-      showDetailIcon: false,
+      defaultOpenedDetails2: [1],
+      showDetailIcon: true,
       isLoading: false,
-      columns : [
-        {label: "Data", field: "data"},
-        {label: "Suma.", field: "suma"},
-        {label: "Komisiniai", field: "komisiniai"},
-        {label: "Pajamos", field: "pajamos"},
-      ],
-      columns2 : [
-        {label: "Parduotuve", field: "store"},
-        {label: "Suma.", field: "suma"},
-        {label: "Komisiniai", field: "komisiniai"},
-        {label: "Pajamos", field: "pajamos"},
-      ],
+      isFullPage: true,
       color: [
-        'is-one',
-        'is-two',
-        'is-three'
+        'is-one2', 'is-two2', 'is-three2'
       ],
       file_bankas: null,
       failas_bankas: "",
       file_bankas2: null,
       failas_bankas2: "",
+      file_pardavimai: null,
+      failas_pardavimai: "",
       swedbank: [],
       luminor: [],
-      pinigai: [],
-      pajamos: [],
-      title: [],
+      swed_viso: [],
+      lumi_viso: [],
       store: [],
     }
   },
   computed: {
-    pinigai_suma: function(){
-      let total = 0;
-      let all = this.luminor.length - 1;
-        Object.entries(this.luminor).forEach(([key, val]) => {
-          if(key != all){ total += val.suma; }
-        });
-      return total;
-    },
-    pinigai_komisiniai: function(){
-      let total = [];
-      let all = this.luminor.length - 1;
-        Object.entries(this.luminor).forEach(([key, val]) => {
-          if(key != all){
-            total.push(val.komisiniai) // the value of the current key.
-          }
-        });
-      return total.reduce(function(total, num){ return total + num }, 0);
-    },
-    pinigai_pajamos: function(){
-      let total = [];
-      let all = this.luminor.length - 1;
-        Object.entries(this.luminor).forEach(([key, val]) => {
-          if(key != all){
-            total.push(val.pajamos) // the value of the current key.
-          }
-        });
-      return total.reduce(function(total, num){ return total + num }, 0);
-    },
-    pajamos_suma: function(){
-      let total = [];
-        Object.entries(this.luminor).forEach(([key, val]) => {
-          if(key != 0){
-            total.push(val.suma) // the value of the current key.
-          }
-        });
-      return total.reduce(function(total, num){ return total + num }, 0);
-    },
-    pajamos_komisiniai: function(){
-      let total = [];
-        Object.entries(this.luminor).forEach(([key, val]) => {
-          if(key != 0){
-            total.push(val.komisiniai) // the value of the current key.
-          }
-        });
-      return total.reduce(function(total, num){ return total + num }, 0);
-    },
-    pajamos_pajamos: function(){
-      let total = [];
-        Object.entries(this.luminor).forEach(([key, val]) => {
-          if(key != 0){
-            total.push(val.pajamos) // the value of the current key.
-          }
-        });
-      return total.reduce(function(total, num){ return total + num }, 0);
-    },
   },
   created () {
     this.getData();
   },
   methods: {
+    onRowClass: function (row, index) {
+      if(row.suma.toFixed(2) == row.dineta.toFixed(2)){
+        return this.color[0];
+      }else{
+        return this.color[2];
+      }
+    },
+    onRowClass2: function (row, index) {
+      if(row.suma.toFixed(2) == row.dineta.toFixed(2)){
+        return this.color[0];
+      }else{
+        return this.color[2];
+      }
+    },
     file_info_bankas (value) {
       this.failas_bankas = value.name;
   },
   file_info_bankas2 (value) {
       this.failas_bankas2 = value.name;
   },
-  onClass: function (row) {
-    console.log(row);
-    if(row.index == this.sarasas.length - 1){
-      return "is-one2";
-    }
-    if(row.index == 1){
-      return "is-one2";
-    }
+  file_info_pardavimai (value) {
+      this.failas_pardavimai = value.name;
   },
   print(print) {
-    // Pass the element id here
     this.mobile_card = false;
     this.isvezta = false;
     this.$htmlToPaper(print);
@@ -227,9 +247,8 @@ export default {
         this.isLoading = false
         this.swedbank = response.data.swedbank; 
         this.luminor = response.data.luminor; 
-        this.pinigai = response.data.viso['pinigai'];
-        this.pajamos = response.data.viso['pajamos'];  
-        this.title = response.data.title; 
+        this.swed_viso = response.data.swed_viso;
+        this.lumi_viso = response.data.lumi_viso;
         this.store = response.data.store;       
       })
       .catch( err => {
@@ -247,10 +266,16 @@ export default {
       .post(`/terminal/store`, {
         file_bankas: this.failas_bankas,
         file_bankas2: this.failas_bankas2,
+        file_pardavimai: this.failas_pardavimai,
         })
       .then(response => {
         console.log(response.data.data)
         this.getData()
+        this.$buefy.toast.open({
+          message: "Duomenys atnaujinti!",
+          type: 'is-info',
+          //queue: false
+        })
     })
       .catch( err => {
         this.$buefy.toast.open({

@@ -7,7 +7,7 @@
         <b>SIDONAS</b> ir KO
       </span>
     </aside-tools>
-    <div class="menu is-menu-main">
+    <div class="menu is-menu-main scrollable">
       <template v-for="(menuGroup, index) in menu" >
         <p v-if="typeof menuGroup === 'string'" :key="index" class="menu-label">
           {{ menuGroup }}
@@ -22,6 +22,15 @@
     </div>
   </aside>
 </template>
+
+<style>
+.scrollable{
+  position: relative;
+  overflow-y: scroll; 
+  height: 100%; 
+  width: 100%;
+}
+</style>
 
 <script>
 import { mapState } from 'vuex'

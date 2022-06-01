@@ -33,9 +33,26 @@ Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('i
 //dalinimo analizavimas
 Route::get('/excel', [App\Http\Controllers\ExcelController::class, 'index'])->name('index');
 
+//Darbo apskaita
+Route::get('/works', [App\Http\Controllers\WorksController::class, 'index'])->name('index');
+
+//GPAIS
+Route::prefix('/gpais')->group(function () {
+    Route::get('/', [App\Http\Controllers\GpaisController::class, 'index'])->name('index');
+    Route::get('/get_xml', [App\Http\Controllers\GpaisController::class, 'get_xml'])->name('get_xml');
+});
+
+//lipduku spausdinimui
+Route::prefix('/export')->group(function () {
+    Route::get('/', [App\Http\Controllers\ExportController::class, 'index'])->name('index');
+    Route::post('store',  [App\Http\Controllers\ExportController::class, 'store'])->name('store');
+    Route::post('store_akcija',  [App\Http\Controllers\ExportController::class, 'store_akcija'])->name('store_akcija');
+});
+
 //Parduotuviu bankinis mokejimas
 Route::prefix('/terminal')->group(function () {
     Route::get('/', [App\Http\Controllers\TerminalController::class, 'index'])->name('index');
+    Route::get('/save_xlsx', [App\Http\Controllers\TerminalController::class, 'save_xlsx'])->name('save_xlsx');
     Route::post('store',  [App\Http\Controllers\TerminalController::class, 'store'])->name('store');
     Route::post('store_terminalas',  [App\Http\Controllers\TerminalController::class, 'store_terminalas'])->name('store_terminalas');
 });

@@ -134,7 +134,21 @@ export default new Router({
       name: 'Terminal',
       component: () => import('./views/Terminal.vue')
     },
-    
+    {
+      path: '/export',
+      name: 'Export',
+      component: () => import('./views/Export.vue')
+    },
+    {
+      path: '/works',
+      name: 'Works',
+      component: () => import('./views/Works.vue')
+    },
+    {
+      path: '/gpais',
+      name: 'GPAIS',
+      component: () => import('./views/Gpais.vue')
+    },
     /*
     {
       path: '/sandeliai',

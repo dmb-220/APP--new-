@@ -130,12 +130,12 @@ export default {
           },
           {
             to: '/return',
-            label: 'Gražinimas iš LV / EE',
+            label: 'Gražinimas LV/EE',
             icon: 'bell-ring',
           },
 
           {
-            label: 'INTE grąžinimai',
+            label: 'INTE grąžin.',
             subLabel: 'Pinigų grąžinimas',
             icon: 'view-list',
             menu: [
@@ -166,7 +166,6 @@ export default {
             label: 'INTE Perkėlimai',
             icon: 'codepen',
           }, 
-
           {
             label: 'Vertimai',
             subLabel: 'Automatinis vertimas',
@@ -185,40 +184,36 @@ export default {
             ]
           },
           {
-            to: '/terminal',
-            label: 'Bankiniai terminalai',
-            icon: 'sitemap',
+            label: 'Irankiai',
+            subLabel: 'Lengvesnis darbas',
+            icon: 'view-list',
+            menu: [
+              {
+                to: '/works',
+                label: 'Darbo apskaita',
+                icon: 'lan',
+              },
+              {
+                to: '/export',
+                label: 'Exportas lipdukams',
+                icon: 'export',
+              },
+              {
+                to: '/terminal',
+                label: 'Bankiniai terminalai',
+                icon: 'sitemap',
+              },
+              {
+                to: '/gpais',
+                label: 'GPAIS',
+                icon: 'recycle',
+              }        
+            ]
           },
-          /*{
-            to: '/barcode',
-            label: 'Prekių skenavimas',
-            icon: 'barcode',
-          }, */
-
-          /*{
-            to: '/visi_likuciai',
-            label: 'Likuciai pagal sandeli',
-            icon: 'bus',
-          },      */ 
-        ],
-        /*'VEIKSMAI',
-        [
-          {
-            to: '/csv_sarasas',
-            label: 'CSV failų įkėlimas',
-            icon: 'view-list'
-          },
-          {
-            to: '/generuoti',
-            label: 'Generuoti duomenis',
-            icon: 'calculator',
-          },
-          {
-            to: '/admin',
-            label: 'Administravimas',
-            icon: 'bullhorn',
-          },
-        ]*/
+          {},
+          {},
+          {}
+        ]
       ]
     }
   },

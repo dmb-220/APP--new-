@@ -1,6 +1,10 @@
 // Axios & Echo global
 require('./bootstrap');
 
+global.jQuery = require('jquery');
+var $ = global.jQuery;
+window.$ = $;
+
 /* Core */
 import Vue from 'vue'
 import Buefy from 'buefy'

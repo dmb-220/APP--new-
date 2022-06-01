@@ -56,8 +56,7 @@
   </div>
 </template>
 
-<style  scoped>
-    
+<style lang="scss">
 </style>
 
 <script>

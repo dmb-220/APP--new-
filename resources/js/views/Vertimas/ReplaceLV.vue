@@ -73,6 +73,10 @@ export default {
               this.html_lv = this.html_lv.replace(/ruda/gi, "brūns");
               this.html_lv = this.html_lv.replace(/pilka/gi, "pelēks");
 
+              this.html_lv = this.html_lv.replace(/šviesiai mėlyna/gi, "gaiši zila");
+              this.html_lv = this.html_lv.replace(/elektrinė/gi, "elektriska");
+              this.html_lv = this.html_lv.replace(/garstyčių/gi, "sinepju");
+
               this.html_lv = this.html_lv.replace(/plytų/gi, "ķieģeļu");
               this.html_lv = this.html_lv.replace(/kakavinė/gi, "kakao");
               this.html_lv = this.html_lv.replace(/marga/gi, "raiba");
