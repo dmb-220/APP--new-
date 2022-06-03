@@ -23,7 +23,7 @@
             </b-field>  
             <b-field  label=" " horizontal>
               <p class="control">
-                <button class="button is-sark" @click="suformuoti">Sudengti</button>
+                <button class="button is-dark" @click="suformuoti">Sudengti</button>
               </p>
             </b-field>
           </div>

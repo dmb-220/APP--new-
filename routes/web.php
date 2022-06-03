@@ -34,7 +34,11 @@ Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('i
 Route::get('/excel', [App\Http\Controllers\ExcelController::class, 'index'])->name('index');
 
 //Darbo apskaita
-Route::get('/works', [App\Http\Controllers\WorksController::class, 'index'])->name('index');
+Route::prefix('/works')->group(function () {
+    Route::get('/', [App\Http\Controllers\WorksController::class, 'index'])->name('index');
+    Route::post('store',  [App\Http\Controllers\WorksController::class, 'store'])->name('store');
+    Route::post('store_works',  [App\Http\Controllers\WorksController::class, 'store_works'])->name('store_works');
+});
 
 //GPAIS
 Route::prefix('/gpais')->group(function () {

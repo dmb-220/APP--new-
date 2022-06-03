@@ -157,6 +157,7 @@ class TerminalController extends Controller
                     }
                 }
             }
+            fclose($handle);
         }
 
         //Swedbank
@@ -266,6 +267,7 @@ class TerminalController extends Controller
                     }
                 }
             }
+            fclose($handle);
         }
         //luminor praleidiza dinetos duomenis
         foreach($arr2 as $key => $v){

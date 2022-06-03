@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Works;
 use Illuminate\Http\Request;
 
+use App\Models\File;
+use App\Http\Requests\FileUploadRequest;
+use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Support\Facades\DB;
+
 class WorksController extends Controller
 {
     public function tofloat($num) {
@@ -38,44 +44,60 @@ class WorksController extends Controller
 
         $key = explode("||", $key);
         $file = $key[0];
-        //$file2 = $key[1];
+        $nuo = $key[1];
+        $iki = $key[2];
+
+        //pataisom data
+        $nuo2 = \Carbon\Carbon::parse($nuo)->setTimezone('Europe/Vilnius')->format('Y-m-d');
+        $iki2 = \Carbon\Carbon::parse($iki)->setTimezone('Europe/Vilnius')->format('Y-m-d');
 
         $dir  = "app/Works/".$file;
 
         $works = array();
-        $flag = true;
-        if (($handle = fopen(storage_path($dir), "r")) !== FALSE) {
-            while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-                //praleidziam pirma eilute
-                if($flag) { $flag = false; continue; }
-                $val = mb_convert_encoding($data, "UTF-8", "ISO-8859-13");
-                if($val[6] != "INTE" && $val[6] != "INLV" && $val[6] != "INEE" && $val[6] != "PIGU" &&
-                    $val[6] != "TELSIAI" && $val[6] != "99EE" && $val[6] != "99LT" && $val[6] != "99LV"){
-                        
-                    $works[$val[6]]['pardavejos'][$val[5]]['pardaveja'] = $val[5];
-                    $works[$val[6]]['sandelis'] = $val[6];
-                    if($val[12] != "R"){
-                        if(isset($works[$val[6]]['pardavejos'][$val[5]]['suma'])){
-                            $works[$val[6]]['pardavejos'][$val[5]]['suma'] += $this->tofloat($val[15]);
-                        }else{
-                            $works[$val[6]]['pardavejos'][$val[5]]['suma'] = $this->tofloat($val[15]);
-                        }
+        $value = Works::query()
+            //imam intervala
+            ->when($nuo != $iki, function ($q) use ($nuo2, $iki2) {
+                return $q->whereBetween('doc_date', [$nuo2, $iki2]);
+            })
+            //jei pasirinks viena diena
+            ->when($nuo == $iki, function ($q) use ($nuo2) {
+                return $q->whereDate('doc_date', $nuo2);
+            })
+            ->get(); 
+
+        foreach($value as $val){
+            if($val['sandelis'] != "INTE" && $val['sandelis'] != "INLV" && $val['sandelis'] != "INEE" && $val['sandelis'] != "PIGU" &&
+                $val['sandelis'] != "TELSIAI" && $val['sandelis'] != "99EE" && $val['sandelis'] != "99LT" && $val['sandelis'] != "99LV"  && $val['sandelis'] != "3333"){
+                    
+                $works[$val['sandelis']]['pardavejos'][$val['vartotojas']]['pardaveja'] = $val['vartotojas'];
+                $works[$val['sandelis']]['sandelis'] = $val['sandelis'];
+                //$works[$val['sandelis']]['data'][] = $val['doc_date'];
+                if($val['dk'] != "R"){
+                    if(isset($works[$val['sandelis']]['pardavejos'][$val['vartotojas']]['suma'])){
+                        $works[$val['sandelis']]['pardavejos'][$val['vartotojas']]['suma'] += $val['suma'];
                     }else{
-                        if(isset($works[$val[6]]['pardavejos'][$val[5]]['graza'])){
-                            $works[$val[6]]['pardavejos'][$val[5]]['graza'] += $this->tofloat($val[15]);
-                        }else{
-                            $works[$val[6]]['pardavejos'][$val[5]]['graza'] = $this->tofloat($val[15]);
-                        }
+                        $works[$val['sandelis']]['pardavejos'][$val['vartotojas']]['suma'] = $val['suma'];
+                    }
+                }else{
+                    if(isset($works[$val['sandelis']]['pardavejos'][$val['vartotojas']]['graza'])){
+                        $works[$val['sandelis']]['pardavejos'][$val['vartotojas']]['graza'] += $val['suma'];
+                    }else{
+                        $works[$val['sandelis']]['pardavejos'][$val['vartotojas']]['graza'] = $val['suma'];
                     }
                 }
             }
         }
 
+        //pasalinam masyvo KEY
+        foreach($works as $idx => $val){
+            $works[$idx]['pardavejos'] = array_values($val['pardavejos']);
+        }
         $works = array_values($works);
 
         return response()->json([
             'status' => true,
-            'works' => $works
+            'works' => $works,
+            'nuo_iki' => array("nuo" => $nuo2, "iki" => $iki2)
         ]);
     }
 
@@ -97,7 +119,86 @@ class WorksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $file = $data['file_works'];
+        $nuo = $data['nuo'];
+        $iki = $data['iki'];
+
+        $failas = "works.txt";
+        $directory  = "app/";
+        $failas = $directory.$failas;
+
+        //jei failas nepasirinktas leistu keisti tik data
+        if(!$file){
+            $myfile = fopen(storage_path($failas), "r");
+            $key = fread($myfile,filesize(storage_path($failas)));
+            fclose($myfile);
+
+            $key = explode("||", $key);
+            $f = $key[0];
+            //priskiriam jau ikelto failo varda           
+            $file = $f;
+        }else{
+            //atnaujiman duomenis
+            //jei ikeliamas naujas failas
+            $dir  = "app/Works/".$file;
+            DB::table('works')->delete();
+            $flag = true;
+            if (($handle = fopen(storage_path($dir), "r")) !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                    //praleidziam pirma eilute
+                    if($flag) { $flag = false; continue; }
+                    $val = mb_convert_encoding($data, "UTF-8", "ISO-8859-13");
+                    $da[] = [
+                        'doc_date' => date('Y-m-d h:i:s', strtotime($val[1]."T".$val[2]."Z")),
+                        'vartotojas' => $val[5],
+                        'sandelis' => $val[6],
+                        'dk' => $val[12],
+                        'suma' => floatval(str_replace(",", ".", $val[15])),
+                    ];
+
+                }
+                fclose($handle);
+            }
+
+            $chunks = array_chunk($da, 300);
+            foreach($chunks as $val){
+                Works::insert($val);
+            }
+        }
+        //atnaujinam duomenis
+        $myfile = fopen(storage_path($failas), "w");
+        fwrite($myfile, $file."||".$nuo."||".$iki);
+        fclose($myfile);
+
+        return response()->json([
+            'status' => true,
+            'data' => $data
+        ]);
+    }
+
+    public function store_works(Request $request){
+        $uploadedFile = $request->file('file');
+
+        if (!$uploadedFile->isValid()) {
+            abort( 422 );
+        }
+
+        $storePath = $uploadedFile->storeAs('Works/', $uploadedFile->getClientOriginalName());
+        $file = new File;
+
+        $file->name = $uploadedFile->getClientOriginalName();
+        $file->file = $storePath;
+        $file->mime = $uploadedFile->getMimeType();
+        $file->size = $uploadedFile->getSize();
+
+        $file->save();
+
+        return response()->json([
+            'status' => true,
+            'data' => $file,
+            'upload' => $uploadedFile
+        ]);
     }
 
     /**

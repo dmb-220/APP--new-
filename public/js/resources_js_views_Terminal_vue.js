@@ -5458,7 +5458,7 @@ var render = function () {
                       _c(
                         "button",
                         {
-                          staticClass: "button is-sark",
+                          staticClass: "button is-dark",
                           on: { click: _vm.suformuoti },
                         },
                         [_vm._v("Sudengti")]
