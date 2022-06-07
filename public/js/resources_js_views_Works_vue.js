@@ -260,6 +260,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2171,6 +2172,10 @@ var render = function () {
                         key: "default",
                         fn: function (props) {
                           return [
+                            _c("p", { staticClass: "is-size-7" }, [
+                              _vm._v("2021-10-16 - 2022-05-21: 1678 €"),
+                            ]),
+                            _vm._v(" "),
                             _c("p", { staticClass: "is-size-7" }, [
                               _vm._v("2021-10-16 - 2022-05-21: 1678 €"),
                             ]),

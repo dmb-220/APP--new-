@@ -102,6 +102,44 @@ class TerminalController extends Controller
         $date_range = $this->getDatesFromRange($first, $last);
         $date_range2 = $this->getDatesFromRange2($first, $last);
 
+        //Atsiskaitymu operacijos
+        $misrus = array();
+        $misrus2 = array();
+        $sandeliai = array("KASA_SAUL" => "SAUL", "KASA_UKME" => "UKME", "KASA_UTEN2" => "UTEN", "KASA_PANEV" => "BABI", "KASA_MADA" => "MADA");
+        $flag = true;
+        if (($handle = fopen(storage_path("app/XLSX/payment_op-05.csv"), "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                //praleidziam pirma eilute
+                if($flag) { $flag = false; continue; }
+                $val = mb_convert_encoding($data, "UTF-8", "ISO-8859-13");
+
+                $ap = explode(" ", $val[5]);
+                $nr = explode(".", $ap[5]);
+                $ap = $ap[2];
+                
+                $date = $val[0];
+                $sandelis = $sandeliai[$val[3]];
+                $suma = $this->tofloat($val[7]);
+
+                if(in_array($sandelis, $this->pard_swed)){$ok = "swedbank";}
+                if(in_array($sandelis, $this->pard_lumi)){$ok = "luminor";}
+                //papildomas. pasiimti pardavimo duomenis
+                $misrus2[$ok][$nr[1]."-".$sandelis] = array();
+
+                if($ap == "(grynais)."){
+                    $misrus[$ok][$date."/".$nr[1]] = array('id' => 'gry', 'data' => $date, 'suma' => $suma, 'sandelis' => $sandeliai[$val[3]], 'blankas' => $nr[1]);
+                }else{
+                    //cia gali buti problemu, ta pacia diena buna kelios misrios operacijos
+                    //reiketu sutikrinti pagal blanko nr
+                    //if(!isset($misrus[$ok][$date."-".$nr[1]])){
+                        $misrus[$ok][$date."/".$nr[1]] = array('id' => 'dov', 'data' => $date, 'suma' => $suma, 'sandelis' => $sandeliai[$val[3]], 'blankas' => $nr[1]); 
+                   //}
+                }
+                
+            }
+            fclose($handle);
+        }
+
         //PARDAVIMAI
         $arr3 = $date_range;
         $st = array();
@@ -117,6 +155,7 @@ class TerminalController extends Controller
                 $date = $val[2];
                 $sand = $val[0];
                 $suma = $val[15];
+
                 if($ex[0] == "Pardavimas"){
                     if($ex[4] == "grynais."){ $op = "grynais"; $op2 = "gryni"; }
                     if($ex[4] == "kortele."){ $op = "kortele"; $op2 = "korta"; }
@@ -136,6 +175,10 @@ class TerminalController extends Controller
                             }else{
                                 $arr3[$date]['luminor'] = $this->tofloat($suma);
                             }
+
+                            if(array_key_exists($val[3]."-".$sand, $misrus2['luminor'])){
+                                $misrus['luminor'][$date."/".$val[3]]['pardavimas'] = $val[9];
+                            }
                         }
 
                         if(in_array($sand, $this->pard_swed) && $ex[4] == "kortele."){
@@ -143,6 +186,10 @@ class TerminalController extends Controller
                                 $arr3[$date]['swedbank'] += $this->tofloat($suma);
                             }else{
                                 $arr3[$date]['swedbank'] = $this->tofloat($suma);
+                            }
+
+                            if(array_key_exists($val[3]."-".$sand, $misrus2['swedbank'])){
+                                $misrus['swedbank'][$date."/".$val[3]]['pardavimas'] = $val[9];
                             }
                         }
                     }
@@ -159,6 +206,23 @@ class TerminalController extends Controller
             }
             fclose($handle);
         }
+
+        $mi = array();
+        //paliekam tik tuos israsus kurie reikalingi
+        foreach($misrus['swedbank'] as $k => $value){
+            if(array_key_exists("pardavimas", $value)){
+                $ee = explode("/", $k);
+                $mi['swedbank'][$ee[0]] = $value;
+            }
+        }
+        foreach($misrus['luminor'] as $k => $value){
+            if(array_key_exists("pardavimas", $value)){
+                $ee = explode("/", $k);
+                $mi['luminor'][$ee[0]] = $value;
+            }
+        }
+
+        $misrus = $mi;
 
         //Swedbank
         $arr = $date_range2;
@@ -194,6 +258,10 @@ class TerminalController extends Controller
                             $arr[$date]['dineta'] = $arr3[$date]['swedbank'];
                         }
 
+                        if(array_key_exists($date, $misrus['swedbank'])){
+                            $arr[$date]['misrus'] = $misrus['swedbank'][$date];
+                        }
+
                         $arr[$date]['suma'] += $suma[1];
                         $arr[$date]['komisiniai'] += $kom[1];
                         $arr[$date]['pajamos'] += $suma[1] - $kom[1];    
@@ -210,6 +278,7 @@ class TerminalController extends Controller
                     $store[$pa]['pajamos'] += $suma[1] - $kom[1];
                 }
             }
+            fclose($handle);
         }
         
         //LUMINOR
@@ -272,11 +341,17 @@ class TerminalController extends Controller
         //luminor praleidiza dinetos duomenis
         foreach($arr2 as $key => $v){
             $arr2[$key]['dineta'] = $arr3[$key]['luminor'];
+
+            if(array_key_exists($key, $misrus['luminor'])){
+                $arr2[$key]['misrus'] = $misrus['luminor'][$key];
+            }
+            
             if(array_key_exists($key, $st)){
                 $arr2[$key]['pard'] = $st[$key];
             }
             //$arr[$key]['dineta'] = $arr3[$key]['swedbank'];
         }
+
         
         $swed_viso = array(
             'pinigai' => array("suma" => 0, "komisiniai" => 0, "pajamos" => 0, "dineta" => 0),
@@ -291,9 +366,10 @@ class TerminalController extends Controller
         //suskaičiuojam viso, keleta variantu
         $last_key = array_key_last($arr);
         $first_key = array_key_first($arr);
-        
+
         foreach($arr as $key => $va){
             if ($key != $last_key) {
+                //var_dump($key);
                 $swed_viso['pinigai']['dineta'] += $va['dineta'];
                 $swed_viso['pinigai']['suma'] += $va['suma'];
                 $swed_viso['pinigai']['komisiniai'] += $va['komisiniai'];
@@ -301,6 +377,7 @@ class TerminalController extends Controller
             }
 
             if ($key != $first_key) {
+                //var_dump($key);
                 $swed_viso['pajamos']['dineta'] += $va['dineta'];
                 $swed_viso['pajamos']['suma'] += $va['suma'];
                 $swed_viso['pajamos']['komisiniai'] += $va['komisiniai'];
@@ -309,10 +386,11 @@ class TerminalController extends Controller
         }
 
         $last_key2 = array_key_last($arr2);
-        foreach($arr2 as $key => $va){        
-            //var_dump($va['gauta']);
+        $fla = true;
+        foreach($arr2 as $key => $va){      
             $ex = explode("-", $va['data']);
             if ($ex[1] == $menuo) {
+                //var_dump($va['data']);
                 if(isset($va['dineta'])){
                     $lumi_viso['pinigai']['dineta'] += $va['dineta'];
                 }
@@ -330,6 +408,12 @@ class TerminalController extends Controller
                         $lumi_viso['pinigai']['suma'] += $va['dineta'];
                     }
                 }
+                //Jei bankas menesio pirma imeta pinigus
+                //reikia juos isdalinti
+                if($fla && $va['suma'] != $va['dineta']){
+                    $fla = false;
+                    $lumi_viso['pinigai']['suma'] -= ($va['suma'] - $va['dineta']);
+                }
             }
 
             if(isset($va['gauta'])){
@@ -339,9 +423,11 @@ class TerminalController extends Controller
                     if(isset($va['dineta'])){
                         $lumi_viso['pajamos']['dineta'] += $va['dineta'];
                     }
+                   
                     if(isset($va['suma'])){
                         $lumi_viso['pajamos']['suma'] += $va['suma'];
                     }
+                    
                     if(isset($va['komisiniai'])){
                         $lumi_viso['pajamos']['komisiniai'] += $va['komisiniai'];
                     }
@@ -353,24 +439,24 @@ class TerminalController extends Controller
                     if($ey[0] == '00' && $last_key2 != $key) {
                         if(isset($va['dineta'])){
                             $lumi_viso['pajamos']['dineta'] += $va['dineta'];
-                        } 
+                        }
                     }
                 }
             }
         }
 
-        //$arr = array_values($arr);
-        //$arr2 = array_values($arr2);
-        //$store = array_values($store);
         ksort($arr3);
         ksort($arr2);
+
+        $arr3 = array_values($arr3);
+        $arr2 = array_values($arr2);
 
         return response()->json([
             'status' => true,
             'swedbank' => $arr,
             'swed_viso' => $swed_viso,
             'lumi_viso' => $lumi_viso,
-            //'store' => $store,
+            'misrus' => $misrus,
             'luminor' => $arr2,
             'pardavimai' => $arr3,
         ]);

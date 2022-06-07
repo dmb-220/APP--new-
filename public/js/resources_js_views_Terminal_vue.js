@@ -407,8 +407,34 @@ __webpack_require__.r(__webpack_exports__);
       failas_pardavimai: "",
       swedbank: [],
       luminor: [],
-      swed_viso: [],
-      lumi_viso: [],
+      swed_viso: {
+        "pinigai": {
+          "suma": 0,
+          "komisiniai": 0,
+          "pajamos": 0,
+          "dineta": 0
+        },
+        "pajamos": {
+          "suma": 0,
+          "komisiniai": 0,
+          "pajamos": 0,
+          "dineta": 0
+        }
+      },
+      lumi_viso: {
+        "pinigai": {
+          "suma": 0,
+          "komisiniai": 0,
+          "pajamos": 0,
+          "dineta": 0
+        },
+        "pajamos": {
+          "suma": 0,
+          "komisiniai": 0,
+          "pajamos": 0,
+          "dineta": 0
+        }
+      },
       store: []
     };
   },
@@ -421,6 +447,7 @@ __webpack_require__.r(__webpack_exports__);
       if (row.suma.toFixed(2) == row.dineta.toFixed(2)) {
         return this.color[0];
       } else {
+        console.log(this.luminor[index]['suma']);
         return this.color[2];
       }
     },
@@ -5777,7 +5804,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("b-table-column", {
                           staticClass: "has-text-right",
-                          attrs: { label: "DINETA", field: "data" },
+                          attrs: { label: "DINETA", field: "dineta" },
                           scopedSlots: _vm._u([
                             {
                               key: "default",
@@ -6103,7 +6130,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("b-table-column", {
                           staticClass: "has-text-right",
-                          attrs: { label: "DINETA", field: "data" },
+                          attrs: { label: "DINETA", field: "dineta" },
                           scopedSlots: _vm._u([
                             {
                               key: "default",

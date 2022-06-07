@@ -52,11 +52,14 @@
                       {{ props.row.data }}
                 </b-table-column>
                 <b-table-column class="has-text-right" label="SUMA"  field="suma" v-slot="props">
-                      {{ props.row.suma.toFixed(2) }}
+                      {{ props.row.suma.toFixed(2) }} 
                 </b-table-column>
-                <b-table-column class="has-text-right" label="DINETA"  field="data" v-slot="props">
+                <b-table-column class="has-text-right" label="DINETA"  field="dineta" v-slot="props">
                     {{ props.row.dineta.toFixed(2) }}
-              </b-table-column>
+                    <div class="is-size-7 has-text-weight-bold" v-if='"misrus" in props.row'>
+                        - {{ props.row.misrus.suma }} €
+                      </div>
+               </b-table-column>
                 <b-table-column class="has-text-right" label="KOM."  field="komisiniai" v-slot="props">
                       {{ props.row.komisiniai.toFixed(2) }}
                 </b-table-column>
@@ -91,7 +94,9 @@
                 <th> </th>
                 <th>Pinigai:<br>Pajamos:</th>
                 <th>{{ swed_viso['pinigai']['suma'].toFixed(2) }}<br>{{ swed_viso['pajamos']['suma'].toFixed(2) }}</th>
-                <th>{{ swed_viso['pinigai']['dineta'].toFixed(2) }}<br>{{ swed_viso['pajamos']['dineta'].toFixed(2) }}</th>
+                <th>{{ swed_viso['pinigai']['dineta'].toFixed(2) }}<br>{{ swed_viso['pajamos']['dineta'].toFixed(2) }}  
+                  <div class="is-size-7 has-text-weight-bold">- {{ apy_suma.toFixed(2) }} €</div>
+                </th>
                 <th>{{ swed_viso['pinigai']['komisiniai'].toFixed(2) }}<br>{{ swed_viso['pajamos']['komisiniai'].toFixed(2) }}</th>
                 <th>{{ swed_viso['pinigai']['pajamos'].toFixed(2) }}<br>{{ swed_viso['pajamos']['pajamos'].toFixed(2) }}</th>
               </template>
@@ -114,22 +119,25 @@
               default-sort-direction="asc"
               default-sort="data">
               <b-table-column label="DATA" field="data" sortable v-slot="props">
-                    {{ props.row.data }}
+                {{ props.row.data }}
               </b-table-column>
               <b-table-column class="has-text-right" label="SUMA"  field="suma" v-slot="props">
-                    {{ props.row.suma.toFixed(2) }}
+                {{ props.row.suma.toFixed(2) }}
               </b-table-column>
-              <b-table-column class="has-text-right" label="DINETA"  field="data" v-slot="props">
-                    {{ props.row.dineta.toFixed(2) }}
+              <b-table-column class="has-text-right" label="DINETA"  field="dineta" v-slot="props">
+                {{ props.row.dineta.toFixed(2) }}
+                <div class="is-size-7 has-text-weight-bold" v-if='"misrus" in props.row'>
+                     - {{ props.row.misrus.suma }} €
+                </div>
               </b-table-column>
               <b-table-column class="has-text-right" label="KOM."  field="komisiniai" v-slot="props">
-                    {{ props.row.komisiniai.toFixed(2) }}
+                {{ props.row.komisiniai.toFixed(2) }}
               </b-table-column>
               <b-table-column class="has-text-right" label="PAJAMOS"  field="pajamos" v-slot="props">
-                    {{ props.row.pajamos.toFixed(2) }}
+                {{ props.row.pajamos.toFixed(2) }}
               </b-table-column>
               <b-table-column label="GAUTA" field="gauta" sortable v-slot="props">
-                    {{ props.row.gauta }}
+                {{ props.row.gauta }}
               </b-table-column>
               <template #detail="props">
                 <div :style="{'border': '1px solid'}">
@@ -150,7 +158,9 @@
                 <th> </th>
                 <th>Pinigai:<br>Pajamos:</th>
                 <th>{{ lumi_viso['pinigai']['suma'].toFixed(2) }}<br>{{ lumi_viso['pajamos']['suma'].toFixed(2) }}</th>
-                <th>{{ lumi_viso['pinigai']['dineta'].toFixed(2) }}<br>{{ lumi_viso['pajamos']['dineta'].toFixed(2) }}</th>
+                <th>{{ lumi_viso['pinigai']['dineta'].toFixed(2) }}<br>{{ lumi_viso['pajamos']['dineta'].toFixed(2) }}
+                  <div class="is-size-7 has-text-weight-bold">- {{ apy_suma2.toFixed(2) }} €</div>
+                </th>
                 <th>{{ lumi_viso['pinigai']['komisiniai'].toFixed(2) }}<br>{{ lumi_viso['pajamos']['komisiniai'].toFixed(2) }}</th>
                 <th>{{ lumi_viso['pinigai']['pajamos'].toFixed(2) }}<br>{{ lumi_viso['pajamos']['pajamos'].toFixed(2) }}</th>
               </template>
@@ -192,6 +202,7 @@ export default {
       color: [
         'is-one2', 'is-two2', 'is-three2'
       ],
+      eilute: 0,
       file_bankas: null,
       failas_bankas: "",
       file_bankas2: null,
@@ -200,29 +211,74 @@ export default {
       failas_pardavimai: "",
       swedbank: [],
       luminor: [],
-      swed_viso: [],
-      lumi_viso: [],
+      swed_viso: {
+        "pinigai": {
+          "suma": 0, "komisiniai": 0, "pajamos": 0,  "dineta": 0
+        },
+        "pajamos": { "suma": 0, "komisiniai": 0, "pajamos": 0, "dineta": 0 
+        }
+      },
+      lumi_viso: {
+        "pinigai": {
+          "suma": 0, "komisiniai": 0, "pajamos": 0, "dineta": 0
+        },
+        "pajamos": { 
+          "suma": 0, "komisiniai": 0, "pajamos": 0, "dineta": 0 
+        }
+      },
       store: [],
     }
   },
   computed: {
+    apy_suma: function(){
+      let total = [];
+        Object.entries(this.swedbank).forEach(([key, val]) => {
+          if("misrus" in val){
+            total.push(val.misrus.suma) // the value of the current key.
+          }
+        });
+      return total.reduce(function(total, num){ return total + num }, 0);
+
+    },
+    apy_suma2: function(){
+      let total = [];
+        Object.entries(this.luminor).forEach(([key, val]) => {
+          if("misrus" in val){
+            total.push(val.misrus.suma) // the value of the current key.
+          }
+        });
+      return total.reduce(function(total, num){ return total + num }, 0);
+
+    },
   },
   created () {
     this.getData();
   },
   methods: {
-    onRowClass: function (row, index) {
-      if(row.suma.toFixed(2) == row.dineta.toFixed(2)){
-        return this.color[0];
-      }else{
-        return this.color[2];
-      }
-    },
     onRowClass2: function (row, index) {
       if(row.suma.toFixed(2) == row.dineta.toFixed(2)){
         return this.color[0];
       }else{
-        return this.color[2];
+        if("misrus" in row){
+          if((row.misrus['suma'] + row.suma).toFixed(2) == row.dineta.toFixed(2)){
+            return this.color[1];
+          }
+        }else{
+            return this.color[2];
+          }
+      }
+    },
+    onRowClass: function (row, index) {
+      if(row.suma.toFixed(2) == row.dineta.toFixed(2)){
+        return this.color[0];
+      }else{
+        if("misrus" in row){
+          if((row.misrus['suma'] + row.suma).toFixed(2) == row.dineta.toFixed(2)){
+            return this.color[1];
+          }
+        }else{
+            return this.color[2];
+          }
       }
     },
     file_info_bankas (value) {
@@ -249,7 +305,7 @@ export default {
         this.luminor = response.data.luminor; 
         this.swed_viso = response.data.swed_viso;
         this.lumi_viso = response.data.lumi_viso;
-        this.store = response.data.store;       
+        this.store = response.data.store;         
       })
       .catch( err => {
             this.isLoading = false
