@@ -206,6 +206,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
 /* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
 /* harmony import */ var _components_FilePickerTerminalas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/FilePickerTerminalas */ "./resources/js/components/FilePickerTerminalas.vue");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -399,6 +421,7 @@ __webpack_require__.r(__webpack_exports__);
       isLoading: false,
       isFullPage: true,
       color: ['is-one2', 'is-two2', 'is-three2'],
+      eilute: 0,
       file_bankas: null,
       failas_bankas: "",
       file_bankas2: null,
@@ -438,24 +461,66 @@ __webpack_require__.r(__webpack_exports__);
       store: []
     };
   },
-  computed: {},
+  computed: {
+    apy_suma: function apy_suma() {
+      var total = [];
+      Object.entries(this.swedbank).forEach(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+            key = _ref2[0],
+            val = _ref2[1];
+
+        if ("misrus" in val) {
+          total.push(val.misrus.suma); // the value of the current key.
+        }
+      });
+      return total.reduce(function (total, num) {
+        return total + num;
+      }, 0);
+    },
+    apy_suma2: function apy_suma2() {
+      var total = [];
+      Object.entries(this.luminor).forEach(function (_ref3) {
+        var _ref4 = _slicedToArray(_ref3, 2),
+            key = _ref4[0],
+            val = _ref4[1];
+
+        if ("misrus" in val) {
+          total.push(val.misrus.suma); // the value of the current key.
+        }
+      });
+      return total.reduce(function (total, num) {
+        return total + num;
+      }, 0);
+    }
+  },
   created: function created() {
     this.getData();
   },
   methods: {
-    onRowClass: function onRowClass(row, index) {
-      if (row.suma.toFixed(2) == row.dineta.toFixed(2)) {
-        return this.color[0];
-      } else {
-        console.log(this.luminor[index]['suma']);
-        return this.color[2];
-      }
-    },
     onRowClass2: function onRowClass2(row, index) {
       if (row.suma.toFixed(2) == row.dineta.toFixed(2)) {
         return this.color[0];
       } else {
-        return this.color[2];
+        if ("misrus" in row) {
+          if ((row.misrus['suma'] + row.suma).toFixed(2) == row.dineta.toFixed(2)) {
+            return this.color[1];
+          }
+        } else {
+          return this.color[2];
+        }
+      }
+    },
+    onRowClass: function onRowClass(row, index) {
+      if (row.suma.toFixed(2) == row.dineta.toFixed(2)) {
+        return this.color[0];
+      } else {
+        if ("misrus" in row) {
+          if ((row.misrus['suma'] + row.suma).toFixed(2) == row.dineta.toFixed(2)) {
+            return this.color[1];
+          }
+        } else {
+          return this.color[2];
+        }
       }
     },
     file_info_bankas: function file_info_bankas(value) {
@@ -5719,7 +5784,21 @@ var render = function () {
                                       _vm.swed_viso["pajamos"][
                                         "dineta"
                                       ].toFixed(2)
-                                    )
+                                    ) + "  \n                "
+                                  ),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "is-size-7 has-text-weight-bold",
+                                    },
+                                    [
+                                      _vm._v(
+                                        "- " +
+                                          _vm._s(_vm.apy_suma.toFixed(2)) +
+                                          " €"
+                                      ),
+                                    ]
                                   ),
                                 ]),
                                 _vm._v(" "),
@@ -5794,7 +5873,7 @@ var render = function () {
                                   _vm._v(
                                     "\n                    " +
                                       _vm._s(props.row.suma.toFixed(2)) +
-                                      "\n              "
+                                      " \n              "
                                   ),
                                 ]
                               },
@@ -5813,8 +5892,24 @@ var render = function () {
                                   _vm._v(
                                     "\n                  " +
                                       _vm._s(props.row.dineta.toFixed(2)) +
-                                      "\n            "
+                                      "\n                  "
                                   ),
+                                  "misrus" in props.row
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "is-size-7 has-text-weight-bold",
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                      - " +
+                                              _vm._s(props.row.misrus.suma) +
+                                              " €\n                    "
+                                          ),
+                                        ]
+                                      )
+                                    : _vm._e(),
                                 ]
                               },
                             },
@@ -6045,7 +6140,21 @@ var render = function () {
                                       _vm.lumi_viso["pajamos"][
                                         "dineta"
                                       ].toFixed(2)
-                                    )
+                                    ) + "\n                "
+                                  ),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "is-size-7 has-text-weight-bold",
+                                    },
+                                    [
+                                      _vm._v(
+                                        "- " +
+                                          _vm._s(_vm.apy_suma2.toFixed(2)) +
+                                          " €"
+                                      ),
+                                    ]
                                   ),
                                 ]),
                                 _vm._v(" "),
@@ -6099,7 +6208,7 @@ var render = function () {
                               fn: function (props) {
                                 return [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n              " +
                                       _vm._s(props.row.data) +
                                       "\n            "
                                   ),
@@ -6118,7 +6227,7 @@ var render = function () {
                               fn: function (props) {
                                 return [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n              " +
                                       _vm._s(props.row.suma.toFixed(2)) +
                                       "\n            "
                                   ),
@@ -6137,10 +6246,26 @@ var render = function () {
                               fn: function (props) {
                                 return [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n              " +
                                       _vm._s(props.row.dineta.toFixed(2)) +
-                                      "\n            "
+                                      "\n              "
                                   ),
+                                  "misrus" in props.row
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "is-size-7 has-text-weight-bold",
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                   - " +
+                                              _vm._s(props.row.misrus.suma) +
+                                              " €\n              "
+                                          ),
+                                        ]
+                                      )
+                                    : _vm._e(),
                                 ]
                               },
                             },
@@ -6156,7 +6281,7 @@ var render = function () {
                               fn: function (props) {
                                 return [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n              " +
                                       _vm._s(props.row.komisiniai.toFixed(2)) +
                                       "\n            "
                                   ),
@@ -6175,7 +6300,7 @@ var render = function () {
                               fn: function (props) {
                                 return [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n              " +
                                       _vm._s(props.row.pajamos.toFixed(2)) +
                                       "\n            "
                                   ),
@@ -6197,7 +6322,7 @@ var render = function () {
                               fn: function (props) {
                                 return [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n              " +
                                       _vm._s(props.row.gauta) +
                                       "\n            "
                                   ),

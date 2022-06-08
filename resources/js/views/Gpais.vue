@@ -11,11 +11,11 @@
             <b-table-column label=" " v-slot="props"> 
                 {{ props.index + 1 }}
             </b-table-column>
+            <b-table-column label="Data" field="tiekimoRinkaiData" v-slot="props"> 
+                {{ props.row.tiekimoRinkaiData }}
+            </b-table-column>
             <b-table-column label="Pavadinimas" field="produktoKodas" v-slot="props"> 
                 {{ props.row.produktoKodas }}
-            </b-table-column>
-            <b-table-column label="Pakuote" field="pakuotes_rusis" v-slot="props"> 
-                {{ props.row.pakuotes_rusis }}
             </b-table-column>
             <b-table-column label="Kiekis, pakuoteje" field="kiekis" v-slot="props"> 
                 {{ props.row.kiekis }} vnt.
@@ -34,6 +34,10 @@
       <hr>
       <div class="buttons">
         <b-button size="is-medium" icon-left="printer" type="is-dark" @click="print">SPAUSDINTI</b-button>
+        <b-button tag="a" type="is-dark" size="is-medium" icon-left="download"
+          href="gpais/get_xml" target="_blank">
+          ATSISIŲSTI
+        </b-button>
       </div>
       </card-component>
     </section>

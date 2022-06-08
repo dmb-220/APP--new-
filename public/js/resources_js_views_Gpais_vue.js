@@ -53,6 +53,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Gpais',
@@ -233,7 +237,7 @@ var render = function () {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Pavadinimas", field: "produktoKodas" },
+                    attrs: { label: "Data", field: "tiekimoRinkaiData" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -241,7 +245,7 @@ var render = function () {
                           return [
                             _vm._v(
                               " \n            " +
-                                _vm._s(props.row.produktoKodas) +
+                                _vm._s(props.row.tiekimoRinkaiData) +
                                 "\n        "
                             ),
                           ]
@@ -251,7 +255,7 @@ var render = function () {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Pakuote", field: "pakuotes_rusis" },
+                    attrs: { label: "Pavadinimas", field: "produktoKodas" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -259,7 +263,7 @@ var render = function () {
                           return [
                             _vm._v(
                               " \n            " +
-                                _vm._s(props.row.pakuotes_rusis) +
+                                _vm._s(props.row.produktoKodas) +
                                 "\n        "
                             ),
                           ]
@@ -368,6 +372,21 @@ var render = function () {
                   on: { click: _vm.print },
                 },
                 [_vm._v("SPAUSDINTI")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-button",
+                {
+                  attrs: {
+                    tag: "a",
+                    type: "is-dark",
+                    size: "is-medium",
+                    "icon-left": "download",
+                    href: "gpais/get_xml",
+                    target: "_blank",
+                  },
+                },
+                [_vm._v("\n        ATSISIŲSTI\n      ")]
               ),
             ],
             1
