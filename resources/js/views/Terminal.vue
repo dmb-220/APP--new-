@@ -5,27 +5,29 @@
       <card-component title="VALDYMAS" icon="account-multiple">
         <div class="columns">
           <div class="column">
-             <b-field  label="Swedbank:" horizontal>
-              <file-picker-terminalas @file-updated="file_info_bankas" v-model="file_bankas"/>
-            </b-field>
-            <b-field  label="Luminor:" horizontal> 
-              <file-picker-terminalas @file-updated="file_info_bankas2" v-model="file_bankas2"/>
-            </b-field>
-              <b-field  label=" " horizontal>
+            <file-picker-post-mini 
+              @file-updated="file_info_bankas" 
+              post-subject="/terminal/store_terminalas" 
+              label="Swedbank" 
+              v-model="file_bankas"/>
+            <file-picker-post-mini 
+            @file-updated="file_info_bankas2"
+            post-subject="/terminal/store_terminalas" 
+            label="Luminor" 
+            v-model="file_bankas2"/>
             <p class="control">
-              <button class="button is-sark" @click="suformuoti">Suformuoti</button>
+               <b-button size="is-medium" type="is-dark" @click="suformuoti()">SUFORMUOTI</b-button>
             </p>
-            </b-field>
           </div>
           <div class="column">
-            <b-field  label="Pardavimai:" horizontal>
-              <file-picker-terminalas @file-updated="file_info_pardavimai" v-model="file_pardavimai"/>
-            </b-field>  
-            <b-field  label=" " horizontal>
+            <file-picker-post-mini 
+              @file-updated="file_info_pardavimai" 
+              post-subject="/terminal/store_terminalas" 
+              label="Pardavimų CSV" 
+              v-model="file_pardavimai"/> 
               <p class="control">
-                <button class="button is-dark" @click="suformuoti">Sudengti</button>
+                <b-button size="is-medium" type="is-dark" @click="suformuoti()">SUDENGTI</b-button>
               </p>
-            </b-field>
           </div>
         </div>
       </card-component>
@@ -187,11 +189,11 @@ import map from 'lodash/map'
 import CardComponent from '@/components/CardComponent'
 import CardToolbar from '@/components/CardToolbar'
 
-import FilePickerTerminalas from '@/components/FilePickerTerminalas'
+import FilePickerPostMini from '@/components/FilePickerPostMini'
 
 export default {
   name: "Terminal",
-  components: {CardToolbar, CardComponent, FilePickerTerminalas },
+  components: {CardToolbar, CardComponent, FilePickerPostMini },
   data () {
     return {
       defaultOpenedDetails: [1],

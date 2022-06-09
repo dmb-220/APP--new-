@@ -20,17 +20,21 @@
 import each from 'lodash/each'
 
 export default {
-  name: 'FilePickerExport',
+  name: 'FilePickerPost',
   props: {
     label: {
       type: String,
-      default: 'Export failo įkėlimas',
+      default: 'CSV failo įkėlimas',
     },
     message: {
       type: String,
       default: null,
     },
     currentFile: {
+      default: null
+    },
+    postSubject: {
+      type: String,
       default: null
     }
   },
@@ -88,7 +92,7 @@ export default {
       //console.log(JSON.stringify(formData));
 
       axios
-        .post('/export/store_akcija', formData, {
+        .post(this.postSubject, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           },

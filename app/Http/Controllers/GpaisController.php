@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Gpais;
 
+use App\Models\File;
+use App\Http\Requests\FileUploadRequest;
+use Illuminate\Http\Request;
+
 use Spatie\ArrayToXml\ArrayToXml;
 use App\Imports\ExcelImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -238,6 +242,30 @@ class GpaisController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function store_gpais(Request $request){
+        $uploadedFile = $request->file('file');
+
+        if (!$uploadedFile->isValid()) {
+            abort( 422 );
+        }
+
+        $storePath = $uploadedFile->storeAs('Gpais/', $uploadedFile->getClientOriginalName());
+        $file = new File;
+
+        $file->name = $uploadedFile->getClientOriginalName();
+        $file->file = $storePath;
+        $file->mime = $uploadedFile->getMimeType();
+        $file->size = $uploadedFile->getSize();
+
+        $file->save();
+
+        return response()->json([
+            'status' => true,
+            'data' => $file,
+            'upload' => $uploadedFile
+        ]);
     }
 
     /**

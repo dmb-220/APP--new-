@@ -33,6 +33,13 @@ Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('i
 //dalinimo analizavimas
 Route::get('/excel', [App\Http\Controllers\ExcelController::class, 'index'])->name('index');
 
+//Pajamavimo suma
+Route::prefix('/income')->group(function () {
+    Route::get('/', [App\Http\Controllers\IncomeController::class, 'index'])->name('index');
+    Route::post('store',  [App\Http\Controllers\IncomeController::class, 'store'])->name('store');
+    Route::post('store_income',  [App\Http\Controllers\IncomeController::class, 'store_income'])->name('store_income');
+});
+
 //Darbo apskaita
 Route::prefix('/works')->group(function () {
     Route::get('/', [App\Http\Controllers\WorksController::class, 'index'])->name('index');
@@ -43,6 +50,8 @@ Route::prefix('/works')->group(function () {
 //GPAIS
 Route::prefix('/gpais')->group(function () {
     Route::get('/', [App\Http\Controllers\GpaisController::class, 'index'])->name('index');
+    Route::post('store',  [App\Http\Controllers\GpaisController::class, 'store'])->name('store');
+    Route::post('store_gpais',  [App\Http\Controllers\GpaisController::class, 'store_gpais'])->name('store_gpais');
     Route::get('/get_xml', [App\Http\Controllers\GpaisController::class, 'get_xml'])->name('get_xml');
 });
 

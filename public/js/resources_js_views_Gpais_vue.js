@@ -386,7 +386,7 @@ var render = function () {
                     target: "_blank",
                   },
                 },
-                [_vm._v("\n        ATSISIŲSTI\n      ")]
+                [_vm._v("\n      ATSISIŲSTI\n    ")]
               ),
             ],
             1

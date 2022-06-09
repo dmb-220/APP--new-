@@ -2,6 +2,11 @@
     <section class="section is-main-section">
     <b-loading :is-full-page="isFullPage" v-model="isLoading"></b-loading>
       <card-component title="VALDYMAS" icon="finance">
+        <file-picker-post 
+        @file-updated="file_info" 
+        post-subject="/gpais/store_gpais" 
+        label="CSV failo įkėlimas"  
+        v-model="file"/>
       </card-component>
       <card-component title="GPAIS" icon="account-multiple">
         <div  id="printMe">
@@ -45,16 +50,19 @@
 
 <script>
 import CardComponent from '@/components/CardComponent'
+import FilePickerPost from '@/components/FilePickerPost'
 
 export default {
   name: 'Gpais',
-  components: { CardComponent },
+  components: { CardComponent, FilePickerPost },
   data () {
     return {
     works: '',
      isLoading: false,
      isFullPage: true,
      gpais: [],
+     file: null,
+    failas: '',
     }
   },
   computed: {
@@ -62,9 +70,11 @@ export default {
   created() {
     this.getData()
     },
-  mounted () {
-  },
+
   methods: {
+    file_info (value) {
+      this.failas = value.name;
+    },
     print() {
       // Pass the element id here
       this.mobile_card = false;

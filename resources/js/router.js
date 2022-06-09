@@ -149,6 +149,11 @@ export default new Router({
       name: 'GPAIS',
       component: () => import('./views/Gpais.vue')
     },
+    {
+      path: '/income',
+      name: 'Income',
+      component: () => import('./views/Income.vue')
+    },
     /*
     {
       path: '/sandeliai',

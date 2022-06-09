@@ -2,7 +2,16 @@
     <section class="section is-main-section">
     <b-loading :is-full-page="isFullPage" v-model="isLoading"></b-loading>
       <card-component title="VALDYMAS" icon="finance">
-          <file-picker-works @file-updated="file_info_works" v-model="file_works"/>
+          <file-picker-post 
+            @file-updated="file_info_works" 
+            post-subject="/works/store_works" 
+            label="Pardavimo sąrašas, CSV" 
+            v-model="file_works"/>
+            <p class="is-size-7">
+              CSV failas gaunamas: Ataskaitos -> Pirkimų / Pardavimų ataskaitos -> Pardavimų sąrašas<br>
+              Filtras: tik data NUO - IKI
+            </p>
+            <hr>
           <div class="columns">
             <div class="column">
               <b-datepicker
@@ -94,11 +103,11 @@
 
 <script>
 import CardComponent from '@/components/CardComponent'
-import FilePickerWorks from '@/components/FilePickerWorks'
+import FilePickerPost from '@/components/FilePickerPost'
 
 export default {
   name: 'Works',
-  components: { CardComponent, FilePickerWorks },
+  components: { CardComponent, FilePickerPost },
   data () {
     return {
     works: [],

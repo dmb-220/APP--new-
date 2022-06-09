@@ -207,7 +207,12 @@ export default {
                 to: '/gpais',
                 label: 'GPAIS',
                 icon: 'recycle',
-              }        
+              },
+              {
+                to: '/income',
+                label: 'Pajamavimo suma',
+                icon: 'coins',
+              }          
             ]
           },
           {},

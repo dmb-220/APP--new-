@@ -4,15 +4,32 @@
       <div class="has-text-centered">Paskutini karta atnaujinta: {{ date }}</div>
         <div class="columns">
           <div class="column">
-            <file-picker-export @file-updated="file_info" v-model="file"/>
+            <file-picker-post 
+            @file-updated="file_info"
+            post-subject="/export/store_akcija" 
+            label="Export failo įkėlimas" 
+            v-model="file"/>
+            <p class="is-size-7">
+              CSV failas: Ataskaitos -> Generuojamos ataskaitos -> Eksportas lipduku spausdinimui<br>
+              Filtras: viska išvalyti, nes reikalingas visas barkodų sąrašas
+            </p>
             <p class="control">
-              <button class="button is-sark" @click="update_list">Atnaujinti</button>
+              <b-button size="is-medium" type="is-dark" @click="update_list">Atnaujinti</b-button>
             </p>
           </div>
           <div class="column">
-            <file-picker-list @file-updated="file_info2" v-model="file2"/>
+            <file-picker-post 
+            @file-updated="file_info2" 
+            post-subject="/export/store_akcija" 
+            label="Saskaitos failo įkėlimas" 
+            v-model="file2"/>
+            <p class="is-size-7">
+              CSV failas: Ataskaitos -> Generuojamos ataskaitos -> Atsargų operacijos arba<br>
+              Atsargos -> Atsargų ataskaitos -> Prekių likutis<br>
+              Filtras: išsifiltruoti norimų prekių sąrašą
+            </p>
             <p class="control">
-              <button class="button is-sark" @click="update_list">Suformuoti</button>
+              <b-button size="is-medium" type="is-dark" @click="update_list">Atnaujinti</b-button>
             </p>
           </div>
         </div>
@@ -78,12 +95,11 @@
 
 <script>
 import CardComponent from '@/components/CardComponent'
-import FilePickerExport from '@/components/FilePickerExport'
-import FilePickerList from '@/components/FilePickerList'
+import FilePickerPost from '@/components/FilePickerPost'
 
 export default {
-  name: 'akcijos',
-  components: { CardComponent, FilePickerExport, FilePickerList },
+  name: 'Export',
+  components: { CardComponent, FilePickerPost },
   data () {
     return {
       columns : [
@@ -111,7 +127,7 @@ export default {
       isNarrowed: true,
       mobile_card: true,
       sarasas: [],
-      date: ''
+      date: '',
     }
   },
   computed: {

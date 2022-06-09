@@ -16,7 +16,7 @@
 import each from 'lodash/each'
 
 export default {
-  name: 'FilePickerTerminalas',
+  name: 'FilePickerPostMini',
   props: {
     label: {
       type: String,
@@ -27,6 +27,10 @@ export default {
       default: null,
     },
     currentFile: {
+      default: null
+    },
+    postSubject: {
+      type: String,
       default: null
     }
   },
@@ -84,7 +88,7 @@ export default {
       //console.log(JSON.stringify(formData));
 
       axios
-        .post('/terminal/store_terminalas', formData, {
+        .post(this.postSubject, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           },
