@@ -23,6 +23,10 @@ import "vue-wysiwyg/dist/vueWysiwyg.css";
 import VueExcelXlsx from "vue-excel-xlsx";
 Vue.use(VueExcelXlsx);
 
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+Vue.use(VueSweetalert2);
+
 import VueHtmlToPaper from 'vue-html-to-paper';
 const options = {
   name: '_blank',

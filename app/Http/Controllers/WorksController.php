@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Works;
+use App\Models\WorksInventory;
 use Illuminate\Http\Request;
 
 use App\Models\File;

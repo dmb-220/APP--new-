@@ -40,10 +40,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerIncome.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerIncome.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPost.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPost.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -73,7 +73,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'FilePickerIncome',
+  name: 'FilePickerPost',
   props: {
     label: {
       type: String,
@@ -84,6 +84,10 @@ __webpack_require__.r(__webpack_exports__);
       "default": null
     },
     currentFile: {
+      "default": null
+    },
+    postSubject: {
+      type: String,
       "default": null
     }
   },
@@ -141,7 +145,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('file', this.file);
       this.isUploadSuccess = false; //console.log(JSON.stringify(formData));
 
-      axios.post('/income/store_income', formData, {
+      axios.post(this.postSubject, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -207,11 +211,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
 /* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
-/* harmony import */ var _components_FilePickerIncome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/FilePickerIncome */ "./resources/js/components/FilePickerIncome.vue");
-var _methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+/* harmony import */ var _components_FilePickerPost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/FilePickerPost */ "./resources/js/components/FilePickerPost.vue");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -257,6 +257,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -265,7 +270,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   components: {
     CardToolbar: _components_CardToolbar__WEBPACK_IMPORTED_MODULE_1__["default"],
     CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
-    FilePickerIncome: _components_FilePickerIncome__WEBPACK_IMPORTED_MODULE_2__["default"]
+    FilePickerPost: _components_FilePickerPost__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -319,25 +324,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       return total.reduce(function (total, num) {
         return total + num;
       }, 0);
-    },
-    kiekis: function kiekis() {
-      var total = [];
-      Object.entries(this.list).forEach(function (_ref5) {
-        var _ref6 = _slicedToArray(_ref5, 2),
-            key = _ref6[0],
-            val = _ref6[1];
-
-        total.push(val.kiekis); // the value of the current key.
-      });
-      return total.reduce(function (total, num) {
-        return total + num;
-      }, 0);
     }
   },
   created: function created() {
     this.getData();
   },
-  methods: (_methods = {
+  methods: {
     onRowClass: function onRowClass(row, index) {
       if (row.kaina == "Nerasta" || row.savikaina == "Nerasta") {
         return this.color[2];
@@ -346,48 +338,49 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     file_info: function file_info(value) {
       this.failas = value.name;
     },
-    suformuoti: function suformuoti() {}
-  }, _defineProperty(_methods, "suformuoti", function suformuoti() {
-    var _this = this;
+    suformuoti: function suformuoti() {
+      var _this = this;
 
-    this.isLoading = true;
-    axios.post("/income/store", {
-      file: this.failas
-    }).then(function (response) {
-      //console.log(response.data.data)
-      _this.getData();
+      this.isLoading = true;
+      axios.post("/income/store", {
+        file: this.failas
+      }).then(function (response) {
+        //console.log(response.data.data)
+        _this.getData();
 
-      _this.$buefy.toast.open({
-        message: "Duomenys atnaujinti!",
-        type: 'is-info' //queue: false
+        _this.$buefy.toast.open({
+          message: "Duomenys atnaujinti!",
+          type: 'is-info' //queue: false
 
+        });
+      })["catch"](function (err) {
+        _this.isLoading = false;
+
+        _this.$buefy.toast.open({
+          message: "Error: ".concat(err.message),
+          type: 'is-danger',
+          queue: false
+        });
       });
-    })["catch"](function (err) {
-      _this.isLoading = false;
+    },
+    getData: function getData() {
+      var _this2 = this;
 
-      _this.$buefy.toast.open({
-        message: "Error: ".concat(err.message),
-        type: 'is-danger',
-        queue: false
+      this.isLoading = true;
+      this.axios.get('/income').then(function (response) {
+        _this2.isLoading = false;
+        _this2.list = response.data.list; //console.log(response.data);  
+      })["catch"](function (err) {
+        _this2.isLoading = false;
+
+        _this2.$buefy.toast.open({
+          message: "Error: ".concat(err.message),
+          type: 'is-danger',
+          queue: false
+        });
       });
-    });
-  }), _defineProperty(_methods, "getData", function getData() {
-    var _this2 = this;
-
-    this.isLoading = true;
-    this.axios.get('/income').then(function (response) {
-      _this2.isLoading = false;
-      _this2.list = response.data.list; //console.log(response.data);  
-    })["catch"](function (err) {
-      _this2.isLoading = false;
-
-      _this2.$buefy.toast.open({
-        message: "Error: ".concat(err.message),
-        type: 'is-danger',
-        queue: false
-      });
-    });
-  }), _methods)
+    }
+  }
 });
 
 /***/ }),
@@ -1762,10 +1755,10 @@ component.options.__file = "resources/js/components/CardToolbar.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/FilePickerIncome.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/FilePickerIncome.vue ***!
-  \******************************************************/
+/***/ "./resources/js/components/FilePickerPost.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/FilePickerPost.vue ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1773,8 +1766,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _FilePickerIncome_vue_vue_type_template_id_cbf5f744___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FilePickerIncome.vue?vue&type=template&id=cbf5f744& */ "./resources/js/components/FilePickerIncome.vue?vue&type=template&id=cbf5f744&");
-/* harmony import */ var _FilePickerIncome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilePickerIncome.vue?vue&type=script&lang=js& */ "./resources/js/components/FilePickerIncome.vue?vue&type=script&lang=js&");
+/* harmony import */ var _FilePickerPost_vue_vue_type_template_id_624a2b15___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FilePickerPost.vue?vue&type=template&id=624a2b15& */ "./resources/js/components/FilePickerPost.vue?vue&type=template&id=624a2b15&");
+/* harmony import */ var _FilePickerPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilePickerPost.vue?vue&type=script&lang=js& */ "./resources/js/components/FilePickerPost.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1784,9 +1777,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _FilePickerIncome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _FilePickerIncome_vue_vue_type_template_id_cbf5f744___WEBPACK_IMPORTED_MODULE_0__.render,
-  _FilePickerIncome_vue_vue_type_template_id_cbf5f744___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _FilePickerPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FilePickerPost_vue_vue_type_template_id_624a2b15___WEBPACK_IMPORTED_MODULE_0__.render,
+  _FilePickerPost_vue_vue_type_template_id_624a2b15___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -1796,7 +1789,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/FilePickerIncome.vue"
+component.options.__file = "resources/js/components/FilePickerPost.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -1856,10 +1849,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/FilePickerIncome.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/FilePickerIncome.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/components/FilePickerPost.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/FilePickerPost.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1867,8 +1860,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerIncome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerIncome.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerIncome.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerIncome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerPost.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPost.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -1905,19 +1898,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/FilePickerIncome.vue?vue&type=template&id=cbf5f744&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/FilePickerIncome.vue?vue&type=template&id=cbf5f744& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/components/FilePickerPost.vue?vue&type=template&id=624a2b15&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/FilePickerPost.vue?vue&type=template&id=624a2b15& ***!
+  \***********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerIncome_vue_vue_type_template_id_cbf5f744___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerIncome_vue_vue_type_template_id_cbf5f744___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPost_vue_vue_type_template_id_624a2b15___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPost_vue_vue_type_template_id_624a2b15___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerIncome_vue_vue_type_template_id_cbf5f744___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerIncome.vue?vue&type=template&id=cbf5f744& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerIncome.vue?vue&type=template&id=cbf5f744&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPost_vue_vue_type_template_id_624a2b15___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerPost.vue?vue&type=template&id=624a2b15& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPost.vue?vue&type=template&id=624a2b15&");
 
 
 /***/ }),
@@ -1974,10 +1967,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerIncome.vue?vue&type=template&id=cbf5f744&":
-/*!****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerIncome.vue?vue&type=template&id=cbf5f744& ***!
-  \****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPost.vue?vue&type=template&id=624a2b15&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPost.vue?vue&type=template&id=624a2b15& ***!
+  \**************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2087,7 +2080,11 @@ var render = function () {
         "card-component",
         { attrs: { title: "VALDYMAS", icon: "account-multiple" } },
         [
-          _c("file-picker-income", {
+          _c("file-picker-post", {
+            attrs: {
+              "post-subject": "/income/store_income",
+              label: "CSV failo įkėlimas",
+            },
             on: { "file-updated": _vm.file_info },
             model: {
               value: _vm.file,
@@ -2098,12 +2095,12 @@ var render = function () {
             },
           }),
           _vm._v(" "),
-          _c("hr"),
-          _vm._v(
-            "\n  INFO: CSV failas gaunamas, Ataskaitos -> Generuojamos ataskaitos -> Atsargų operacijos"
-          ),
-          _c("br"),
-          _vm._v("\n  Filtras: įvesti dokumento arba blanko nr.\n  "),
+          _c("p", { staticClass: "is-size-7" }, [
+            _vm._v(
+              "\n    CSV failas gaunamas: Ataskaitos -> Generuojamos ataskaitos -> Atsargų operacijos\n    Filtras: įvesti dokumento arba blanko nr.\n  "
+            ),
+          ]),
+          _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
           _c(
@@ -2148,11 +2145,11 @@ var render = function () {
                     _vm._v(" "),
                     _c("th"),
                     _vm._v(" "),
-                    _c("th", [_vm._v(_vm._s(_vm.kiekis))]),
+                    _c("th"),
                     _vm._v(" "),
-                    _c("th", [_vm._v(_vm._s(_vm.kaina))]),
+                    _c("th", [_vm._v(_vm._s(_vm.kaina.toFixed(2)))]),
                     _vm._v(" "),
-                    _c("th", [_vm._v(_vm._s(_vm.savikaina))]),
+                    _c("th", [_vm._v(_vm._s(_vm.savikaina.toFixed(2)))]),
                   ]
                 },
                 proxy: true,

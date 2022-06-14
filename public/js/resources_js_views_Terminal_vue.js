@@ -40,10 +40,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerTerminalas.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerTerminalas.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -69,7 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'FilePickerTerminalas',
+  name: 'FilePickerPostMini',
   props: {
     label: {
       type: String,
@@ -80,6 +80,10 @@ __webpack_require__.r(__webpack_exports__);
       "default": null
     },
     currentFile: {
+      "default": null
+    },
+    postSubject: {
+      type: String,
       "default": null
     }
   },
@@ -137,7 +141,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('file_bankas', this.file_bankas);
       this.isUploadSuccess = false; //console.log(JSON.stringify(formData));
 
-      axios.post('/terminal/store_terminalas', formData, {
+      axios.post(this.postSubject, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -205,7 +209,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
 /* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
-/* harmony import */ var _components_FilePickerTerminalas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/FilePickerTerminalas */ "./resources/js/components/FilePickerTerminalas.vue");
+/* harmony import */ var _components_FilePickerPostMini__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/FilePickerPostMini */ "./resources/js/components/FilePickerPostMini.vue");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -402,6 +406,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
 
 
 
@@ -411,7 +417,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   components: {
     CardToolbar: _components_CardToolbar__WEBPACK_IMPORTED_MODULE_2__["default"],
     CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FilePickerTerminalas: _components_FilePickerTerminalas__WEBPACK_IMPORTED_MODULE_3__["default"]
+    FilePickerPostMini: _components_FilePickerPostMini__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -5143,10 +5149,10 @@ component.options.__file = "resources/js/components/CardToolbar.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/FilePickerTerminalas.vue":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/FilePickerTerminalas.vue ***!
-  \**********************************************************/
+/***/ "./resources/js/components/FilePickerPostMini.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/FilePickerPostMini.vue ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5154,8 +5160,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _FilePickerTerminalas_vue_vue_type_template_id_65139d3a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FilePickerTerminalas.vue?vue&type=template&id=65139d3a& */ "./resources/js/components/FilePickerTerminalas.vue?vue&type=template&id=65139d3a&");
-/* harmony import */ var _FilePickerTerminalas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilePickerTerminalas.vue?vue&type=script&lang=js& */ "./resources/js/components/FilePickerTerminalas.vue?vue&type=script&lang=js&");
+/* harmony import */ var _FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FilePickerPostMini.vue?vue&type=template&id=6555298c& */ "./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c&");
+/* harmony import */ var _FilePickerPostMini_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilePickerPostMini.vue?vue&type=script&lang=js& */ "./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -5165,9 +5171,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _FilePickerTerminalas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _FilePickerTerminalas_vue_vue_type_template_id_65139d3a___WEBPACK_IMPORTED_MODULE_0__.render,
-  _FilePickerTerminalas_vue_vue_type_template_id_65139d3a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _FilePickerPostMini_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -5177,7 +5183,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/FilePickerTerminalas.vue"
+component.options.__file = "resources/js/components/FilePickerPostMini.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -5237,10 +5243,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/FilePickerTerminalas.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/FilePickerTerminalas.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************/
+/***/ "./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5248,8 +5254,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerTerminalas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerTerminalas.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerTerminalas.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerTerminalas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerPostMini.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -5286,19 +5292,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/FilePickerTerminalas.vue?vue&type=template&id=65139d3a&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/FilePickerTerminalas.vue?vue&type=template&id=65139d3a& ***!
-  \*****************************************************************************************/
+/***/ "./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c& ***!
+  \***************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerTerminalas_vue_vue_type_template_id_65139d3a___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerTerminalas_vue_vue_type_template_id_65139d3a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerTerminalas_vue_vue_type_template_id_65139d3a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerTerminalas.vue?vue&type=template&id=65139d3a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerTerminalas.vue?vue&type=template&id=65139d3a&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerPostMini.vue?vue&type=template&id=6555298c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c&");
 
 
 /***/ }),
@@ -5355,10 +5361,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerTerminalas.vue?vue&type=template&id=65139d3a&":
-/*!********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerTerminalas.vue?vue&type=template&id=65139d3a& ***!
-  \********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c& ***!
+  \******************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5471,54 +5477,55 @@ var render = function () {
                 "div",
                 { staticClass: "column" },
                 [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "Swedbank:", horizontal: "" } },
-                    [
-                      _c("file-picker-terminalas", {
-                        on: { "file-updated": _vm.file_info_bankas },
-                        model: {
-                          value: _vm.file_bankas,
-                          callback: function ($$v) {
-                            _vm.file_bankas = $$v
-                          },
-                          expression: "file_bankas",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
+                  _c("file-picker-post-mini", {
+                    attrs: {
+                      "post-subject": "/terminal/store_terminalas",
+                      label: "Swedbank",
+                    },
+                    on: { "file-updated": _vm.file_info_bankas },
+                    model: {
+                      value: _vm.file_bankas,
+                      callback: function ($$v) {
+                        _vm.file_bankas = $$v
+                      },
+                      expression: "file_bankas",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("file-picker-post-mini", {
+                    attrs: {
+                      "post-subject": "/terminal/store_terminalas",
+                      label: "Luminor",
+                    },
+                    on: { "file-updated": _vm.file_info_bankas2 },
+                    model: {
+                      value: _vm.file_bankas2,
+                      callback: function ($$v) {
+                        _vm.file_bankas2 = $$v
+                      },
+                      expression: "file_bankas2",
+                    },
+                  }),
                   _vm._v(" "),
                   _c(
-                    "b-field",
-                    { attrs: { label: "Luminor:", horizontal: "" } },
+                    "p",
+                    { staticClass: "control" },
                     [
-                      _c("file-picker-terminalas", {
-                        on: { "file-updated": _vm.file_info_bankas2 },
-                        model: {
-                          value: _vm.file_bankas2,
-                          callback: function ($$v) {
-                            _vm.file_bankas2 = $$v
-                          },
-                          expression: "file_bankas2",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("b-field", { attrs: { label: " ", horizontal: "" } }, [
-                    _c("p", { staticClass: "control" }, [
                       _c(
-                        "button",
+                        "b-button",
                         {
-                          staticClass: "button is-sark",
-                          on: { click: _vm.suformuoti },
+                          attrs: { size: "is-medium", type: "is-dark" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.suformuoti()
+                            },
+                          },
                         },
-                        [_vm._v("Suformuoti")]
+                        [_vm._v("SUFORMUOTI")]
                       ),
-                    ]),
-                  ]),
+                    ],
+                    1
+                  ),
                 ],
                 1
               ),
@@ -5527,36 +5534,40 @@ var render = function () {
                 "div",
                 { staticClass: "column" },
                 [
+                  _c("file-picker-post-mini", {
+                    attrs: {
+                      "post-subject": "/terminal/store_terminalas",
+                      label: "Pardavimų CSV",
+                    },
+                    on: { "file-updated": _vm.file_info_pardavimai },
+                    model: {
+                      value: _vm.file_pardavimai,
+                      callback: function ($$v) {
+                        _vm.file_pardavimai = $$v
+                      },
+                      expression: "file_pardavimai",
+                    },
+                  }),
+                  _vm._v(" "),
                   _c(
-                    "b-field",
-                    { attrs: { label: "Pardavimai:", horizontal: "" } },
+                    "p",
+                    { staticClass: "control" },
                     [
-                      _c("file-picker-terminalas", {
-                        on: { "file-updated": _vm.file_info_pardavimai },
-                        model: {
-                          value: _vm.file_pardavimai,
-                          callback: function ($$v) {
-                            _vm.file_pardavimai = $$v
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { size: "is-medium", type: "is-dark" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.suformuoti()
+                            },
                           },
-                          expression: "file_pardavimai",
                         },
-                      }),
+                        [_vm._v("SUDENGTI")]
+                      ),
                     ],
                     1
                   ),
-                  _vm._v(" "),
-                  _c("b-field", { attrs: { label: " ", horizontal: "" } }, [
-                    _c("p", { staticClass: "control" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "button is-dark",
-                          on: { click: _vm.suformuoti },
-                        },
-                        [_vm._v("Sudengti")]
-                      ),
-                    ]),
-                  ]),
                 ],
                 1
               ),

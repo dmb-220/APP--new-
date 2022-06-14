@@ -44,8 +44,10 @@ Route::prefix('/income')->group(function () {
 Route::prefix('/works')->group(function () {
     Route::get('/', [App\Http\Controllers\WorksController::class, 'index'])->name('index');
     Route::post('store',  [App\Http\Controllers\WorksController::class, 'store'])->name('store');
+    Route::post('store_modal',  [App\Http\Controllers\WorksController::class, 'store_modal'])->name('store_modal');
     Route::post('store_works',  [App\Http\Controllers\WorksController::class, 'store_works'])->name('store_works');
 });
+Route::resource('worksinventory', App\Http\Controllers\WorksInventoryController::class);
 
 //GPAIS
 Route::prefix('/gpais')->group(function () {
