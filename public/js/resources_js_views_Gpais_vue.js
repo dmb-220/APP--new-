@@ -221,6 +221,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1857,6 +1886,56 @@ var render = function () {
           },
           expression: "isLoading",
         },
+      }),
+      _vm._v(" "),
+      _c("b-navbar", {
+        scopedSlots: _vm._u([
+          {
+            key: "start",
+            fn: function () {
+              return [
+                _c("b-navbar-item", { attrs: { href: "#" } }, [
+                  _vm._v("\n            Home\n        "),
+                ]),
+                _vm._v(" "),
+                _c("b-navbar-item", { attrs: { href: "#" } }, [
+                  _vm._v("\n            Documentation\n        "),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "b-navbar-dropdown",
+                  { attrs: { label: "Info" } },
+                  [
+                    _c("b-navbar-item", { attrs: { href: "#" } }, [
+                      _vm._v("\n                About\n            "),
+                    ]),
+                    _vm._v(" "),
+                    _c("b-navbar-item", { attrs: { href: "#" } }, [
+                      _vm._v("\n                Contact\n            "),
+                    ]),
+                  ],
+                  1
+                ),
+              ]
+            },
+            proxy: true,
+          },
+          {
+            key: "end",
+            fn: function () {
+              return [
+                _c("b-navbar-item", { attrs: { tag: "div" } }, [
+                  _c("div", { staticClass: "buttons" }, [
+                    _c("a", { staticClass: "button is-primary" }, [
+                      _c("strong", [_vm._v("Atsijungti")]),
+                    ]),
+                  ]),
+                ]),
+              ]
+            },
+            proxy: true,
+          },
+        ]),
       }),
       _vm._v(" "),
       _c(

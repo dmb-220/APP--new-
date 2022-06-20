@@ -9,7 +9,7 @@ use App\Http\Requests\FileUploadRequest;
 use Illuminate\Http\Request;
 
 use Spatie\ArrayToXml\ArrayToXml;
-use App\Imports\ExcelImport;
+use App\Imports\GpaisImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,25 +45,29 @@ class GpaisController extends Controller
         "POLIETILENO MAIŠELIAI" => array(
             "02" => array(
                 "02 KURJ. MAIŠ. 32,5x42,5", "02 KURJ. MAIŠ. 40x50", "02 KURJ. MAIŠ. 77X55", "02 MAIŠ.18x30 PARD. IŠ LT", 
-                "02 MAIŠ. 22x40 PARD. IŠ LT", "02 MAIŠ. 24,95x30 PARD. IŠ LT", "02 MAIŠ. 26x46 PARD. IŠ LT", "02 MAIŠ. 28x50 PARD. IŠ LT", 
+                "02 MAIŠ. 22x40 PARD. IŠ LT", "02 MAIŠ. 24,95x30 PARD. IŠ LT", "02 MAIŠ. 26x46 PARD. IŠ LT", "02 MAIŠ. 28x50 PARD. IŠ LT",
                 "02 MAIŠ. 32,60x400 PARD. IŠ LT", "02 MAIŠ. 37X70 PARD. IŠ LT", "02 MAIŠ. 40x80 PARD. IŠ LT", "02 MAIŠ. 46,50x55 PARD. IŠ LT"
             ),  
             "12" => array(
-                "12 MAIŠ. 18x30 PARD. LT", "12 MAIŠ. 22x40 PARD. LT", "12 MAIŠ. 24,95x30 PARD. LT", "12 MAIŠ. 25 LT PARD.", "12 MAIŠ. 28 LT PARD.", "12 MAIŠ. 26x46 PARD. LT", 
-                "12 MAIŠ. 28x50 PARD.LT", "12 MAIŠ. 32 LT PARD.", "12 MAIŠ. 37x70 PARD. LT", "12 MAIŠ. 40x80 PARD. LT", "12 MAIŠ. 46,50x55 PARD. LT", "12 MAIŠ. 32,60x400 PARD. LT",
+                "12 MAIŠ. 18x30 PARD. LT", "12 MAIŠ. 22x40 PARD. LT", "12 MAIŠ. 24,95x30 PARD. LT", "12 MAIŠ. 25 LT PARD.", 
+                "12 MAIŠ. 28 LT PARD.", "12 MAIŠ. 26x46 PARD. LT", "12 MAIŠ. 28x50 PARD.LT", "12 MAIŠ. 32 LT PARD.", 
+                "12 MAIŠ. 37x70 PARD. LT", "12 MAIŠ. 40x80 PARD. LT", "12 MAIŠ. 46,50x55 PARD. LT", "12 MAIŠ. 32,60x400 PARD. LT",
             ),
             "22" => array(       
-                "22 KURJ. MAIŠ. 22,50 x 32,50", "22 KURJ. MAIŠ. 325x425", "22 KURJ. MAIŠ. 40x50", "22 KURJ. MAIŠ. 55x77", 
-                "22 KURJ. MAIŠ. 77x55", "22 MAIŠ. SU LIPNIA JUOST. 90x120x30",
+                "22 KURJ. MAIŠ. 22,50 x 32,50", "22 KURJ. MAIŠ. 325x425", "22 KURJ. MAIŠ. 40x50", 
+                "22 KURJ. MAIŠ. 55x77", "22 KURJ. MAIŠ. 77x55", "22 MAIŠ. SU LIPNIA JUOST. 90x120x30",
             ),
             "62" => array(
-                "62 MAIŠ. 12 DID.", "62 MAIŠ. 18x30", "62 MAIŠ. 22x40", "62 MAIŠ. 25", "62 MAIŠ. 26x46", "62 MAIŠ. 28", "62 MAIŠ. 28x50", "62 MAIŠ. 30", "62 MAIŠ. 32", "62 MAIŠ. 32,60x400",
-                "62 MAIŠ. 32 vnt", "62 MAIŠ. 33", "62 MAIŠ. 35", "62 MAIŠ. 37x70", "62 MAIŠ. 38", "62 MAIŠ. 40", "62 MAIŠ. 40x80", "62 MAIŠ. 44", "62 MAIŠ. 48", "62 MAIŠ. 60", 
-                "62 MAIŠ. 64", "62 MAIŠ. 70", "62 MAIŠ. 85", "62 MAIŠ. DID. 15", "62 MAIŠ. DID. 18", "62 MAIŠ. DID. 21", "62 MAIŠ. DID. 31", "62 MAIŠ. DID. 38", "62 MAIŠ. DID. 40",
+                "62 MAIŠ. 12 DID.", "62 MAIŠ. 18x30", "62 MAIŠ. 22x40", "62 MAIŠ. 25", "62 MAIŠ. 26x46", "62 MAIŠ. 28", 
+                "62 MAIŠ. 28x50", "62 MAIŠ. 30", "62 MAIŠ. 32", "62 MAIŠ. 32,60x400", "62 MAIŠ. 32 vnt", "62 MAIŠ. 33", 
+                "62 MAIŠ. 35", "62 MAIŠ. 37x70", "62 MAIŠ. 38", "62 MAIŠ. 40", "62 MAIŠ. 40x80", "62 MAIŠ. 44", 
+                "62 MAIŠ. 48", "62 MAIŠ. 60", "62 MAIŠ. 64", "62 MAIŠ. 70", "62 MAIŠ. 85", "62 MAIŠ. DID. 15", 
+                "62 MAIŠ. DID. 18", "62 MAIŠ. DID. 21", "62 MAIŠ. DID. 31", "62 MAIŠ. DID. 38", "62 MAIŠ. DID. 40",
             ),
             "72" => array(
-                "72 MAIŠ. 12 DID.", "72 MAIŠ. 25", "72 MAIŠ. 28", "72 MAIŠ. 32", "72 MAIŠ. 33", "72 MAIŠ. 35", "72 MAIŠ. 38", "72 MAIŠ. 40", "72 MAIŠ. 44", "72 MAIŠ. 60",
-                "72 MAIŠ. 64", "72 MAIŠ. 70", "72 MAIŠ. 85", "72 MAIŠ. DID. 15", "72 MAIŠ. DID. 18", "72 MAIŠ. DID. 21", "72 MAIŠ. DID. 31", "72 MAIŠ. DID. 38", "72 MAIŠ. DID. 40",
+                "72 MAIŠ. 12 DID.", "72 MAIŠ. 25", "72 MAIŠ. 28", "72 MAIŠ. 32", "72 MAIŠ. 33", "72 MAIŠ. 35", 
+                "72 MAIŠ. 38", "72 MAIŠ. 40", "72 MAIŠ. 44", "72 MAIŠ. 60", "72 MAIŠ. 64", "72 MAIŠ. 70", "72 MAIŠ. 85", 
+                "72 MAIŠ. DID. 15", "72 MAIŠ. DID. 18", "72 MAIŠ. DID. 21", "72 MAIŠ. DID. 31", "72 MAIŠ. DID. 38", "72 MAIŠ. DID. 40",
             ),
         ),
         "KARTONO DĖŽĖ" => array(
@@ -92,52 +96,54 @@ class GpaisController extends Controller
      */
     public function index()
     {
-        $collection = Excel::toCollection(new ExcelImport, storage_path('app/XLSX/Pakuotes.xlsm'));
+        /*$collection = Excel::toCollection(new GpaisImport, storage_path('app/Gpais/Pakuotes.xlsm'));
         $arr = array();
         $sk = 1; $last_blank = "";
+        $flag = true;
         foreach($collection[0] as $val){
+            if($flag) { $flag = false; continue; }
             //NEITERPIAM EILUCIU, KURIOSE NERA NURODYTO KIEKIO
-            if($val['deklaruotas_kiekis_2022_03_men'] && $val['gaminiu_kiekis_pakuoteje_vnt']){
+            if($val[17] && $val[2]){
                 //$arr[$sk]['produktoKodas'] = $val['pakuote_ir_jos_dalys'];
                 $arr[$sk]['tiekimoRinkaiData'] = (String) date('Y-m-d', strtotime('last day of last month'));
 
-                $arr[$sk]['pakuotes_rusis'] = $val['pakuotes_rusis'];
+                $arr[$sk]['pakuotes_rusis'] = $val[3];
                 //$arr[$sk]['veiklosBudas'] = $val['pakuote_ir_jos_dalys'];
-                $ex = explode(" ", $val['sudetines_pakuotes_kategorija']);
+                $ex = explode(" ", $val[5]);
                 $kodas = $ex[1];
                 $kls = "";
-                if($kodas == '62' || $kodas == '65' || $kodas == '72' || $kodas == '75'){ $kls = 'CL118:SS:2016-12-07'; }
-                if($kodas == '12' || $kodas == '22'){ $kls = 'CL118:MP:2016-12-07'; }
-                if($kodas == '02'){ $kls = 'CL118:EV:2016-12-07'; }
+                if($kodas == '62' || $kodas == '65' || $kodas == '72' || $kodas == '75'){ $kls = 'CL118:SS:2016-12-07'; $k = "Sunaudojimas savo reikmėms"; }
+                if($kodas == '12' || $kodas == '22'){ $kls = 'CL118:MP:2016-12-07'; $k = "Mažmeninė prekyba"; }
+                if($kodas == '02'){ $kls = 'CL118:EV:2016-12-07'; $k = "Išvežimas iš LR vidaus rinkos"; }
 
-                $pava = $val['pakuote_ir_jos_dalys']." ".$val['vienos_pakuotes_svoris_tonomis'];;
-                $ey = explode(" ", $val['pakuote_ir_jos_dalys']);
+                $pava = $val[4];
+                $ey = explode(" ", $val[4]);
                 if($ey[0] == "Kartonas" && $ey[1] == "(dėžė)"){
                     foreach($this->kategorija["KARTONO DĖŽĖ"][$kodas] as $v){
                         $eo = explode(" ", $v);
                         if($ey[2] == $eo[2]){ $pava = $v;}
                     }
                 }
-                /*if($ey[0] == "Polietileno" && $ey[1] == "maišeliai"){
-                    foreach($this->kategorija["POLIETILENO MAIŠELIAI"][$kodas] as $v){
-                        $eo = explode(" ", $v);
-                        if($ey[2] == $eo[2]){ $pava = $v;}
-                    }
-                }*/
+                //if($ey[0] == "Polietileno" && $ey[1] == "maišeliai"){
+                    //foreach($this->kategorija["POLIETILENO MAIŠELIAI"][$kodas] as $v){
+                        //$eo = explode(" ", $v);
+                        //if($ey[2] == $eo[2]){ $pava = $v;}
+                   //}
+                //}
 
                 $arr[$sk]['produktoKodas'] = $pava; //$val['pakuote_ir_jos_dalys'];
-                //pakolkas visos importuotos CL140:1:2017-02-22
-                $arr[$sk]['gavimoBudas'] = 'CL140:1:2017-02-22';
-                $arr[$sk]['veiklosBudas'] = $kls;
-                $arr[$sk]['kiekis'] = $val['deklaruotas_kiekis_2022_03_men'];
-                $arr[$sk]['vienos_pakuotes_svoris_tonomis'] = $val['vienos_pakuotes_svoris_tonomis'];
-                if($val['saskaitos_nr']){
-                    $last_blank = $val['saskaitos_nr'];
-                    $arr[$sk]['dokumentoNr'] = $val['saskaitos_nr'];
+                //pakolkas visos importuotos CL140:1:2017-02-22 //Importuota (įvežta)
+                $arr[$sk]['gavimoBudas'] = "Importuota (įvežta)"; //'CL140:1:2017-02-22';
+                $arr[$sk]['veiklosBudas'] = $k; //$kls;
+                $arr[$sk]['kiekis'] = $val[17];
+                $arr[$sk]['vienos_pakuotes_svoris_tonomis'] = $val[8];
+                if($val[6]){
+                    $last_blank = $val[6];
+                    $arr[$sk]['dokumentoNr'] = $val[6];
                 }else{
                     $arr[$sk]['dokumentoNr'] = $last_blank;
                 }
-                $arr[$sk]['dokumentoData'] = $val['saskaitos_data'] ? \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($val['saskaitos_data'])->format('Y-m-d') : null;
+                $arr[$sk]['dokumentoData'] = $val[7] ? \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($val[7])->format('Y-m-d') : null;
 
                 //$old_nr = $val['eiles_nr'];
                 //$old_name = $val['gaminio_pavadinimas'];
@@ -145,37 +151,62 @@ class GpaisController extends Controller
             }
         }
         
+        $arr = array_values($arr)
+        */
+
+        $collection = Excel::toCollection(new GpaisImport, storage_path('app/Gpais/Pakuotes_2.xlsx'));
+        $arr = array();
+
+        foreach($collection[0] as $val){
+            if($val[5] == "Likutis per 2022 03 mėn."){
+                if($val[11]){
+                    $arr['savo_reikmem'][] = $val;
+                }
+                if($val[13]){
+                    $arr['vidus_etiketes_dezes'][] = $val;
+                }
+                if($val[17]){
+                    $arr['vidus_maiseliai'][] = $val;
+                }
+                if($val[20]){
+                    $arr['isvesta'][] = $val;
+                }
+            }
+        }
+
         return response()->json([
             'status' => true,
             'colection' => $collection[0],
-            'array' => array_values($arr),
+            'array' => $arr,
         ]);     
     }
 
 
     public function get_xml()
     {
-        $collection = Excel::toCollection(new ExcelImport, storage_path('app/XLSX/Pakuotes.xlsm'));
+        $collection = Excel::toCollection(new ExcelImport, storage_path('app/Gpais/Pakuotes.xlsm'));
         $arr = array();
         $sk = 1; $last_blank = "";
+        $flag = true;
         foreach($collection[0] as $val){
+            if($flag) { $flag = false; continue; }
             //NEITERPIAM EILUCIU, KURIOSE NERA NURODYTO KIEKIO
-            if($val['deklaruotas_kiekis_2022_03_men'] && $val['gaminiu_kiekis_pakuoteje_vnt']){
+            if($val[17] && $val[2]){
                 $arr['subjektas'] = array('_attributes' => ['kodas' => '180886050']);
                 $arr['irasai']['__custom:irasas:'.$sk] = array('_attributes' => ['id' => $sk]);
                 $arr['irasai']['__custom:irasas:'.$sk]['registracijosId'] = '2151';
                 //$arr['irasai']['__custom:irasas:'.$sk]['produktoKodas'] = $val['pakuote_ir_jos_dalys'];
                 //$arr['irasai']['__custom:irasas:'.$sk]['tiekimoRinkaiData'] = (String) date("Y-m-d");
 
-                $ex = explode(" ", $val['sudetines_pakuotes_kategorija']);
+                $ex = explode(" ", $val[5]);
                 $kodas = $ex[1];
                 $kls = "";
                 if($kodas == '62' || $kodas == '65' || $kodas == '72' || $kodas == '75'){ $kls = 'CL118:SS:2016-12-07';}
                 if($kodas == '12' || $kodas == '22'){ $kls = 'CL118:MP:2016-12-07';}
                 if($kodas == '02'){$kls = 'CL118:EV:2016-12-07';}
 
-                $pava = $val['pakuote_ir_jos_dalys'];
-                $ey = explode(" ", $val['pakuote_ir_jos_dalys']);
+                $pava = $val[4];
+                $ey = explode(" ", $val[4]);
                 if($ey[0] == "Kartonas" && $ey[1] == "(dėžė)"){
                     foreach($this->kategorija["KARTONO DĖŽĖ"][$kodas] as $v){
                         $eo = explode(" ", $v);
@@ -188,22 +219,22 @@ class GpaisController extends Controller
                 //pakolkas visos importuotos CL140:1:2017-02-22
                 $arr['irasai']['__custom:irasas:'.$sk]['gavimoBudas'] = 'CL140:1:2017-02-22';
                 $arr['irasai']['__custom:irasas:'.$sk]['veiklosBudas'] = $kls;
-                $arr['irasai']['__custom:irasas:'.$sk]['kiekis'] = $val['deklaruotas_kiekis_2022_03_men'];
-                if($val['saskaitos_nr']){
-                    $last_blank = $val['saskaitos_nr'];
-                    $arr['irasai']['__custom:irasas:'.$sk]['dokumentoNr'] = $val['saskaitos_nr'];
+                $arr['irasai']['__custom:irasas:'.$sk]['kiekis'] = $val[17];
+                if($val[6]){
+                    $last_blank = $val[6];
+                    $arr['irasai']['__custom:irasas:'.$sk]['dokumentoNr'] = $val[6];
                 }else{
                     $arr['irasai']['__custom:irasas:'.$sk]['dokumentoNr'] = $last_blank;
                 }
-                $arr['irasai']['__custom:irasas:'.$sk]['dokumentoData'] = $val['saskaitos_data'] ? \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($val['saskaitos_data'])->format('Y-m-d') : null;
+                $arr['irasai']['__custom:irasas:'.$sk]['dokumentoData'] = $val[7] ? \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($val[7])->format('Y-m-d') : null;
 
-                $old_nr = $val['eiles_nr'];
-                $old_name = $val['gaminio_pavadinimas'];
+                $old_nr = $val[0];
+                $old_name = $val[1];
                 $sk++;
             }
         }
         
-        $arrayToXml = ArrayToXml::convert($arr, [
+       $arrayToXml = ArrayToXml::convert($arr, [
             'rootElementName' => 'irasuSarasas',
             '_attributes' => [
                 'xmlns' => 'urn:x-gpais:vvs:zurnalas',
@@ -218,7 +249,7 @@ class GpaisController extends Controller
             echo $arrayToXml;
         }else{
             echo "Klaida";
-        }       
+        }     
     }
 
     

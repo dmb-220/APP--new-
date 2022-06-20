@@ -466,9 +466,8 @@ __webpack_require__.r(__webpack_exports__);
       this.axios["delete"]("/worksinventory/".concat(id)).then(function (response) {
         console.log(response.data);
 
-        _this4.getDataList();
+        _this4.getDataList(); // -1 nes neatsinaujina sarasas
 
-        console.log(_this4.list[_this4.modal_sand]);
 
         if (_this4.list[_this4.modal_sand].length - 1 <= 0) {
           _this4.ModalActive2 = false;

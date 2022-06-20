@@ -8,8 +8,9 @@ use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
-class ExcelImport implements ToCollection, SkipsEmptyRows, WithHeadingRow, WithValidation
+class GpaisImport implements ToCollection, SkipsEmptyRows, WithCalculatedFormulas
 {
     use Importable;
 
@@ -17,12 +18,4 @@ class ExcelImport implements ToCollection, SkipsEmptyRows, WithHeadingRow, WithV
     {
         return $row;
     }
-    
-    public function rules(): array
-    {
-        return [
-                'required',
-        ];
-    }
-
 }

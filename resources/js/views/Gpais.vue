@@ -1,12 +1,13 @@
 <template>
     <section class="section is-main-section">
-    <b-loading :is-full-page="isFullPage" v-model="isLoading"></b-loading>
+      <b-loading :is-full-page="isFullPage" v-model="isLoading"></b-loading>
+
       <card-component title="VALDYMAS" icon="finance">
-        <file-picker-post 
+        <!--<file-picker-post 
         @file-updated="file_info" 
         post-subject="/gpais/store_gpais" 
         label="CSV failo įkėlimas"  
-        v-model="file"/>
+        v-model="file"/> -->
       </card-component>
       <card-component title="GPAIS" icon="account-multiple">
         <div  id="printMe">
@@ -57,11 +58,20 @@ export default {
   components: { CardComponent, FilePickerPost },
   data () {
     return {
+      menus: [
+        { icon: 'account-group', text: 'People' },
+        { icon: 'shopping-search', text: 'Orders' },
+        { icon: 'credit-card-multiple', text: 'Payments' },
+        { icon: 'dolly', text: 'Logistics' },
+        { icon: 'clock-check', text: 'Jobs' },
+        { icon: 'cart-arrow-right', text: 'Cart' },
+        { icon: 'settings', text: 'Configuration' }
+    ],
     works: '',
-     isLoading: false,
-     isFullPage: true,
-     gpais: [],
-     file: null,
+    isLoading: false,
+    isFullPage: true,
+    gpais: [],
+    file: null,
     failas: '',
     }
   },
