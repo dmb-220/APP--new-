@@ -15,20 +15,30 @@
         <div class="navbar-item is-desktop-icon-only">
           SIDONAS
         </div>
-        <router-link tag="a" to="/csv_sarasas" class="navbar-item is-desktop-icon-only" title="CSV failų įkėlimas">
+        <router-link
+          to="/csv_sarasas"
+          class="navbar-item is-desktop-icon-only"
+          title="CSV failų įkėlimas">
           <b-icon icon="view-list" custom-size="default"/>
           <span>CSV failų įkėlimas</span>
         </router-link>
         
-        <router-link tag="a" to="/generuoti" class="navbar-item is-desktop-icon-only" title="Generuoti duomenis">
+        <router-link 
+          to="/generuoti"
+          class="navbar-item is-desktop-icon-only" 
+          title="Generuoti duomenis">
           <b-icon icon="calculator" custom-size="default"/>
           <span>Generuoti duomenis</span>
         </router-link>
 
-        <router-link tag="a" to="/admin" class="navbar-item is-desktop-icon-only" title="Administravimas">
+        <router-link
+          to="/admin"
+          class="navbar-item is-desktop-icon-only"
+          title="Administravimas">
           <b-icon icon="bullhorn" custom-size="default"/>
           <span>Administravimas</span>
         </router-link>
+
         <a class="navbar-item is-desktop-icon-only" title="Atsijungti" @click="logout">
           <b-icon icon="logout" custom-size="default"/>
           <span>Atsijungti</span>

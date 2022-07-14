@@ -25,6 +25,9 @@
               post-subject="/terminal/store_terminalas" 
               label="Pardavimų CSV" 
               v-model="file_pardavimai"/> 
+              <p class="is-size-7">
+                Mišrus atsiskaitymas CSV: Ataskaitos -> atsiskaitymų ataskaitos -> atsiskaitymų operacijos
+              </p>
               <p class="control">
                 <b-button size="is-medium" type="is-dark" @click="suformuoti()">SUDENGTI</b-button>
               </p>

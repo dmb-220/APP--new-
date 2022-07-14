@@ -66,7 +66,7 @@ class IntePrekeController extends Controller
             }   
         })  
         //isimam ko nereikia perkelti, pagal grupiu pavadinimus 
-        ->whereNotIn('pavadinimas', ['Med. švarkas', 'Med. kelnės', 'Kelnaitės'])
+        ->whereNotIn('pavadinimas', ['Med. švarkas', 'Med. kelnės', 'Kelnaitės', 'Liemenėlė'])
         ->when(!$gam, function ($q) {
             return $q->where('registras', "GAM");
         })

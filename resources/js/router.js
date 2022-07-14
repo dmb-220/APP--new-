@@ -154,6 +154,28 @@ export default new Router({
       name: 'Income',
       component: () => import('./views/Income.vue')
     },
+    //GPAIS v2
+    /*{
+      path: '/v2',
+      name: 'GPAIS v2',
+      component: () => import('./views/GPAIS/index.vue')
+    },*/
+    {
+      path: '/sarasas',
+      name: 'Sarasas',
+      component: () => import('./views/Sarasas.vue')
+    },
+    {
+      path: '/inte_return',
+      name: 'Inte Return',
+      component: () => import('./views/InteReturn.vue')
+    },
+    {
+      path: '/stock_quant',
+      name: 'Stock Quant',
+      component: () => import('./views/StockQuant.vue')
+    },
+
     /*
     {
       path: '/sandeliai',

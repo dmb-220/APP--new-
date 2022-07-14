@@ -97,6 +97,11 @@ export default {
             icon: 'bus',
           },
           /*{
+            to: '/v2',
+            label: 'GPAIS v2',
+            icon: 'recycle',
+          },*/
+          /*{
             to: '/perkelimai',
             label: 'Perkėlimai',
             icon: 'bus',
@@ -203,11 +208,11 @@ export default {
                 label: 'Bankiniai terminalai',
                 icon: 'sitemap',
               },
-              {
+              /*{
                 to: '/gpais',
                 label: 'GPAIS',
                 icon: 'recycle',
-              },
+              },*/
               {
                 to: '/income',
                 label: 'Pajamavimo suma',

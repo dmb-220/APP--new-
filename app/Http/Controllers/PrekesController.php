@@ -145,6 +145,7 @@ class PrekesController extends Controller
         $gam = $key[5];
         $pirk = $key[6];
         $grupe = $key[8];
+        if(!$grupe){$grupe = "0";}
         $visi = $key[9];
 
         //aprasom tuscius masyvus
@@ -164,7 +165,7 @@ class PrekesController extends Controller
 
         //jei nera ivestas paieskos raktazodis, nustatyti pradini
         //jei grupe nustatyta, tada galima buti ir tuscias
-        if($grupe == 0){
+        if($grupe == 0 || !$grupe || $grupe == ""){
             if($keyword == ""){
                 $keyword = "DM-";
             }
@@ -732,8 +733,8 @@ class PrekesController extends Controller
         $rikiuoti = $data['rikiuoti'];
         $gam = $data['gam'];
         $pirk = $data['pirk'];
-        $paieska_big= $data['paieska_big'];
-        $grupe= $data['grupe'];
+        $paieska_big = $data['paieska_big'];
+        if($data['grupe']){$grupe = $data['grupe'];}else{$grupe = "0";}
         $visi= $data['visi'];
 
         $failas = "prekes.txt";

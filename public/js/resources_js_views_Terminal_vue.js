@@ -1,9 +1,9 @@
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_Terminal_vue"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -11,23 +11,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'CardToolbar',
   props: {
@@ -40,10 +23,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -53,20 +36,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/each */ "./node_modules/lodash/each.js");
 /* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_each__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'FilePickerPostMini',
@@ -194,10 +163,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -222,192 +191,6 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -591,6 +374,565 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=template&id=46e0f3b0&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=template&id=46e0f3b0& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "notification is-card-toolbar"
+  }, [_c("div", {
+    staticClass: "level",
+    "class": {
+      "is-mobile": _vm.isMobile
+    }
+  }, [_c("div", {
+    staticClass: "level-left"
+  }, [_c("div", {
+    staticClass: "level-item"
+  }, [_vm._t("left")], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "level-right"
+  }, [_c("div", {
+    staticClass: "level-item"
+  }, [_vm._t("right")], 2)])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("b-field", {
+    attrs: {
+      label: _vm.label,
+      message: _vm.fieldFileMessage,
+      type: _vm.fieldFileType
+    }
+  }, [_c("b-upload", {
+    on: {
+      input: _vm.upload
+    },
+    model: {
+      value: _vm.file_bankas,
+      callback: function callback($$v) {
+        _vm.file_bankas = $$v;
+      },
+      expression: "file_bankas"
+    }
+  }, [_c("span", {
+    staticClass: "file-cta"
+  }, [_c("b-icon", {
+    staticClass: "file-icon",
+    attrs: {
+      icon: _vm.uploadButtonIcon
+    }
+  }), _vm._v(" "), _vm.uploadButtonText ? _c("span", {
+    staticClass: "file-label"
+  }, [_vm._v(_vm._s(_vm.uploadButtonText))]) : _vm._e()], 1), _vm._v(" "), _vm.fileName ? _c("span", {
+    staticClass: "file-name"
+  }, [_vm._v("\n          " + _vm._s(_vm.fileName) + "\n      ")]) : _vm._e()])], 1);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=template&id=7191f89b&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=template&id=7191f89b& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_c("section", {
+    staticClass: "section is-main-section"
+  }, [_c("b-loading", {
+    attrs: {
+      "is-full-page": _vm.isFullPage
+    },
+    model: {
+      value: _vm.isLoading,
+      callback: function callback($$v) {
+        _vm.isLoading = $$v;
+      },
+      expression: "isLoading"
+    }
+  }), _vm._v(" "), _c("card-component", {
+    attrs: {
+      title: "VALDYMAS",
+      icon: "account-multiple"
+    }
+  }, [_c("div", {
+    staticClass: "columns"
+  }, [_c("div", {
+    staticClass: "column"
+  }, [_c("file-picker-post-mini", {
+    attrs: {
+      "post-subject": "/terminal/store_terminalas",
+      label: "Swedbank"
+    },
+    on: {
+      "file-updated": _vm.file_info_bankas
+    },
+    model: {
+      value: _vm.file_bankas,
+      callback: function callback($$v) {
+        _vm.file_bankas = $$v;
+      },
+      expression: "file_bankas"
+    }
+  }), _vm._v(" "), _c("file-picker-post-mini", {
+    attrs: {
+      "post-subject": "/terminal/store_terminalas",
+      label: "Luminor"
+    },
+    on: {
+      "file-updated": _vm.file_info_bankas2
+    },
+    model: {
+      value: _vm.file_bankas2,
+      callback: function callback($$v) {
+        _vm.file_bankas2 = $$v;
+      },
+      expression: "file_bankas2"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "control"
+  }, [_c("b-button", {
+    attrs: {
+      size: "is-medium",
+      type: "is-dark"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.suformuoti();
+      }
+    }
+  }, [_vm._v("SUFORMUOTI")])], 1)], 1), _vm._v(" "), _c("div", {
+    staticClass: "column"
+  }, [_c("file-picker-post-mini", {
+    attrs: {
+      "post-subject": "/terminal/store_terminalas",
+      label: "Pardavimų CSV"
+    },
+    on: {
+      "file-updated": _vm.file_info_pardavimai
+    },
+    model: {
+      value: _vm.file_pardavimai,
+      callback: function callback($$v) {
+        _vm.file_pardavimai = $$v;
+      },
+      expression: "file_pardavimai"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "is-size-7"
+  }, [_vm._v("\n              Mišrus atsiskaitymas CSV: Ataskaitos -> atsiskaitymų ataskaitos -> atsiskaitymų operacijos\n            ")]), _vm._v(" "), _c("p", {
+    staticClass: "control"
+  }, [_c("b-button", {
+    attrs: {
+      size: "is-medium",
+      type: "is-dark"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.suformuoti();
+      }
+    }
+  }, [_vm._v("SUDENGTI")])], 1)], 1)])]), _vm._v(" "), _c("card-component", {
+    attrs: {
+      title: "Bankiniai terminalai",
+      icon: "account-multiple"
+    }
+  }, [_c("div", {
+    attrs: {
+      id: "printMe"
+    }
+  }, [_c("div", {
+    staticClass: "columns"
+  }, [_c("div", {
+    staticClass: "column"
+  }, [_c("div", {
+    staticClass: "has-text-centered is-size-3"
+  }, [_vm._v("SWEDBANK")]), _vm._v(" "), _c("b-table", {
+    attrs: {
+      bordered: "",
+      narrowed: true,
+      data: _vm.swedbank,
+      "opened-detailed": _vm.defaultOpenedDetails,
+      detailed: "",
+      "detail-key": "data",
+      "show-detail-icon": _vm.showDetailIcon,
+      "row-class": _vm.onRowClass2,
+      "sort-icon": "arrow-up",
+      "default-sort-direction": "asc",
+      "default-sort": "data"
+    },
+    on: {
+      "details-open": function detailsOpen(row) {
+        return _vm.$buefy.toast.open("Expanded ".concat(row.data));
+      }
+    },
+    scopedSlots: _vm._u([{
+      key: "detail",
+      fn: function fn(props) {
+        return [_c("div", {
+          style: {
+            border: "1px solid"
+          }
+        }, [_c("b-table", {
+          attrs: {
+            data: props.row.pard,
+            "default-sort-direction": "asc",
+            "default-sort": "parduotuve"
+          }
+        }, [_c("b-table-column", {
+          attrs: {
+            field: "parduotuve",
+            label: "Parduotuvė",
+            sortable: ""
+          },
+          scopedSlots: _vm._u([{
+            key: "default",
+            fn: function fn(props) {
+              return [_vm._v("\n                      " + _vm._s(props.row.parduotuve) + "\n                    ")];
+            }
+          }], null, true)
+        }), _vm._v(" "), _c("b-table-column", {
+          attrs: {
+            field: "suma",
+            label: "Suma",
+            sortable: ""
+          },
+          scopedSlots: _vm._u([{
+            key: "default",
+            fn: function fn(props) {
+              return [_vm._v("\n                      " + _vm._s(props.row.suma) + "\n                    ")];
+            }
+          }], null, true)
+        }), _vm._v(" "), _c("b-table-column", {
+          attrs: {
+            field: "komisiniai",
+            label: "Komisiniai",
+            sortable: ""
+          },
+          scopedSlots: _vm._u([{
+            key: "default",
+            fn: function fn(props) {
+              return [_vm._v("\n                      " + _vm._s(props.row.komisiniai) + "\n                    ")];
+            }
+          }], null, true)
+        }), _vm._v(" "), _c("b-table-column", {
+          attrs: {
+            field: "pajamos",
+            label: "Pajamos",
+            sortable: ""
+          },
+          scopedSlots: _vm._u([{
+            key: "default",
+            fn: function fn(props) {
+              return [_vm._v("\n                      " + _vm._s(props.row.pajamos.toFixed(2)) + "\n                    ")];
+            }
+          }], null, true)
+        })], 1)], 1)];
+      }
+    }, {
+      key: "footer",
+      fn: function fn() {
+        return [_c("th"), _vm._v(" "), _c("th", [_vm._v("Pinigai:"), _c("br"), _vm._v("Pajamos:")]), _vm._v(" "), _c("th", [_vm._v(_vm._s(_vm.swed_viso["pinigai"]["suma"].toFixed(2))), _c("br"), _vm._v(_vm._s(_vm.swed_viso["pajamos"]["suma"].toFixed(2)))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(_vm.swed_viso["pinigai"]["dineta"].toFixed(2))), _c("br"), _vm._v(_vm._s(_vm.swed_viso["pajamos"]["dineta"].toFixed(2)) + "  \n                "), _c("div", {
+          staticClass: "is-size-7 has-text-weight-bold"
+        }, [_vm._v("- " + _vm._s(_vm.apy_suma.toFixed(2)) + " €")])]), _vm._v(" "), _c("th", [_vm._v(_vm._s(_vm.swed_viso["pinigai"]["komisiniai"].toFixed(2))), _c("br"), _vm._v(_vm._s(_vm.swed_viso["pajamos"]["komisiniai"].toFixed(2)))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(_vm.swed_viso["pinigai"]["pajamos"].toFixed(2))), _c("br"), _vm._v(_vm._s(_vm.swed_viso["pajamos"]["pajamos"].toFixed(2)))])];
+      },
+      proxy: true
+    }])
+  }, [_c("b-table-column", {
+    attrs: {
+      label: "DATA",
+      field: "data",
+      sortable: ""
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n                    " + _vm._s(props.row.data) + "\n              ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "SUMA",
+      field: "suma"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n                    " + _vm._s(props.row.suma.toFixed(2)) + " \n              ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "DINETA",
+      field: "dineta"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n                  " + _vm._s(props.row.dineta.toFixed(2)) + "\n                  "), "misrus" in props.row ? _c("div", {
+          staticClass: "is-size-7 has-text-weight-bold"
+        }, [_vm._v("\n                      - " + _vm._s(props.row.misrus.suma) + " €\n                    ")]) : _vm._e()];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "KOM.",
+      field: "komisiniai"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n                    " + _vm._s(props.row.komisiniai.toFixed(2)) + "\n              ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "PAJAMOS",
+      field: "pajamos"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n                    " + _vm._s(props.row.pajamos.toFixed(2)) + "\n              ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    attrs: {
+      label: "GAUTA",
+      field: "gauta",
+      sortable: ""
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n                  " + _vm._s(props.row.gauta) + "\n            ")];
+      }
+    }])
+  })], 1)], 1), _vm._v(" "), _c("div", {
+    staticClass: "column"
+  }, [_c("div", {
+    staticClass: "has-text-centered is-size-3"
+  }, [_vm._v("LUMINOR")]), _vm._v(" "), _c("b-table", {
+    attrs: {
+      bordered: "",
+      narrowed: true,
+      data: _vm.luminor,
+      "opened-detailed": _vm.defaultOpenedDetails2,
+      detailed: "",
+      "detail-key": "data",
+      "show-detail-icon": _vm.showDetailIcon,
+      "sort-icon": "arrow-up",
+      "row-class": _vm.onRowClass,
+      "default-sort-direction": "asc",
+      "default-sort": "data"
+    },
+    on: {
+      "details-open": function detailsOpen(row) {
+        return _vm.$buefy.toast.open("Expanded ".concat(row.data));
+      }
+    },
+    scopedSlots: _vm._u([{
+      key: "detail",
+      fn: function fn(props) {
+        return [_c("div", {
+          style: {
+            border: "1px solid"
+          }
+        }, [_c("b-table", {
+          attrs: {
+            data: props.row.pard,
+            "default-sort-direction": "asc",
+            "default-sort": "parduotuve"
+          }
+        }, [_c("b-table-column", {
+          attrs: {
+            field: "parduotuve",
+            label: "Parduotuvė",
+            sortable: ""
+          },
+          scopedSlots: _vm._u([{
+            key: "default",
+            fn: function fn(props) {
+              return [_vm._v("\n                      " + _vm._s(props.row.parduotuve) + "\n                    ")];
+            }
+          }], null, true)
+        }), _vm._v(" "), _c("b-table-column", {
+          attrs: {
+            field: "suma",
+            label: "Suma",
+            sortable: ""
+          },
+          scopedSlots: _vm._u([{
+            key: "default",
+            fn: function fn(props) {
+              return [_vm._v("\n                      " + _vm._s(props.row.suma.toFixed(2)) + "\n                    ")];
+            }
+          }], null, true)
+        })], 1)], 1)];
+      }
+    }, {
+      key: "footer",
+      fn: function fn() {
+        return [_c("th"), _vm._v(" "), _c("th", [_vm._v("Pinigai:"), _c("br"), _vm._v("Pajamos:")]), _vm._v(" "), _c("th", [_vm._v(_vm._s(_vm.lumi_viso["pinigai"]["suma"].toFixed(2))), _c("br"), _vm._v(_vm._s(_vm.lumi_viso["pajamos"]["suma"].toFixed(2)))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(_vm.lumi_viso["pinigai"]["dineta"].toFixed(2))), _c("br"), _vm._v(_vm._s(_vm.lumi_viso["pajamos"]["dineta"].toFixed(2)) + "\n                "), _c("div", {
+          staticClass: "is-size-7 has-text-weight-bold"
+        }, [_vm._v("- " + _vm._s(_vm.apy_suma2.toFixed(2)) + " €")])]), _vm._v(" "), _c("th", [_vm._v(_vm._s(_vm.lumi_viso["pinigai"]["komisiniai"].toFixed(2))), _c("br"), _vm._v(_vm._s(_vm.lumi_viso["pajamos"]["komisiniai"].toFixed(2)))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(_vm.lumi_viso["pinigai"]["pajamos"].toFixed(2))), _c("br"), _vm._v(_vm._s(_vm.lumi_viso["pajamos"]["pajamos"].toFixed(2)))])];
+      },
+      proxy: true
+    }])
+  }, [_c("b-table-column", {
+    attrs: {
+      label: "DATA",
+      field: "data",
+      sortable: ""
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.data) + "\n            ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "SUMA",
+      field: "suma"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.suma.toFixed(2)) + "\n            ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "DINETA",
+      field: "dineta"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.dineta.toFixed(2)) + "\n              "), "misrus" in props.row ? _c("div", {
+          staticClass: "is-size-7 has-text-weight-bold"
+        }, [_vm._v("\n                   - " + _vm._s(props.row.misrus.suma) + " €\n              ")]) : _vm._e()];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "KOM.",
+      field: "komisiniai"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.komisiniai.toFixed(2)) + "\n            ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "PAJAMOS",
+      field: "pajamos"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.pajamos.toFixed(2)) + "\n            ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    attrs: {
+      label: "GAUTA",
+      field: "gauta",
+      sortable: ""
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.gauta) + "\n            ")];
+      }
+    }])
+  })], 1)], 1)])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "buttons"
+  }, [_c("b-button", {
+    attrs: {
+      size: "is-medium",
+      "icon-left": "printer",
+      type: "is-dark"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.print("printMe");
+      }
+    }
+  }, [_vm._v("SPAUSDINTI")]), _vm._v(" "), _c("b-button", {
+    attrs: {
+      tag: "a",
+      type: "is-dark",
+      size: "is-medium",
+      href: "terminal/save_xlsx",
+      target: "_blank"
+    }
+  }, [_vm._v("\n          ATSISIŲSTI\n        ")])], 1)])], 1)]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
 
 /***/ }),
 
@@ -5238,8 +5580,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardToolbar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardToolbar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -5254,8 +5596,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerPostMini.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerPostMini.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -5270,8 +5612,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Terminal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Terminal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -5284,10 +5626,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_template_id_46e0f3b0___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_template_id_46e0f3b0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_template_id_46e0f3b0___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_template_id_46e0f3b0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_template_id_46e0f3b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardToolbar.vue?vue&type=template&id=46e0f3b0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=template&id=46e0f3b0&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CardToolbar_vue_vue_type_template_id_46e0f3b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardToolbar.vue?vue&type=template&id=46e0f3b0& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=template&id=46e0f3b0&");
 
 
 /***/ }),
@@ -5301,10 +5643,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerPostMini.vue?vue&type=template&id=6555298c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FilePickerPostMini_vue_vue_type_template_id_6555298c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FilePickerPostMini.vue?vue&type=template&id=6555298c& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c&");
 
 
 /***/ }),
@@ -5318,1088 +5660,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_template_id_7191f89b___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_template_id_7191f89b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_template_id_7191f89b___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_template_id_7191f89b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_template_id_7191f89b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Terminal.vue?vue&type=template&id=7191f89b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=template&id=7191f89b&");
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=template&id=46e0f3b0&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=template&id=46e0f3b0& ***!
-  \***********************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "notification is-card-toolbar" }, [
-    _c("div", { staticClass: "level", class: { "is-mobile": _vm.isMobile } }, [
-      _c("div", { staticClass: "level-left" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("left")], 2),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "level-right" }, [
-        _c("div", { staticClass: "level-item" }, [_vm._t("right")], 2),
-      ]),
-    ]),
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePickerPostMini.vue?vue&type=template&id=6555298c& ***!
-  \******************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "b-field",
-    {
-      attrs: {
-        label: _vm.label,
-        message: _vm.fieldFileMessage,
-        type: _vm.fieldFileType,
-      },
-    },
-    [
-      _c(
-        "b-upload",
-        {
-          on: { input: _vm.upload },
-          model: {
-            value: _vm.file_bankas,
-            callback: function ($$v) {
-              _vm.file_bankas = $$v
-            },
-            expression: "file_bankas",
-          },
-        },
-        [
-          _c(
-            "span",
-            { staticClass: "file-cta" },
-            [
-              _c("b-icon", {
-                staticClass: "file-icon",
-                attrs: { icon: _vm.uploadButtonIcon },
-              }),
-              _vm._v(" "),
-              _vm.uploadButtonText
-                ? _c("span", { staticClass: "file-label" }, [
-                    _vm._v(_vm._s(_vm.uploadButtonText)),
-                  ])
-                : _vm._e(),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm.fileName
-            ? _c("span", { staticClass: "file-name" }, [
-                _vm._v("\n          " + _vm._s(_vm.fileName) + "\n      "),
-              ])
-            : _vm._e(),
-        ]
-      ),
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=template&id=7191f89b&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=template&id=7191f89b& ***!
-  \***************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "section",
-      { staticClass: "section is-main-section" },
-      [
-        _c("b-loading", {
-          attrs: { "is-full-page": _vm.isFullPage },
-          model: {
-            value: _vm.isLoading,
-            callback: function ($$v) {
-              _vm.isLoading = $$v
-            },
-            expression: "isLoading",
-          },
-        }),
-        _vm._v(" "),
-        _c(
-          "card-component",
-          { attrs: { title: "VALDYMAS", icon: "account-multiple" } },
-          [
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c("file-picker-post-mini", {
-                    attrs: {
-                      "post-subject": "/terminal/store_terminalas",
-                      label: "Swedbank",
-                    },
-                    on: { "file-updated": _vm.file_info_bankas },
-                    model: {
-                      value: _vm.file_bankas,
-                      callback: function ($$v) {
-                        _vm.file_bankas = $$v
-                      },
-                      expression: "file_bankas",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("file-picker-post-mini", {
-                    attrs: {
-                      "post-subject": "/terminal/store_terminalas",
-                      label: "Luminor",
-                    },
-                    on: { "file-updated": _vm.file_info_bankas2 },
-                    model: {
-                      value: _vm.file_bankas2,
-                      callback: function ($$v) {
-                        _vm.file_bankas2 = $$v
-                      },
-                      expression: "file_bankas2",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "control" },
-                    [
-                      _c(
-                        "b-button",
-                        {
-                          attrs: { size: "is-medium", type: "is-dark" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.suformuoti()
-                            },
-                          },
-                        },
-                        [_vm._v("SUFORMUOTI")]
-                      ),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c("file-picker-post-mini", {
-                    attrs: {
-                      "post-subject": "/terminal/store_terminalas",
-                      label: "Pardavimų CSV",
-                    },
-                    on: { "file-updated": _vm.file_info_pardavimai },
-                    model: {
-                      value: _vm.file_pardavimai,
-                      callback: function ($$v) {
-                        _vm.file_pardavimai = $$v
-                      },
-                      expression: "file_pardavimai",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "control" },
-                    [
-                      _c(
-                        "b-button",
-                        {
-                          attrs: { size: "is-medium", type: "is-dark" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.suformuoti()
-                            },
-                          },
-                        },
-                        [_vm._v("SUDENGTI")]
-                      ),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "card-component",
-          {
-            attrs: { title: "Bankiniai terminalai", icon: "account-multiple" },
-          },
-          [
-            _c("div", { attrs: { id: "printMe" } }, [
-              _c("div", { staticClass: "columns" }, [
-                _c(
-                  "div",
-                  { staticClass: "column" },
-                  [
-                    _c("div", { staticClass: "has-text-centered is-size-3" }, [
-                      _vm._v("SWEDBANK"),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "b-table",
-                      {
-                        attrs: {
-                          bordered: "",
-                          narrowed: true,
-                          data: _vm.swedbank,
-                          "opened-detailed": _vm.defaultOpenedDetails,
-                          detailed: "",
-                          "detail-key": "data",
-                          "show-detail-icon": _vm.showDetailIcon,
-                          "row-class": _vm.onRowClass2,
-                          "sort-icon": "arrow-up",
-                          "default-sort-direction": "asc",
-                          "default-sort": "data",
-                        },
-                        on: {
-                          "details-open": function (row) {
-                            return _vm.$buefy.toast.open("Expanded " + row.data)
-                          },
-                        },
-                        scopedSlots: _vm._u([
-                          {
-                            key: "detail",
-                            fn: function (props) {
-                              return [
-                                _c(
-                                  "div",
-                                  { style: { border: "1px solid" } },
-                                  [
-                                    _c(
-                                      "b-table",
-                                      {
-                                        attrs: {
-                                          data: props.row.pard,
-                                          "default-sort-direction": "asc",
-                                          "default-sort": "parduotuve",
-                                        },
-                                      },
-                                      [
-                                        _c("b-table-column", {
-                                          attrs: {
-                                            field: "parduotuve",
-                                            label: "Parduotuvė",
-                                            sortable: "",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (props) {
-                                                  return [
-                                                    _vm._v(
-                                                      "\n                      " +
-                                                        _vm._s(
-                                                          props.row.parduotuve
-                                                        ) +
-                                                        "\n                    "
-                                                    ),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("b-table-column", {
-                                          attrs: {
-                                            field: "suma",
-                                            label: "Suma",
-                                            sortable: "",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (props) {
-                                                  return [
-                                                    _vm._v(
-                                                      "\n                      " +
-                                                        _vm._s(props.row.suma) +
-                                                        "\n                    "
-                                                    ),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("b-table-column", {
-                                          attrs: {
-                                            field: "komisiniai",
-                                            label: "Komisiniai",
-                                            sortable: "",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (props) {
-                                                  return [
-                                                    _vm._v(
-                                                      "\n                      " +
-                                                        _vm._s(
-                                                          props.row.komisiniai
-                                                        ) +
-                                                        "\n                    "
-                                                    ),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("b-table-column", {
-                                          attrs: {
-                                            field: "pajamos",
-                                            label: "Pajamos",
-                                            sortable: "",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (props) {
-                                                  return [
-                                                    _vm._v(
-                                                      "\n                      " +
-                                                        _vm._s(
-                                                          props.row.pajamos.toFixed(
-                                                            2
-                                                          )
-                                                        ) +
-                                                        "\n                    "
-                                                    ),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                      ],
-                                      1
-                                    ),
-                                  ],
-                                  1
-                                ),
-                              ]
-                            },
-                          },
-                          {
-                            key: "footer",
-                            fn: function () {
-                              return [
-                                _c("th"),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v("Pinigai:"),
-                                  _c("br"),
-                                  _vm._v("Pajamos:"),
-                                ]),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.swed_viso["pinigai"]["suma"].toFixed(
-                                        2
-                                      )
-                                    )
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.swed_viso["pajamos"]["suma"].toFixed(
-                                        2
-                                      )
-                                    )
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.swed_viso["pinigai"][
-                                        "dineta"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.swed_viso["pajamos"][
-                                        "dineta"
-                                      ].toFixed(2)
-                                    ) + "  \n                "
-                                  ),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "is-size-7 has-text-weight-bold",
-                                    },
-                                    [
-                                      _vm._v(
-                                        "- " +
-                                          _vm._s(_vm.apy_suma.toFixed(2)) +
-                                          " €"
-                                      ),
-                                    ]
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.swed_viso["pinigai"][
-                                        "komisiniai"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.swed_viso["pajamos"][
-                                        "komisiniai"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.swed_viso["pinigai"][
-                                        "pajamos"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.swed_viso["pajamos"][
-                                        "pajamos"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                ]),
-                              ]
-                            },
-                            proxy: true,
-                          },
-                        ]),
-                      },
-                      [
-                        _c("b-table-column", {
-                          attrs: { label: "DATA", field: "data", sortable: "" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n                    " +
-                                      _vm._s(props.row.data) +
-                                      "\n              "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          staticClass: "has-text-right",
-                          attrs: { label: "SUMA", field: "suma" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n                    " +
-                                      _vm._s(props.row.suma.toFixed(2)) +
-                                      " \n              "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          staticClass: "has-text-right",
-                          attrs: { label: "DINETA", field: "dineta" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n                  " +
-                                      _vm._s(props.row.dineta.toFixed(2)) +
-                                      "\n                  "
-                                  ),
-                                  "misrus" in props.row
-                                    ? _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "is-size-7 has-text-weight-bold",
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                      - " +
-                                              _vm._s(props.row.misrus.suma) +
-                                              " €\n                    "
-                                          ),
-                                        ]
-                                      )
-                                    : _vm._e(),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          staticClass: "has-text-right",
-                          attrs: { label: "KOM.", field: "komisiniai" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n                    " +
-                                      _vm._s(props.row.komisiniai.toFixed(2)) +
-                                      "\n              "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          staticClass: "has-text-right",
-                          attrs: { label: "PAJAMOS", field: "pajamos" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n                    " +
-                                      _vm._s(props.row.pajamos.toFixed(2)) +
-                                      "\n              "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          attrs: {
-                            label: "GAUTA",
-                            field: "gauta",
-                            sortable: "",
-                          },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n                  " +
-                                      _vm._s(props.row.gauta) +
-                                      "\n            "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "column" },
-                  [
-                    _c("div", { staticClass: "has-text-centered is-size-3" }, [
-                      _vm._v("LUMINOR"),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "b-table",
-                      {
-                        attrs: {
-                          bordered: "",
-                          narrowed: true,
-                          data: _vm.luminor,
-                          "opened-detailed": _vm.defaultOpenedDetails2,
-                          detailed: "",
-                          "detail-key": "data",
-                          "show-detail-icon": _vm.showDetailIcon,
-                          "sort-icon": "arrow-up",
-                          "row-class": _vm.onRowClass,
-                          "default-sort-direction": "asc",
-                          "default-sort": "data",
-                        },
-                        on: {
-                          "details-open": function (row) {
-                            return _vm.$buefy.toast.open("Expanded " + row.data)
-                          },
-                        },
-                        scopedSlots: _vm._u([
-                          {
-                            key: "detail",
-                            fn: function (props) {
-                              return [
-                                _c(
-                                  "div",
-                                  { style: { border: "1px solid" } },
-                                  [
-                                    _c(
-                                      "b-table",
-                                      {
-                                        attrs: {
-                                          data: props.row.pard,
-                                          "default-sort-direction": "asc",
-                                          "default-sort": "parduotuve",
-                                        },
-                                      },
-                                      [
-                                        _c("b-table-column", {
-                                          attrs: {
-                                            field: "parduotuve",
-                                            label: "Parduotuvė",
-                                            sortable: "",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (props) {
-                                                  return [
-                                                    _vm._v(
-                                                      "\n                      " +
-                                                        _vm._s(
-                                                          props.row.parduotuve
-                                                        ) +
-                                                        "\n                    "
-                                                    ),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                        _vm._v(" "),
-                                        _c("b-table-column", {
-                                          attrs: {
-                                            field: "suma",
-                                            label: "Suma",
-                                            sortable: "",
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "default",
-                                                fn: function (props) {
-                                                  return [
-                                                    _vm._v(
-                                                      "\n                      " +
-                                                        _vm._s(
-                                                          props.row.suma.toFixed(
-                                                            2
-                                                          )
-                                                        ) +
-                                                        "\n                    "
-                                                    ),
-                                                  ]
-                                                },
-                                              },
-                                            ],
-                                            null,
-                                            true
-                                          ),
-                                        }),
-                                      ],
-                                      1
-                                    ),
-                                  ],
-                                  1
-                                ),
-                              ]
-                            },
-                          },
-                          {
-                            key: "footer",
-                            fn: function () {
-                              return [
-                                _c("th"),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v("Pinigai:"),
-                                  _c("br"),
-                                  _vm._v("Pajamos:"),
-                                ]),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.lumi_viso["pinigai"]["suma"].toFixed(
-                                        2
-                                      )
-                                    )
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.lumi_viso["pajamos"]["suma"].toFixed(
-                                        2
-                                      )
-                                    )
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.lumi_viso["pinigai"][
-                                        "dineta"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.lumi_viso["pajamos"][
-                                        "dineta"
-                                      ].toFixed(2)
-                                    ) + "\n                "
-                                  ),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "is-size-7 has-text-weight-bold",
-                                    },
-                                    [
-                                      _vm._v(
-                                        "- " +
-                                          _vm._s(_vm.apy_suma2.toFixed(2)) +
-                                          " €"
-                                      ),
-                                    ]
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.lumi_viso["pinigai"][
-                                        "komisiniai"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.lumi_viso["pajamos"][
-                                        "komisiniai"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("th", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.lumi_viso["pinigai"][
-                                        "pajamos"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.lumi_viso["pajamos"][
-                                        "pajamos"
-                                      ].toFixed(2)
-                                    )
-                                  ),
-                                ]),
-                              ]
-                            },
-                            proxy: true,
-                          },
-                        ]),
-                      },
-                      [
-                        _c("b-table-column", {
-                          attrs: { label: "DATA", field: "data", sortable: "" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n              " +
-                                      _vm._s(props.row.data) +
-                                      "\n            "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          staticClass: "has-text-right",
-                          attrs: { label: "SUMA", field: "suma" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n              " +
-                                      _vm._s(props.row.suma.toFixed(2)) +
-                                      "\n            "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          staticClass: "has-text-right",
-                          attrs: { label: "DINETA", field: "dineta" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n              " +
-                                      _vm._s(props.row.dineta.toFixed(2)) +
-                                      "\n              "
-                                  ),
-                                  "misrus" in props.row
-                                    ? _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "is-size-7 has-text-weight-bold",
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                   - " +
-                                              _vm._s(props.row.misrus.suma) +
-                                              " €\n              "
-                                          ),
-                                        ]
-                                      )
-                                    : _vm._e(),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          staticClass: "has-text-right",
-                          attrs: { label: "KOM.", field: "komisiniai" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n              " +
-                                      _vm._s(props.row.komisiniai.toFixed(2)) +
-                                      "\n            "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          staticClass: "has-text-right",
-                          attrs: { label: "PAJAMOS", field: "pajamos" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n              " +
-                                      _vm._s(props.row.pajamos.toFixed(2)) +
-                                      "\n            "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                        _vm._v(" "),
-                        _c("b-table-column", {
-                          attrs: {
-                            label: "GAUTA",
-                            field: "gauta",
-                            sortable: "",
-                          },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "default",
-                              fn: function (props) {
-                                return [
-                                  _vm._v(
-                                    "\n              " +
-                                      _vm._s(props.row.gauta) +
-                                      "\n            "
-                                  ),
-                                ]
-                              },
-                            },
-                          ]),
-                        }),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "buttons" },
-              [
-                _c(
-                  "b-button",
-                  {
-                    attrs: {
-                      size: "is-medium",
-                      "icon-left": "printer",
-                      type: "is-dark",
-                    },
-                    on: {
-                      click: function ($event) {
-                        return _vm.print("printMe")
-                      },
-                    },
-                  },
-                  [_vm._v("SPAUSDINTI")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-button",
-                  {
-                    attrs: {
-                      tag: "a",
-                      type: "is-dark",
-                      size: "is-medium",
-                      href: "terminal/save_xlsx",
-                      target: "_blank",
-                    },
-                  },
-                  [_vm._v("\n          ATSISIŲSTI\n        ")]
-                ),
-              ],
-              1
-            ),
-          ]
-        ),
-      ],
-      1
-    ),
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Terminal_vue_vue_type_template_id_7191f89b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Terminal.vue?vue&type=template&id=7191f89b& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Terminal.vue?vue&type=template&id=7191f89b&");
 
 
 /***/ })

@@ -107,7 +107,7 @@ class TerminalController extends Controller
         $misrus2 = array();
         $sandeliai = array("KASA_SAUL" => "SAUL", "KASA_UKME" => "UKME", "KASA_UTEN2" => "UTEN", "KASA_PANEV" => "BABI", "KASA_MADA" => "MADA");
         $flag = true;
-        if (($handle = fopen(storage_path("app/XLSX/payment_op-05.csv"), "r")) !== FALSE) {
+        if (($handle = fopen(storage_path("app/XLSX/payment_op-06.csv"), "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
                 //praleidziam pirma eilute
                 if($flag) { $flag = false; continue; }
@@ -258,8 +258,10 @@ class TerminalController extends Controller
                             $arr[$date]['dineta'] = $arr3[$date]['swedbank'];
                         }
 
-                        if(array_key_exists($date, $misrus['swedbank'])){
-                            $arr[$date]['misrus'] = $misrus['swedbank'][$date];
+                        if(array_key_exists("swedbank", $misrus)){
+                            if(array_key_exists($date, $misrus['swedbank'])){
+                                $arr[$date]['misrus'] = $misrus['swedbank'][$date];
+                            }
                         }
 
                         $arr[$date]['suma'] += $suma[1];
@@ -342,8 +344,10 @@ class TerminalController extends Controller
         foreach($arr2 as $key => $v){
             $arr2[$key]['dineta'] = $arr3[$key]['luminor'];
 
-            if(array_key_exists($key, $misrus['luminor'])){
-                $arr2[$key]['misrus'] = $misrus['luminor'][$key];
+            if(array_key_exists('luminor', $misrus)){
+                if(array_key_exists($key, $misrus['luminor'])){
+                    $arr2[$key]['misrus'] = $misrus['luminor'][$key];
+                }
             }
             
             if(array_key_exists($key, $st)){

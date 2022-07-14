@@ -23,12 +23,33 @@ Auth::routes([
   'verify' => false, // Email Verification Routes...
 ]);
 
+Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
+
+//GPAIS, nauja versija
+Route::prefix('/v2')->group(function () {
+    Route::resource('', App\Http\Controllers\GPAIS\IndexController::class);
+    Route::resource('gpais', App\Http\Controllers\GPAIS\GpaisController::class);
+    Route::resource('company', App\Http\Controllers\GPAIS\CompanyController::class);
+    Route::resource('invoice', App\Http\Controllers\GPAIS\InvoiceController::class);
+    Route::resource('package', App\Http\Controllers\GPAIS\PackageController::class);
+});
+//StockQuant
+Route::prefix('/stock_quant')->group(function () {
+    Route::get('', [App\Http\Controllers\StockQuantController::class, 'index'])->name('index');
+});
+//InteReturn
+Route::prefix('/inte_return')->group(function () {
+    Route::get('', [App\Http\Controllers\InteReturnController::class, 'index'])->name('index');
+});
+
+Route::prefix('/sarasas')->group(function () {
+    Route::get('', [App\Http\Controllers\SarasasController::class, 'index'])->name('index');
+});
+
 Route::prefix('/visilikuciai')->group(function () {
     Route::get('', [App\Http\Controllers\VisiLikuciaiController::class, 'index'])->name('index');
     Route::post('store', [App\Http\Controllers\VisiLikuciaiController::class, 'store'])->name('store');
 });
-
-Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
 
 //dalinimo analizavimas
 Route::get('/excel', [App\Http\Controllers\ExcelController::class, 'index'])->name('index');

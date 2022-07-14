@@ -1,9 +1,9 @@
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_Keliones_vue"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -11,21 +11,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'CheckboxPicker',
   props: {
@@ -66,10 +51,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -93,177 +78,6 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -422,6 +236,395 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=template&id=b0b44648&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=template&id=b0b44648& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("b-field", {
+    attrs: {
+      grouped: "",
+      "group-multiline": ""
+    }
+  }, _vm._l(_vm.options, function (v, k) {
+    return _c("div", {
+      key: k,
+      staticClass: "control"
+    }, [_c("b-checkbox", {
+      attrs: {
+        "native-value": v,
+        type: _vm.type
+      },
+      on: {
+        input: _vm.input
+      },
+      model: {
+        value: _vm.newValue,
+        callback: function callback($$v) {
+          _vm.newValue = $$v;
+        },
+        expression: "newValue"
+      }
+    }, [_vm._v("\n      " + _vm._s(v) + "\n    ")])], 1);
+  }), 0);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=template&id=cff44c7a&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=template&id=cff44c7a&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_c("section", {
+    staticClass: "section is-main-section"
+  }, [_c("card-component", {
+    attrs: {
+      title: "VALDYMAS",
+      icon: "account-multiple"
+    }
+  }, [_c("b-field", {
+    attrs: {
+      label: "Valstybė",
+      horizontal: ""
+    }
+  }, [_c("b-button", {
+    attrs: {
+      type: _vm.rodyti_lv ? "is-warning" : "is-dark"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.change_lv();
+      }
+    }
+  }, [_vm._v("LATVIJA")]), _vm._v(" "), _c("b-button", {
+    attrs: {
+      type: _vm.rodyti_ee ? "is-danger" : "is-dark"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.change_ee();
+      }
+    }
+  }, [_vm._v("ESTIJA")])], 1), _vm._v(" "), _vm._l(_vm.miestai[_vm.rodo], function (item, index) {
+    return _c("div", {
+      key: item.index
+    }, [_c("b-field", {
+      staticClass: "has-check",
+      attrs: {
+        label: index,
+        horizontal: ""
+      }
+    }, [_c("checkbox-picker", {
+      attrs: {
+        options: item,
+        type: "is-black"
+      },
+      model: {
+        value: _vm.checkbox,
+        callback: function callback($$v) {
+          _vm.checkbox = $$v;
+        },
+        expression: "checkbox"
+      }
+    }), _vm._v(" "), _c("b-checkbox", {
+      attrs: {
+        "native-value": index,
+        type: "is-danger"
+      },
+      model: {
+        value: _vm.visi,
+        callback: function callback($$v) {
+          _vm.visi = $$v;
+        },
+        expression: "visi"
+      }
+    }, [_vm._v("(visi)")])], 1)], 1);
+  }), _vm._v(" "), _c("hr"), _vm._v(" "), _c("b-field", {
+    attrs: {
+      label: "Data:",
+      horizontal: ""
+    }
+  }, [_c("b-datepicker", {
+    attrs: {
+      placeholder: "Pasirinkite data...",
+      icon: "calendar-today",
+      locale: _vm.locale,
+      editable: ""
+    },
+    model: {
+      value: _vm.data,
+      callback: function callback($$v) {
+        _vm.data = $$v;
+      },
+      expression: "data"
+    }
+  })], 1), _vm._v(" "), _c("b-field", {
+    attrs: {
+      label: "Numeris:",
+      horizontal: ""
+    }
+  }, [_c("b-input", {
+    attrs: {
+      type: "input",
+      icon: "variable"
+    },
+    model: {
+      value: _vm.nr,
+      callback: function callback($$v) {
+        _vm.nr = $$v;
+      },
+      expression: "nr"
+    }
+  })], 1), _vm._v(" "), _c("b-field", {
+    attrs: {
+      label: "...",
+      horizontal: ""
+    }
+  }, [_c("b-switch", {
+    attrs: {
+      type: "is-info"
+    },
+    nativeOn: {
+      click: function click($event) {
+        return _vm.numeris();
+      }
+    },
+    model: {
+      value: _vm.nr_rodyti,
+      callback: function callback($$v) {
+        _vm.nr_rodyti = $$v;
+      },
+      expression: "nr_rodyti"
+    }
+  }, [_vm._v("\n          Rašyti antrą numerį\n        ")])], 1), _vm._v(" "), _vm.nr_rodyti ? _c("b-field", {
+    attrs: {
+      label: "Numeris 2:",
+      horizontal: ""
+    }
+  }, [_c("b-input", {
+    attrs: {
+      type: "input",
+      icon: "variable"
+    },
+    model: {
+      value: _vm.nr2,
+      callback: function callback($$v) {
+        _vm.nr2 = $$v;
+      },
+      expression: "nr2"
+    }
+  })], 1) : _vm._e(), _vm._v(" "), _c("div", {
+    staticClass: "buttons"
+  }, [_c("b-button", {
+    attrs: {
+      type: "is-black",
+      expanded: ""
+    },
+    on: {
+      click: _vm.paieska
+    }
+  }, [_vm._v("SKAIČIUOTI")])], 1)], 2), _vm._v(" "), _c("card-component", {
+    attrs: {
+      title: "SANDELIS",
+      icon: "account-multiple"
+    }
+  }, [_c("div", {
+    attrs: {
+      id: "printMe"
+    }
+  }, [_vm.nr_rodyti ? _c("div", {
+    staticClass: "has-text-centered"
+  }, [_vm._v("\n          Serija GAB  Nr. " + _vm._s(_vm.nr) + "\n          "), _c("br"), _vm._v("\n          Serija GAB  Nr. " + _vm._s(_vm.nr2) + "\n          "), _c("br"), _vm._v(" \n          " + _vm._s(_vm.date) + "\n          ")]) : _c("div", {
+    staticClass: "has-text-centered"
+  }, [_vm._v("\n          Serija GAB  Nr. " + _vm._s(_vm.nr) + "         " + _vm._s(_vm.date) + "\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+    staticClass: "columns"
+  }, [_c("div", {
+    staticClass: "column is-one-third"
+  }, [_c("div", {
+    staticClass: "has-text-right"
+  }, [_c("b", [_vm._v("Siuntėjas:")])])]), _vm._v(" "), _c("div", {
+    staticClass: "column has-text-left"
+  }, [_c("b", [_vm._v('UAB "Sidonas" ir ko')]), _vm._v(", Įmonės reg. NR. AB2003-5"), _c("br"), _vm._v("\n              Įmonės kodas (VET code): LT 808860515\n            ")])]), _vm._v(" "), _c("div", {
+    staticClass: "columns"
+  }, [_c("div", {
+    staticClass: "column is-one-third"
+  }, [_c("div", {
+    staticClass: "has-text-right"
+  }, [_c("b", [_vm._v("Pirkėjas:")])])]), _vm._v(" "), _vm.rodyti_ee ? _c("div", {
+    staticClass: "column has-text-left"
+  }, [_c("b", [_vm._v('Sidonas" Group OŪ')]), _c("br"), _vm._v("\n              PVM kodas (VET code): EE 101043995"), _c("br"), _vm._v("\n              Kiisa 8-27, Tallinn 10416, ESTIJOS RESPUBLIKA\n            ")]) : _vm.rodyti_lv ? _c("div", {
+    staticClass: "column has-text-left"
+  }, [_c("b", [_vm._v('"SIA "Sidonas"')]), _c("br"), _vm._v("\n              PVM kodas (VET code): LV 40003558478"), _c("br"), _vm._v("\n              Matīsa iela 25, Rīga, LATVIJAS RESPUBLIKA\n            ")]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "columns"
+  }, [_c("div", {
+    staticClass: "column is-one-third"
+  }, [_c("div", {
+    staticClass: "has-text-right"
+  }, [_c("b", [_vm._v("Bankas:")])])]), _vm._v(" "), _c("div", {
+    staticClass: "column has-text-left"
+  }, [_vm._v('\n              AB bankas " Swedbank", A/s  LT02 7300 0100 7710 3089'), _c("br"), _vm._v("\n              Banko kodas: 73000\n            ")])]), _vm._v(" "), _c("div", {
+    staticClass: "columns"
+  }, [_c("div", {
+    staticClass: "column is-one-third"
+  }, [_c("div", {
+    staticClass: "has-text-right"
+  }, [_c("b", [_vm._v("Adresas:")])])]), _vm._v(" "), _c("div", {
+    staticClass: "column has-text-left"
+  }, [_vm._v("\n              Kęstučio 20-1, LT-87120, Telšiai, Lietuva\n            ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("b-table", {
+    attrs: {
+      focusable: "",
+      bordered: "",
+      hoverable: "",
+      narrowed: true,
+      data: _vm.duomenys,
+      "sort-icon": "arrow-up",
+      loading: _vm.isLoading
+    },
+    scopedSlots: _vm._u([{
+      key: "footer",
+      fn: function fn() {
+        return [_c("th", {
+          staticClass: "has-text-right"
+        }, [_vm._v("VISO:")]), _vm._v(" "), _c("th"), _vm._v(" "), _c("th", {
+          staticClass: "has-text-right"
+        }, [_vm._v(_vm._s(_vm.total_kiekis))]), _vm._v(" "), _c("th"), _vm._v(" "), _c("th", {
+          staticClass: "has-text-right"
+        }, [_vm._v(_vm._s(_vm.total_suma.toFixed(2)))])];
+      },
+      proxy: true
+    }])
+  }, [_c("b-table-column", {
+    attrs: {
+      cellClass: "is-smoke",
+      label: "Pavadinimas",
+      field: "pavadinimas"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.pavadinimas) + "\n        ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    attrs: {
+      label: "MATO, Vnt."
+    }
+  }, [_vm._v("\n              Vnt.\n        ")]), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "Kiekis",
+      field: "kiekis"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.kiekis) + "\n        ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "Kaina",
+      field: "kaina"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.kaina) + "\n        ")];
+      }
+    }])
+  }), _vm._v(" "), _c("b-table-column", {
+    staticClass: "has-text-right",
+    attrs: {
+      label: "Suma, Eur"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function fn(props) {
+        return [_vm._v("\n              " + _vm._s(props.row.suma) + "\n        ")];
+      }
+    }])
+  }), _vm._v(" "), _c("section", {
+    staticClass: "section",
+    attrs: {
+      slot: "empty"
+    },
+    slot: "empty"
+  }, [_c("div", {
+    staticClass: "content has-text-centered"
+  }, [_vm.isLoading ? [_c("p", [_c("b-icon", {
+    attrs: {
+      icon: "dots-horizontal",
+      size: "is-large"
+    }
+  })], 1), _vm._v(" "), _c("p", [_vm._v("Gaunami duomenys...")])] : [_c("p", [_c("b-icon", {
+    attrs: {
+      icon: "emoticon-sad",
+      size: "is-large"
+    }
+  })], 1), _vm._v(" "), _c("p", [_vm._v("Duomenų nerasta …")])]], 2)])], 1), _vm._v(" "), _c("br"), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+    staticClass: "columns"
+  }, [_c("div", {
+    staticClass: "column"
+  }, [_c("div", {
+    staticClass: "has-text-left"
+  }, [_c("b", [_vm._v("Suma  žodžiais EUR:")]), _vm._v("   " + _vm._s(_vm.sk_lt) + " eur, " + _vm._s(_vm.centai) + " cent.")])])]), _vm._v(" "), _c("div", {
+    staticClass: "columns"
+  }, [_c("div", {
+    staticClass: "column"
+  }, [_c("div", {
+    staticClass: "has-text-left"
+  }, [_c("b", [_vm._v("Direktorius:")])])]), _vm._v(" "), _c("div", {
+    staticClass: "column"
+  }, [_c("div", {
+    staticClass: "has-text-left"
+  }, [_c("b", [_vm._v("Antanas Dargis")])])])])], 1), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "buttons"
+  }, [_c("b-button", {
+    attrs: {
+      size: "is-medium",
+      "icon-left": "printer",
+      type: "is-dark"
+    },
+    on: {
+      click: _vm.print
+    }
+  }, [_vm._v("SPAUSDINTI")])], 1)])], 1)]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
 
 /***/ }),
 
@@ -4912,8 +5115,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckboxPicker.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckboxPicker.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -4928,8 +5131,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Keliones.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Keliones.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -4942,10 +5145,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_template_id_b0b44648___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_template_id_b0b44648___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_template_id_b0b44648___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_template_id_b0b44648___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_template_id_b0b44648___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckboxPicker.vue?vue&type=template&id=b0b44648& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=template&id=b0b44648&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckboxPicker_vue_vue_type_template_id_b0b44648___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckboxPicker.vue?vue&type=template&id=b0b44648& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=template&id=b0b44648&");
 
 
 /***/ }),
@@ -4959,643 +5162,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_template_id_cff44c7a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_template_id_cff44c7a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_template_id_cff44c7a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_template_id_cff44c7a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_template_id_cff44c7a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Keliones.vue?vue&type=template&id=cff44c7a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=template&id=cff44c7a&scoped=true&");
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=template&id=b0b44648&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckboxPicker.vue?vue&type=template&id=b0b44648& ***!
-  \**************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "b-field",
-    { attrs: { grouped: "", "group-multiline": "" } },
-    _vm._l(_vm.options, function (v, k) {
-      return _c(
-        "div",
-        { key: k, staticClass: "control" },
-        [
-          _c(
-            "b-checkbox",
-            {
-              attrs: { "native-value": v, type: _vm.type },
-              on: { input: _vm.input },
-              model: {
-                value: _vm.newValue,
-                callback: function ($$v) {
-                  _vm.newValue = $$v
-                },
-                expression: "newValue",
-              },
-            },
-            [_vm._v("\n      " + _vm._s(v) + "\n    ")]
-          ),
-        ],
-        1
-      )
-    }),
-    0
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=template&id=cff44c7a&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=template&id=cff44c7a&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "section",
-      { staticClass: "section is-main-section" },
-      [
-        _c(
-          "card-component",
-          { attrs: { title: "VALDYMAS", icon: "account-multiple" } },
-          [
-            _c(
-              "b-field",
-              { attrs: { label: "Valstybė", horizontal: "" } },
-              [
-                _c(
-                  "b-button",
-                  {
-                    attrs: { type: _vm.rodyti_lv ? "is-warning" : "is-dark" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.change_lv()
-                      },
-                    },
-                  },
-                  [_vm._v("LATVIJA")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-button",
-                  {
-                    attrs: { type: _vm.rodyti_ee ? "is-danger" : "is-dark" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.change_ee()
-                      },
-                    },
-                  },
-                  [_vm._v("ESTIJA")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._l(_vm.miestai[_vm.rodo], function (item, index) {
-              return _c(
-                "div",
-                { key: item.index },
-                [
-                  _c(
-                    "b-field",
-                    {
-                      staticClass: "has-check",
-                      attrs: { label: index, horizontal: "" },
-                    },
-                    [
-                      _c("checkbox-picker", {
-                        attrs: { options: item, type: "is-black" },
-                        model: {
-                          value: _vm.checkbox,
-                          callback: function ($$v) {
-                            _vm.checkbox = $$v
-                          },
-                          expression: "checkbox",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "b-checkbox",
-                        {
-                          attrs: { "native-value": index, type: "is-danger" },
-                          model: {
-                            value: _vm.visi,
-                            callback: function ($$v) {
-                              _vm.visi = $$v
-                            },
-                            expression: "visi",
-                          },
-                        },
-                        [_vm._v("(visi)")]
-                      ),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              )
-            }),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c(
-              "b-field",
-              { attrs: { label: "Data:", horizontal: "" } },
-              [
-                _c("b-datepicker", {
-                  attrs: {
-                    placeholder: "Pasirinkite data...",
-                    icon: "calendar-today",
-                    locale: _vm.locale,
-                    editable: "",
-                  },
-                  model: {
-                    value: _vm.data,
-                    callback: function ($$v) {
-                      _vm.data = $$v
-                    },
-                    expression: "data",
-                  },
-                }),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "b-field",
-              { attrs: { label: "Numeris:", horizontal: "" } },
-              [
-                _c("b-input", {
-                  attrs: { type: "input", icon: "variable" },
-                  model: {
-                    value: _vm.nr,
-                    callback: function ($$v) {
-                      _vm.nr = $$v
-                    },
-                    expression: "nr",
-                  },
-                }),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "b-field",
-              { attrs: { label: "...", horizontal: "" } },
-              [
-                _c(
-                  "b-switch",
-                  {
-                    attrs: { type: "is-info" },
-                    nativeOn: {
-                      click: function ($event) {
-                        return _vm.numeris()
-                      },
-                    },
-                    model: {
-                      value: _vm.nr_rodyti,
-                      callback: function ($$v) {
-                        _vm.nr_rodyti = $$v
-                      },
-                      expression: "nr_rodyti",
-                    },
-                  },
-                  [_vm._v("\n          Rašyti antrą numerį\n        ")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm.nr_rodyti
-              ? _c(
-                  "b-field",
-                  { attrs: { label: "Numeris 2:", horizontal: "" } },
-                  [
-                    _c("b-input", {
-                      attrs: { type: "input", icon: "variable" },
-                      model: {
-                        value: _vm.nr2,
-                        callback: function ($$v) {
-                          _vm.nr2 = $$v
-                        },
-                        expression: "nr2",
-                      },
-                    }),
-                  ],
-                  1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "buttons" },
-              [
-                _c(
-                  "b-button",
-                  {
-                    attrs: { type: "is-black", expanded: "" },
-                    on: { click: _vm.paieska },
-                  },
-                  [_vm._v("SKAIČIUOTI")]
-                ),
-              ],
-              1
-            ),
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c(
-          "card-component",
-          { attrs: { title: "SANDELIS", icon: "account-multiple" } },
-          [
-            _c(
-              "div",
-              { attrs: { id: "printMe" } },
-              [
-                _vm.nr_rodyti
-                  ? _c("div", { staticClass: "has-text-centered" }, [
-                      _vm._v(
-                        "\n          Serija GAB  Nr. " +
-                          _vm._s(_vm.nr) +
-                          "\n          "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        "\n          Serija GAB  Nr. " +
-                          _vm._s(_vm.nr2) +
-                          "\n          "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        " \n          " + _vm._s(_vm.date) + "\n          "
-                      ),
-                    ])
-                  : _c("div", { staticClass: "has-text-centered" }, [
-                      _vm._v(
-                        "\n          Serija GAB  Nr. " +
-                          _vm._s(_vm.nr) +
-                          "         " +
-                          _vm._s(_vm.date) +
-                          "\n          "
-                      ),
-                    ]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("div", { staticClass: "columns" }, [
-                  _c("div", { staticClass: "column is-one-third" }, [
-                    _c("div", { staticClass: "has-text-right" }, [
-                      _c("b", [_vm._v("Siuntėjas:")]),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "column has-text-left" }, [
-                    _c("b", [_vm._v('UAB "Sidonas" ir ko')]),
-                    _vm._v(", Įmonės reg. NR. AB2003-5"),
-                    _c("br"),
-                    _vm._v(
-                      "\n              Įmonės kodas (VET code): LT 808860515\n            "
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "columns" }, [
-                  _c("div", { staticClass: "column is-one-third" }, [
-                    _c("div", { staticClass: "has-text-right" }, [
-                      _c("b", [_vm._v("Pirkėjas:")]),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _vm.rodyti_ee
-                    ? _c("div", { staticClass: "column has-text-left" }, [
-                        _c("b", [_vm._v('Sidonas" Group OŪ')]),
-                        _c("br"),
-                        _vm._v(
-                          "\n              PVM kodas (VET code): EE 101043995"
-                        ),
-                        _c("br"),
-                        _vm._v(
-                          "\n              Kiisa 8-27, Tallinn 10416, ESTIJOS RESPUBLIKA\n            "
-                        ),
-                      ])
-                    : _vm.rodyti_lv
-                    ? _c("div", { staticClass: "column has-text-left" }, [
-                        _c("b", [_vm._v('"SIA "Sidonas"')]),
-                        _c("br"),
-                        _vm._v(
-                          "\n              PVM kodas (VET code): LV 40003558478"
-                        ),
-                        _c("br"),
-                        _vm._v(
-                          "\n              Matīsa iela 25, Rīga, LATVIJAS RESPUBLIKA\n            "
-                        ),
-                      ])
-                    : _vm._e(),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "columns" }, [
-                  _c("div", { staticClass: "column is-one-third" }, [
-                    _c("div", { staticClass: "has-text-right" }, [
-                      _c("b", [_vm._v("Bankas:")]),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "column has-text-left" }, [
-                    _vm._v(
-                      '\n              AB bankas " Swedbank", A/s  LT02 7300 0100 7710 3089'
-                    ),
-                    _c("br"),
-                    _vm._v("\n              Banko kodas: 73000\n            "),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "columns" }, [
-                  _c("div", { staticClass: "column is-one-third" }, [
-                    _c("div", { staticClass: "has-text-right" }, [
-                      _c("b", [_vm._v("Adresas:")]),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "column has-text-left" }, [
-                    _vm._v(
-                      "\n              Kęstučio 20-1, LT-87120, Telšiai, Lietuva\n            "
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c(
-                  "b-table",
-                  {
-                    attrs: {
-                      focusable: "",
-                      bordered: "",
-                      hoverable: "",
-                      narrowed: true,
-                      data: _vm.duomenys,
-                      "sort-icon": "arrow-up",
-                      loading: _vm.isLoading,
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "footer",
-                        fn: function () {
-                          return [
-                            _c("th", { staticClass: "has-text-right" }, [
-                              _vm._v("VISO:"),
-                            ]),
-                            _vm._v(" "),
-                            _c("th"),
-                            _vm._v(" "),
-                            _c("th", { staticClass: "has-text-right" }, [
-                              _vm._v(_vm._s(_vm.total_kiekis)),
-                            ]),
-                            _vm._v(" "),
-                            _c("th"),
-                            _vm._v(" "),
-                            _c("th", { staticClass: "has-text-right" }, [
-                              _vm._v(_vm._s(_vm.total_suma.toFixed(2))),
-                            ]),
-                          ]
-                        },
-                        proxy: true,
-                      },
-                    ]),
-                  },
-                  [
-                    _c("b-table-column", {
-                      attrs: {
-                        cellClass: "is-smoke",
-                        label: "Pavadinimas",
-                        field: "pavadinimas",
-                      },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(props.row.pavadinimas) +
-                                  "\n        "
-                              ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
-                    _vm._v(" "),
-                    _c("b-table-column", { attrs: { label: "MATO, Vnt." } }, [
-                      _vm._v("\n              Vnt.\n        "),
-                    ]),
-                    _vm._v(" "),
-                    _c("b-table-column", {
-                      staticClass: "has-text-right",
-                      attrs: { label: "Kiekis", field: "kiekis" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(props.row.kiekis) +
-                                  "\n        "
-                              ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
-                    _vm._v(" "),
-                    _c("b-table-column", {
-                      staticClass: "has-text-right",
-                      attrs: { label: "Kaina", field: "kaina" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(props.row.kaina) +
-                                  "\n        "
-                              ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
-                    _vm._v(" "),
-                    _c("b-table-column", {
-                      staticClass: "has-text-right",
-                      attrs: { label: "Suma, Eur" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(props.row.suma) +
-                                  "\n        "
-                              ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "section",
-                      {
-                        staticClass: "section",
-                        attrs: { slot: "empty" },
-                        slot: "empty",
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "content has-text-centered" },
-                          [
-                            _vm.isLoading
-                              ? [
-                                  _c(
-                                    "p",
-                                    [
-                                      _c("b-icon", {
-                                        attrs: {
-                                          icon: "dots-horizontal",
-                                          size: "is-large",
-                                        },
-                                      }),
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", [_vm._v("Gaunami duomenys...")]),
-                                ]
-                              : [
-                                  _c(
-                                    "p",
-                                    [
-                                      _c("b-icon", {
-                                        attrs: {
-                                          icon: "emoticon-sad",
-                                          size: "is-large",
-                                        },
-                                      }),
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", [_vm._v("Duomenų nerasta …")]),
-                                ],
-                          ],
-                          2
-                        ),
-                      ]
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("div", { staticClass: "columns" }, [
-                  _c("div", { staticClass: "column" }, [
-                    _c("div", { staticClass: "has-text-left" }, [
-                      _c("b", [_vm._v("Suma  žodžiais EUR:")]),
-                      _vm._v(
-                        "   " +
-                          _vm._s(_vm.sk_lt) +
-                          " eur, " +
-                          _vm._s(_vm.centai) +
-                          " cent."
-                      ),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "columns" }, [
-                  _c("div", { staticClass: "column" }, [
-                    _c("div", { staticClass: "has-text-left" }, [
-                      _c("b", [_vm._v("Direktorius:")]),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "column" }, [
-                    _c("div", { staticClass: "has-text-left" }, [
-                      _c("b", [_vm._v("Antanas Dargis")]),
-                    ]),
-                  ]),
-                ]),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "buttons" },
-              [
-                _c(
-                  "b-button",
-                  {
-                    attrs: {
-                      size: "is-medium",
-                      "icon-left": "printer",
-                      type: "is-dark",
-                    },
-                    on: { click: _vm.print },
-                  },
-                  [_vm._v("SPAUSDINTI")]
-                ),
-              ],
-              1
-            ),
-          ]
-        ),
-      ],
-      1
-    ),
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Keliones_vue_vue_type_template_id_cff44c7a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Keliones.vue?vue&type=template&id=cff44c7a&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Keliones.vue?vue&type=template&id=cff44c7a&scoped=true&");
 
 
 /***/ })
