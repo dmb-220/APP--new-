@@ -19,7 +19,7 @@ class StockQuantController extends Controller
         //ateiciai, gal reikes panaudoti
         $gam = 1; $pirk = 0; $paieska_big = 1;
 
-        $min = 25;
+        $min = 24;
 
         $tags = array("LMD-", "LME-", "LMB-", "LMC-", "LMC-");
 
@@ -42,7 +42,7 @@ class StockQuantController extends Controller
             ->get();
 
         //sandeliu sarasas kuriu neitraukti
-        $sandeliai = array("BROK", "ESTI", "4444", "TELSIAI", "1111", "SAND", "ZILT", "GALA");
+        $sandeliai = array("BROK", "ESTI", "4444", "TELSIAI", "1111", "SAND", "ZILT", "GALA", "Braak", "Leedu");
 
         $kodai = array(); $count = array();
         foreach ( $likutis as $value ) {    
@@ -59,13 +59,14 @@ class StockQuantController extends Controller
             }
         }
 
-        $sand = array();
+        $sand = array(); $sand_name = array();
         foreach($kodai as $key => $val){
             //print_r($val);
             foreach($val as $row){
                 //sudedam pagal sandelius
                 if($count[$key] <= $min){
                     $sand[$row['salis']][$row['sandelis']][$key] = $row;
+                    $sand_name[$row['salis']][$row['sandelis']] = array();
                 }
             }
         }
@@ -74,6 +75,8 @@ class StockQuantController extends Controller
             'status' => true,
             'settings' => array('min' => $min, 'paieska_big' => $paieska_big, 'tags' => $tags),
             'kiekis' => $count,
+            //'sandeliai' => array("1" => array(), "2" => array(), "3" => array()),
+            'sandeliai' => $sand_name,
             'sarasas' => $sand
         ]);  
     }
