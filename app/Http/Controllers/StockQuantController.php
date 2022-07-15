@@ -57,7 +57,7 @@ class StockQuantController extends Controller
             ->get();
 
         //sandeliu sarasas kuriu neitraukti
-        $sandeliai = array("BROK", "ESTI", "4444", "TELSIAI", "1111", "SAND", "ZILT", "GALA", "Braak", "Leedu");
+        $sandeliai = array("BROK", "ESTI", "4444", "TELSIAI", "99LT", "1111", "SAND", "ZILT", "GALA", "Braak", "Leedu");
 
         $kodai = array(); $count = array();
         foreach ( $likutis as $value ) {    
@@ -90,7 +90,6 @@ class StockQuantController extends Controller
             'status' => true,
             'settings' => array('min' => $min, 'paieska_big' => $paieska_big, 'tags' => $tags),
             'kiekis' => $count,
-            //'sandeliai' => array("1" => array(), "2" => array(), "3" => array()),
             'sandeliai' => $sand_name,
             'sarasas' => $sand
         ]);  

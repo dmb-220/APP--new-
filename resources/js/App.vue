@@ -60,6 +60,11 @@ export default {
                 icon: 'cart',
               },
               {
+                to: '/stock_quant',
+                label: 'Likučių surinkimas',
+                icon: 'check',
+              },
+              {
                 to: '/likuciai',
                 label: 'Likučiai',
                 icon: 'buffer',

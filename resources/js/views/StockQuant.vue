@@ -68,9 +68,7 @@
               <tbody>
                 <tr v-for="(item, index) in props.row" :key="index">
                   <td>
-                  <b-checkbox-button size="is-small" v-model="checkboxGroup[salis_nr][item.sandelis]" :native-value="item">
-                    <b-icon icon="check"></b-icon>
-                  </b-checkbox>
+                  <b-checkbox size="is-small" v-model="checkboxGroup[salis_nr][item.sandelis]" :native-value="item"></b-checkbox>
                   </td>
                   <td>{{ index }}</td>
                   <td>{{ item.kiekis }}</td>
