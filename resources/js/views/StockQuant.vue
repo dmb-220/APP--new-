@@ -211,7 +211,7 @@ export default {
         this.checkboxGroup = response.data.sandeliai;
 
         this.allSelected = this.checkboxGroup;
-        this.list = this.sarasas[1];
+        this.list = this.sarasas[salis_nr];
         this.settings['paieska_big'] = this.settings['paieska_big'] ? true : false;
         this.settings['min'] = parseInt(this.settings['min']);
         
