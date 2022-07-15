@@ -17,11 +17,26 @@ class StockQuantController extends Controller
     public function index()
     {
         //ateiciai, gal reikes panaudoti
-        $gam = 1; $pirk = 0; $paieska_big = 1;
+        $gam = 1; $pirk = 0;
+        //$paieska_big = 1;
+        //$min = 24;
+        //$tags = array("LMD-", "LME-", "LMB-", "LMC-", "LMC-");
 
-        $min = 24;
+        $failas = "stock_quant.txt";
+        $directory  = "app/";
+        $failas = $directory.$failas;
 
-        $tags = array("LMD-", "LME-", "LMB-", "LMC-", "LMC-");
+        $myfile = fopen(storage_path($failas), "r");
+        $k = fread($myfile,filesize(storage_path($failas)));
+        fclose($myfile);
+
+        $k = explode("||", $k);
+        $tags = unserialize($k[0]);
+        $paieska_big = $k[1];
+        $min = $k[2];
+        $salis['LT'] = $k[3];
+        $salis['LV'] = $k[4]; 
+        $salis['EE'] = $k[5];
 
         $likutis = Likutis::query()
             ->where(function ($query) use($tags, $paieska_big) {
@@ -99,7 +114,26 @@ class StockQuantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $settings = $data['settings'];
+        $salis = $data['salis'];
+
+        $failas = "stock_quant.txt";
+        $directory  = "app/";
+        $failas = $directory.$failas;
+
+        //var_dump($settings);
+
+        $eilute = serialize($settings['tags'])."||".$settings['paieska_big']."||".$settings['min']."||".$salis['LT']."||".$salis['LV']."||".$salis['EE'];
+
+        $myfile = fopen(storage_path($failas), "w");
+        fwrite($myfile, $eilute);
+        fclose($myfile);
+
+        return response()->json([
+            'status' => true,
+            'data' => $data
+        ]);
     }
 
     /**

@@ -5,12 +5,10 @@
       <card-component title="VALDYMAS" icon="account-multiple">
         <b-field label="PAIEŠKA" :label-position="labelPosition">
           <b-taginput
-            @keyup.native.enter="paieska_post"
+            @keyup.native.enter="suformuoti"
             v-model="settings['tags']"
             ellipsis
-            icon="label"
-            placeholder="Pridėti prekę"
-            aria-close-label="Ištrinti prekę">
+            icon="label">
           </b-taginput>
         </b-field>
         <b-field label="MIN kiekis" :label-position="labelPosition">
@@ -25,12 +23,11 @@
           <b-button :type="salis['EE'] ? 'is-danger' : 'is-dark'" @click="change_ee()">ESTIJA</b-button>
         </b-field>
         <div class="buttons">
-          <b-button size="is-medium" icon-left="desktop-classic" type="is-dark">
+          <b-button size="is-medium" icon-left="desktop-classic" type="is-dark" @click="suformuoti">
             RODYTI
           </b-button>
         </div>
       </card-component>
-      
       <card-component title="Prekės" icon="account-multiple">
         <div  id="printMe">
         <b-table
@@ -49,8 +46,8 @@
                 class = "button is-dark" 
                 :data="checkboxGroup[salis_nr][props.index]"
                 :columns="columns"
-                :filename="'props.index'">
-                ATSISIŲSTI (excel)
+                :fileName="props.index">
+                ATSISIŲSTI
               </vue-excel-xlsx>
             </div>
             <br>
@@ -60,7 +57,9 @@
             <table class="table">
               <thead>
                 <tr>
-                <th class="has-background-grey-light"  width="30"> </th>
+                  <th class="has-background-grey-light has-text-centered" width="15">
+                     <b-button @click="selectAll(props.index, props.row)" size="is-small" icon-right="check" />
+                  </th>
                   <th class="has-background-grey-light"  width="200">Kodas</th>
                   <th class="has-background-grey-light">Kiekis</th>
                   <th class="has-background-grey-light">VISO</th>
@@ -69,7 +68,9 @@
               <tbody>
                 <tr v-for="(item, index) in props.row" :key="index">
                   <td>
-                  <b-checkbox v-model="checkboxGroup[salis_nr][item.sandelis]" :native-value="item"></b-checkbox>
+                  <b-checkbox-button size="is-small" v-model="checkboxGroup[salis_nr][item.sandelis]" :native-value="item">
+                    <b-icon icon="check"></b-icon>
+                  </b-checkbox>
                   </td>
                   <td>{{ index }}</td>
                   <td>{{ item.kiekis }}</td>
@@ -85,18 +86,6 @@
       <hr>
       <div class="buttons">
         <b-button size="is-medium" icon-left="printer" type="is-dark" @click="print">SPAUSDINTI</b-button>
-        <vue-excel-xlsx class = "button is-dark is-medium" :data="csv" :columns="columns" :filename="'perkelimai'" :sheetname="'LT'" >
-          ATSISIŲSTI (excel)
-        </vue-excel-xlsx>
-        <download-csv class = "button is-dark is-medium"
-          :data = "csv"
-          :fields = "fields"
-          delimiter = ";"
-          :separator-excel = "separator"
-          :advancedOptions = "adv"
-          :name = "currentDate()">
-          ATSISIŲSTI (csv)
-        </download-csv>
       </div>
       </card-component>
     </section>
@@ -121,11 +110,7 @@ export default {
       isLoading: false,
       isModalLikutis: false,
       labelPosition: 'on-border',
-      adv: {
-        header: false,
-      },
-      separator: true,
-      fields: ['kiekis', 'preke', 'sand_is', 'sand_i', 'nr'],
+      allSelected: [],
       columns : [
         {
             label: "Prekė",
@@ -158,10 +143,37 @@ export default {
     this.getData();
   },
   methods: {
-    currentDate() {
-      const current = new Date();
-      const date = current.getFullYear()+'-'+(current.getMonth()+1)+'-'+current.getDate();   
-      return date+".csv";
+    selectAll(sandelis, array) {
+      if(this.checkboxGroup[this.salis_nr][sandelis].length < 1){
+        for(let row in array) {
+            this.checkboxGroup[this.salis_nr][sandelis].push(array[row]);
+        }
+      }else{
+        this.checkboxGroup[this.salis_nr][sandelis] = [];
+      }
+    },
+    suformuoti(){
+      this.isLoading = true
+    axios
+      .post(`/stock_quant/store`, {
+        settings: this.settings,
+        salis: this.salis,
+        })
+      .then(response => {
+        console.log(response.data.data)
+        this.getData()
+        this.$buefy.toast.open({
+          message: "Duomenys atnaujinti!",
+          type: 'is-info',
+        })
+    })
+      .catch( err => {
+        this.isLoading = false
+        this.$buefy.toast.open({
+          message: `Error: ${err.message}`,
+          type: 'is-danger',
+        })
+      })
     },
     print() {
       // Pass the element id here
@@ -200,7 +212,11 @@ export default {
         this.settings = response.data.settings;
         this.checkboxGroup = response.data.sandeliai;
 
+        this.allSelected = this.checkboxGroup;
         this.list = this.sarasas[1];
+        this.settings['paieska_big'] = this.settings['paieska_big'] ? true : false;
+        this.settings['min'] = parseInt(this.settings['min']);
+        
       })
       .catch( err => {
             this.isLoading = false

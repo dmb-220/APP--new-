@@ -36,6 +36,7 @@ Route::prefix('/v2')->group(function () {
 //StockQuant
 Route::prefix('/stock_quant')->group(function () {
     Route::get('', [App\Http\Controllers\StockQuantController::class, 'index'])->name('index');
+    Route::post('store', [App\Http\Controllers\StockQuantController::class, 'store'])->name('store');
 });
 //InteReturn
 Route::prefix('/inte_return')->group(function () {
